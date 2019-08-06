@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    margin-left: 10px;
+    box-sizing: border-box;
+}
+.full{
+    display: inline-block;
+}
+body{
+ background:#FFE680;
+ padding: 0px; 
+ 
+}
+.full{    
+    width: 100%;    
+    position: fixed;
+    border-left: 25px; 
+    
+}
+.header, .content{
+    
+    height: 700px; 
+    float: left;
+    z-index: -1;
+}
+.header{   
+    font-family: 'Cinzel', serif; 
+    font-size: 22px;
+    text-align: center;
+    margin-top: 0px;       
+    overflow: auto;
+    width: 15%;
+    padding-top: 25px;
+    background: #8086ff;    
+      
+}
+.contact{
+    font-family: 'Montserrat', serif; 
+    font-size: 14px;   
+    text-align: left;          
+}
+
+div.contact h4{
+    display: inline-block;  
+    position: relative;  
+    bottom: 6px;
+}
+.photo-profile
+{    
+    border-radius: 50%;    
+    width: 150px;
+    height: 180px;
+}
+.content{          
+    width: 80%;    
+    font-size: 18px;
+    background: #25427e;
+    padding-top: 50px;        
+    text-align: center;    
+}
+.show-icon{
+    position: relative;
+    right: 6cm;
+    top: 10cm;    
+    background-color: blue;
+    transform: rotate(340deg);
+    float: left;
+    width: 100px;
+}
+.icon{
+    width: 25px;
+    height: 30px;
+    display: inline-block;    
+    border-radius: 20%;
+
+}
+table {
+    border-collapse: collapse; 
+    float: left;        
+    margin-top: 25px;       
+  }
+  .table{
+      float: right;
+  }
+  
+  th, td {           
+    text-align: center;
+    padding-right: 20px;
+    border-right: 3px solid rgb(130, 173, 159);
+    font-family: 'Montserrat', serif; 
+  }
+  td{
+      color: yellowgreen;
+      font-size: 100%;
+      font-family: 'Montserrat', serif; 
+      padding: 5px;
+  }
+
+  .laliga{
+    color: yellowgreen;
+    font-size: 73%;
+    padding: 5px;
+}
+.copaRey{
+    color: yellowgreen;
+    font-size: 90%;
+    padding: 5px;
+}
+.supercopaEspana{
+    color: yellowgreen;
+    font-size: 78%;
+    padding: 5px;
+}
+
+  ul{
+      border-left: 5px solid red;
+      font-family: 'Montserrat', serif; 
+      font-size: 85%;
+  }
+  li{
+      padding: 2%;
+      font-size: 100%;
+      color: white;
+      text-align: justify;
+  }
+  .messi{    
+      width: 100%;      
+      height: 80%;      
+      float: left;   
+  }
+  h1{
+    color: #FFE680;
+    font-family: 'Montserrat', serif; 
+    font-size: 140%;
+    border-left: 5px solid red;
+    margin-bottom: 0.5%;
+  }
+  .messifull
+  {
+      padding: 0px;       
+      width: 30%;
+      height: 70%;
+      float: left;
+  }
+  .titulos{      
+      width: 60%;
+      float: left;
+  }
+  .footer{
+    position: absolute;
+    background-color: chartreuse;
+    width: 100%;
+    float: inline-end;
+  }
