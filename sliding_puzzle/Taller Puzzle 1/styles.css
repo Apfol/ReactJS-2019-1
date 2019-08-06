@@ -1,0 +1,79 @@
+body{
+
+    background-color: #074D8C;
+}
+.history {
+    display: inline;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 30px;
+    color: #991D17;    
+}
+
+.newP{
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 30px;
+    color: rgb(255, 255, 255); 
+}
+
+.board{
+    
+    border: 10px solid rgb(0, 0, 0);
+    width: 522px;
+    height: 522px;
+    margin: 80px 50px;
+    float: left; 
+}
+
+.cell1, .cell2, .cell3, .cell4, .cell5, .cell6, .cell7, .cell8, .cell9{
+
+    background: url(images/avengers.png);
+    width: 170.666667px;
+    height: 170.666667px;  
+    padding: 1px;
+    display: table-cell;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgba(7, 78, 140, 0);
+    cursor: pointer;  
+    transition-property: all 1s ease-out;  
+
+}
+
+.cell1{background-position: left top;}
+.cell2{background-position: center top;}
+.cell3{background-position: right top;}
+.cell4{background-position: left center;}
+.cell5{background-position: center center;}
+.cell6{background-position: right center;}
+.cell7{background-position: left bottom;}
+.cell8{background-position: center bottom;}
+.cell9{background: white; background-position: right bottom;}
+
+.mov{
+    display: inline-block;
+    width: 400px;        
+}
+
+.mov p{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+.buttonShuffle{
+    background-color: #CCD900;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;    
+    margin-left: 200px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+    
