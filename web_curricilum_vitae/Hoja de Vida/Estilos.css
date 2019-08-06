@@ -1,0 +1,115 @@
+/* body{
+    background-color: gainsboro;
+} */
+
+.top{
+    border: 3px solid red;
+    /* border-top: 3px solid red; */
+    border-bottom: 0;
+    max-width: 70%;
+    margin-left: 15%;
+    padding: 0;
+}
+
+#nombre{
+    color:black;
+    font-size: 70px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#apellido{
+    color: black;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.informacion{
+    display: inline-block;
+    min-width: 32.9%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.mid{
+    margin-left: 15%;
+    max-width: 70%;
+    border: 3px red solid;
+    border-top: 0;
+}
+
+.buscado{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 25px;
+    color: red;
+    max-width: 50%;
+    margin-left: 25%;
+    font-style: oblique;
+}
+
+.bottomleft{
+    border-right: 3px solid red;
+    /* border-left: 3px solid red; */
+    margin-left: 15%;
+    margin-right: 0;
+    max-width: 45%;
+    min-width: 45%;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    
+}
+
+.item{
+    font-size: 25px;
+    font-weight: bold;
+    max-width: 70%;
+    text-align: left;
+    margin-left: 15%;
+}
+
+.infoleft{
+    text-align: left;
+    margin-left: 10%;
+    min-width: 30%;
+    max-width: 30%;
+    display: inline-block;
+    font-size: 18px;
+    color: red;
+    margin-top: 0;
+    font-style: oblique;
+}
+
+.inforight{
+    min-width: 58%;
+    max-width: 58%;
+    text-align: left;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 0;
+    font-style: italic;
+}
+
+.bottomright{
+    display: inline-block;
+    max-width: 39%;
+    min-width: 39%;
+    margin-left: 0;
+    padding-left: 0;
+    
+}
+
+.inforightr{
+    margin-left: 10%;
+    font-size: 18px;
+    font-style: italic;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="estilos.css">
+    <script type="text/javascript" src="javascript.js"></script>
+</head>
+<body>
+    <div id="s">
+        <p id="title">SLIDE PUZZLE</p>
+    </div>
+
+    <div id="background"></div>
+
+    <img onclick="movimiento('one')" src="Img/11.jpg" id="one" class="square" >
+    <img onclick="movimiento('two')" src="Img/12.jpg" id="two" class="square">
+    <img onclick="movimiento('three')" src="Img/13.jpg" id="three" class="square">
+    <img onclick="movimiento('four')" src="Img/21.jpg" id="four" class="square">
+    <img onclick="movimiento('five')" src="Img/22.jpg" id="five" class="square">
+    <img onclick="movimiento('six')" src="Img/23.jpg" id="six" class="square">
+    <img onclick="movimiento('seven')" src="Img/31.jpg" id="seven" class="square">
+    <img onclick="movimiento('eight')" src="Img/32.jpg" id="eight" class="square">
+    <img src="Img/33.jpg" id="black" class="square">
+
+    <button id="button" onclick="iniciar()">INICIAR JUEGO</button>
+
+    <audio class="hear" id="sound1" controls> <source type="audio/mp3" src="Sound/1.mp3"></audio>
+    <audio class="hear" id="sound2" controls> <source type="audio/mp3" src="Sound/2.mp3"></audio>
+    <audio class="hear" id="sound3" controls> <source type="audio/mp3" src="Sound/3.mp3"></audio>
+</body>
+</html>
