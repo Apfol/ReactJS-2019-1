@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sliding Puzzle</title>
+    <link rel="stylesheet" href="styyle.css">
+    
+</head>
+<body>
+    <div id="comienzo">
+        <h1>
+            Sliding Puzzle
+        </h1>
+    </div>
+    <div id="imagenO">
+    <img src="original.gif" alt="original" id="original" height="350px" width="350px">
+    </div>
+
+    <div id="fila1" style="display: table-row;">
+        <div id="caja11" class="cuadro1" onclick="cuadroPos(1,1)"></div>
+        <div id="caja12" class="cuadro2" onClick="cuadroPos(1,2)"></div>
+        <div id="caja13" class="cuadro3" onClick="cuadroPos(1,3);"></div>
+     </div> 
+     <div id="fila2" style="display: table-row;">
+        <div id="caja21" class="cuadro4" onClick="cuadroPos(2,1);"></div>
+        <div id="caja22" class="cuadro5" onClick="cuadroPos(2,2);"></div>
+        <div id="caja23" class="cuadro6" onClick="cuadroPos(2,3);"></div>
+     </div>
+     <div id="fila3" style="display: table-row;">
+        <div id="caja31" class="cuadro7" onClick="cuadroPos(3,1);"></div>
+        <div id="caja32" class="cuadro8" onClick="cuadroPos(3,2);"></div>
+        <div id="caja33" class="cuadroBlanco" onClick="cuadroPos(3,3);"></div>
+     </div>
+  </div>
+
+
+    <div>
+        <h1 id="tituloO">
+            Imágen Original
+        </h1>
+    </div>
+    <script src="scripts.js" ></script>
+
+</body>
+</html>
