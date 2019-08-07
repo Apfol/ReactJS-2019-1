@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Slide Puzzle</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img id="0" onclick="moveBlock(0);" src="" alt="">
+                            </td>
+                            <td>
+                                <img id="1" onclick="moveBlock(1);" src="" alt="">
+                                </a>
+                            </td>
+                            <td>
+                                <img id="2" onclick="moveBlock(2);" src="" alt="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img id="3" onclick="moveBlock(3);" src="" alt="">
+                                </a>
+                            </td>
+                            <td>
+                                <img id="4" onclick="moveBlock(4);" src="" alt="">
+                                </a>
+                            </td>
+                            <td>
+                                <img id="5" onclick="moveBlock(5);" src="" alt="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img id="6" onclick="moveBlock(6);" src="" alt="">
+                                </a>
+                            </td>
+                            <td>
+                                <img id="7" onclick="moveBlock(7);" src="" alt="">
+                                </a>
+                            </td>
+                            <td>
+                                <img id="8" onclick="moveBlock(8);" src="" alt="">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4"><a href="#" class="" id="gameState"></a>
+                <a href="index.html" class="btn btn-info border border-black" >Reiniciar</a>
+                <h3 class="h3"><strong>Instructions</strong></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus animi aut error. Praesentium facilis vero consectetur impedit, distinctio nobis maiores architecto possimus nisi rerum beatae ex iure quis laborum quam!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quidem quaerat possimus quas deserunt ducimus, modi ut cumque aut nobis totam numquam similique est recusandae ab eveniet, minima laborum. Excepturi!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis amet quas ea aspernatur architecto, accusamus error velit aliquam sapiente nesciunt quod totam laudantium rem quia quam illo. Neque, autem sit.
+                </p>
+
+                <h3 class="h3" id="counterMovements"></h3>
+                <h3 class="h3" id="winningState"></h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
