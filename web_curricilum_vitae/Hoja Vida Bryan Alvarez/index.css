@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css?family=Darker+Grotesque|Roboto+Slab&display=swap');
+
+body{
+    margin: 0;
+}
+
+.container{
+    width: 640px;
+    height: 100%;
+    margin: 0px 320px;
+    background-color: rgb(140, 151, 131);
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+.container-left{
+    float: left;
+    width: 45%;
+    background-color: #63923B;
+    align-content: center;
+}
+
+.image_profile{
+    background-image: url("assets/Profile_Image.jpg");
+    width: 150px;
+    height: 150px;
+    border: solid rgb(51, 109, 0) 7px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+    margin: 15px auto;
+}
+
+.container-left .profile_name{
+    color: white;
+    margin: 0px;
+    text-align: center;
+}
+
+.profile_name h1{
+    font-weight: bold;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin: 0px;
+    text-transform: uppercase;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 1px;
+}
+
+.profile_name h1:nth-child(2), .profile_characteristics h3{
+    background-color: #ED7E10;
+    margin-right: 15px;
+    border-radius: 0px 30px 30px 0px;
+    box-shadow: 2px 2px #464343
+}
+
+.profile_name p{
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    margin: 0px;
+}
+
+.profile_characteristics{
+    padding: 5px 25px;
+    margin-top: 10px;
+}
+
+.profile_characteristics h2, h3{
+    text-align: left;
+    color: white;
+    font-family: 'Darker Grotesque', sans-serif;
+    margin: 0;
+    font-size: 28px;
+}
+
+.profile_characteristics h3{
+    font-size: 22px;
+}
+
+.profile_characteristics p{
+    text-align: justify;
+    color: rgb(236, 228, 228);
+    font-family: 'Darker Grotesque', sans-serif;
+    line-height: 18px;
+}
+
+.profile_characteristics h2:nth-child(2){
+    background-color: #C1222E;
+    width: 110px;
+}
+
+.profile_characteristics h3{
+    position: relative;
+    right: 25px;
+    padding-left: 25px;
+}
+
+.languages_list{
+    list-style: none;
+    position: relative;
+    right: 35px;
+    color: rgb(236, 228, 228);
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+.profile_contact p{
+    display: inline;
+    position: relative;
+    bottom: 5px;
+    left: 5px;    
+}
+
+.profile_contact section{
+    margin: 16px 0;
+}
+
+.profile_contact img{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.container-right{
+    float: left;
+    width: 55%;
+    height: 100%;
+    align-content: center;
+    background-color: rgb(224, 250, 226);
+}
+
+.container-right h3{
+    background-color: #4D4D4D;
+    color: white;
+    text-transform: uppercase;
+    font-size: 22px;
+    margin-top: 30px;
+    padding-left: 20px;
+    border-radius: 0px 30px 30px 0px;
+    margin-right: 15px;
+}
+
+.profile_skills{
+    height: 140px;
+}
+
+.profile_skills img, .profile_education img, .profile_work_experience img{
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
+    float: left;
+    position: relative;
+    top: 35px;
+}
+
+.profile_skills ul, .profile_education ul, .profile_work_experience ul{
+    float: left;
+    list-style: none;
+}
+
+.profile_education{
+    height: 260px;
+}
+
+.profile_education h4, .profile_education p, .profile_work_experience h4, .profile_work_experience p{
+    margin: 0;
+    font-weight: normal;
+}
+.profile_education ul li, .profile_work_experience ul li{
+    margin-top: 10px;
+}
+
+.profile_education ul li p:nth-child(3), .profile_work_experience ul li p:nth-child(3){
+    font-weight: bolder;
+}
+
+.profile_education ul li:first-child h4, .profile_work_experience ul li:first-child h4{
+    color: #39B549;
+}
+
+.profile_education ul li:first-child p, .profile_work_experience ul li:first-child p{
+    color: #ED7E10;
+}
+
+.profile_work_experience{
+    height: 350px;
+}
