@@ -1,0 +1,183 @@
+body{
+    background:
+            #fff7f7;
+}
+header{
+    padding: 5px;
+
+}
+    .Content {
+        margin: 2% 5%;
+        border: 2px;
+        padding-left: 1%;
+        padding-right: 1%;
+        background: #dadada;
+    }
+    
+    .PersonImageBox img {
+        display: inline-block;
+        max-width: 302px;
+        max-height: 403px;
+        margin: 10px auto;
+        vertical-align: middle;
+    }
+    
+    .PersonImageBox {
+        text-align: center;
+    }
+    
+    .Container {
+        text-align: center;
+    }
+    
+    .Contact {
+        align-content: center;
+    }
+    
+    .Contact li {
+        display: inline-block;
+        padding: 3%;
+    }
+    
+    .Icon {
+        max-width: 40px;
+        max-height: 40px;
+    }
+    
+    .navbar{
+        position: sticky;
+        text-align: center;
+        padding-right: 20%;
+        padding-left: 20%;
+        overflow-x: hidden;
+    }
+
+    .navbar ul{
+        margin: 0;
+        padding: 0;
+        background-color: #204969;
+    }
+    
+    .navbar ul li {
+        display: inline-block;
+        padding-left: 10%;
+        border-right: 2px solid #dadada;
+        text-align: center;
+
+    }
+
+    .navbar ul li a{
+        display: block;
+        color: #dadada;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .navbar ul li a:hover {
+        background-color: #444444;
+    }
+    
+    header {
+        align-items: center;
+    }
+    
+    header h1 {
+        text-align: center;
+        font-style: italic;
+    }
+    
+    .Presentation {
+        text-align: center;
+    }
+    
+    .Title {
+        text-align: center;
+        background: #fff7f7;
+        height: 40px;
+        padding-top: 1%;
+        padding-bottom: 15px;
+    }
+    
+    .Certificates {
+        padding: 40px;
+        text-align: center;
+    }
+    
+    .certificate {
+        padding-top: 10px;
+        display: inline-block;
+        border: 2px solid ;
+        background: #204969;
+        width: 300px;
+        height: 380px;
+        padding-bottom: 5px;
+        margin: 5px;
+        vertical-align: middle;
+    }
+    
+    .certificate h3 {
+        text-align: center;
+        height: 25%;
+        margin: 3px;
+    }
+    
+    .Studies {
+        text-align: center;
+    }
+    
+    .Institution {
+        display: inline-block;
+        border: 2px solid ;
+        background: #204969;
+        width: 300px;
+        height: 450px;
+        padding-bottom: 5px;
+        margin: 5px;
+        vertical-align: middle;
+    }
+    
+    .Projects {
+        text-align: center;
+    }
+    
+    .Project {
+        display: inline-block;
+        border: 2px solid ;
+        width: 300px;
+        height: 400px;
+        padding-bottom: 5px;
+        margin: 5px;
+        vertical-align: middle;
+        background: #204969;
+    }
+    
+    .Project img {
+        display: inline-block;
+        max-width: 150px;
+        max-height: 250px;
+        margin: 10px auto;
+        vertical-align: middle;
+    }
+
+button {
+    background-color: #08ffc8;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+    
+    footer {
+        text-align: end;
+        background: #444444;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+
+    .FooterContent{
+            padding: 5px 30px;
+    }
