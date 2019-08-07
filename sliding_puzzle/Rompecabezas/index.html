@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+
+<body>
+    <div id="forPadding">
+        <div id="left_column">
+            <section>
+                <header></header>
+                <table id="gameTable">
+                    <colgroup>
+                        <col span="1">
+                        <col span="1">
+                        <col span="1">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td id="1" onclick="findSpace(this)"><img src="img/paisaje1.jpg"></td>
+                            <td id="2" onclick="findSpace(this)"><img src="img/paisaje2.jpg"></td>
+                            <td id="3" onclick="findSpace(this)"><img src="img/paisaje3.jpg"></td>
+                        </tr>
+                        <tr>
+                            <td id="4" onclick="findSpace(this)"><img src="img/paisaje4.jpg"></td>
+                            <td id="5" onclick="findSpace(this)"><img src="img/paisaje5.jpg"></td>
+                            <td id="6" onclick="findSpace(this)"><img src="img/paisaje6.jpg"></td>
+                        </tr>
+                        <td id="7" onclick="findSpace(this)"><img src="img/paisaje7.jpg"></td>
+                        <td id="8" onclick="findSpace(this)"><img src="img/paisaje8.jpg"></td>
+                        <td id="9" onclick="findSpace(this)" class="hole"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p id="AttemptsCounter">Numero de Movimientos: 0</p>
+                <button type="button" onclick="random()">Desarmar</button>
+            </section>
+        </div>
+
+        <div id="right_column">
+            <section>
+                <header>Rompecabezas</header>
+                <article>
+                    <img id="original_img" src="img/paisaje.jpg">
+                </article>
+            </section>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

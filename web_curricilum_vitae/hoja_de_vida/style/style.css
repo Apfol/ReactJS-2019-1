@@ -1,0 +1,88 @@
+
+body{
+	background: #edf4f5;
+	font-family: Verdana, sans-serif;
+    font-size: 15px;
+    line-height: 1.5
+}
+
+#titulo-principal img{
+display: block;
+margin-left: auto;
+margin-right: auto;
+height: 170px;
+width: 127px;
+}
+
+#titulo-principal h1{
+	display: block;
+	text-align: center;
+
+}
+
+aside#columnaizq {
+	background: #FFFFFF;
+	float:left;
+	width:33.33333%;
+	padding: 1%;
+	box-shadow: 0px 0px 5px 5px rgba(179,173,179,0.38);
+	margin-bottom: 17px;
+}
+
+
+div#columnader{
+	float: right;
+	width:63%;
+	margin-bottom: 17px;
+}
+aside#cuadros{
+	margin-top: 17px;
+background: #FFFFFF;
+padding: 1%;
+	box-shadow: 0px 0px 5px 5px rgba(179,173,179,0.38);
+}
+aside#cuadro-est{
+
+	background: #FFFFFF;
+padding: 2%;
+	box-shadow: 0px 0px 5px 5px rgba(179,173,179,0.38);
+}
+
+div#para-padding{
+	padding: 0 8px;
+
+}
+
+hr {
+	width:95%;
+}
+
+article#datosp{
+	display: block;
+}
+
+header{
+	font-size: 25px;
+	text-align: center;
+	color: teal;
+}
+
+header#titulo_lado{
+	font-size: 20px;
+	text-align: left;
+}
+
+footer#footer{
+	float:right;
+	height: 15vh;
+	width: 100%;
+	background: teal;
+	display: block;
+}
+
+footer p{
+	margin-top: 4vh;
+	color:white;
+	font-size: 17px;
+	text-align: center;
+}
