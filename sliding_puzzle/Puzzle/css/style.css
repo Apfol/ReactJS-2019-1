@@ -1,0 +1,25 @@
+body {
+    background: #e1f5fe;
+}
+
+.matrix {
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    color: white;
+}
+
+table {
+    height: 400px;
+    width: 400px;
+}
+
+.table td {
+    text-align: center;
+    font-size: 200%;
+ }
+
+ h1 {
+     margin-top: 3%;
+     margin-left: 40%;
+}
