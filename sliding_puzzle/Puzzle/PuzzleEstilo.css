@@ -1,0 +1,24 @@
+canvas {
+    display: inline-block;
+    width: 450px;
+    height: 450px;
+    border: 5px solid black;
+    margin: auto
+}
+.imagen
+{
+    display: inline-block;
+    margin:auto;
+    margin-left: 200px;
+    padding: 0px;
+}
+h1{
+    display: inline-block;
+    margin-left: 130px;
+    font-size:30px;
+}
+h2{
+    display: inline-block;
+    margin-left: 580px;
+    font-size:30px;
+}

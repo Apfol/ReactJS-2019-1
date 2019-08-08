@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+}
+.descripcion{
+    display: inline-block;
+    text-align: center;
+    background-color: rgb(8, 71, 185);
+    color: white;
+    margin: 0;
+    box-sizing: border-box;
+    width: 22%;
+    height:150%;
+}
+.experiencia
+{
+    display: inline-block;
+    color: black;
+    background-color: aliceblue;
+    box-sizing: border-box;
+    margin: 0;
+    width: 78%;
+    height:150%;
+    float: right;
+}
+img{
+    border-radius:50%;
+    width:50%;
+    height: 15%;
+}
+h2{
+    font-size:20px;
+}
+.perfil
+{
+    text-align: left;
+    margin: 20px 40px 2px;
+    font-size: 23px;
+
+}
+h3
+{
+    display: inline-block;
+    margin: 10px;
+    color: white;
+}
+h4{
+    display: inline-block;
+    margin: 10px;
+}
+.descripcion p.Parrafo1
+{    
+    text-align: left;
+    font: oblique bold 80% cursive;
+    margin: 10px 15px 2px;
+    
+}
+.lista
+{
+    text-align: left;
+    margin: 0px 20px 2px;
+}
+.experiencia i{
+    color: black;
+
+}
+.Trabajos{
+    display: inline-block;
+    font-size:30px;
+    margin: 10px 80px 2px;
+}
+.Estudios
+{
+    display: inline-block;
+    font-size:30px;  
+    margin-left: 555px;
+    margin-top: -57px;
+    margin-right: 0px;
+    
+
+}
+.habilidades
+{
+    display: block;
+    position: absolute;
+    font-size:30px; 
+    margin-top: 210px;
+    margin-left: 200px;
+    margin-right: 0px;
+    
+
+}
+.ListaTrabajos
+{
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px 84px 2px;
+}
+.ListaEstudios
+{
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 555px;
+    margin-right: 0px;
+    margin-top: -145px;
+}
+.listaHabilidades
+{
+    display: inline-block;
+    position: absolute;
+    font-size: 20px;
+    margin-top: 115px;
+    margin-left: 200px;
+    margin-bottom: 5px;
+    margin-right: 0px;
+}
