@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Tarea Puzzle </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="/js/lib/dummy.js"
+    
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+
+  <style id="compiled-css" type="text/css">
+      .container {
+  display: grid;
+  grid: repeat(3, 12vw) / auto-flow;
+}
+
+.row {
+  display: grid;
+  grid: repeat(1, 12vw) / auto-flow;
+}
+
+.row > .square {
+  margin-left: 10px;
+  margin-top: 10px;
+  background: #a7c0e8;
+  font-size:50px;
+ 
+}
+
+@media (orientation: portrait) {
+  
+  .container {
+    transform: rotate(90deg) translate(35%);
+  }
+  
+  .row > .square {
+    transform: rotate(-90deg);
+  }
+}
+  </style>
+
+
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">//<![CDATA[
+
+    window.onload=function(){
+      
+//tarea de Daniel Cárdenas 
+
+var i;
+var a = [1,2,3,4,5,6,7,8,9];
+var b = shuffle(a)
+  for(i = 1; i< 10;i++){
+    
+    document.getElementById("sq"+i).innerHTML =b[i-1]
+    
+    if(document.getElementById("sq"+i).innerHTML ==9){
+    document.getElementById("sq"+i).style.background= '#000';
+  }
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  while (0 !== currentIndex) {
+
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+document.getElementById("sq1").onclick = function(){
+Checkr1(1,3,1,11,11);
+}
+
+document.getElementById("sq2").onclick = function(){
+Checkr1(2,0,2,4,11);
+}
+
+document.getElementById("sq3").onclick = function(){
+Checkr1(3,1,5,11,11);
+}
+
+document.getElementById("sq4").onclick = function(){
+Checkr1(4,0,4,6,11);
+}
+
+document.getElementById("sq5").onclick = function(){
+Checkr1(5,1,3,5,7);
+}
+
+document.getElementById("sq6").onclick = function(){
+Checkr1(6,2,8,4,11);
+}
+
+document.getElementById("sq7").onclick = function(){
+Checkr1(7,3,7,11,11);
+}
+
+document.getElementById("sq8").onclick = function(){
+Checkr1(8,4,6,8,11);
+}
+
+document.getElementById("sq9").onclick = function(){
+Checkr1(9,7,5,11,11);
+}
+
+function Checkr1(currnb, possibleSq1, possibleSq2, possibleSq3,possibleSq4) {
+let P= document.getElementById("sq"+currnb).innerHTML
+ if(b[possibleSq1] == 9){
+
+document.getElementById("sq"+currnb).innerHTML =9
+document.getElementById("sq"+(possibleSq1+1)).innerHTML = P
+document.getElementById("sq"+currnb).style.background= '#000'
+document.getElementById("sq"+(possibleSq1+1)).style.background='#a7c0e8'
+ b[possibleSq1] = P
+ b[currnb -1]= 9
+}
+if(b[possibleSq2] == 9){
+document.getElementById("sq"+currnb).innerHTML =9
+document.getElementById("sq"+(possibleSq2+1)).innerHTML = P
+document.getElementById("sq"+currnb).style.background= '#000'
+document.getElementById("sq"+(possibleSq2+1)).style.background='#a7c0e8'
+  b[possibleSq2] = P
+ b[currnb -1]= 9
+}
+if(possibleSq3 == 11){}else{
+if(b[possibleSq3] == 9){
+document.getElementById("sq"+currnb).innerHTML =9
+document.getElementById("sq"+(possibleSq3+1)).innerHTML = P
+document.getElementById("sq"+currnb).style.background= '#000'
+document.getElementById("sq"+(possibleSq3+1)).style.background='#a7c0e8'
+ b[possibleSq3] = P
+ b[currnb -1]= 9
+}
+if(possibleSq4 == 11){}else{
+if(b[possibleSq4] == 9){
+document.getElementById("sq"+currnb).innerHTML =9
+document.getElementById("sq"+(possibleSq4+1)).innerHTML = P
+document.getElementById("sq"+currnb).style.background= '#000'
+document.getElementById("sq"+(possibleSq4+1)).style.background='#a7c0e8'
+ b[possibleSq4] = P
+ b[currnb -1]= 9
+}
+
+}
+}}
+
+
+
+    }
+
+  //]]></script>
+
+</head>
+<body>
+    <p>Organiza los cuadros del 1 al 8!</p>
+<div class="container">
+  <div class="row">
+    <div id="sq1" class="square">1</div>
+    <div id="sq2" class="square">2</div>
+    <div id="sq3" class="square">3</div>
+
+  </div>
+  <div class="row">
+    <div id="sq4" class="square">4</div>
+    <div id="sq5" class="square">5</div>
+    <div id="sq6" class="square">6</div>
+
+  </div>
+  <div class="row">
+    <div id="sq7" class="square">7</div>
+    <div id="sq8" class="square">8</div>
+    <div id="sq9" class="square">9</div>
+
+  </div>
+</div>
+
+  
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "tq9rx27o"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+</body>
+</html>
