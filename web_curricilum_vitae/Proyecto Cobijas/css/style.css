@@ -1,0 +1,35 @@
+html{
+    font-size: 110%;
+}
+
+footer {
+    margin-top: 1rem;
+}
+
+.jumbotron{
+    max-height: 400px;
+}
+
+.row-content{
+    margin: 0px auto;
+    padding: 25px 0px;
+    border-bottom: 2px ridge; 
+    min-width: 400px;
+}
+.pic-content{
+    margin: 0px auto;
+    padding-top: 25px;
+}
+
+.imagenes{
+    margin-bottom: 1rem;
+}
+.cindex img{
+    height: 650px;
+}
+
+.carousel{
+    background: grey;
+}
+
+

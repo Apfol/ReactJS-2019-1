@@ -1,0 +1,49 @@
+body {
+    font-size: 1.6rem;
+}
+
+.division {
+    border-top: 3px black solid;
+    border-bottom: 3px black solid;
+    list-style: none;
+}
+
+.progress{
+    height: 56px;
+}
+
+
+.carousel-control-prev:visited{
+    color: black;
+}
+
+.bg-jumbotron{
+    background-color: #344186;
+}
+
+.bg-footer{
+    background-color: #344186;
+    color: whitesmoke;
+}
+
+.twhite{
+    color: whitesmoke;
+}
+
+.bg-start{
+    background-color: #8892C7;
+}
+
+.bg-progress{
+    background-color: #27347C;
+}
+
+.bg-btn{
+    background-color: #5A66A7;
+    color: whitesmoke;
+    border-color: black;
+}
+
+.bg-intro{
+    background-color: #A4AEE4;
+}
