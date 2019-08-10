@@ -1,0 +1,75 @@
+body{
+    align-items: center;
+    background-color: darkgray;
+}
+.central{   
+    display: inline-block;
+    float: left;
+    padding: 0px;
+    margin-left: 10%;
+    background-repeat: no-repeat;
+    margin-top: 5%;    
+    width: 40%;
+    height: 40%;
+}
+.shuffle{
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: blueviolet;
+    border-radius: 10%;
+    width: 100px;
+    height: 50px;
+    margin-top: 200px;                 
+    cursor: pointer;  
+    margin-left: 80px;      
+}
+.movements{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;             
+    right: 150px;
+    padding-left: 10%;
+    display: inline;
+}
+.movements-number{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;            
+    bottom: 400px;    
+    display: inline;        
+}
+.p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8,.p9{
+    display: table-cell;
+    width: 170px;
+    height: 170px;
+    border: 1px solid white;    
+    cursor: pointer;
+    background-size: 102%;
+    background-repeat: no-repeat;
+        
+  }
+  
+.p1{
+    background-image: url('9.png') 
+}
+    
+.p2{    
+    background-image: url('8.png')    
+}
+.p3{    
+    background-image: url('7.png')
+}
+.p4{    
+    background-image: url('6.png')
+}
+.p5{    
+    background-image: url('5.png')    
+}
+.p6{    
+    background-image: url('4.png')    
+}
+.p7{    
+    background-image: url('3.png')    
+}
+.p8{    
+    background-image: url('2.png')     
+}
+.p9{
+    background-color: darkgray;
+}
