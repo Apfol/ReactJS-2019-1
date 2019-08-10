@@ -1,0 +1,56 @@
+body{
+    background-color: #0B818C;
+}
+
+.cuadro1, .cuadro2, .cuadro3, .cuadro4, .cuadro5, .cuadro6, .cuadro7, .cuadro8, .cuadroBlanco{
+    display: table-cell;
+    width: 120px;
+    height: 120px;
+    border: 2px solid black;
+    background: url("original.gif");
+    cursor: crosshair;
+}
+.cuadro1{
+   background-position:left top;
+}
+.cuadro2{
+    background-position: center top;
+}
+.cuadro3{
+    background-position:  top right;
+}
+.cuadro4{
+    background-position: center left;
+}
+.cuadro5{
+    background-position: center ;
+}
+.cuadro6{
+    background-position: center right;
+}
+.cuadro7{
+    background-position: bottom left;
+}
+.cuadro8{
+    background-position: bottom center;
+}
+.cuadroBlanco{
+    background: white; cursor: not-allowed; 
+}
+#comienzo{
+    font-family:FreeMono, monospace; 
+    color: #9EDBCF;
+    text-align: center;
+    font-style: oblique;
+    font-size: 30px;
+}
+#imagenO{
+     float: right;  
+}
+
+#tituloO{
+    font-family: Courier New, monospace;
+    color: azure;
+
+    text-align:  right;
+}
