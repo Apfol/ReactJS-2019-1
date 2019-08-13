@@ -1,0 +1,60 @@
+body { 
+    background: #AAAAAA;
+}
+    
+.tile1, .tile2, .tile3, .tile4, .tile5, .tile6, .tile7, .tile8, .tile9, .tile10, .tile11, .tile12, .tile13, .tile14, .tile15, .tile16{
+    display: table-cell;
+    width: 117px;
+    height: 117px;
+    border: 1px solid white;
+    background: url(mario.png); 
+    cursor: pointer;
+}
+.tile1 {
+    background-position: 0px 0px;
+}
+.tile2 {
+    background-position: -117px 0px;
+}
+.tile3 {
+    background-position: -234px 0px;
+}
+.tile4 {
+    background-position: -351px 0px;
+}
+.tile5 {
+    background-position: 0px -117px;
+}
+.tile6 {
+    background-position: -117px -117px;
+}
+.tile7 {
+    background-position: -234px -117px;
+}
+.tile8 {
+    background-position: -351px -117px;
+}
+.tile9 {
+    background-position: 0px -234px;
+}
+.tile10 {
+    background-position: -117px -234px;
+}
+.tile11 {
+    background-position: -234px -234px;
+}
+.tile12 {
+    background-position: -351px -234px;
+}
+.tile13 {
+    background-position: 0px -351px;
+}
+.tile14 {
+    background-position: -117px -351px;
+}
+.tile15 {
+    background-position: -234px -351px;
+}
+.tile16 {
+    background: white; cursor: default;
+}
