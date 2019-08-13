@@ -1,0 +1,229 @@
+.container-fluid{
+padding: 0;
+height: 100vh ;
+}
+.back{
+    position:absolute;
+    padding: 0;
+    top: 0vh;left:0vw;
+    height: 100vh;width: 100vw;
+    filter:blur(5px);
+    filter: brightness(30%);
+}
+.profile-photo{
+    border-radius: 50%;
+    padding: 0%;
+    position:absolute;
+    top: 15vh; left: 5vw;
+    height:150px;width: 150px;
+}
+.name-h{
+    font-size: 20px;
+    font-family:"starcruiser";
+    position: absolute;
+    top:16vh;left:16.5vw;
+    color:  rgb(65, 77, 87); 
+}
+.h-subtitle{
+    
+    font-size: 15px;
+    font-family: "aero", cursive;
+    position: absolute;
+    top:20vh;left:35vh;
+    padding: 0;
+    color:  rgb(65, 77, 87); 
+}
+.resume-text{
+    padding: 2%;
+    font-size: 12px;
+    font-family: "aero", cursive;
+    font-weight: bold;
+    position: absolute;
+    top:6vh;left:0;
+    color: rgb(65, 77, 87); 
+    text-align: justify;
+}
+.header-c-resume{
+    font-size: 20px;
+    font-family: "starcruiser", cursive, sans-serif;
+    position: absolute;
+    top:2vh;left:2vw;
+    color:  rgb(65, 77, 87); 
+}
+.container-h{
+    position:absolute;
+    padding: 0;
+    left: 16vw;top: 26vh;
+    background:transparent;
+    height: 30vh;width:30vw;
+    border-right:1px outset lightblue;
+    border-top:1px outset lightblue;
+    border-radius: 15%;
+}
+.container-ls{
+    position:absolute;
+    padding: 0;
+    left: 5vw;top: 2vh;
+    background:transparent;
+    height: 35vh;width:20vw;
+    border-right:1px outset lightblue;
+    border-top:1px outset lightblue;
+    border-radius: 15%;
+}
+.container-ls1{
+    position:absolute;
+    padding: 0;
+    left: 27vw;top : 2vh;
+    background:transparent;
+    height: 35vh;width:20vw;
+    border-right:1px outset lightblue;
+    border-top:1px outset lightblue;
+    border-radius: 15%; 
+}
+.container-ls2{
+    position:absolute;
+    padding: 0;
+    left: 5vw;top : 40vh;
+    background:transparent;
+    height: 25vh;width:43vw;
+    border-right:1px outset lightblue;
+    border-top:1px outset lightblue;
+    border-radius: 15%; 
+
+}
+.container-ls3{
+    position:absolute;
+    padding: 0;
+    left: 5vw;top: 65vh;
+    background:transparent;
+    height: 35vh;width:20vw;
+    border-right:1px outset lightblue;
+    border-top:1px outset lightblue;
+    border-radius: 15%;
+}
+.container-ls4{
+    position:absolute;
+    padding: 0;
+    left: 27vw;top : 65vh;
+    background:transparent;
+    height: 35vh;width:20vw;
+    border-right:1px outset lightblue;
+    border-top:1px outset lightblue;
+    border-radius: 15%; 
+}
+
+.container-content1{
+    position:absolute;
+    padding: 0;
+    left: 0;bottom: 0;
+    background:transparent;
+    height: 40vh;width:50vw;
+    border-right:   1px outset lightblue;
+    border-top:1px outset lightblue;
+    border-radius: 10%;
+    
+}
+.container-content2{
+    position:absolute;  
+    padding: 0;
+    left: 50vw;bottom: 0;
+    background:transparent;
+    height:100vh;width:50vw;
+    border-left:1px outset lightblue;
+    border-top:1px outset lightblue ;
+    border-radius: 10%; 
+      
+}
+.every-text{
+    font-size: 12px;
+    font-family: "aero", cursive;
+    font-weight: bold;
+    text-align: justify;
+    position: absolute;
+    top:9vh;left:1vw;
+    padding: 2%;        
+    color: rgb(65, 77, 87); 
+}
+
+.header-c-data{
+    font-size: 20px;
+    font-family: "starcruiser", cursive, sans-serif;
+    position: absolute;
+    top:2vh;left:2vw;
+    color:  rgb(65, 77, 87); 
+}
+.call-logo{
+    padding: 0;
+    position:absolute;
+    top:8vh;left:2vw;
+    height: 30px;width:30px;
+    
+}
+.location-logo{
+    padding: 0;
+    position:absolute;
+    top:16vh;left:2vw;
+    height: 30px;width:30px;
+}
+.email-logo{
+    padding: 0;
+    position:absolute;
+    top:24vh;left:2vw;
+    height: 30px;width:30px;
+}
+.sleep-logo{
+    padding: 0;
+    position:absolute;
+    top:20vh;left:6vw;
+    height: 30px;width:30px;
+}
+.games-logo{
+    padding: 0;
+    position:absolute;
+    top:12vh;left:6vw;
+    height: 30px;width:30px;
+}
+.contact-call{
+    padding: 0;
+    font-size: 12px;
+    font-family: "aero", cursive;
+    font-weight: bold;
+    position: absolute;
+    top:9vh;left:5vw;
+    color: rgb(65, 77, 87); 
+}
+.contact-location{
+    padding: 0;
+    font-size: 12px;
+    font-family: "aero", cursive;
+    font-weight: bold;
+    position: absolute;
+    top:17vh;left:5vw;
+    color: rgb(65, 77, 87); 
+}
+.contact-email{
+    padding: 0;
+    font-size: 12px;
+    font-family: "aero", cursive;
+    font-weight: bold;
+    position: absolute;
+    top:25vh;left:5vw;
+    color: rgb(65, 77, 87); 
+}
+
+
+@font-face {
+    font-family: 'starcruiser';
+    src: url('fonts/Starcruiser/starcruiser-webfont.woff2') format('woff2'),
+         url('fonts/Starcruiser/starcruiser-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'aero';
+    src: url('fonts/Aero/aero-webfont.woff2') format('woff2'),
+         url('fonts/Aero/aero-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

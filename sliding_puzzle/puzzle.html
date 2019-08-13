@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="puzzle-style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="puzzle-logic.js"></script>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Puzzle</title>
+</head>
+<body>
+    <div class="container-fluid">
+      <button onclick="scramble ()" class="scramble-button" >Scramble</button>
+      <div class="solution-image"></div>
+      <h1 id="movements"> Movimientos= 0</h1>
+        <table class="grid">
+                <tr>
+                  <th><div onclick="moves('pos1')" class ="g-container1" id="pos1">1</div></th>
+                  <th><div onclick="moves('pos2')" class ="g-container2" id="pos2">2</div></th>
+                  <th><div onclick="moves('pos3')" class ="g-container3" id="pos3">3</div></th>
+                </tr>
+                <tr>
+                  <td><div onclick="moves('pos4')" class ="g-container4" id="pos4" >4</div></td>
+                  <td><div onclick="moves('pos5')" class ="g-container5" id="pos5" >5</div></td>
+                  <td><div onclick="moves('pos6')" class ="g-container6" id="pos6" >6</div></td>
+                </tr>
+                <tr>
+                  <td><div onclick="moves('pos7')"class ="g-container7" id="pos7">7</div></td>
+                  <td><div onclick="moves('pos8')"class ="g-container8" id="pos8" >8</div></td>
+                  <td><div onclick="moves('pos9')"class ="g-container9" id="pos9">9</div></td>
+                </tr>
+              </table> 
+     </div>
+</body>
+</html>

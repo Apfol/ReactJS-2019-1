@@ -1,0 +1,137 @@
+.container-fluid{
+    height:100vh ;width:100vw ;
+    background-image: url("Shenron.jpg");
+    background-size: cover;
+}
+.grid{
+    position: absolute;
+    left:35vw;top: 15vh;
+    width: 500px;height: 500px;
+    border: 2px solid black; 
+}
+
+.g-container1{
+    
+    background-image: url("Shenron.jpeg");
+    background-position:left top;
+}
+.g-container2{
+    
+    background-image: url("Shenron.jpeg");
+    background-position: center top;
+    
+}
+.g-container3{
+  
+    background-image: url("Shenron.jpeg");
+    background-position: right top;
+}
+.g-container4{
+
+    background-image: url("Shenron.jpeg");
+    background-position:left center;
+}
+.g-container5{
+   
+    background-image: url("Shenron.jpeg");
+    background-position:center;
+    
+}
+.g-container6{
+   
+    background-image: url("Shenron.jpeg");
+    background-position: right center;
+}
+.g-container7{
+    
+    background-image: url("Shenron.jpeg");
+    background-position:left bottom;
+}
+.g-container8{
+   
+    background-image: url("Shenron.jpeg");
+    background-position:center bottom;
+}
+#pos1 {
+    padding:0%;
+    width: 165px;height: 165px;
+    border: 2px solid black; 
+    
+}
+#pos2{
+    padding:0%;
+    width: 165px;height: 165px;
+    border: 2px solid black; 
+    
+}
+#pos3{
+    padding:0%;
+    width: 165px;height: 165px;
+    border: 2px solid black; 
+   
+}
+#pos4{
+    padding:0%;
+    width: 165px;height: 165px;
+    border: 2px solid black; 
+    
+}
+#pos5{
+    padding:0%;
+    width: 165px;height: 165px;
+    border: 2px solid black; 
+    
+   
+}
+#pos6{
+    padding:0%;
+    width: 165px;height: 165px;
+    border: 2px solid black; 
+   
+}
+#pos7{
+    padding:0%;
+    width: 165px;height: 165px;
+    border: 2px solid black; 
+    
+}
+#pos8{
+    padding:0%;
+    width: 165px;height: 165px;
+    border: 2px solid black; 
+    
+}
+#pos9{
+    padding:0%;
+    width: 165px;height: 165px;
+    border: 2px solid black; 
+    
+}
+
+
+.g-container9{
+    background: lightgreen;
+}
+
+.scramble-button{
+    padding:0%;
+    position: absolute;
+    top:25vh;right:20vw;
+    height: 50px;width:100px;
+    border-radius: 15%;
+}
+
+#movements{
+    position: absolute;
+    top:25vh;left:15vw;
+    font-size: 30px;
+    color: black;
+}
+.solution-image{
+    position: absolute;
+    top:35vh;right:5vw;
+    height: 250px;width:250px;
+    background-image: url("Shenron.jpeg");
+    background-size: cover;
+    border: 2px black double;
+}
