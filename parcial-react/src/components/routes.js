@@ -4,10 +4,12 @@ import Productos from './productos';
 import Chat from './chat';
 import Carrito from './carrito';
 import Transacciones from './transacciones';
+import Home from './home';
 
 
 const Main = () => (
     <Switch>
+        <Route exact path="/home" component={Home}/>
         <Route exact path="/carrito" component={Carrito}/>
         <Route exact path="/productos" component={Productos}/>
         <Route exact path="/chat" component={Chat}/>

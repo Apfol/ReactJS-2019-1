@@ -7,12 +7,12 @@ import Main from './components/routes';
 
 function App() {
   return (
-    <div style={{height: '500px', position: 'relative'}}>
+    <div style={{height: '900px', position: 'relative'}}>
     <Layout style={{background: ''}}>
     <Header transparent className="nav-colour" title="Group By" style={{color: 'white'}}>
     {<span style={{ color: '#4f0469' }}></span>}
             <Navigation>
-                <Link to="/">Home</Link>
+                <Link to="/home">Home</Link>
                 <Link to="/productos">Productos</Link>
                 <Link to="/carrito">Mi Carrito</Link>
                 <Link to="/transacciones">Transacciones</Link>
@@ -41,3 +41,6 @@ function App() {
 
 
 export default App;
+
+
+

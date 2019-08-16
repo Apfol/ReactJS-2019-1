@@ -1,14 +1,19 @@
 .nav-colour {
   
-  background: -webkit-linear-gradient(to top, #d84ed8, #ec4949);
-  background: linear-gradient(to top, #6cd5e7, #5b635a);
+  background: #8E2DE2;  
+background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2); 
+background: linear-gradient(to right, #4A00E0, #8E2DE2);
+
 }
 
 .landing-grid{
 
-  background: #c94b4b;   
-  background: -webkit-linear-gradient(to top, #7f2b85, #ec4949);
-  background: linear-gradient(to top, #64d6eb, #2dce0c);
+  /* Utilizamos la página de https://uigradients.com/#CoolSky para la gama de colores de la página */
+
+background: #2980B9;  
+background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); 
+background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); 
+
   text-align: center;
   position: fixed;
   top: 15;
