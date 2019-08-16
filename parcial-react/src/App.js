@@ -7,9 +7,9 @@ import Main from './components/routes';
 
 function App() {
   return (
-    <div style={{height: '900px', position: 'relative'}}>
-    <Layout style={{background: ''}}>
-    <Header transparent className="nav-colour" title="Group By" style={{color: 'white'}}>
+    <div style={{height: '650px', position: 'relative'}}>
+    <Layout fixedHeader style={{background: ''}}>
+    <Header transparent className="nav-colour" title="Group By">
     {<span style={{ color: '#4f0469' }}></span>}
             <Navigation>
                 <Link to="/home">Home</Link>
