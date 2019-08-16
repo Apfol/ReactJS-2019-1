@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import MissingObject from './Resources/Components/MissingObject';
+import SideBar from './Resources/Components/SideBar';
 
 function App() {
   const object = [
@@ -12,6 +13,7 @@ function App() {
     <div className="App">
       
       <MissingObject object = {object}></MissingObject>
+      <SideBar object = {object}/>
     </div>
   );
 }
