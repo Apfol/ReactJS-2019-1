@@ -1,0 +1,35 @@
+div.ImageObjectDiv{
+    
+    float: left;
+}
+div.Description{
+    margin-top: 50px;
+    float: left;
+}
+.ImageObject{
+    display: inline-block;    
+    margin: 25px;
+    width: 200px;
+    height: 200px;            
+}
+.MissingObject{    
+    height: 100%;
+    display: inline-block;
+    align-content: center;
+    align-items: center;
+    background-color: rgb(69, 161, 41);
+    padding-right: 25px;
+}
+h3.NameObject{
+    color: blue;
+    display: inline;
+}
+h4.description{
+    color: blue;
+    display: inline;
+}
+button.Mine{
+    display: inline-block;
+    
+    background-color: coral;
+}
