@@ -1,0 +1,163 @@
+.imagen{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 25vw;
+    top: 0;
+    left: 0;
+}
+
+.imagen img{
+    width: 100%;
+    height: 100%;
+    filter: blur(4px);
+}
+
+
+.foto{
+    width: 15vw;
+    height: 15vw;
+    margin: 0 auto;
+    background-image: url(me.png);
+    background-size: cover;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 4px 8px;
+}
+
+.cabecera{
+    display: block;
+    width: 100%;
+    height: 22vw;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.nombre{
+    font-family: 'Arial';
+    position: relative;
+}
+
+.titulo{
+    background-color: white;
+    margin: 0 auto;
+    width: 50vw;
+    height: 5vw;
+    box-shadow: 0 4px 8px;
+    position: relative;
+    text-align: center;
+}
+
+.texto{
+    top: 2px;
+    left: 2px;
+    width: 100%;
+    height: 100%;
+    border-style: dashed;
+    border-color: green;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 3em;
+    position: relative;
+}
+
+#sopoC{
+    width: 100%;
+    height: 25vw;
+    position: relative;
+    top: 0;
+    left: 0;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+}
+
+.iconsList{
+    position: relative;
+    top: 20px;
+    width: 45%;
+    margin: 0 auto;
+    color: white;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.liel{
+    display: inline-block;
+}
+
+.itext{
+    font-size: 12px;
+    margin-right: 12px;
+}
+
+.infobox{
+    background-color:white;
+    display: inline-block;
+    font-family:  "Trebuchet MS", Helvetica, sans-serif;
+    position: relative;
+    font-weight: bold;
+    font-size: 50px;
+    width: 30%;
+    top: 30vw;
+}
+
+.year{
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.ittext{
+    display: inline-block;
+}
+
+.titu{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.desc{
+    display: block;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.it{
+    height: 80px;
+    display: block;
+}
+
+.infotit{
+    margin-bottom: 20px;
+}
+
+.icon{
+    text-align: center;
+    color: green;
+}
+
+.card{
+    width: 90%;
+    background-color: green;
+    color: white;
+    height: 60px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.ctext{
+    font-size: 15px;
+    font-weight: 100;
+    display: block;
+}
+
+.ccont, .ctit {
+    display: inline-block;
+    
+}
+
+.ctit{
+    width: 50%;
+    text-align: center
+}

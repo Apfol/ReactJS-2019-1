@@ -1,0 +1,83 @@
+BODY { 
+    height: 100%;
+    background: url(background.jpg);
+    background-size: cover;
+    
+}
+
+.tile1{
+    width: 120px;
+    height: 120px;
+    background: url(Goomba.jpg);
+    background-position: left top;
+}
+.tile2{
+    width: 120px;
+    height: 120px;
+    background: url(Goomba.jpg);
+    background-position: center top;
+}
+.tile3{
+    width: 120px;
+    height: 120px;
+    background: url(Goomba.jpg);
+    background-position: right top;
+}
+.tile4{
+    width: 120px;
+    height: 120px;
+    background: url(Goomba.jpg);
+    background-position: left center;
+}
+.tile5{
+    width: 120px;
+    height: 120px;
+    background: url(Goomba.jpg);
+    background-position: center center;
+}
+.tile6{
+    width: 120px;
+    height: 120px;
+    background: url(Goomba.jpg);
+    background-position: right center;
+}
+.tile7{
+    width: 120px;
+    height: 120px;
+    background: url(Goomba.jpg);
+    background-position: left bottom;
+}
+.tile8{
+    width: 120px;
+    height: 120px;
+    background: url(Goomba.jpg);
+    background-position: center bottom;
+}
+.tile9 {
+    width: 120px;
+    height: 120px;
+    background: black;
+}
+
+#table{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -180px;
+    margin-left: -180px;
+    width: 360px;
+    height: 360px;
+}
+
+.bot{
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 180px;
+    margin-left: -180px;
+    width: 360px;
+    height: 60px;
+}
+
+
