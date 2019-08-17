@@ -1,0 +1,23 @@
+.navbar,
+.navbar-default {
+    background-image: linear-gradient(to bottom,#33691e, 0,#33691e    100%) !important; /* override background image gradient w/ flat color */
+}
+
+.brand-subtext {
+    font-size: 13px;
+    text-align: initial;
+}
+
+.textBlack {
+  color: black;
+  font-weight: bold;
+}
+
+.slideCard {
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.6);;
+  margin-right: 30%;
+  margin-left: 30%;
+  align-content: center;
+}
+
