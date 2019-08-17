@@ -1,5 +1,5 @@
 ## Integrantes
 
--Alejandro Cubillos
--Andrés Otálora
--Andrés Ramos
+ - Alejandro Cubillos
+ - Andrés Otálora
+ - Andrés Ramos
