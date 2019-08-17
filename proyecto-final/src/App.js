@@ -7,8 +7,10 @@ import PictureSlider from './header/Carousel';
 function App() {
   return (
     <div className="App">
-      <NavigationBar></NavigationBar>
-      <PictureSlider></PictureSlider>
+      <header>
+        <NavigationBar></NavigationBar>
+        <PictureSlider></PictureSlider>
+      </header>
     </div>
   );
 }
