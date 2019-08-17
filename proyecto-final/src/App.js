@@ -1,25 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Button } from 'reactstrap';
+import NavigationBar from './header/NavigationBar';
 import './App.css';
+import PictureSlider from './header/Carousel';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavigationBar></NavigationBar>
+      <PictureSlider></PictureSlider>
     </div>
   );
 }
