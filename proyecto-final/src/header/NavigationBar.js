@@ -37,10 +37,18 @@ export default class NavigationBar extends React.Component {
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Form inline>
-              <FormControl type="text" placeholder="¿Qué buscas?" className="mr-sm-2" />
-              <Button variant="secondary">Buscar</Button>
-            </Form>
+            <Nav>
+              <Nav.Link><i class="fas fa-sun fa-lg sun"></i> 32°C</Nav.Link>
+              <Nav.Link/><Nav.Link/><Nav.Link/>
+              <Nav.Link href="#deets"><i class="fab fa-facebook-f fa-lg"></i></Nav.Link>
+              <Nav.Link eventKey={2} href="#memes"><i class="fab fa-twitter fa-lg"></i></Nav.Link>
+              <Nav.Link eventKey={2} href="#memes">
+              </Nav.Link>
+              <Form inline>
+                <FormControl type="text" placeholder="¿Qué buscas?" className="mr-sm-2" />
+                <Button variant="secondary">Buscar</Button>
+              </Form>
+            </Nav>
           </Navbar.Collapse>
         </Navbar>
       </div>

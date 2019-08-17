@@ -1,6 +1,6 @@
 .navbar,
 .navbar-default {
-    background-image: linear-gradient(to bottom,#33691e, 0,#33691e    100%) !important; /* override background image gradient w/ flat color */
+    background-image: linear-gradient(to bottom,#ef6c00, 0,#ef6c00    100%) !important; /* override background image gradient w/ flat color */
 }
 
 .brand-subtext {
@@ -21,3 +21,17 @@
   align-content: center;
 }
 
+
+@keyframes sun-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sun {
+  animation: App-logo-spin infinite 20s linear;
+  pointer-events: none;
+}
