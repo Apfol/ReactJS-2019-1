@@ -11,8 +11,8 @@ export default class NavigationBar extends React.Component {
           <Navbar.Brand href="#home">
             <img
               src={logo}
-              width="60"
-              height="60"
+              width="50"
+              height="50"
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
@@ -30,7 +30,7 @@ export default class NavigationBar extends React.Component {
               <Nav.Link href="#home">Minicipio</Nav.Link>
               <Nav.Link href="#link">Alcadía</Nav.Link>
               <NavDropdown title="Anteción al ciudadano" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.1">Peticiones, quejas, reclamos y sugerencias</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                 <NavDropdown.Divider />
@@ -39,7 +39,7 @@ export default class NavigationBar extends React.Component {
             </Nav>
             <Nav>
               <Nav.Link><i class="fas fa-sun fa-lg sun"></i> 32°C</Nav.Link>
-              <Nav.Link/><Nav.Link/><Nav.Link/>
+              <Nav.Link /><Nav.Link /><Nav.Link />
               <Nav.Link href="#deets"><i class="fab fa-facebook-f fa-lg"></i></Nav.Link>
               <Nav.Link eventKey={2} href="#memes"><i class="fab fa-twitter fa-lg"></i></Nav.Link>
               <Nav.Link eventKey={2} href="#memes">

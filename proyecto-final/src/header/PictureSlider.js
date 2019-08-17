@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import image1 from './assets/1.jpg';
 import image2 from './assets/2.jpg';
 import image3 from './assets/3.jpg';
