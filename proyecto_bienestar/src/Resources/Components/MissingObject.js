@@ -2,27 +2,32 @@ import React, { Component } from "react";
 import "./MissingObject.css";
 
 
+
 class MissingObject extends Component {
   render() {
     return (
-      <div className="MissingObject">
+      <div className="MissingObject">        
         <div className = "ImageObjectDiv">
-            <img class="ImageObject" src="https://image.flaticon.com/icons/svg/1201/1201867.svg" />          
+            <img className="ImageObject" src="https://image.flaticon.com/icons/svg/1201/1201867.svg" />          
         </div>
-        <div class="Description">
-            <h3 class = "NameObject">{this.props.object[0].name}</h3>
+        <div className="Description">
+            <h3 className = "NameObject">{this.props.name}</h3>
             <ul>
               <li>
-                Lugar de perdidad : {this.props.object[0].lugar}
+                Lugar de perdidad : {this.props.location}
               </li>
               <li>
-                Encontrado por : {this.props.object[0].encontrado_por}
+                Encontrado por : {this.props.by}  
               </li>
               <li>
-                Lugar de perdidad :  {this.props.object[0].encontrado_por}
+                Lugar de perdidad :  {this.props.by}
               </li>
-            </ul>            
-            <button class = "Mine">El objeto es mio</button>
+            </ul> 
+            <div>
+            <button className = "Mine">Es mio</button>    
+            <button className = "Mine Other">Se de quien es</button>            
+              </div>           
+            
         </div>        
       </div>
     );

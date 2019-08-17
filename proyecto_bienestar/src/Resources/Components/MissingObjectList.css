@@ -1,0 +1,8 @@
+.MissingObjectList{
+   
+    border: 0px;    
+    width: 50%;    
+    background-color: rgba(4, 8, 61, 0.637);
+    border:    solid #000;    
+    overflow: hidden;
+}
