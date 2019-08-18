@@ -11,8 +11,8 @@ function App() {
       <header>
         <NavigationBar></NavigationBar>
         <PictureSlider></PictureSlider>
-        <Body></Body>
       </header>
+      <Body></Body>
     </div>
   );
 }

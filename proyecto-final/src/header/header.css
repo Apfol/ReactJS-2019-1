@@ -1,6 +1,6 @@
 .navbar,
 .navbar-default {
-    background-image: linear-gradient(to bottom,#ef6c00, 0,#ef6c00    100%) !important; /* override background image gradient w/ flat color */
+    background-image: linear-gradient(to bottom,#009688, 0,#009688    100%) !important; /* override background image gradient w/ flat color */
 }
 
 .brand-subtext {

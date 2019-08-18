@@ -21,7 +21,7 @@ export default class NavigationBar extends React.Component {
             Sopó Cundinamarca
             <br />
             <div className="brand-subtext">
-              Serguridad y Prosperidad
+              Seguridad y Prosperidad
             </div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
