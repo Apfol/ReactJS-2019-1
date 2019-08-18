@@ -27,9 +27,9 @@ export default class NavigationBar extends React.Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="#home">Minicipio</Nav.Link>
+              <Nav.Link href="#home">Municipio</Nav.Link>
               <Nav.Link href="#link">Alcadía</Nav.Link>
-              <NavDropdown title="Anteción al ciudadano" id="basic-nav-dropdown">
+              <NavDropdown title="Atención al ciudadano" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Peticiones, quejas, reclamos y sugerencias</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>

@@ -1,0 +1,64 @@
+.body{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.leftColumn{
+    margin: 0;
+    padding: 3%;
+    padding-top: 30px;
+    /* background-color: #ef6c00; */
+}
+
+.rightColumn{
+    padding-top: 30px;
+    margin: 0;
+    height: 400px;
+}
+
+.scroll {
+    height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+.cols{
+    text-align: left;
+}
+
+.information{
+    height: 100%;
+    width: 100%;
+    filter:brightness(0.5);
+    background-image: url(./assets/iglesia.jpg);
+}
+
+.noticeImg{
+    height: 150px;
+    width: 100%;
+
+}
+
+.notices{
+    background-color: white;
+    padding: 10px;
+}
+
+.title{
+    color: black;
+    font-style: italic;
+
+}
+
+.carousel-caption{
+    top: 50px;
+    text-align: center;
+    margin: 0;  
+    padding: 0;
+}
+
+.tooltip-inner {
+    max-width: 350px;
+    /* If max-width does not work, try using width instead */
+    width: 350px; 
+}

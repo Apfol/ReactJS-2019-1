@@ -2,6 +2,8 @@ import React from 'react';
 import NavigationBar from './header/NavigationBar';
 import './App.css';
 import PictureSlider from './header/PictureSlider';
+import Body from './body/body';
+
 
 function App() {
   return (
@@ -9,6 +11,7 @@ function App() {
       <header>
         <NavigationBar></NavigationBar>
         <PictureSlider></PictureSlider>
+        <Body></Body>
       </header>
     </div>
   );
