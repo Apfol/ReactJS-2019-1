@@ -3,8 +3,10 @@ import "./Home.css"
 class Home extends Component {
 	render() {
 		return (
-			<div className="Background-1-hex">
-				<p>HOME COMPONENT</p>
+			<div>
+				<section>
+					<h1>Games</h1>
+				</section>
 			</div>
 		);
 	}
