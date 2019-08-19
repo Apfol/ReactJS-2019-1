@@ -1,20 +1,29 @@
-import React,{Component} from 'react';
-import './App.css';
-//Components
-import Menu from './components/Menu';
-//Data
-import tasks from './data/tasks.json'
-console.log(tasks);
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./App.css";
 
+import { About } from './components/pages';
+import { Header, Footer } from './components/layout';
 
-class App extends Component{
-  state = {
-    tasks: tasks
-  }
-  render(){
-    return <div>
-    <Menu tasks={this.state.tasks}/>
-    </div>
+class App extends Component {
+  state = {};
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <div className="container">
+            <Header />
+            <Route exact path="/" render={props =>(
+              <React.Fragment>
+                <h1>Contenido del inicio</h1>
+              </React.Fragment>
+            )}></Route>
+            <Route path="/about" component={About}></Route>
+            <Footer />
+          </div>
+        </div>
+      </Router>
+    );
   }
 }
 
