@@ -13,7 +13,7 @@ class MissingObject extends Component {
             <h3 class = "NameObject">{this.props.object[0].name}</h3>
             <ul>
               <li>
-                Lugar de perdidad : {this.props.object[0].lugar}
+                Lugar de perdida: {this.props.object[0].lugar}
               </li>
               <li>
                 Encontrado por : {this.props.object[0].encontrado_por}

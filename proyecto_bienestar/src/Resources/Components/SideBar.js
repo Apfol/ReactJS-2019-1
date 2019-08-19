@@ -1,29 +1,27 @@
 import React, { Component } from "react";
 import "./SideBar.css";
+import settingsImage from "./settings.png";
+import faker from 'faker';
 
 
 class SideBar extends Component {
   render() {
     return (
-      <div className="MissingObject">
-        <div className = "ImageObjectDiv">
-            <img class="ImageObject" src="https://image.flaticon.com/icons/svg/1201/1201867.svg" />          
+      <div className="sidenav">
+        <div className="Profile-Image">
+          <img className="Avatar" src={faker.image.avatar()}/>
         </div>
-        <div class="Description">
-            <h3 class = "NameObject">{this.props.object[0].name}</h3>
-            <ul>
-              <li>
-                Lugar de perdidad : {this.props.object[0].lugar}
-              </li>
-              <li>
-                Encontrado por : {this.props.object[0].encontrado_por}
-              </li>
-              <li>
-                Lugar de perdidad :  {this.props.object[0].encontrado_por}
-              </li>
-            </ul>            
-            <button class = "Mine">El objeto es mio</button>
-        </div>        
+        <div>
+          <p className="Name">{faker.name.findName()}</p>
+          <p className="Place">Universidad de La Sabana</p>
+        </div>
+        <div className="NavContent">
+          <a href="#">Mis Objetos Perdidos</a>
+          <a href="#">Objetos Encontrados</a>
+          <a href="#">Contáctanos</a>
+        </div>
+        <img className="SettingsButton" src={settingsImage} href="#"></img>
+        
       </div>
     );
   }

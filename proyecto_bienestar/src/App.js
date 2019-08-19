@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import MissingObject from './Resources/Components/MissingObject';
 import SideBar from './Resources/Components/SideBar';
+import faker from 'faker';
 
 function App() {
   const object = [
@@ -9,6 +10,7 @@ function App() {
     lugar: "Biblioteca",
     encontrado_por: "Luis"}
   ] 
+  
   return (
     <div className="App">
       
