@@ -10,6 +10,7 @@ function App() {
    const objects=[{ SportsElement: "Balon de Futbol",
   SportsElement1: "Balon de Basket", 
   SportsElement2: "Remos" }]
+
   const object = [
     {name: "Calculadora", 
     lugar: "Biblioteca",
@@ -19,9 +20,10 @@ function App() {
   
   return (
     <div className="App">
-      <SportsEquipment object={object}></SportsEquipment>
-            
-      <SideBar object = {object}/>            
+      <SideBar object = {object}/>     
+      <MissingObjectList></MissingObjectList>
+                
+             
     </div>
   );
 }
