@@ -40,7 +40,10 @@ class App extends Component {
             <Route path="/login" render={props =>(
               <Login startSession={this.startSession}></Login>
             )}></Route>
-            <Route path="/sign_up" component={SignUp}></Route>
+
+            <Route path="/sign_up" render={props =>(
+              <SignUp startSession={this.startSession}></SignUp>
+            )}></Route>
             <Route path="/about" component={About}></Route>
             <Route path="/course_player" render={props =>(
               <CoursePlayer ></CoursePlayer>
