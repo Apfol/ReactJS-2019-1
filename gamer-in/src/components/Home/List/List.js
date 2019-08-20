@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Card from "./Card/Card"
+import "./List.css"
 class List extends Component {
     render() {
         var cards = this.props.games.map((game, index) => {
@@ -12,6 +13,9 @@ class List extends Component {
         return (
             <div>
                 {cards}
+                <div className="more-games-card">
+                    <h2>More games</h2>
+                </div>
             </div>
         );
     }

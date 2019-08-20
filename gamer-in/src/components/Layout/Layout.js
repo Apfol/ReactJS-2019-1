@@ -1,5 +1,6 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar"
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 function Layout(props) {
     let links = [
         {
@@ -19,7 +20,7 @@ function Layout(props) {
         <React.Fragment>
             <Navbar links={links} />
             {props.children}
-            <h1>Esto es un footer</h1>
+            <Footer />
         </React.Fragment>
     );
 }

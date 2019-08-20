@@ -3,19 +3,19 @@ import "./Home.css"
 import List from "./List/List"
 class Home extends Component {
 	render() {
-		let games = [
+		let pcgames = [
 			{
-				image: "https://i.blogs.es/19ba21/league-of-legends/450_1000.jpg",
+				image: "https://nerdmacia.cl/wp-content/uploads/2019/05/lol.jpg",
 				title: "League of legends",
 				text: "League of legends lorem ipsum"
 			},
 			{
-				image: "https://steamcdn-a.akamaihd.net/steam/apps/570/header.jpg?t=1561594389",
+				image: "https://areajugones.sport.es/wp-content/uploads/2018/01/Dota-2.jpg",
 				title: "DOTA 2",
 				text: "Dota 2 lorem ipsum"
 			},
 			{
-				image: "https://cdn2.unrealengine.com/Fortnite%2Fbattle-royale%2F09BP_Web_GetFornitePage_3UPMain-1920x1000-f8c6eabdf58b43b779e5762693908748572e6cb0.jpg",
+				image: "https://static-assets-prod.epicgames.com/fortnite/static/webpack/8f9484f10eb14f85a189fb6117a57026.jpg",
 				title: "Fornite",
 				text: "Fornite lorem ipsum"
 			},
@@ -30,10 +30,32 @@ class Home extends Component {
 				text: "Apex legends lorem ipsum"
 			}
 		]
+		let consolegames = [
+			{
+				image: "https://static-assets-prod.epicgames.com/fortnite/static/webpack/8f9484f10eb14f85a189fb6117a57026.jpg",
+				title: "Fornite",
+				text: "Fornite lorem ipsum"
+			},
+			{
+				image: "https://www.madboxpc.com/wp-content/uploads/2018/10/FIFA-19-Screenshot-2018.10.01-21.11.06.60-1920x1080.png",
+				title: "FIFA 19",
+				text: "FIFA lorem ipsum"
+			},
+			{
+				image: "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/04/580150-dark-souls-3-primer-jefe-localizacion-como-derrotarlo.png",
+				title: "Dark souls",
+				text: "Dark souls lorem ipsum"
+			}
+		]
 		return (
 			<div className='home'>
 				<div className="game-list">
-					<List games={games} />
+					<h1 className="pc-title">Pc Games</h1>
+					<List games={pcgames} />
+				</div>
+				<div className="game-list">
+					<h1 className="pc-title">Console games</h1>
+					<List games={consolegames} />
 				</div>
 			</div>
 		);
