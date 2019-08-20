@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 
 import "./App.css";
 
-import { About, Login, SignUp, CoursePlayer } from './components/pages';
+import { About, Login, SignUp, CoursePlayer, Home, Courses } from './components/pages';
 import { Header, Footer } from './components/layout';
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
             <Header />
             <Route exact path="/" render={props =>(
               <React.Fragment>
-                <h1>Contenido del inicio</h1>
+                <Home/>
               </React.Fragment>
             )}></Route>
 
@@ -42,6 +42,7 @@ class App extends Component {
             )}></Route>
             <Route path="/sign_up" component={SignUp}></Route>
             <Route path="/about" component={About}></Route>
+            <Route path="/courses" component={Courses}></Route>
             <Route path="/course_player" render={props =>(
               <CoursePlayer ></CoursePlayer>
             )}></Route>

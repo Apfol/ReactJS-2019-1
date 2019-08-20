@@ -1,15 +1,11 @@
 import React from 'react'
-
-const videoItemStyle = {
-    background: "#f3f3f3",
-    
-}
+import './VideoItem.css'
 
 export default function VideoItem({video}) {
     return (
-        <div style={videoItemStyle}>
-            <h3>{video.title}</h3>
-            <h4>id: {video.url}</h4>
+        <div className="Video-item">
+            <h3 className="title-item">{video.title}</h3>
+            <h4 className="id-item">id: {video.url}</h4>
         </div>
     )
 }

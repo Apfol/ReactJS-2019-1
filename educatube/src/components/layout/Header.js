@@ -6,7 +6,6 @@ import './Header.css'
 import menu from '../data/menu.json'
 import curvery from '../data/curvery.json'
 //Librerias
-import Button from '@material-ui/core/Button';
 import { FaSpaceShuttle } from "react-icons/fa";
 
 
@@ -36,9 +35,11 @@ export class Header extends Component {
                               </svg>
           </h3>
           
-                )}</div>
-                {this.state.menu.map(e => <Link className={Button} key={e.id} to={e.url}>{e.title}</Link>)}
+                )}</div></div>
+                <div className="options">
+                {this.state.menu.map(e => <Link  key={e.id} to={e.url}>{e.title}</Link>)}
                 </div>
+                
                 </div>
             </header>
         )
