@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Subrayada:700&display=swap');
+a{
+    text-decoration: none;
+    font-size: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-family: 'Montserrat', serif;
+    font-weight: 700;
+}
+.header {
+    background-color: rgb(241, 241, 241);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.menu{
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    
+    margin-left: 3vh;
+    margin-top: 3vh;
+}
+.open{
+    height: 7vh;
+    width: 7vh;
+    border-radius: 100%;
+    background-color: rgb(170, 31, 212);
+    text-align: center;
+    cursor:pointer;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: 0.1s;
+    display: block;
+    float: left;
+
+    
+}
+.open .icon{
+    margin-top: 0.5vh;
+    margin-left: -2vh;
+    transform: rotate(-45deg);
+    font-size:8vh;
+    color:black;
+    vertical-align: bottom;     
+    display:inline-block
+    
+    
+}
+.curvery{
+    padding-left: 1em;
+}
+.curvery h3 svg {
+    float: left;
+        width: 25vh;
+      }
