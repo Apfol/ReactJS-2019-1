@@ -14,7 +14,9 @@ function App() {
         <PictureSlider></PictureSlider>
       </header>
       <Body></Body>
-      <Footer></Footer>
+      <footer>
+        <Footer></Footer>
+      </footer>
     </div>
   );
 }
