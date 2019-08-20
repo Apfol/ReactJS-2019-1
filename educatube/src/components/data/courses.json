@@ -1,0 +1,27 @@
+[
+    {        
+        "id": "1",
+        "image": "./resources/img/csm_maraton_12k-8_5a79ca745a.jpg",
+        "title": "Math"
+    },{        
+        "id": "2",
+        "image": "./resources/img/csm_maraton_12k-8_5a79ca745a.jpg",
+        "title": "Python"
+    },{        
+        "id": "3",
+        "image": "./resources/img/csm_maraton_12k-8_5a79ca745a.jpg",
+        "title": "JavaScript"
+    },{        
+        "id": "4",
+        "image": "./resources/img/csm_maraton_12k-8_5a79ca745a.jpg",
+        "title": "C#"
+    },{        
+        "id": "5",
+        "image": "./resources/img/csm_maraton_12k-8_5a79ca745a.jpg",
+        "title": "React"
+    },{        
+        "id": "6",
+        "image": "./resources/img/csm_maraton_12k-8_5a79ca745a.jpg",
+        "title": "MongoDB"
+    }
+]

@@ -28,5 +28,11 @@
         "url": "/courses",
         "title": "Courses",
         "active": true
+    },    
+    {
+        "id": 5,
+        "url": "/course_player",
+        "title": "Player",
+        "active": true
     }
 ]

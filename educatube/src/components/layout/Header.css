@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat+Subrayada:700&display=swap');
+
+.header {
+    background-color: rgb(241, 241, 241);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    height: 12vh;
+    position: relative;
+
+}
 a{
     text-decoration: none;
     font-size: 1em;
@@ -8,20 +18,15 @@ a{
     font-family: 'Montserrat', serif;
     font-weight: 700;
 }
-.header {
-    background-color: rgb(241, 241, 241);
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-}
 
 .menu{
-    width: 50vw;
+    height: 5vw;
     justify-content: center;
-    align-items: center;
-    
-    margin-left: 3vh;
-    margin-top: 3vh;
+    align-items: center;   
+    width: 20vw;
+    margin-left: 3vw;
+    position: absolute;
+
 }
 .open{
     height: 7vh;
@@ -36,24 +41,28 @@ a{
     transition: 0.1s;
     display: block;
     float: left;
+    margin-top: 1.5vh;
+
 
     
 }
 .open .icon{
-    margin-top: 0.5vh;
+    margin-top: 1.5vh;
     margin-left: -2vh;
     transform: rotate(-45deg);
     font-size:8vh;
     color:black;
-    vertical-align: bottom;     
-    display:inline-block
-    
-    
+    vertical-align: bottom;        
 }
-.curvery{
-    padding-left: 1em;
-}
+
 .curvery h3 svg {
     float: left;
+    padding-left: 2%;
         width: 25vh;
-      }
+}
+
+.options{
+    vertical-align: middle;
+    padding: 5vh;
+
+}
