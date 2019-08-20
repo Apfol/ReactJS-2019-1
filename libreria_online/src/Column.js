@@ -1,17 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class Column extends Component {
     render() {
-        if (this.props.booksRenderized !== undefined) {
+        if (this.props.data !== undefined) {
+            let data2 = this.props.data2;
+            if (data2 === undefined) {
+                data2 = "";
+            }
             return (
                 <div id={this.props.id}>
-                    {this.props.booksRenderized}
-                </div>
-            );
-        } else if (this.props.personInfo !== undefined) {
-            return (
-                <div id={this.props.id}>
-                    {this.props.personInfo}
+                    {this.props.data}
+                    {data2}
                 </div>
             );
         } else {

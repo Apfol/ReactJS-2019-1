@@ -34,3 +34,48 @@ div#box{
    width:66%;
    float:left;
   }
+
+  div#reader_tools{
+    float:left;  
+    padding:5px;
+    background:white;
+    margin-right: 10px;
+    width:10%;
+    height:auto;
+    text-align: center;
+    box-shadow: 0px 0px 10px 0.5px gray; 
+    border-radius: 10px;
+}
+
+img#page{
+  float:left;
+  width: 66%;
+}
+
+img#img-person{
+  margin-top: 10px;
+}
+
+div#info-book{
+  float:left; 
+    padding:5px;
+    background:white;
+    margin-left: 10px;
+    width:20%;
+    height:auto;
+    text-align: center;
+    box-shadow: 0px 0px 10px 0.5px gray; 
+    border-radius: 10px;
+}
+
+section#info-person{
+  float:left; 
+  padding:5px;
+  background:white;
+  width:97%;
+  height:auto;
+  text-align: center;
+  box-shadow: 0px 0px 10px 0.5px gray; 
+  border-radius: 10px;
+}
+
