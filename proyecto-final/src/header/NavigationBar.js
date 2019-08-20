@@ -4,6 +4,32 @@ import "./header.css";
 import { Navbar, Nav, Form, NavDropdown, Button, FormControl } from 'react-bootstrap';
 
 export default class NavigationBar extends React.Component {
+
+ temp = 32;
+
+  constructor() {
+    super();
+    this.state = {
+      temperature: this.temp,
+    }
+  }
+
+  componentDidMount() {
+    setInterval(() => {
+      this.changeState();
+    }, 1000);
+  }
+
+  changeState = () => {
+    if(this.temp == 38) {
+      this.temp = 32;
+    }
+    this.temp++;
+    this.setState({
+      temperature: this.temp,
+    });
+  }
+
   render() {
     return (
       <div className="navContainer">
@@ -38,7 +64,7 @@ export default class NavigationBar extends React.Component {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link><i class="fas fa-sun fa-lg sun"></i> 32°C</Nav.Link>
+              <Nav.Link><i class="fas fa-sun fa-lg sun"></i> {this.state.temperature} °C</Nav.Link>
               <Nav.Link /><Nav.Link /><Nav.Link />
               <Nav.Link href="#deets"><i class="fab fa-facebook-f fa-lg"></i></Nav.Link>
               <Nav.Link eventKey={2} href="#memes"><i class="fab fa-twitter fa-lg"></i></Nav.Link>
