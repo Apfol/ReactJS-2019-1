@@ -1,19 +1,6 @@
-.body{
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-.leftColumn{
-    margin: 0;
-    padding: 3%;
-    padding-top: 30px;
-    /* background-color: #ef6c00; */
-}
-
-.rightColumn{
-    padding-top: 30px;
-    margin: 0;
-    height: 400px;
+.cuerpo{
+    width: 100%;
+    margin-bottom: 25px;
 }
 
 .scroll {
@@ -33,21 +20,42 @@
     background-image: url(./assets/iglesia.jpg);
 }
 
+.conNews{
+    margin-left: 20px;
+}
+
 .noticeImg{
     height: 150px;
     width: 100%;
 
 }
 
+.noticia{
+    width: 100%;
+}
+
 .notices{
     background-color: white;
+    width: 100%;
     padding: 10px;
+    border-bottom: solid 1px #D8D8D8;
 }
 
 .title{
-    color: black;
-    font-style: italic;
+    position: relative;
+    top: 10%;
+    color: white;
+    font-size: 50px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-weight: bolder;
+}
 
+.newsDesc{
+    position: relative;
+    color: white;
+    top: 10%;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-weight: lighter;
 }
 
 .carousel-caption{
@@ -62,3 +70,35 @@
     /* If max-width does not work, try using width instead */
     width: 350px; 
 }
+
+.webDesc{
+    position: relative;
+    color: #666666;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.infoLink{
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+}
+ 
+.anuncio{
+    margin-top: 40px;
+}
+
+.anunT{
+    font-size: 30px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-weight: lighter;
+    color: gray;
+    position: absolute;
+    top: 50%;
+
+
+}
+

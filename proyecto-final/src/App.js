@@ -3,6 +3,7 @@ import NavigationBar from './header/NavigationBar';
 import './App.css';
 import PictureSlider from './header/PictureSlider';
 import Body from './body/body';
+import Footer from './footer/Footer';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <PictureSlider></PictureSlider>
       </header>
       <Body></Body>
+      <Footer></Footer>
     </div>
   );
 }

@@ -1,15 +1,16 @@
 import React from 'react';
+import Image from 'react-bootstrap/Image'
 
 class Notices extends React.Component {
     render = () => {
         return (
-            <li class="nav-item">
+            <li class="nav-item noticia">
                 <div className = "row notices">
                     <div className = "col-md-6 cols">
-                        <img className="noticeImg" src={this.props.notice}/>
+                        <Image className="noticeImg" src={this.props.notice} fluid/>
                     </div>
                     <div className = "col-md-6 cols">
-                        <h5>{this.props.p}</h5>
+                        <a href="#nothing"><h5>{this.props.p}</h5></a>
                         <h9>{this.props.info}</h9>
                     </div>
                 </div>

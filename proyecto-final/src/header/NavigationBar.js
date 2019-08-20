@@ -37,11 +37,13 @@ export default class NavigationBar extends React.Component {
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Nav>
+            <Nav className="justify-content-center clima">
               <Nav.Link><i class="fas fa-sun fa-lg sun"></i> 32°C</Nav.Link>
-              <Nav.Link /><Nav.Link /><Nav.Link />
-              <Nav.Link href="#deets"><i class="fab fa-facebook-f fa-lg"></i></Nav.Link>
-              <Nav.Link eventKey={2} href="#memes"><i class="fab fa-twitter fa-lg"></i></Nav.Link>
+            </Nav>
+            <Nav>
+              <Nav.Link href="https://www.youtube.com/user/alcaldiadesopo/videos"><i class="fab fa-youtube fa-lg"></i></Nav.Link>
+              <Nav.Link href="https://es-la.facebook.com/AlcaldiadeSopo/"><i class="fab fa-facebook-f fa-lg"></i></Nav.Link>
+              <Nav.Link href="https://twitter.com/alcaldiadesopo?lang=es"><i class="fab fa-twitter fa-lg"></i></Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
               </Nav.Link>
               <Form inline>
