@@ -1,0 +1,63 @@
+.sidenav {
+    height: 100%;
+    width: 18%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #8C8A7E;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 2px 2px 5px black;
+  }
+
+  .Profile-Image{
+    margin-top: 10%;
+  }
+
+  .Avatar{
+    width: 70% ;
+    height: 70%;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px black;
+  }
+
+  .NavContent a {
+    padding: 15px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #D9D5C3;
+    display: block;
+    transition: 0.3s;    
+    border-bottom: 2px solid #D9D5C3;
+    width: 80%;
+  }
+
+  .NavContent a:hover {
+    background-color: #ddd;
+    color: black;
+    box-shadow: 2px 2px 5px black;    
+  }
+
+  .NavContent {
+    margin-top: 40px; 
+    margin-left: 10px;       
+  }
+
+  .Name{
+    font-size: 25px;
+    font-weight: 15px;    
+  }
+
+  .Place{
+    font-size: 15px;
+  }
+
+  .SettingsButton{
+
+    float: left;
+    margin-top: 10%;
+    margin-left: 6%;
+    border: 2px solid #6e6e6e;
+    border-radius: 50%;
+  }

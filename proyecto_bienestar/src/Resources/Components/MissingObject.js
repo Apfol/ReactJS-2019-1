@@ -22,12 +22,12 @@ class MissingObject extends Component {
               <li>
                 Lugar de perdidad :  {this.props.by}
               </li>
-            </ul> 
+            </ul>      
             <div>
             <button className = "Mine">Es mio</button>    
             <button className = "Mine Other">Se de quien es</button>            
-              </div>           
-            
+              </div>                                 
+
         </div>        
       </div>
     );
