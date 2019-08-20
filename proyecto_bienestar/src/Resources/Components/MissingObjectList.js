@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./MissingObjectList.css";
 import MissingObject from "./MissingObject";
-
+import SearchFilter from "./SearchFilter";
 
 
 class MissingObjectList extends Component {
@@ -13,13 +13,13 @@ class MissingObjectList extends Component {
           {name: "Cargador Iphone", location: "Edificio B-204", by: "Leidy"},
           {name: "Cachucha", location: "Biblioteca", by: "Juan"},
           {name: "Botilito", location: "Biblioteca", by: "Felipe"},
-          {name: "Chaqueta", location: "Biblioteca", by: "Cristian"},
-          
+          {name: "Chaqueta", location: "Biblioteca", by: "Cristian"},          
         ]
       }
   render() {
-    return (
+    return (      
       <div className="MissingObjectList">                         
+          <SearchFilter/>
             {this.state.objects.map(object => <MissingObject name = {object.name} location = {object.location} 
          by = {object.by}/>)}               
       </div>

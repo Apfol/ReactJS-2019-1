@@ -1,5 +1,8 @@
 div.ImageObjectDiv{
-
+    width: 30%;
+  background-color: rgb(30, 151, 141);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
     float: left;   
     margin-right: 50px;
 }
@@ -8,11 +11,12 @@ div.Description{
 }
 .ImageObject{
     display: inline-block;    
-    margin: 25px;
+    margin: 20px;
     width: 120px;
     
 }
 .MissingObject{ 
+    padding-top: 5%;
     box-shadow:  8px 0 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);    
     margin:auto;
     margin-bottom: 4px;
@@ -26,9 +30,10 @@ div.Description{
     
 }
 h3.NameObject{
+    
+    text-decoration: overline;
     margin-left: 50px;
-    color: rgb(78, 68, 59);
-    display: inline;
+    color: rgb(78, 68, 59);    
 }
 li{
     color: rgb(15, 34, 31);    
@@ -44,7 +49,7 @@ button.Mine{
     text-align: center;    
     display: inline-block;
     font-size: 15px;
-    margin: 4px 2px;
+    margin: 4px 40px;
     cursor: pointer;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
