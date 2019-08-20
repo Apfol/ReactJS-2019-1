@@ -18,6 +18,7 @@ class SideBar extends Component {
         <div className="NavContent">
           <a href="#">Mis Objetos Perdidos</a>
           <a href="#">Objetos Encontrados</a>
+          <a href="#">Prestamo Deportes</a>
           <a href="#">Contáctanos</a>
         </div>
         <img className="SettingsButton" src={settingsImage} href="#"></img>

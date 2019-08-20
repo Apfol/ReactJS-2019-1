@@ -7,10 +7,10 @@ class MissingObject extends Component {
     return (
       <div className="MissingObject">
         <div className = "ImageObjectDiv">
-            <img class="ImageObject" src="https://image.flaticon.com/icons/svg/1201/1201867.svg" />          
+            <img className="ImageObject" src="https://image.flaticon.com/icons/svg/1201/1201867.svg"/>          
         </div>
-        <div class="Description">
-            <h3 class = "NameObject">{this.props.object[0].name}</h3>
+        <div className="Description">
+            <h3 className = "NameObject">{this.props.object[0].name}</h3>
             <ul>
               <li>
                 Lugar de perdida: {this.props.object[0].lugar}
@@ -22,7 +22,7 @@ class MissingObject extends Component {
                 Lugar de perdidad :  {this.props.object[0].encontrado_por}
               </li>
             </ul>            
-            <button class = "Mine">El objeto es mio</button>
+            <button className = "Mine">El objeto es mio</button>
         </div>        
       </div>
     );

@@ -3,6 +3,7 @@ import './App.css';
 import MissingObject from './Resources/Components/MissingObject';
 import SideBar from './Resources/Components/SideBar';
 import faker from 'faker';
+import SportsEquipment from './Resources/Components/SportsEquipment';
 
 function App() {
   const object = [
@@ -16,6 +17,8 @@ function App() {
       
       <MissingObject object = {object}></MissingObject>
       <SideBar object = {object}/>
+      <SportsEquipment/>
+      
     </div>
   );
 }
