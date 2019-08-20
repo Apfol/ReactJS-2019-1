@@ -1,0 +1,11 @@
+.custom-card {
+    display: inline-block;
+    margin: 0.2em;
+    background-color: #2A2A2A;
+    width: 31em;
+}
+
+.cover {
+    width: 100%;
+    object-fit: cover;
+}
