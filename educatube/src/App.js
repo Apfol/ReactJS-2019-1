@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 
 import "./App.css";
 
-import { About, Login, SignUp } from './components/pages';
+import { About, Login, SignUp, CoursePlayer } from './components/pages';
 import { Header, Footer } from './components/layout';
 
 class App extends Component {
@@ -42,6 +42,10 @@ class App extends Component {
             )}></Route>
             <Route path="/sign_up" component={SignUp}></Route>
             <Route path="/about" component={About}></Route>
+            <Route path="/course_player" render={props =>(
+              <CoursePlayer ></CoursePlayer>
+            )}></Route>
+
             <Footer />
           </div>
         </div>

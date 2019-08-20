@@ -16,4 +16,5 @@ Getting this
 4. npm start
 
 Extras: 
-    * npm install react-scripts --save
+    * npm install react-scripts --save  
+    [Material-UI](https://material-ui.com/getting-started/installation/)

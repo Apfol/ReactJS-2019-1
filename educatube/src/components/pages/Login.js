@@ -13,10 +13,10 @@ export class Login extends Component {
         // TODO: Make call and check if register
 
         e.preventDefault();
-        this.props.startSession(this.state);
         this.setState({
-            logged: true
+          logged: true
         });
+        this.props.startSession(this.state);
         console.log(this.state);
     }
 
@@ -30,6 +30,7 @@ export class Login extends Component {
         if(this.state.logged){
             return <Redirect to="/" />
         }
+        
     return (
       <div className="container">
         <form onSubmit={this.onSubmit}>
