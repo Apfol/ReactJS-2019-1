@@ -1,12 +1,29 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Redirect } from 'react-router';
+
 import "./App.css";
 
-import { About } from './components/pages';
+import { About, Login, SignUp } from './components/pages';
 import { Header, Footer } from './components/layout';
 
 class App extends Component {
-  state = {};
+
+  state = {
+    user: {
+      logged: false,
+      username: "",
+      password:""
+    }
+  }
+
+  startSession = (userData)=>{
+    this.setState( prevState => ({
+      user: {...userData, ...{logged:true}}
+    }));
+    
+  }
+
   render() {
     return (
       <Router>
@@ -18,6 +35,12 @@ class App extends Component {
                 <h1>Contenido del inicio</h1>
               </React.Fragment>
             )}></Route>
+
+            {/* <Route path="/login" component={Login}></Route> */}
+            <Route path="/login" render={props =>(
+              <Login startSession={this.startSession}></Login>
+            )}></Route>
+            <Route path="/sign_up" component={SignUp}></Route>
             <Route path="/about" component={About}></Route>
             <Footer />
           </div>
