@@ -18,7 +18,7 @@ class Product extends React.Component{
         return(
         <li className="product" >
             <div onClick={this.handleShow}>
-                <img src={this.props.product.image} ></img>
+                <img src={this.props.product.image} alt="category-pic"></img>
                 <p>{this.props.product.tittle}</p>
             </div>
             <Modal size="lg" show={this.state.show} onHide={this.handleClose}>
@@ -27,7 +27,7 @@ class Product extends React.Component{
                 </Modal.Header>
                 <Modal.Body>
                     <section className="modal_details">
-                        <img src={this.props.product.image}></img>
+                        <img src={this.props.product.image} alt={`product${this.props.product.tittle}`} ></img>
                         <section>
                             <h3>Details:</h3>
                         </section>

@@ -11,7 +11,7 @@ class Perfil extends Component{
                         <div className="perfil">
                             <h1 className='text-profile'>Perfil</h1>
                             <div className="photo-div">
-                                <img className="photo-profile" src={photo} alt="photo-profile"/>
+                                <img className="photo-profile" src={photo} alt="profile-pic"/>
                                 <p className="update-photo">Actualizar foto</p>
                             </div>
                             <div className="name-div">
