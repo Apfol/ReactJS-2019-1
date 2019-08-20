@@ -1,7 +1,4 @@
 import React from 'react';
-import image1 from './assets/1.jpg';
-import image2 from './assets/2.jpg';
-import image3 from './assets/3.jpg';
 import image4 from './assets/parapente.png';
 import image5 from './assets/lechuza.png';
 import image6 from './assets/pile.png';
@@ -14,7 +11,6 @@ class PictureSlider extends React.Component {
             <Carousel indicators={false}>
                 <Carousel.Item>
                     <img
-                        className="d-block w-100"
                         src={image4}
                         alt="First slide"
                         height="500"
@@ -26,9 +22,8 @@ class PictureSlider extends React.Component {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
-                        className="d-block w-100"
                         src={image5}
-                        alt="Third slide"
+                        alt="Second slide"
                         height="500"
                     />
                     <Carousel.Caption>
@@ -38,7 +33,6 @@ class PictureSlider extends React.Component {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
-                        className="d-block w-100"
                         src={image6}
                         alt="Third slide"
                         height="500"
