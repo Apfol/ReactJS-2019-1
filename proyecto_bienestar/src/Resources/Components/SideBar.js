@@ -16,10 +16,10 @@ class SideBar extends Component {
           <p className="Place">Universidad de La Sabana</p>
         </div>
         <div className="NavContent">
-          <a href="#">Mis Objetos Perdidos</a>
-          <a href="#">Objetos Encontrados</a>
-          <a href="#">Prestamo Deportes</a>
-          <a href="#">Contáctanos</a>
+          <p>Mis Objetos Perdidos</p>
+          <p>Objetos Encontrados</p>
+          <p>Prestamo Deportes</p>
+          <p>Contáctanos</p>
         </div>
         <img className="SettingsButton" src={settingsImage} href="#"></img>
         

@@ -4,6 +4,7 @@ import './App.css';
 import MissingObjectList from './Resources/Components/MissingObjectList';
 import SportsEquipment from './Resources/Components/SportsEquipment';
 import SideBar from './Resources/Components/SideBar';
+import NavBarComponent from './Resources/Components/NavBar';
 
 
 function App() {
@@ -19,10 +20,10 @@ function App() {
 
   
   return (
-    <div className="App">
+    <div className="App">            
       <SideBar object = {object}/>     
       <MissingObjectList></MissingObjectList>
-                
+          
              
     </div>
   );
