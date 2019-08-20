@@ -1,0 +1,47 @@
+.product{
+    display: inline-block;
+    border: solid rgb(126, 126, 126) 1px;
+    margin: 20px;
+    border-radius: 10px;
+    transition: box-shadow .3s;
+}
+
+.product img{
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.product:hover{
+    box-shadow: 0 0 5px 5px rgb(147, 153, 172);
+}
+
+.product p{
+    padding: 5px;
+}
+
+.modal_details{
+    padding: 20px;
+}
+
+.modal_details img, .modal_details section{
+    float: left;
+}
+
+.modal_details img{
+    width: 300px;
+    height: 200px;
+    border-radius: 100px;
+
+    box-shadow: 0 0 5px 2px rgb(147, 153, 172);
+}
+
+.modal_details section{
+    margin-left: 20px;
+    position: relative;
+    bottom: 15px;
+}
+
+.modal_details h3{
+    font-size: 25px;
+}

@@ -1,0 +1,26 @@
+.carousel {
+	height:100%;
+	width: 100%;
+}
+
+.image-slide {
+	height: 100%;
+	width: 100%;
+
+}
+
+.slide-arrow {
+	color: rgb(119, 20, 212);
+	cursor: pointer;
+	font-size: 2rem;
+	position: absolute;
+	top: 45%;
+}
+
+.slide-arrow.right {
+	right: 2rem;
+}
+
+.slide-arrow.left {
+	left: 2rem;
+}

@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+.category_container{
+    padding: 40px;
+    font-family: 'Raleway', sans-serif; 
+}
+
+.category_container h2, .category_container h4{
+    text-align: center;
+}
