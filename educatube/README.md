@@ -10,11 +10,12 @@ By
 
 Getting this
 
-1. git clone -b robinson_muñoz --single-branch https://github.com/cristianparcuReactJS-2019-1.git 
+1. git clone -b robinson_muñoz --single-branch https://github.com/cristianparcu/ReactJS-2019-1.git 
 2. cd ReactJS-2019-1\educatube
 3. npm install
 4. npm start
 
 Extras: 
     * npm install react-scripts --save  
-    [Material-UI](https://material-ui.com/getting-started/installation/)
+    [Material-UI](https://material-ui.com/getting-started/installation/)  
+    [React-Icons](https://react-icons.netlify.com)
