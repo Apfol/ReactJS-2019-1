@@ -5,7 +5,7 @@ import { Navbar, Nav, Form, NavDropdown, Button, FormControl } from 'react-boots
 
 export default class NavigationBar extends React.Component {
 
- temp = 32;
+  temp = 32;
 
   constructor() {
     super();
@@ -17,14 +17,11 @@ export default class NavigationBar extends React.Component {
   componentDidMount() {
     setInterval(() => {
       this.changeState();
-    }, 1000);
+    }, 2000);
   }
 
   changeState = () => {
-    if(this.temp == 38) {
-      this.temp = 32;
-    }
-    this.temp++;
+    this.temp == 34 ? this.temp-- : this.temp++;
     this.setState({
       temperature: this.temp,
     });
@@ -64,7 +61,7 @@ export default class NavigationBar extends React.Component {
               </NavDropdown>
             </Nav>
             <Nav className="justify-content-center clima">
-              <Nav.Link><i class="fas fa-sun fa-lg sun"></i> 32°C</Nav.Link>
+              <Nav.Link><i class="fas fa-sun fa-lg sun"></i> {this.state.temperature}°C</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link href="https://www.youtube.com/user/alcaldiadesopo/videos"><i class="fab fa-youtube fa-lg"></i></Nav.Link>
