@@ -1,0 +1,108 @@
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    top:10vh;left:0;
+    height:50px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    top:45px;
+    right:0px;
+    width: 200px;
+    background-color: white;
+    font-weight:bold;
+    position: absolute;
+
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+li a {
+    color: #000;
+    text-decoration: none;
+}
+li {
+    padding: 8px 16px;
+    border-bottom: 1px solid #e5e5e5;
+}
+li:last-child {
+    border-bottom: none;
+}
+li:hover {
+    background-color: #e5e5e5;
+    color: white;
+}
+.button{
+    width:178px;
+    height:18px;
+    background-color:#ff3232 ;
+    padding:12px;
+    border-radius:5px;
+    font-weight:bold;
+    color:white;
+}
+.button:before{
+    content:"";
+    position:absolute;
+    width:0px;
+    height:0px;
+    border: 10px solid;
+    border-color: white transparent transparent transparent;
+    right:6px;
+    top:18px;
+}
+div.pContainer{
+    position: absolute;
+    top:50vh;left:35vw;
+    box-shadow:8px 0 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);    
+    margin-bottom: 4px;
+    text-align: left;   
+    width: 55vw; height: 50vh;
+    padding-left: 50px;
+    padding-bottom: 15px;
+    background-color: rgba(99, 182, 202, 0.842);
+}
+h1.pTitle{
+    position: absolute;
+    top:5vh;left:2vw;
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  div.Peoplecontainer{
+    position: absolute;
+    display: inline-block;
+    top:20vh;left:4vw;
+    height:80vh; width:60vw;    
+  }
+  p.inputStudentLabel{
+    position: absolute;
+    top:0vh;left:0vw;
+    
+  }
+  p.inputChargeLabel{
+    position: absolute;
+    top:11vh;left:0vw;
+    
+  }
+  input.inStudentCode{
+    position: absolute;
+    top:4vh;left:0vw;
+    height:25px; width:400px;   
+  }
+  input.inChargeCode{
+    position: absolute;
+    top:15vh;left:0vw;
+    height:25px; width:400px;   
+  }
+  button.Borrow{
+    position: absolute;
+    top:20vh;left:5vw;
+    height:30px; width:100px;  
+  }
+div.Log{
+    position: absolute;
+    top:0vh;left:30vw;
+    height:400px; width:300px; 
+}

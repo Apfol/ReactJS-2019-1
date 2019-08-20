@@ -1,17 +1,20 @@
 import React from 'react';
 import './App.css';
-import MissingObject from './Resources/Components/MissingObject';
-import MissingObjectList from './Resources/Components/MissingObjectList';
+import SportsEquipment from './Resources/Components/SportsEquipment';
+
 
 function App() {
-  const object = [
-    {name: "Calculadora", 
-    location: "Biblioteca",
-    by: "Luis"}
-  ] 
+ 
+  const object=[{ SportsElement: "Balon de Futbol",
+  SportsElement1: "Balon de Basket", 
+  SportsElement2: "Remos" }]
+  
+
+  
   return (
     <div className="App">
-      <MissingObjectList/>
+      <SportsEquipment object={object}></SportsEquipment>
+     
     </div>
   );
 }
