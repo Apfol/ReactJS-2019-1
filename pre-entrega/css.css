@@ -1,0 +1,123 @@
+
+* {margin: 0; padding: 0;}
+ 
+
+body{
+	background-color: #f7fffe;
+  text-align: center;
+}
+
+#container {
+ width: 1000px;
+ overflow: hidden;
+ margin: 50px auto;
+ background-color: #8d8e8d;
+}
+
+/*header*/
+header {
+ width: 900px;
+ margin: 40px auto;
+ background-color: ;
+
+}
+ 
+header h1 {
+ text-align: center;
+ font: 100 40px/1.5 Helvetica, Verdana, sans-serif;
+ background-color: ;
+}
+ 
+header p {
+ font: 100 20px/1.5 Helvetica, Verdana, sans-serif;
+ 
+ background-color:;
+}
+ 
+/*photobanner*/
+ 
+.photobanner {
+ height: 233px;
+ width: 2070px;
+ margin-bottom: 100px;
+}
+
+
+/*keyframe animations*/
+.first {
+ -webkit-animation: bannermove 25s linear infinite;
+    -moz-animation: bannermove 25s linear infinite;
+     -ms-animation: bannermove 25s linear infinite;
+      -o-animation: bannermove 25s linear infinite;
+         animation: bannermove 25s linear infinite;
+}
+ 
+@keyframes "bannermove" {
+ 0% {
+    margin-left: 0px;
+ }
+ 100% {
+    margin-left: -1800px;
+ }
+ 
+}
+ 
+@-moz-keyframes bannermove {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -1800px;
+ }
+ 
+}
+ 
+@-webkit-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -1800px;
+ }
+ 
+}
+ 
+@-ms-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -1800px;
+ }
+ 
+}
+ 
+@-o-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -1800px;
+ }
+ 
+}
+#button {
+  padding: 0;
+}
+#button li {
+  display: inline;
+}
+#button li a {
+
+  font-size: 11px;
+  text-decoration: none;
+  float: left;
+  padding: 10px;
+  background-color: #2175bc;
+  color: #fff;
+}
+#button li a:hover {
+  background-color: #2586d7;
+  margin-top: -2;
+  padding-bottom: 12px;
+}
