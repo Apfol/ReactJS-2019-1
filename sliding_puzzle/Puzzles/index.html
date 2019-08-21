@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Puzzle deslizante</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src='main.js'></script>
+</head>
+<body style="background:#698159;">
+    <div id="table" style="display: table;">
+        <div id="row1" style="display: table-row;">
+           <div id="cell11" class="cuadro1" onClick="clickVacio(1,1);"></div>
+           <div id="cell12" class="cuadro2" onClick="clickVacio(1,2);"></div>
+           <div id="cell13" class="cuadro3" onClick="clickVacio(1,3);"></div>
+        </div>
+        <div id="row2" style="display: table-row;">
+           <div id="cell21" class="cuadro4" onClick="clickVacio(2,1);"></div>
+           <div id="cell22" class="cuadro5" onClick="clickVacio(2,2);"></div>
+           <div id="cell23" class="cuadro6" onClick="clickVacio(2,3);"></div>
+        </div>
+        <div id="row3" style="display: table-row;">
+           <div id="cell31" class="cuadro7" onClick="clickVacio(3,1);"></div>
+           <div id="cell32" class="cuadro8" onClick="clickVacio(3,2);"></div>
+           <div id="cell33" class="cuadro9" onClick="clickVacio(3,3);"></div>
+        </div>
+     </div>
+       <button style="width:500px; height:100px ; display: inline-block;" onClick="shuffle();">Jugar!</button>
+
+</body>
+</html>

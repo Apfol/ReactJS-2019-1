@@ -1,0 +1,80 @@
+.cuadro1{
+    display: table-cell;
+  width: 220px;
+  height: 220px;
+  border: 1px solid white;
+  background: url(812.jpg);
+  cursor: pointer;
+  background-position: left top;
+}
+.cuadro2{
+    display: table-cell;
+  width: 220px;
+  height: 220px;
+  border: 1px solid white;
+  background: url(812.jpg);
+  cursor: pointer;
+  background-position: center top;
+}
+.cuadro3{
+    display: table-cell;
+  width: 220px;
+  height: 220px;
+  border: 1px solid white;
+  background: url(812.jpg);
+  cursor: pointer;
+  background-position: right top;
+}
+.cuadro4{
+    display: table-cell;
+  width: 220px;
+  height: 220px;
+  border: 1px solid white;
+  background: url(812.jpg);
+  cursor: pointer;
+  background-position: left center;
+}
+.cuadro5{
+    display: table-cell;
+  width: 220px;
+  height: 220px;
+  border: 1px solid white;
+  background: url(812.jpg);
+  cursor: pointer;
+  background-position: center center;
+}
+.cuadro6{
+    display: table-cell;
+  width: 220px;
+  height: 220px;
+  border: 1px solid white;
+  background: url(812.jpg);
+  cursor: pointer;
+  background-position: right center;
+}
+.cuadro7{
+    display: table-cell;
+  width: 220px;
+  height: 220px;
+  border: 1px solid white;
+  background: url(812.jpg);
+  cursor: pointer;
+  background-position: left bottom;
+}
+.cuadro8{
+    display: table-cell;
+  width: 220px;
+  height: 220px;
+  border: 1px solid white;
+  background: url(812.jpg);
+  cursor: pointer;
+  background-position: center bottom;
+}
+.cuadro9{
+    display: table-cell;
+  width: 220px;
+  height: 220px;
+  border: 1px solid white;
+  background: grey;
+  cursor: default;
+}
