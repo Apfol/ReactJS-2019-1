@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import ListItem from './Item/ListItem';
+import ListItem from './item/ListItem';
+import Title from './header/Title';
 
 function App() {
   return (
     <div>
       <header>
+        <Title></Title>
       </header>
       <ListItem></ListItem>  
     </div>
