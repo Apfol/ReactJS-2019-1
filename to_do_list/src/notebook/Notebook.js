@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ListItem from '../item/ListItem';
 import Title from '../header/Title';
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import styles from './Notebook.css';
 
 class Notebook extends Component {
@@ -33,17 +33,19 @@ class Notebook extends Component {
 
     render() {
         return (
-            <div>
-                <header>
-                    <Title />
-                </header>
-                {this.state.items.map((item) =>
-                    <ListItem position={item} onDeleteItem={this.onDeleteItem.bind(this)} />
-                )}
-                <div className={styles.button} >
-                    <Button variant="dark" onClick={this.handleClick}>Add Item</Button>
-                </div>
-            </div>
+            <Card className={styles.container}>
+                <Card.Body>
+                    <header>
+                        <Title />
+                    </header>
+                    {this.state.items.map((item) =>
+                        <ListItem position={item} onDeleteItem={this.onDeleteItem.bind(this)} />
+                    )}
+                    <div className={styles.button} >
+                        <Button variant="dark" onClick={this.handleClick}>Add Item</Button>
+                    </div>
+                </Card.Body>
+            </Card>
         );
     }
 }

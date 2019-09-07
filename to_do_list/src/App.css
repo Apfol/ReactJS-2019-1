@@ -1,8 +1,3 @@
-.App {
-  text-align: center;
-}
-
-@font-face {
-  font-family: DKLemonYellowSun;
-  src: url("DKLemonYellowSun.otf") format("opentype");
+body {
+  background-image: url(background.jpg);
 }
