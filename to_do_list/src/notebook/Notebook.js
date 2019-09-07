@@ -6,7 +6,8 @@ import styles from './Notebook.css';
 
 class Notebook extends Component {
 
-    itemList = [1, 2];
+    itemList = [1];
+    index = 0;
 
     constructor(props) {
         super(props);
@@ -16,7 +17,15 @@ class Notebook extends Component {
     }
 
     handleClick = () => {
-        this.itemList.push(this.itemList.length + 1);
+        this.itemList.push(this.itemList[this.itemList.length - 1] + 1);
+        this.setState({
+            items: this.itemList,
+        });
+    }
+
+    onDeleteItem(itemPosition) {
+        this.index = this.itemList.indexOf(itemPosition);
+        this.itemList.splice(this.index, 1);
         this.setState({
             items: this.itemList,
         });
@@ -29,7 +38,7 @@ class Notebook extends Component {
                     <Title />
                 </header>
                 {this.state.items.map((item) =>
-                    <ListItem position={item} />
+                    <ListItem position={item} onDeleteItem={this.onDeleteItem.bind(this)} />
                 )}
                 <div className={styles.button} >
                     <Button variant="dark" onClick={this.handleClick}>Add Item</Button>
