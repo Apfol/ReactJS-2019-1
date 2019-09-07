@@ -1,0 +1,16 @@
+.activitiesList{
+    list-style: none;
+    width: 50%;
+    margin-left: 25%;
+    padding: 0;
+    border: 1px black solid;
+    padding: 10px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.plus{
+    position: relative;
+    width: 1%;
+    height: 1%;
+    margin-left: 75%;
+}

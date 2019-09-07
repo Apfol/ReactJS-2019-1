@@ -1,0 +1,25 @@
+.leftImage{
+    width: 5%;
+    height: 5%;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+}
+
+.information{
+    font-size: 25px;
+    position: relative;
+    width: 50%;
+    font-style: oblique;
+    margin-bottom: 10px;
+}
+
+.rightImage{
+    width: 5%;
+    height: 5%;
+    margin-left: 0;
+    float: right;
+    margin-bottom: 10px;
+    vertical-align: middle;
+}
+
