@@ -1,0 +1,11 @@
+.heading {
+    text-align: center;
+    margin: 3%;
+    font-family: 'TropicalSummerSignature';
+    font-size: 100px;
+}
+
+@font-face {
+    font-family: TropicalSummerSignature;
+    src: url("../TropicalSummerSignature.ttf") format("opentype");
+}
