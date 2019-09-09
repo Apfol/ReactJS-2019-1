@@ -1,0 +1,45 @@
+
+.theList {
+    list-style: none;
+    padding-left: 0;
+    width: 25vw;
+  }
+.theList li {
+    color: rgb(77, 77, 77);
+    background-color: #e2e2e27e;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+  }
+
+.theList li:hover {
+    background-color: rgb(255, 113, 113);
+    color: white;
+    cursor: pointer;
+  }
+.iconContainer{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 100%;
+  }
+.icon{
+    width:40px;
+    height: 40px;
+    top: 0;
+    margin-top: 0;
+    background-image: url("https://image.flaticon.com/icons/svg/148/148876.svg");
+  }
+  li:hover .icon{
+    background-image: url("https://image.flaticon.com/icons/svg/149/149147.svg");
+    filter: invert(1);
+  }
+  .item{
+    width: 100%;
+    padding-left: 4%;
+    white-space: normal;
+
+  }
