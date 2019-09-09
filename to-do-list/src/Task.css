@@ -1,0 +1,77 @@
+.container {
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    display: inline-block;
+    left: 50%;
+    top: 30px;
+    transform: translate(0, 0);
+    font-family: 'Coming Soon', cursive;
+    font-weight: bold;
+  }
+  
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: orange;
+    border-radius: 50%;
+  }
+  
+  .container:hover input ~ .checkmark {
+    background-color: lightblue;
+  }
+  
+  .container input:checked ~ .checkmark {
+    background-color: cornflowerblue;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .text{
+    float: right;
+    resize: none;
+    height: 34px;
+    padding: 12px;
+    border: 1px solid #9da3a6;
+    border-radius: 4px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+  
+  .delete{
+    width: 14px;
+    float: right;
+    filter: opacity(0.5);
+    display: inline;
+    margin-right: auto;
+    margin-left: auto;
+    cursor: pointer;
+  }

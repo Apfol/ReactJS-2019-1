@@ -1,0 +1,64 @@
+.title {
+  text-align: center;
+  display: block;
+  /*font-family: 'Coming Soon', cursive;*/
+  font-family: 'Sue Ellen Francisco', cursive;
+  /*font-family: 'Aguafina Script', cursive;
+  font-family: 'Arizonia', cursive;*/
+  color: orange;
+  font-size: 38px;
+}
+
+.all{
+  display: block;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  padding: 0px 25%;
+}
+
+.list{
+  display: block;
+  border: 1px solid orange;
+  padding: 42px;
+  border-radius: 5px;
+}
+
+.add{
+  background-color: cornflowerblue;
+  color: #fff; 
+  width: 20%;
+  height: 34px;
+  float: right;
+  padding: 0 12px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid cornflowerblue;
+  border-radius: 4px;
+  font-size: 1em;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.add:hover{
+  background-color: rgba(44, 59, 143);
+  cursor: pointer;
+}
+
+.text{
+  width: 70%;
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid cornflowerblue;
+  border-radius: 4px;
+  font-size: 1em;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
