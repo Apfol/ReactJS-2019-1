@@ -28,9 +28,9 @@ export default class Formulario extends React.Component {
 
     render(){
         return(
-            <form onSubmit={this.handleSubmit} className={classes.formulario}>
-                <input name="text" value={this.state.text} onChange={this.handleChange} placeholder="Tarea"></input>
-                <button onClick={this.handleChange}>añadir</button>
+            <form onSubmit={this.handleSubmit}>
+                <input className={classes.formulario} name="text" value={this.state.text} onChange={this.handleChange} placeholder="Tarea"></input>
+                <button className={classes.input} onClick={this.handleChange}>añadir</button>
             </form>
         );
     }

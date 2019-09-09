@@ -42,11 +42,9 @@ export default class Lista extends React.Component {
 
     render(){
         return(
-            <div>  
-                {this.state.elements.map(element => (<Elemento key={element.id} toggleComplete={() =>this.toggleComplete(element.id)} deleteElement={() => this.handleDelete(element.id)} element={element}/>))}
-                <div className={classes.formulario}>
-                    <Formulario onSubmit={this.addElement} />
-                </div>
+            <div> 
+                <Formulario onSubmit={this.addElement} /> 
+                {this.state.elements.map(element => (<Elemento key={element.id} toggleComplete={() =>this.toggleComplete(element.id)} deleteElement={() => this.handleDelete(element.id)} element={element}/>))}                
             </div>
         );
     }

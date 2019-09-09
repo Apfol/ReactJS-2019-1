@@ -1,8 +1,36 @@
-.comp{
-    background: red;
+.elemento{
+    margin:  auto;
+    width: 50%;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: justify;
+    text-decoration: underline;
+    background-color: #9dc654;
+    bottom: 50px;
+    display: block;
 
 }
 
+
 .boton{
-    display: "flex";
+    display: inline-block;
+    width: 20%;
+    height: 20%;
+    background-color: #4caf50;
+    border:none;
+    border-radius: 5px;
+    color:white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.div{
+    width: 50%;
+    border: 6px  grey;
+    border-radius: 5px;
+    
 }
