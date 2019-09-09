@@ -1,0 +1,119 @@
+body{
+    background-color: #f5d5ec;
+}
+
+.App{
+    background-image: url("https://www.audreychenal.com/wp-content/uploads/2019/03/wallpaper-tPink-purple-hand-painted-watercolor-boho-feathers-pattern-by-Audrey-Chenal.jpg");
+}
+.app-title{
+	background-image: url("https://www.elsetge.cat/myimg/f/38-385769_wallpapers-id-blue-and-purple-texture.jpg");
+	opacity: 0.8;
+    color: #e4d8ed;
+    font-size: 70px;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    text-align: center;
+}
+
+.container{
+    font-family: Courier, monospace;
+	font-size: 25px;
+	font-weight: bolder;
+    text-align: center;
+    border: 5px solid purple;
+    border-radius: 25px; 
+}
+
+.input{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-image: url("https://wallpaperplay.com/walls/full/d/7/0/199840.jpg");
+    font: 20px Courier, monospace;
+ 
+}
+
+.add-btn{
+	-moz-box-shadow:inset 0px 1px 0px 0px #afe6fa;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #afe6fa;
+	box-shadow:inset 0px 1px 0px 0px #afe6fa;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5521b5), color-stop(1, #e61066));
+	background:-moz-linear-gradient(top, #5521b5 5%, #e61066 100%);
+	background:-webkit-linear-gradient(top, #5521b5 5%, #e61066 100%);
+	background:-o-linear-gradient(top, #5521b5 5%, #e61066 100%);
+	background:-ms-linear-gradient(top, #5521b5 5%, #e61066 100%);
+	background:linear-gradient(to bottom, #5521b5 5%, #e61066 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5521b5', endColorstr='#e61066',GradientType=0);
+	background-color:#5521b5;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #eb236c;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #005ac7;
+}
+
+.add-btn:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e61066), color-stop(1, #5521b5));
+	background:-moz-linear-gradient(top, #e61066 5%, #5521b5 100%);
+	background:-webkit-linear-gradient(top, #e61066 5%, #5521b5 100%);
+	background:-o-linear-gradient(top, #e61066 5%, #5521b5 100%);
+	background:-ms-linear-gradient(top, #e61066 5%, #5521b5 100%);
+	background:linear-gradient(to bottom, #e61066 5%, #5521b5 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e61066', endColorstr='#5521b5',GradientType=0);
+	background-color:#e61066;
+}
+.add-btn:active {
+	position:relative;
+	top:1px;
+}
+
+.del-btn {
+-moz-box-shadow: 0px 10px 14px -7px #000000;
+	-webkit-box-shadow: 0px 10px 14px -7px #000000;
+	box-shadow: 0px 10px 14px -7px #000000;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #850085));
+	background:-moz-linear-gradient(top, #000000 5%, #850085 100%);
+	background:-webkit-linear-gradient(top, #000000 5%, #850085 100%);
+	background:-o-linear-gradient(top, #000000 5%, #850085 100%);
+	background:-ms-linear-gradient(top, #000000 5%, #850085 100%);
+	background:linear-gradient(to bottom, #000000 5%, #850085 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#850085',GradientType=0);
+	background-color:#000000;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
+}
+.del-btn:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #850085), color-stop(1, #000000));
+	background:-moz-linear-gradient(top, #850085 5%, #000000 100%);
+	background:-webkit-linear-gradient(top, #850085 5%, #000000 100%);
+	background:-o-linear-gradient(top, #850085 5%, #000000 100%);
+	background:-ms-linear-gradient(top, #850085 5%, #000000 100%);
+	background:linear-gradient(to bottom, #850085 5%, #000000 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#850085', endColorstr='#000000',GradientType=0);
+	background-color:#850085;
+}
+.del-btn:active {
+	position:relative;
+	top:1px;
+}
+
+
+
