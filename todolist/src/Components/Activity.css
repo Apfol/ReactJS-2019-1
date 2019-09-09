@@ -1,0 +1,46 @@
+.Activity{
+    text-align: center;  
+    align-items: center;  
+    background-color: rgb(53, 221, 157);
+    border-radius: 15px 50px ;        
+    width: 100%;       
+}
+.Activity_done{
+    text-align: center;  
+    align-items: center;  
+    background-color: rgb(106, 114, 111);
+    border-radius: 15px 50px ;        
+    width: 100%;       
+}
+.item{
+    margin: 0;
+    margin-left: 5px;
+    display: inline-block;
+}
+.item_done{
+    margin: 0;
+    margin-left: 5px;
+    display: inline-block;
+    text-decoration: line-through solid rgb(68, 68, 68);
+}
+.done{
+    text-decoration: line-through solid rgb(68, 68, 68);
+}
+
+.buttons{
+    
+    padding: 0;
+    margin: 0;
+}
+.buttons *{    
+    display: inline;
+}
+
+.btnDone{
+    color: beige;
+    background-color:  rgb(73, 122, 103);
+}
+.btnDelete{
+    color: beige;
+    background-color:  rgb(243, 38, 38);
+}
