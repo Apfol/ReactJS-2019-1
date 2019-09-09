@@ -8,14 +8,14 @@ function Footer(props) {
                 <div className="row">
                     <div className="col-md-6">
                         <h2 className="footer-title">Contactanos</h2>
-                        <span class="instagram"><i class="fab fa-instagram"></i></span>
-                        <span class="twitter"><i class="fab fa-twitter"></i></span>
+                        <span className="instagram"><i className="fab fa-instagram"></i></span>
+                        <span className="twitter"><i className="fab fa-twitter"></i></span>
                         <div className="container footer-left">
                             <div className="resources">
                                 <h5>recursos</h5>
                                 <ul className="resource-list">
-                                    <li><Link className="footer-link">Pide un juego</Link></li>
-                                    <li><Link className="footer-link">Reporta un problema</Link></li>
+                                    <li><Link to="/" className="footer-link">Pide un juego</Link></li>
+                                    <li><Link to="/" className="footer-link">Reporta un problema</Link></li>
                                 </ul>
                             </div>
                         </div>

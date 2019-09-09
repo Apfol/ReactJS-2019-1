@@ -6,7 +6,7 @@ class List extends Component {
         var cards = this.props.games.map((game, index) => {
             return (
                 <React.Fragment key={index}>
-                    <Card image={game.image} title={game.title} text={game.text} css="size-sm" />
+                    <Card image={game.image} title={game.title} text={game.text} />
                 </React.Fragment>
             );
         });
