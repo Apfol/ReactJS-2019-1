@@ -1,0 +1,29 @@
+.CheckList{
+    display: flex;
+    flex-direction: column;
+}
+
+.TaskList{
+    list-style-type: none;
+
+}
+
+.Buttons {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    padding: 5px;
+    justify-content: space-around;
+}
+
+.add{
+    margin-right: 30px;
+    width: 200px;
+}
+
+.del{
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 200px;
+
+}
