@@ -1,0 +1,152 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*segunda parte*/
+
+  body { 
+    text-align: center; 
+    font:300 20px/1.7 'Roboto Condensed';
+  }
+
+  .agrupar{
+    width: 100%;
+    margin: none;
+    
+  }
+
+ 
+  .header { 
+    display: flex; justify-content: center; 
+    align-items: center; 
+  }
+
+
+  .habilidades { 
+    text-align: left; 
+  }
+
+  .list {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+  }
+
+  .list figure { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-flow: column;
+  }
+
+  .title {
+    margin-bottom: 40px; 
+    font: 60px 'Stint Ultra Condensed'; 
+    text-transform: uppercase;
+  }
+
+  p {
+    margin-bottom: 40px;
+  }
+
+  .content { 
+    padding: 80px 0;
+  }
+
+    .perfil {
+      background: #2c3e50; 
+      color: #fff;
+    }
+      .perfil p { 
+        max-width: 1055px; 
+        margin: 0 auto;
+      }
+    .hobbies {
+      background: url(../images/fondo1.jpg) no-repeat center top; 
+      background-size: cover; 
+      color: #fff;
+    }
+
+    .habilidades {
+      background: #34495e;
+      color: #fff;  
+    }
+      .contain {
+        max-width: 1055px; 
+        margin: 0 auto;
+      }
+      .habilidades p {
+        max-width: 450px;
+      }
+
+  .list figure { 
+    position: relative; 
+    width: 150px; 
+    height: 190px;
+  }
+
+  .list figure:after {
+    content: ""; 
+    position: absolute; 
+    top: 0; left: 0; 
+    border-radius: 50%; 
+    z-index: 0; 
+    background: #fff; 
+    width: 150px; 
+    height: 150px;
+  }
+    .list img {
+      position: relative; 
+      z-index: 1;
+    }
+  .list li { 
+    padding: 0 30px; 
+  }
+  .list figcaption {
+     position: relative; 
+     left: 0; 
+     right: 0; 
+     bottom: -40px;
+    }
+
