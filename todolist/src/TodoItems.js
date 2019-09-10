@@ -13,7 +13,6 @@ class TodoItems extends Component{
 
     }
     delete(key){
-        console.log("key is" + key);
         this.props.delete(key);
     }
 
