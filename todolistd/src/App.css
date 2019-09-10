@@ -1,0 +1,17 @@
+.all{
+  background-color: rgba(255, 255, 255, 0.877);
+  padding: 0 33%
+}
+.title {
+  font-family: 'Gayathri', sans-serif;
+  text-align: center;
+}
+
+.taskToDo{
+  font-family: 'Gayathri', sans-serif;
+  text-align: center;
+}
+
+.addList{
+  padding: 0 25%;
+}

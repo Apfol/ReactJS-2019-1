@@ -1,0 +1,25 @@
+.formAll{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.inputText {
+
+    border-radius: 5px;
+    border-color: black;
+    width: 300px;
+}
+
+.button{
+    
+    margin-left: 20px;
+    font-family: 'Gayathri', sans-serif;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    background-color: #505AFC;
+    border-color: #505AFC;
+    font-size: 17px;
+}
