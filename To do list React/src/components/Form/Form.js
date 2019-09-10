@@ -35,7 +35,7 @@ class TaskForm extends React.Component{
     }
 
     createNewTask(event){
-        var dataTask = event.target.value;
+        var dataTask = this.state.task;
         this.props.addTask(dataTask);
     }
 }
