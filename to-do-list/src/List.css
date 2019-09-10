@@ -1,0 +1,19 @@
+.list{
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto; 
+    background: #f85032;
+    width:50%;
+    border:solid 1px white;
+}
+
+.heading{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+font-size: 30px;
+letter-spacing: 1.6px;
+word-spacing: 2px;
+color: #6A31FF;
+font-weight: bold;
+}

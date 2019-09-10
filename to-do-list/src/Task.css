@@ -1,0 +1,71 @@
+.task{
+background: white;
+    border:1px solid black;
+    border-radius: 5px;
+    width: 99%;
+    height:50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.check{
+    float: left;
+    margin-left: 2px;
+    margin-right: 5px;
+    width:4%;
+    height:30px;
+    margin-top:1%;
+    margin-bottom: 1%;
+}
+
+.text{
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+    border: none;
+    height:30px;
+    width: 83%;
+    float: left;
+    margin-top:1%;
+    margin-bottom: 1%;
+}
+
+.text_checked{
+    text-decoration: line-through solid teal;
+    font-size: 20px;
+    border: none;
+    height:30px;
+    width: 83%;
+    float: left;
+    margin-top:1%;
+    margin-bottom: 1%;
+}
+
+.duedate{
+    float: left;
+    border-radius: 2px;
+    background: red;
+}
+
+.reset{
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    width:5%;
+    height:44px;
+    float: left;
+    margin-top:2px;
+    margin-bottom: 1px;
+}
+
+.delete{
+    width:5%;
+    height:43px;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:2px;
+    margin-bottom: 1px;
+}
+
