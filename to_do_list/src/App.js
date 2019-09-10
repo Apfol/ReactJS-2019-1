@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 // COMPONENTS
 import TodoList from './Components/TodoList/TodoList'
 import TodoItems from './Components/TodoList/TodoItems'
+import AnimeToDoList from './Source/Animation/AnimeToDoList'
 import app from './App.css'
 class App extends Component {
   inputElement = React.createRef()
@@ -45,7 +46,7 @@ class App extends Component {
   render() {
     return (
       <div className={app.content}>
-      <h1>To do List</h1>
+      <AnimeToDoList></AnimeToDoList>
         <TodoList
           addItem={this.addItem}
           inputElement={this.inputElement}
