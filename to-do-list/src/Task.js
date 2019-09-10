@@ -9,18 +9,18 @@ class Task extends Component {
         checked: false
     };
 
-    deleteme = this.deleteme.bind(this);
 
-    deleteme() {
+
+    deleteme = () => {
         this.props.deleteonclick(this);
     }
 
     resetTask = () => {
-        this.setState(
-            {
-                text: "hola",
-            });
-        console.log(this.state.text);
+        let newText = "";
+        this.setState({
+            text: newText
+        });
+        alert(this.state.text);
     }
 
     finishTask = () => {
@@ -40,7 +40,7 @@ class Task extends Component {
             decoration = classes.text_checked;
         }
         return (
-            <div className={classes.task}>
+            <div className={classes.task} >
                 <input type="checkbox" className={classes.check} onClick={this.finishTask} />
                 <input type="text" className={decoration} defaultValue={this.state.text} />
                 <p className={classes.duedate}>{this.props.duedate}</p>

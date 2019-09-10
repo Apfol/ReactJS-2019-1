@@ -10,8 +10,10 @@ class List extends Component {
         return (
             <div className={classes.list}>
                 <h1 className={classes.heading}>Lista de Tareas</h1>
-                <input type="text" id="text_task" className={this.props.ttext} placeholder="Escribe la tarea para hacer" />
-                <button className={this.props.lbutton} onClick={this.props.addonclick}>Añadir</button>
+                <div className={classes.form}>
+                    <input type="text" id="text_task" className={this.props.ttext} placeholder="Escribe la tarea para hacer" />
+                    <button className={this.props.lbutton} onClick={this.props.addonclick}>Añadir</button>
+                </div>
                 <div>
                     {this.props.tasks}
                 </div>
