@@ -1,0 +1,2 @@
+Crear una react app que me permita agregar elementos a una lista, marcarlos como completados y eliminarlos si asi se desea. 
+Se deben utilizar estilos por medio de Radium o CSS modules.
