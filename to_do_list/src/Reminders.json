@@ -1,0 +1,14 @@
+{
+    "list":[
+        {
+            "id":0,
+            "content": "This is a reminder, with ID 0",
+            "active": "true"
+        },
+        {
+            "id":1,
+            "content": "This is a reminder, with ID 1",
+            "active": "true"
+        }
+    ] 
+}

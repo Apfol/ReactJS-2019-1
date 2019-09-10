@@ -1,0 +1,14 @@
+.inline{
+    display:list-item;
+
+}
+.li{
+    max-width: 80%;
+}
+.buttons{
+    text-align: end;  
+}
+
+.li:hover{
+    background-color: #084B9C;
+}

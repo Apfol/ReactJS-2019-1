@@ -1,0 +1,25 @@
+.container{
+    width: 80%;
+}
+
+.Main {
+    min-height: 80%;
+    min-width: 80%;
+    border-style: groove;
+}
+.button{
+    text-align: end;
+    margin: 15px;
+}
+
+.button1 {
+    margin: 5px;
+}
+
+.button2 {}
+
+.button1:hover,
+.button2:hover {
+    background-color: #084B9C;
+    color: white;
+}

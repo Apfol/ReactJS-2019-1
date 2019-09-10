@@ -1,0 +1,32 @@
+.page {
+    background-color: #084B9C;
+    padding-top: 10px;
+    padding-bottom: 50px;
+  }
+  
+  .main {
+    max-width: 65%;
+    min-width: 600px;
+    margin: 15px auto;
+    border-style: groove;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    background-color: #f0e9da;
+    border-radius: 13px 13px 13px 13px;
+    -moz-border-radius: 13px 13px 13px 13px;
+    -webkit-border-radius: 13px 13px 13px 13px;
+    border: 2px solid #000000;
+  }
+  
+  .header {
+    text-align: center;
+    font-size: 3em;
+    font-style: italic;
+  }
+
+  .button{
+      text-align: end;
+      margin: 15px;
+  }
+
