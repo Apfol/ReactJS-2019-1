@@ -1,0 +1,86 @@
+.TaskUncompleted{
+  background: #c31432;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color:white;
+  width: 25%;
+  border: 2px solid black;
+  display: inline-block;
+}
+
+.TaskCompleted{
+  background: #ADD100;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #7B920A, #ADD100);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #7B920A, #ADD100); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  width: 25%;
+  border: 2px solid black;
+  display: inline-block;
+}
+
+.content{
+    padding: 10px;
+}
+
+  .buttonDelete{
+    background-color: white; 
+    color: black; 
+    border: 2px solid black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .buttonDelete:hover {
+    background-color: #e84118;
+    color: white;
+  }
+
+  .buttonComplete{
+    background-color: white; 
+    color: black; 
+    border: 2px solid black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .buttonComplete:hover {
+    background-color: #353b48;
+    color: white;
+  }
+
+@media (max-width: 630px){
+  .TaskUncompleted{
+    background: #c31432;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color:white;
+    width: 100%;
+    border: 2px solid black;
+    display: block;
+  }
+
+  .TaskCompleted{
+    background: #ADD100;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #7B920A, #ADD100);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #7B920A, #ADD100); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+    width: 100%;
+    border: 2px solid black;
+    display: inline-block;
+  }
+
+}
