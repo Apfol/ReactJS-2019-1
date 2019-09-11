@@ -9,6 +9,7 @@
     transform: translate(0, 0);
     font-family: 'Coming Soon', cursive;
     font-weight: bold;
+    width: 85%;
   }
   
   .container input {
@@ -74,4 +75,14 @@
     margin-right: auto;
     margin-left: auto;
     cursor: pointer;
+  }
+
+  @media (max-width: 955px) {
+    .task {
+      width: -webkit-fill-available;
+    }
+  
+    .container {
+      width: 74%;
+    }
   }

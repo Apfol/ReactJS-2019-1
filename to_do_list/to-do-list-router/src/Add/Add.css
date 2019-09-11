@@ -19,7 +19,7 @@
   }
   
   .text{
-    width: 70%;
+    width: 75%;
     height: 34px;
     padding: 0 12px;
     border: 1px solid cornflowerblue;
@@ -28,3 +28,18 @@
     margin-bottom: 20px;
     display: inline-block;
   }
+
+  @media(max-width: 1200px){
+    .text{
+      width: 73%;
+    }
+   }
+   
+   @media(max-width: 765px){
+     .text{
+       width: 72%;
+     }
+     .add{
+       width: 18%;
+     }
+    }

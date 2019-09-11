@@ -9,7 +9,7 @@ const Task = props=> {
     }
 
     return (
-        <div id={props.id}>
+        <div className={classes.task} id={props.id}>
             <label className={classes.container}>{props.task.task}
                 <input type="checkbox"></input>
                 <span className={classes.checkmark}></span>
