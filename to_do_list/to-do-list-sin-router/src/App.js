@@ -6,7 +6,6 @@ class App extends Component{
   constructor(props) {
     super(props)
     
-    // Create the ref
     this.textInput = React.createRef();
   }
   
