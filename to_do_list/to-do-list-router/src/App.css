@@ -1,0 +1,56 @@
+
+.title {
+  text-align: center;
+  display: block;
+  /*font-family: 'Coming Soon', cursive;*/
+  font-family: 'Sue Ellen Francisco', cursive;
+  /*font-family: 'Aguafina Script', cursive;
+  font-family: 'Arizonia', cursive;*/
+  color: orange;
+  font-size: 38px;
+  margin-bottom: 0;
+}
+
+ul{
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+ul li{
+  display: inline-block;
+  padding-right: 8px;
+}
+
+ul li img{
+  width: 35px;
+}
+
+.add{
+  height: 35px;
+  width: 30px;
+}
+
+.all{
+  display: block;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  padding: 0px 25%;
+}
+
+.list{
+  display: block;
+  border: 1px solid orange;
+  padding: 42px;
+  border-radius: 5px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
