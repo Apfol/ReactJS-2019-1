@@ -8,34 +8,45 @@ class Reminder extends Component {
     super(props);
     this.state = {
       keys: Object.keys(Reminders.list),
-      sumatoria: 1,
       recordatorios: [
-        // {
-        //   id: 0,
-        //   content: "This is an item",
-        //   active: true
-        // }
-      ]
+        {
+          content: "This is an item",
+          active: true
+        },
+        {
+          content: "This is another item",
+          active: true
+        }
+      ],
+      newPostInfo:{
+        content: "",
+        active: ""
+      }
     };
   }
   crearRecordatorio() {
-    var contenido = prompt("Ingresa tu recordatorio:");
+    var updatedPosts = [...this.state.recordatorios];
+    var newPostInfo = {...this.state.newPostInfo};
 
-    if(contenido.length !== 0){
-      this.setState({ sumatoria: this.state.sumatoria + 1 });
+    newPostInfo 
 
-      var temporal = {
-        id: this.state.sumatoria,
-        content: contenido,
-        status: true
-      };
+    // var contenido = prompt("Ingresa tu recordatorio:");
+
+    // if(contenido.length !== 0){
+    //   this.setState({ sumatoria: this.state.sumatoria + 1 });
+
+    //   var temporal = {
+    //     id: this.state.sumatoria,
+    //     content: contenido,
+    //     status: true
+    //   };
   
-      this.setState({
-        recordatorios: this.state.recordatorios.concat(temporal)
-      });
-    } else{
-      alert('Recordatorio inválido');
-    };
+    //   this.setState({
+    //     recordatorios: this.state.recordatorios.concat(temporal)
+    //   });
+    // } else{
+    //   alert('Recordatorio inválido');
+    // };
    
 
     
