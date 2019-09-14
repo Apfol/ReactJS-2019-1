@@ -55,7 +55,6 @@ class App extends Component {
   render () {
     return(
       <BrowserRouter>
-        <div>
           <header>
             <nav className = "nav-bar">
               <ul>
@@ -79,7 +78,6 @@ class App extends Component {
           <Route path ="/post/:postIndex" exact render = {() => (
               <FullPost openPost = {(postIndex) => this.openPost(postIndex)} />
           )} />
-        </div>
       </BrowserRouter>
     )
   }
