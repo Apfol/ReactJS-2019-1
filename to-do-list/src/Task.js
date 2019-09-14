@@ -4,10 +4,14 @@ import classes from './Task.css';
 
 class Task extends Component {
 
-    state = {
-        text: this.props.ttext,
-        checked: false
-    };
+    constructor(props) {
+        super();
+        this.state = {
+            text: props.ttext,
+            checked: false,
+            id: props.id
+        };
+    }
 
 
 
@@ -20,7 +24,7 @@ class Task extends Component {
         this.setState({
             text: newText
         });
-        alert(this.state.text);
+        //    alert("Nuevo texto: " + this.state.text);
     }
 
     finishTask = () => {
@@ -34,16 +38,22 @@ class Task extends Component {
             });
     }
 
+    changeValue = () => {
+        this.setState({
+            text: document.getElementById(this.state.id).value
+        });
+    }
+
     render() {
         let decoration = classes.text;
         if (this.state.checked === true) {
             decoration = classes.text_checked;
         }
+        // alert(this.state.text);
         return (
-            <div className={classes.task} >
+            <div className={classes.task}>
                 <input type="checkbox" className={classes.check} onClick={this.finishTask} />
-                <input type="text" className={decoration} defaultValue={this.state.text} />
-                <p className={classes.duedate}>{this.props.duedate}</p>
+                <input type="text" id={this.state.id} className={decoration} value={this.state.text} onChange={this.changeValue} />
                 <img className={classes.reset} src="../reset.svg" onClick={this.resetTask} alt="" />
                 <img className={classes.delete} src="../delete.png" alt="" onClick={this.deleteme} />
             </div>
