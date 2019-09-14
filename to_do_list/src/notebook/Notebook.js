@@ -64,9 +64,9 @@ class Notebook extends Component {
                         <Title />
                     </header>
                     {this.state.items.map((item) =>
-                        <ListItem 
-                            position={item.id} 
-                            onDeleteItem={this.onDeleteItem.bind(this)} 
+                        <ListItem
+                            position={item.id}
+                            onDeleteItem={this.onDeleteItem.bind(this)}
                             handleChecked={this.handleChecked.bind(this)}
                             handleContent={this.handleContent.bind(this)} />
                     )}
