@@ -64,7 +64,7 @@ class App extends React.Component{
                     Tasks completed: {this.state.task.filter(ToDo => ToDo.taskCompleted).length}
                   </div>
                   {this.state.task.map(ToDo => (
-                    <ToDoList key={ToDo.id + 1} 
+                    <ToDoList key={ToDo.id} 
                               taskCompleted={() => this.taskCompleted(ToDo.id)}                        
                               ToDo={ToDo}
                               deleteTask={() => this.deleteTask(ToDo.id)}/>
