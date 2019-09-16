@@ -2,10 +2,13 @@ import React from 'react';
 import './AddList.css'
 import classes from './AddList.css';
 
-class AddList extends React.Component{
-    
-    state = {
-        taskText: ''
+class AddList extends React.Component{        
+   
+    constructor(props){
+        super(props);
+        this.state = {
+            taskText: ''
+        };
     }
 
     handleChange = (event) =>{
@@ -13,10 +16,11 @@ class AddList extends React.Component{
     }
 
     handleSubmit = (event) =>{
-        var id = parseInt(Math.random() * (1000 - 1) + 1);
+        var id = parseInt(Math.random() * (1000 - 1) + 1)
+        
         event.preventDefault();
         this.props.onSubmit({
-            id:id,
+            id: id,
             taskText: this.state.taskText,
             taskCompleted: false
         });
@@ -30,7 +34,7 @@ class AddList extends React.Component{
             <div>
                 <form className={classes.formAll} onSubmit={this.handleSubmit}>
                     <input name="taskText " className={classes.inputText} value={this.state.taskText} onChange={this.handleChange}></input>                    
-                    <button onClick={this.handleSubmit} className={classes.button}>Add to list</button>
+                    <button onClick={this.handleSubmit.bind(this)} className={classes.button}>Add to list</button>
                 </form> 
             </div>
         );

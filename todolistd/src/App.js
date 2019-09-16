@@ -2,6 +2,7 @@ import React from 'react';
 import AddList from './AddList';
 import ToDoList from './ToDoList';
 import classes from './App.css';
+import { BrowserRouter, Route, Link} from 'react-router-dom';
 
 class App extends React.Component{
   
@@ -14,7 +15,7 @@ class App extends React.Component{
 
   addToDo = (ToDo) =>{
     this.setState({
-      task: [ToDo, ...this.state.task]
+      task: [...this.state.task, ToDo]
     });
   }
 
@@ -42,19 +43,35 @@ class App extends React.Component{
 
   render(){
       return (
-          <div className={classes.all}>            
-            <h1 className={classes.title}>To Do List</h1>
-            <div className={classes.taskToDo}>
-              Tasks completed: {this.state.task.filter(ToDo => ToDo.taskCompleted).length}
-            </div>
-            <AddList onSubmit={this.addToDo} className="addList"/>
-            {this.state.task.map(ToDo => (
-              <ToDoList key={ToDo.id} 
-                        taskCompleted={() => this.taskCompleted(ToDo.id)}                        
-                        ToDo={ToDo}
-                        deleteTask={() => this.deleteTask(ToDo.id)}/>
-              ))}                              
-          </div>
+        <BrowserRouter>
+        
+        <div className={classes.all}>
+          <p className={classes.p1}><Link to="/add-task">Add Task</Link></p>
+          <p className={classes.p2}><Link to="/task-list">Show task list</Link></p>
+        </div>     
+          <h1 className={classes.title}>To Do List</h1>
+            
+            <Route path="/add-task" render = {() => (
+              <div className={classes.all}>
+                <AddList onSubmit={this.addToDo} className="addList"/>
+                {JSON.stringify(this.state.task)}
+              </div>
+            )}/> 
+              
+            <Route path="/task-list" exact render = {() =>(
+              <div className={classes.all}>
+                <div className={classes.taskToDo}>
+                    Tasks completed: {this.state.task.filter(ToDo => ToDo.taskCompleted).length}
+                  </div>
+                  {this.state.task.map(ToDo => (
+                    <ToDoList key={ToDo.id + 1} 
+                              taskCompleted={() => this.taskCompleted(ToDo.id)}                        
+                              ToDo={ToDo}
+                              deleteTask={() => this.deleteTask(ToDo.id)}/>
+                    ))}
+              </div> 
+            )}/>                          
+        </BrowserRouter>
       );
   }
 }

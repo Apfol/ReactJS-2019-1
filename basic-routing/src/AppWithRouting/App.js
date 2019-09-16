@@ -61,7 +61,7 @@ class App extends Component {
               <ul>
                 {/* <li><a href = "/">Home</a></li> */}
                 <li><Link to="/">Home</Link></li>
-                {/* <li><a href = "/new-post">New Post</a></li> */}
+                {/* <li><a href = "/new-post">New Po<st</a></li> */}
                 <li><Link to="/new-post">New Post</Link></li>
               </ul>
             </nav>
