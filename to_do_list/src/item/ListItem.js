@@ -11,7 +11,7 @@ class ListItem extends Component {
                         <InputGroup.Text>{this.props.position}</InputGroup.Text>
                         <InputGroup.Checkbox onChange={this.onChangeCheckbox} />
                     </InputGroup.Prepend>
-                    <FormControl aria-label="Text input with checkbox" onChange={this.onChangeContent} />
+                    <FormControl className={this.props.isChecked ? styles.formColor : null} aria-label="Text input with checkbox" onChange={this.onChangeContent} />
                     <InputGroup.Append>
                         <Button onClick={this.onChangeItems} variant="danger">Delete</Button>
                     </InputGroup.Append>
@@ -25,7 +25,7 @@ class ListItem extends Component {
     onChangeCheckbox = (evt) => {
         this.props.handleChecked(this.props.position, evt.target.checked);
     }
-    onChangeContent= (evt) => {
+    onChangeContent = (evt) => {
         this.props.handleContent(this.props.position, evt.target.value);
     }
 }
