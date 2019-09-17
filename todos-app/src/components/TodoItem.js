@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classes from "./TodoItem.css";
 export default class TodoItem extends Component {
-    onDelete = ()=>{
+    onDelete = (e)=>{
         this.props.deleteTodo(this.props.todo.title)
     }
     
