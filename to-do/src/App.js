@@ -20,7 +20,8 @@ class App extends Component {
     e.preventDefault();
     const newItem = {
       id: this.state.id,
-      title: this.state.item
+      title: this.state.item,
+      done: false
     }
     const updatedItems = [...this.state.items, newItem];
     this.setState({
@@ -52,6 +53,14 @@ class App extends Component {
     });
 
   }
+  finishTodo = id => {
+    const selectedItem = this.state.items.find(item => item.id === id);
+    const filteredItems = this.state.items.filter(item => item.id !== id);
+    selectedItem.done = !selectedItem.done;
+    this.setState({
+      items: [...filteredItems, selectedItem]
+    });
+  }
   render() {
     return (
       <div className={classes.app}>
@@ -68,6 +77,7 @@ class App extends Component {
           clearList={this.clearList}
           handleDelete={this.handleDelete}
           handleEdit={this.handleEdit}
+          finishTodo={this.finishTodo}
         />
       </div>
     );

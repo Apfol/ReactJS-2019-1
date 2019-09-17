@@ -10,6 +10,11 @@
     color: #f44336;
     display: inline;
     margin: 1em;
+    cursor: pointer;
+}
+
+.done {
+    text-decoration: line-through;
 }
 
 .title {
