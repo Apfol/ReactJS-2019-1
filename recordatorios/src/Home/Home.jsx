@@ -3,6 +3,7 @@ import Buttons from './../Buttons/Buttons';
 import Recordatorios from './../Recordatorios/Recordatorios'
 
 
+
 class Home extends Component{
     state = {
         reminders: [

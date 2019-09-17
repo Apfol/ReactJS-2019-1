@@ -315,7 +315,10 @@ module.exports = function(webpackEnv) {
       rules: [
         // Disable require.ensure as it's not a standard language feature.
         { parser: { requireEnsure: false } },
-
+        {
+          test: /\.html$/,//tells webpack to use this loader for all ".html" files
+          loader: 'html-loader'
+      },
         // First, run the linter.
         // It's important to do this before Babel processes the JS.
         {
@@ -416,11 +419,23 @@ module.exports = function(webpackEnv) {
             // of CSS.
             // By default we support CSS Modules with the extension .module.css
             {
+              test: /\.html$/,
+              exclude: [/node_modules/, require.resolve('./index.html')],
+              use: {
+                  loader: 'file-loader',
+                  query: {
+                      name: '[name].[ext]'
+                  },
+              },
+          },
+            {
               test: cssRegex,
               exclude: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
+                modules: true,
+                localIdentName: '[name]__[local]__[hash:base64:5]'
               }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
