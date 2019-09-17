@@ -1,0 +1,24 @@
+
+.texts{
+    font-family: 'Lucida Sans', sans-serif;
+    font-size:20px;
+    color:white;
+    display: inline;
+}
+.container{
+margin:1px;  
+display:inline;
+}
+
+.delete{
+   
+    width: 45px;height:45px;
+    background-image: url("Delete.png" );  
+    background-size: cover;
+    background-color:transparent;
+    margin:10px;    
+    border-radius: 1px;
+}
+.listElement{
+    list-style-type: none;
+}

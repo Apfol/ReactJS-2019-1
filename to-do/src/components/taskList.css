@@ -1,0 +1,13 @@
+.container{
+    margin:1px;
+    background-color: lightblue;
+    height: 800px;
+}
+.clearbtn{
+    
+    bottom: 10vh;
+    width:100px;height: 30px;   
+}
+.list{
+    text-decoration: none;
+}
