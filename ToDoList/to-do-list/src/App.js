@@ -1,9 +1,10 @@
 import React from 'react';
-import Home from './Components/Home/Home'
+import Home from './Home/Home';
+import classes from './App.css'
 
 function App() {
   return (
-    <Home></Home>
+    <Home className = {classes.body}></Home>
       
   );
 }

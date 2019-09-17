@@ -1,0 +1,14 @@
+.main{
+    margin: 0 auto;
+    max-width: 85%;
+}
+.subcontainer{
+    text-align: center;
+}
+.title{
+    display: inline-block;
+}
+
+.button{
+   margin: 0 20px;
+}
