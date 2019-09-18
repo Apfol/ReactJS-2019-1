@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Posts from './Posts/Posts';
 import FullPost from './FullPost/FullPost';
 import NewPost from './NewPost/NewPost';
-import axios from 'axios';
+import axios from './axiosInstance';
 import './App.css';
 
 class App extends Component {
@@ -21,8 +21,9 @@ class App extends Component {
     this.setState({
       loading: true,
     });
-    axios.get('http://jsonplaceholder.typicode.com/posts')
+    axios.get('/posts')
       .then(response => {
+        console.log(response.data);
         var updatedPost = response.data.slice(0, 4);
         updatedPost = updatedPost.map(post => {
           return {
@@ -34,13 +35,9 @@ class App extends Component {
 
         this.setState({
           posts: updatedPost,
-          //loading: false,
         });
-
-        console.log(updatedPost);
       })
       .catch(error => {
-        console.log('error', error)
       })
       .then(() => {
         this.setState({
@@ -55,7 +52,7 @@ class App extends Component {
 
   render() {
     var postToRender = (this.state.loading) ? <h1>Loading...</h1> : <Posts posts={this.state.posts}></Posts>;
-    //postToRender = !this.state.loading && this.state.error ? <h1>Error!</h1> : <Posts posts={this.state.posts}></Posts>);
+    
     return (
       <BrowserRouter>
         <header>
@@ -114,7 +111,13 @@ class App extends Component {
         author: "",
         content: ""
       }
+    });
+    axios.post('/posts', newPostInfo)
+    .then(response => {
     })
+    .catch(error => {
+      console.log('ERROR')
+    });
   }
 }
 
