@@ -1,35 +1,61 @@
 import React, { Component } from 'react';
-import Book from './Book';
+import Book from './Components/Book/Book';
+import Column from './Components/Columns/Column';
 import './App.css';
-import Column from './Column';
-
-const Columns = (
-  <>
-      <Column id="left-column" />
-      <Column id="right-column" />
-  </>
-);
-
-
+import InfoPerson from './Components/Person/InfoPerson';
+import ReaderTools from './Components/Reader/ReaderTools';
+import Page from './Components/Reader/Page';
+import InfoBook from './Components/Reader/InfoBook';
+import { infoPerson, dataBooks, finaldataBooks } from './Data';
 
 class App extends Component {
+
+
+  pagesTemp = ["page.jpeg", "page2.png"];
+
   state = {
-    books: [
-      { name: 'Libro 1', isbn: 1, author: 'autor1', date: 'date1', img: "logo192.png", alt: "algo" },
-      { name: 'Libro 2', isbn: 2, author: 'autor2', date: 'date2', img: "logo192.png", alt: "algo" },
-      { name: 'Libro 3', isbn: 3, author: 'autor3', date: 'date3', img: "logo192.png", alt: "algo" },
-      { name: 'Libro 4', isbn: 4, author: 'autor4', date: 'date4', img: "logo192.png", alt: "algo" },
-      { name: 'Libro 5', isbn: 5, author: 'autor5', date: 'date5', img: "logo192.png", alt: "algo" },
-    ],
-    info:[href="", name="Juan", bookNum=6, bookR=11]
+    columns: [
+      <Column id="left-column" data={<InfoPerson src={infoPerson.src} name={infoPerson.name} bookNum={infoPerson.bookNum} bookR={infoPerson.bookR} />} />,
+      <Column id="right-column" data={this.renderingBooks()} />
+    ], books: dataBooks
   }
-  render() {
-    return(
-        this.state.books.map(
-          book => <Book img={book.img} name={book.name} isbn={book.isbn} author={book.author} date={book.author} alt={book.alt} />)
+
+  componentDidMount() {
+    setTimeout(
+      () => { this.changeState() }, 10000
     );
   }
+
+  changeState() {
+    let dataBooks = finaldataBooks;
+    this.columns = [<Column id="tools-column" data={<ReaderTools />} />,
+    <Column id="reader" data={<Page id="page" src={this.pagesTemp[0]} />} />,
+    <Column id="" data={<InfoBook name={dataBooks[0].name} author={dataBooks[0].author} criticism={dataBooks[0].criticism} summary={dataBooks[0].summary} />} />];
+
+    this.setState(
+      {
+        columns: this.columns,
+      }
+    );
   }
+  render() {
+    return (
+      this.state.columns
+    );
+  }
+
+
+
+
+  renderingBooks() {
+    return (
+      dataBooks.map(
+        book => <Book img={book.img} name={book.name} isbn={book.isbn} author={book.author} date={book.author} alt={book.alt} />
+      )
+    );
+  }
+
+}
 
 export default App;
 
