@@ -11,4 +11,4 @@ const NavigationHeader = () => {
     )
 }
 
-export default NavigationHeader
+export default NavigationHeader;
