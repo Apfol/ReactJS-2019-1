@@ -5,6 +5,7 @@ import TaskForm from '../Form/Form';
 import {BrowserRouter} from 'react-router-dom';
 import {Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import axios from '../axiosInstance';
 
 var HeaderComponent = () =>{
   return(
@@ -37,17 +38,43 @@ class App extends React.Component {
 
   constructor(props){
       super(props);
+
       this.state = {
-          taskList: [
-              {
-                  description: "dataTask",
-                  done: false
-              }
-          ]
+          taskList: [],
+          loading: true,
+          error: ""
       }      
   }
 
+  componentDidMount(){
+    //GET
+    axios.get('http://jsonplaceholder.typicode.com/posts')
+          .then(response => {
+              const posts = response.data.slice(0,10);
+              const updatedPosts = posts.map(post => {
+              return {
+                  description: post.title,
+                  //description: post.body,
+                  done: false
+                }
+                });
+              this.setState({taskList: updatedPosts})
+          })
+          .catch(error => this.setState({error: error}))
+          .then(()=>this.setState({loading: false}))
+  }
+
   render(){
+
+    var postToRender;
+    if (this.state.loading) {
+        postToRender = <h1>Loading...</h1>
+    }else if(this.state.error){
+        postToRender = <h1>Error...</h1>
+    }else{
+        postToRender = <Listcomponent taskList={this.state.taskList} checkChange={this.checkChange} />;
+    }
+
     return ( 
       <BrowserRouter>
         <div className={classes.App}>
@@ -56,7 +83,7 @@ class App extends React.Component {
         <Link className={classes.formLink} to= {`/taskForm`} title="Add task" ></Link>
         <CounterTitleComponent taskList = {this.state.taskList}  />
         <main>
-          <Route path="/taskList" render={() => <Listcomponent taskList={this.state.taskList} checkChange={this.checkChange} />} />
+          <Route path="/taskList" render={() => postToRender} />
           <Route path='/taskForm'  render={() => <TaskForm addTask={this.addTask} />} />
         </main>
         </div>
@@ -73,6 +100,20 @@ class App extends React.Component {
     this.setState({
         taskList: this.state.taskList.concat(task)
     })
+    var newPostInfo = {
+      userId: 1,
+      id: 1,
+      title: description,
+      body : "cualquer cosa"
+    }
+    //POST
+    axios.post('http://jsonplaceholder.typicode.com/posts', newPostInfo)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error =>{
+        console.log(error)
+      })
   }
 
   checkChange = (taskIndex) =>{
