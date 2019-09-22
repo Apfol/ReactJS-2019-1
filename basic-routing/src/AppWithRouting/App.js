@@ -4,59 +4,54 @@ import Posts from './Posts/Posts';
 import FullPost from './FullPost/FullPost';
 import NewPost from './NewPost/NewPost';
 import './App.css';
-
+import axios from 'axios';
 class App extends Component {
   state = {
-    posts: [
-      {
-        title: "First Title",
-        author: "Cristian",
-        content: "Lorem ipsum dolor sit amet, consectetur "+
-          "adipiscing elit, sed do eiusmod tempor incididunt "+
-          "ut labore et dolore magna aliqua. Ut enim ad minim "+
-          "veniam, quis nostrud exercitation ullamco laboris "+
-          "nisi ut aliquip ex ea commodo consequat."
-      },
-      {
-        title: "Second Title",
-        author: "Mike",
-        content: "Duis aute irure dolor in reprehenderit in "+
-        "voluptate velit esse cillum dolore eu fugiat nulla "+
-        "pariatur. Excepteur sint occaecat cupidatat non proident, "+
-        "sunt in culpa qui officia deserunt mollit anim id est laborum."
-      },
-      {
-        title: "Third Title",
-        author: "Juan",
-        content: "Sed ut perspiciatis unde omnis iste natus error "+
-        "sit voluptatem accusantium doloremque laudantium, totam rem "+
-        "aperiam, eaque ipsa quae ab illo inventore veritatis et quasi "+
-        "architecto beatae vitae dicta sunt explicabo."
-      },
-      {
-        title: "Forth Title",
-        author: "Ana",
-        content: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur "+
-        "aut odit aut fugit, sed quia consequuntur magni dolores eos qui "+
-        "ratione voluptatem sequi nesciunt."
-      }
-    ],
+    posts: [],
     newPostInfo: {
       title: "",
       author: "",
-      content: ""
+      content: "",
+      loading: false,
+      error:false
     }
   }
 
+  componentDidMount(){
+    this.setState({loading:true});
+    axios.get('http://jsonplaceholder.typicode.com/posts')
+    .then(response =>{
+      let updatedPosts= response.data.slice(0,4);
+      updatedPosts=updatedPosts.map(post =>{
+        return {
+          author: 'Daniel',
+          title: post.title.slice(0,6),
+          content: post.body
+        }
+      });
+      this.setState({
+        posts:updatedPosts
+      });
+    })
+    .catch(this.setState({error:true}))
+    .then(this.setState({loading:false})) 
+  }
   componentShouldUpdate(nextProps, nextState) {
     return nextState.openPostIndex !== this.state.openPostIndex;
   }
 
   render () {
+    var postget;
+    if(this.state.loading){
+      postget=<h1>Loading...</h1>;
+    }else if(this.state.error){
+      postget=<h1>ERROR!!</h1>;
+    }
     return(
       <BrowserRouter>
         <div>
           <header>
+            
             <nav className = "nav-bar">
               <ul>
                 {/* <li><a href = "/">Home</a></li> */}
@@ -67,7 +62,7 @@ class App extends Component {
             </nav>
           </header>
           <h1 className = "main-header">My posts</h1>
-
+          {postget}
           <Route path = "/new-post" render = {() => (
               <NewPost
                   newPostInfo = {this.state.newPostInfo}

@@ -1,0 +1,72 @@
+{ "music":[
+    {
+     
+      "Album": "A Flair for the Dramatic",
+      "Artist" : "Pierce the veil",
+      "img":"",
+      "Genre":"Post-Hardcore"
+    },
+    {
+        
+      "Album": "Angles",
+      "Artist" : "The Strokes",
+      "img":"",
+      "Genre":"Rock"
+    },{
+     
+      "Album": "Don't Panic",
+      "Artist" : "All Time Low",
+      "img":"",
+      "Genre": "Pop rock"
+    },
+    {
+        
+      "Album": "Homesick",
+      "Artist" : "A day to remember",
+      "img":"",
+      "Genre":"Metalcore - Post-Hardcore"
+    },
+
+    {
+     
+      "Album": "The Fallout",
+      "Artist" : "Crown the empire",
+      "img":"",
+      "Genre": "Post-Hardcore"
+    },
+    {
+        
+      "Album": "Otras Canciones",
+      "Artist" : "No te va Gustar",
+      "img":"",
+      "Genre":"Rock"
+    },
+    {
+     
+      "Album": "Worst Fauvorite Nightmare",
+      "Artist" : "Arctic Monkeys",
+      "img":"",
+      "Genre":"Rock"
+    },
+    {
+        
+      "Album": "Formas Para Perderse",
+      "Artist" : "Los Petit Fellas",
+      "img":"",
+      "Genre":"Hip Hop-Rap"
+    },
+    {
+     
+      "Album": "Hard Feelings",
+      "Artist" : "BlesstheFall",
+      "img":"",
+      "Genre":"Metalcore/Post-Hardcore"
+    },
+    {
+        
+      "Album": "Madness",
+      "Artist" : "Sleeping with Sirens",
+      "img":"",
+      "Genre":"Post-Hardcore/Pop Rock"
+    }
+  ]}
