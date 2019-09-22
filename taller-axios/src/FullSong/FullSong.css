@@ -18,6 +18,7 @@
 
 .up{
     display: block;
+    padding: 10px;
 }
 .down{
     height: fit-content;

@@ -85,6 +85,7 @@ class App extends Component {
   }
 
   openPost = (postIndex) => {
+    console.log(postIndex);
     return this.state.posts[postIndex];
   }
 

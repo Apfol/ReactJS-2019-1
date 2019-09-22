@@ -82,7 +82,7 @@
     cursor: pointer;
     margin-bottom: 12px;
   }
-
+  
   @media (max-width: 955px) {
     .task {
       width: -webkit-fill-available;

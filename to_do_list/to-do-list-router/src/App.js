@@ -6,6 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import Add from './Add/Add.js';
 import lista from './lista.png';
 import agregar from './agregar.png';
+import axiosInstance from './axiosInstantce';
+import axios from 'axios';
 
 class App extends Component{
   constructor(props) {
@@ -15,11 +17,42 @@ class App extends Component{
     this.textInput = React.createRef();
   }
   
+  componentDidMount (){ //Apenas el componente se monte, se ejecuta
+    this.setState({loding: true})
+
+    //GET
+    axios.get('http://jsonplaceholder.typicode.com/posts')
+      .then(response => {
+        const posts = response.data.slice(0,5);
+        const updatedPosts = posts.map(post => {
+          return {
+            id: post.id,
+            task: post.title
+          }
+        });
+        this.setState({tasks: updatedPosts})
+      });
+
+    /*DELETE
+    axios.delete('http://jsonplaceholder.typicode.com/posts/1')
+    .then(response => {
+        const posts = response.data.slice(0,5);
+        const updatedPosts = posts.map(post => {
+          return {
+            id: post.id,
+            task: post.title
+          }
+        });
+        this.setState({tasks: updatedPosts})
+    });*/
+  }
+
   state = {
     tasks: [
-      {id:0,task: 'Ir a La Bombonera a ver un Boca vs River'},
-      {id:1,task: 'Ir a el Camp Nou a ver un Barcelona vs Real Madrid'}
-    ]
+      //{id:0,isSelected: 0,task: 'Ir a La Bombonera a ver un Boca vs River'},
+      //{id:1,isSelected: 0,task: 'Ir a el Camp Nou a ver un Barcelona vs Real Madrid'}
+    ],
+    loading: false
   }
 
   render() {
@@ -63,13 +96,16 @@ class App extends Component{
     if(this.textInput.current.value!=="")
     {
       const newTask = [
-        {id:(this.state.tasks.length+1),task: this.textInput.current.value}
+        {id:(this.state.tasks.length+1),isSelected: 0,task: this.textInput.current.value}
       ]
 
       const help = this.state.tasks.concat(newTask);
 
-      this.setState({tasks : help});
-
+      //POST
+      axios.post('http://jsonplaceholder.typicode.com/posts', newTask)
+        .then(response => {
+          this.setState({tasks: help});
+        })
       alert("Task added");
     }
   }

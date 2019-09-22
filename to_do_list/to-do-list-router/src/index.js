@@ -4,6 +4,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import axios from './axiosInstantce';
+
+axios.defaults.baseURL = 'http://jsonplaceholder.typicode.com';
+
+axios.interceptors.request.use(requestConfig =>{
+    requestConfig.data = {
+        testValue: 'test'
+    }
+    console.log(requestConfig);
+    return requestConfig;
+})
+
+axios.interceptors.response.use(requestConfig =>{
+    requestConfig.data = requestConfig.data.map(post => {
+        return{
+            ...post,
+            task: "Hola"
+        }
+    })
+    return requestConfig
+})
 
 ReactDOM.render(
     <StyleRoot>
