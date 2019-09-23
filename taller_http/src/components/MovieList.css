@@ -1,0 +1,13 @@
+.containerMovie{
+    box-sizing: border-box;
+}
+
+.title{
+    margin-top: 10px;
+    font-size: 5em;
+    margin: auto;
+    display: table;
+}
+.column{
+    margin-left: 12%;
+}
