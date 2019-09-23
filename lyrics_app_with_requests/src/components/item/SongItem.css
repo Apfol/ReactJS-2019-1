@@ -1,0 +1,19 @@
+.song_item{
+    width: 100%;
+    height: 100%;
+}
+
+.song_item_children{
+    display: inline-block;
+    width:78%;
+    height: 100%;
+}
+
+.open_song{
+    width: 20%;
+    /* TODO: Buscar por que no me sirve el 100%  */
+    height: 10.5em;
+    text-decoration: none;
+    border: 2px solid blue;
+    border-radius: 40%;
+}
