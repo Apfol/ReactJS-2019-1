@@ -1,0 +1,14 @@
+.center{
+    text-align: center;
+}
+
+.container{
+    margin-top: 10px;
+}
+
+ul{
+    list-style: none;
+}
+nav ul li a{
+    text-decoration: none;
+}

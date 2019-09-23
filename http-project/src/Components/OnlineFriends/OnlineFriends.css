@@ -1,0 +1,14 @@
+.online{
+    width: 29%;
+    border: 1px solid black;
+    float: right;
+    text-align: center;
+}
+.title{
+    font-weight: bold;
+}
+
+.loading{
+    font-size: 2em;
+    text-align: center;
+}

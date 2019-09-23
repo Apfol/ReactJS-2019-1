@@ -1,0 +1,17 @@
+.links{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.6rem;
+    text-decoration: none;
+    background-color: #4F608F;
+}
+
+.links li a{
+    text-decoration: none;
+    color: white;
+}
+
+.links li a:hover{
+    background-color: red;
+}

@@ -1,0 +1,23 @@
+.center{
+    text-align: center;
+}
+
+.blocks{
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    
+    float: left;
+    flex-wrap: wrap;
+}
+.online{
+    width: 29%;
+    
+    float: right;
+}
+
+.loading{
+    font-size: 3em;
+    text-align: center;
+}
+    
