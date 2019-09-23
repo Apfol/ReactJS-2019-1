@@ -8,7 +8,11 @@ import { BrowserRouter } from 'react-router-dom';
 import FullSong from './FullSong/FullSong.js';
 
 class App extends Component{
-  
+  /*Si el response del axios.get bota un error 401, solo hay
+  que entrar en https://developer.spotify.com/console/get-track/ 
+  y darle al boton de GET TOKEN -> REQUEST TOKEN, y despues
+  copiar el codigo completo en const token del componentDidMount*/
+
   componentDidMount(){
     const token = "BQDnaBYb27szqOQ0KWDa-CkMXhy3akNFCQMQwtPOtCHJI5LYH-C4Z0XwbadPFrq0exms6SkSrIZJLTKZf2MhAOGxVPwbMmttZYUWLmhYQKN_va9omkTjvV2QOORaHD8XMwW97Dv--WnTOya26Je_bJUEOx3cSpOSrs97xK-jusHgC5SvcxiWB_CVjShoWLB5kWc3cbEYaGi2A75bTXEXIrD4hCjXpHyt9x6GIfHebpl7JYwRQClrtbyygopQ2vyvkA2pos1bIOP1yQ";
     
