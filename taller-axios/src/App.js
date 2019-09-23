@@ -10,7 +10,7 @@ import FullSong from './FullSong/FullSong.js';
 class App extends Component{
   
   componentDidMount(){
-    const token = "BQDYCnNUNUb40mcJQ9vgCQmCFrxNdpAYd4w1CUN_RyZztkBGKQJXEsNtbPCSe13anzEKMhwi4-mv9KoLk9cag1oSY7rNt1BurV7CRaA0EcGrV5SXNeUIDegp7fi0gOUflp6alP6U48xVcgyEmihmD3K9PyFOh_II-fZB409nZgFJsH9SpLrzjZco3i0U4xRgCa48-CphEOQg6Qwp_kDjht2ACtJqn5AHQX8YGeEwcYHTi10q6-6gtDIkr_zKsaqWTRtDh3kYChOOdA";
+    const token = "BQDnaBYb27szqOQ0KWDa-CkMXhy3akNFCQMQwtPOtCHJI5LYH-C4Z0XwbadPFrq0exms6SkSrIZJLTKZf2MhAOGxVPwbMmttZYUWLmhYQKN_va9omkTjvV2QOORaHD8XMwW97Dv--WnTOya26Je_bJUEOx3cSpOSrs97xK-jusHgC5SvcxiWB_CVjShoWLB5kWc3cbEYaGi2A75bTXEXIrD4hCjXpHyt9x6GIfHebpl7JYwRQClrtbyygopQ2vyvkA2pos1bIOP1yQ";
     
     for(var i=0; i < this.data.ids.length;i++){
       this.executeAxios(this.data.ids[i].id,token)
@@ -22,13 +22,14 @@ class App extends Component{
       id+
       '?access_token='+token)
       .then(response => {
+        console.log(response);
         const updateArtist = [{
             artist: response.data.artists, 
             song: response.data.name, 
             album: response.data.album
         }];
         const help = this.data.artists.concat(updateArtist);
-        
+
         this.setState(this.data.artists = help);
       });
   }
