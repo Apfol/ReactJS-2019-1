@@ -1,0 +1,11 @@
+.button{
+    display: flex;
+    padding: 15px;
+    margin: 30px;
+    background: #48a9c5;
+}
+
+main .container{
+    display: flex;
+    justify-content: space-evenly;
+}

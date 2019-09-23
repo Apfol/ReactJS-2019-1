@@ -1,0 +1,210 @@
+.data-inner-table{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 20px;
+    background: #005670;
+}
+
+.data-table-caption{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.table{
+    display: flex;
+    justify-content: center;
+}
+
+h3{
+    font-size: 30px;
+
+}
+
+table{
+    border-collapse: collapse;
+    padding: 10px;
+    box-shadow: 5px 10px 8px #888888;
+}
+.headersRow{
+    background: #0085ad;
+
+}
+
+.even{
+    background: #48a9c5;
+}
+
+.uneven{
+    background: #74d2e7;
+}
+
+.id{
+    padding: 5px;
+    margin: 0;
+    min-height: 30px;
+    min-width: 50px;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.nombre{
+    padding: 10px;
+    margin: 10px;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 150px;
+    width: 200px;
+    max-width: 300px;
+    text-align: left;
+}
+
+.Enero{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.Febrero{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+.Marzo{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.Abril{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.Marzo{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+.Mayo{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.Junio{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+.Julio{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.Agosto{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+.Septiembre{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+ }
+
+.Octubre{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+.Noviembre{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.Diciembre{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+
+.name{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    width: 150px;
+    text-align: center;
+}
+
+.cantidad{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 2px;
+    min-height: 30px;
+    min-width: 120px;
+    text-align: center;
+}
+
+

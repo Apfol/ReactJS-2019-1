@@ -1,0 +1,14 @@
+.page{
+    display: flex;
+    flex-direction: row;
+    max-width: 99vw;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.variableInput{
+    display: inline-block;
+    padding: 30px;
+    font-size: 20px;
+}

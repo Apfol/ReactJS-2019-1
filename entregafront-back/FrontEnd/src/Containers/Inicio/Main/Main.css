@@ -1,0 +1,99 @@
+.ContainerQuinesSomos{
+    display: inline-block;
+    flex-direction: column;
+    text-align: center;
+}
+
+.quienesSomos{
+    display: inline-block;
+    flex-direction: column;
+     text-align: justify;
+     max-width: 400px;
+    min-width: 200px;
+    font-size: 20px;
+ }
+
+.quienesSomos h1{
+    font-size: 40px;
+    text-align: center;
+}
+
+
+.misionVision{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.misionVision h1{
+    font-size: 40px;
+    text-align: center;
+}
+
+.misionVision p{
+    font-size: 20px;
+    text-align: justify;
+}
+
+.mision{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin:50px;
+}
+
+.vision{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin:50px;
+}
+
+.mapa h1{
+    font-size: 40px;
+}
+
+.mapa{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.mapa img{
+    display: flex;
+    align-self: center;
+    max-width: 897px;
+    max-height: 953px ;
+}
+
+.modeloRelacional h1{
+    font-size: 40px;
+}
+
+.modeloRelacional img{
+    display: flex;
+    align-self: center;
+    max-width: 640px;
+    max-height: 521px ;
+}
+
+.modeloRelacional{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.text{
+    display: flex;
+    align-self: center;
+    text-align: justify;
+    font-size: 20px;
+    width: 800px;
+}
+
+.text p{
+    margin: 10px;
+}
+
