@@ -1,3 +1,157 @@
-.album-container{
+.albumcontainer{
+    display: inline-block;
+    width: 300px;
+    height:500px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px lightgrey;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 15px;
+    background-color: lightcyan;
+}
+.albumimage[data-background="pierce"]{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px green;
+    margin: 5px;
+    text-align: center;
+    padding: 8px;
+    padding-bottom: 15px;
+    background-image: url("aFlairforDramatic.jpg");
+    background-size: cover;
+    
+}
+.albumimage[data-background="strokes"]{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px green;
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 15px;
+    background-image: url("Angles.jpg");
+    background-size: cover;
+    
+}
+.albumimage[data-background="ATL"]{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px green;
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 15px;
+    background-image: url("dontpanic.jpg");
+    background-size: cover;
+    
+}
+.albumimage[data-background="to remember"]{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px green;
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 15px;
+    background-image: url("homesick.jpg");
+    background-size: cover;
+}
+.albumimage[data-background="Crown"]{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px green;
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 15px;
+    background-image: url("fallour.jpg");
+    background-size: cover;
+}
+.albumimage[data-background="NTVG"]{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px green;
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 15px;
+    background-image: url("otrascanciones.jpg");
+    background-size: cover;
+}
+.albumimage[data-background="monkeys"]{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px green;
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 15px;
+    background-image: url("worstfavorite.jpg");
+    background-size: cover;
+}
+.albumimage[data-background="fellas"]{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px green;
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 15px;
+    background-image: url("formasparaperderse.jpg");
+    background-size: cover;
+}
+.albumimage[data-background="bless"]{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px green;
+    margin: 20px;
+    text-align: center;
+    padding: 8px;
+    padding-bottom: 15px;
+    background-image: url("hardfeelings.jpg");
+    background-size: cover;
+}
+.albumimage[data-background="sws"]{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px green;
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 15px;
+    background-image: url("madness.jpg");
+    background-size: cover;
+}
+
+.albumtitle {
+    color: black;
+}
+
+.artistname {
+    color: #ccc;
+}
+.genretype{
+    color:lightblue;
     
 }

@@ -1,17 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
 import classes from './card.css';
 
-export default class card extends Component{
-    render(){
-        const{album,artist,img,genre}=this.props;
+var Card= (props)=>{
+       
         return(
-            <div>
-               <h2>Album: {this.album}</h2> 
-                <h3>Artist: {this.artist}</h3>
-                <h4>Genre: {this.genre}</h4>
-            </div>
-            
-            );
-    }
+            <div className={classes.albumcontainer} >
+                <div className={classes.albumimage} data-background={props.card.img}>
 
+                </div>
+               <h2>Album: {props.card.album}</h2> 
+                <h3>Artist: {props.card.artist}</h3>
+                <h4>Genre: {props.card.genre}</h4>
+            </div>
+            );
+    
 }
+export default Card;
