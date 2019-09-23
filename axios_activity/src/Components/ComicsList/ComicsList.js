@@ -19,10 +19,10 @@ class ComicList extends React.Component {
       //GET
       axios.get('http://gateway.marvel.com/v1/public/comics?apikey=a468e6ef7d5e799b97b8845e255029d0&hash=121ea53af24d4e8d09aebd58c4e773aa&ts=1')
             .then(response => {
-                const marvelData = response.data.data.results.filter(comic => comic.images.length > 0 && !comic.title.includes("Official Handbook")).slice(0,10);
+                const marvelData = response.data.data.results.filter(comic => comic.images.length > 0).slice(0,15);
                 const firstComics = marvelData.map(comic => {
                     return {
-                        title: comic.title.slice(0,25),
+                        title: this.fixTitle(comic.title),
                         images: comic.images,
                         description: comic.description.slice(0,200),
                         characters: comic.characters.items
@@ -32,6 +32,14 @@ class ComicList extends React.Component {
             })
             .catch(error => this.setState({error: error}))
             .then(()=>this.setState({loading: false}))
+    }
+
+    fixTitle =(title)=>{
+        if (title.includes("Official Handbook")) {
+            var index = title.indexOf("#");
+            title = title.substr(index);   
+        }
+        return title;
     }
 
     render(){
