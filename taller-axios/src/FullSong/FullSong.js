@@ -35,7 +35,7 @@ const FullSong = props=> {
                         </div>
                     </div>
                 </div>
-                <a href={openSong.album.external_urls.spotify} target="_blank">
+                <a href={openSong.album.external_urls.spotify} target="_blank" rel="noopener noreferrer">
                     <img alt="cover"className={classes.image} src={photo}></img>
                 </a>
             </div>
