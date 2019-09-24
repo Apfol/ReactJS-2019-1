@@ -3,10 +3,10 @@
   text-align: center;
 }
 .button {
-  background-color:green;
+  background-color:rgb(223, 140, 15);
   border: none;
   color: white;
-  font-size: 16px;
-  height: 40px;
+  font-size: 23px;
+  height: 55px;
   width: 200px;
 }
