@@ -4,48 +4,50 @@ import Posts from './Posts/Posts';
 import FullPost from './FullPost/FullPost';
 import NewPost from './NewPost/NewPost';
 import './App.css';
+import axios from 'axios'
 
 class App extends Component {
   state = {
-    posts: [
-      {
-        title: "First Title",
-        author: "Cristian",
-        content: "Lorem ipsum dolor sit amet, consectetur "+
-          "adipiscing elit, sed do eiusmod tempor incididunt "+
-          "ut labore et dolore magna aliqua. Ut enim ad minim "+
-          "veniam, quis nostrud exercitation ullamco laboris "+
-          "nisi ut aliquip ex ea commodo consequat."
-      },
-      {
-        title: "Second Title",
-        author: "Mike",
-        content: "Duis aute irure dolor in reprehenderit in "+
-        "voluptate velit esse cillum dolore eu fugiat nulla "+
-        "pariatur. Excepteur sint occaecat cupidatat non proident, "+
-        "sunt in culpa qui officia deserunt mollit anim id est laborum."
-      },
-      {
-        title: "Third Title",
-        author: "Juan",
-        content: "Sed ut perspiciatis unde omnis iste natus error "+
-        "sit voluptatem accusantium doloremque laudantium, totam rem "+
-        "aperiam, eaque ipsa quae ab illo inventore veritatis et quasi "+
-        "architecto beatae vitae dicta sunt explicabo."
-      },
-      {
-        title: "Forth Title",
-        author: "Ana",
-        content: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur "+
-        "aut odit aut fugit, sed quia consequuntur magni dolores eos qui "+
-        "ratione voluptatem sequi nesciunt."
-      }
-    ],
+    posts: [],
     newPostInfo: {
       title: "",
       author: "",
       content: ""
-    }
+    },
+    loading: false,
+    error: ""
+  }
+
+  componentDidMount(){
+    this.setState({loading:true});
+
+    axios.get('https://jsonplaceholder.typicode.com/posts/')
+    .then(response => {
+      let updatedPost = response.data.slice(0,4);
+      updatedPost = updatedPost.map(post => {
+        return {
+          author: 'Eduard',
+          title: post.title.slice(0,6),
+          content: post.body
+        }
+      })
+      
+      this.setState({
+        posts:updatedPost
+      })
+      console.log(updatedPost)
+    })
+
+    .catch(error => {
+      console.log('error',error);
+      this.setState({
+        error:error
+      })
+    }).then(()=>{
+      this.setState({
+        loading:false
+      })
+    })
   }
 
   componentShouldUpdate(nextProps, nextState) {
@@ -53,6 +55,16 @@ class App extends Component {
   }
 
   render () {
+
+    var postsToRender
+    if (this.state.loading) {
+      postsToRender = <h1>Loading...</h1>;      
+    }else if(this.state.error){
+      postsToRender = <h1>ERROR!!!</h1>
+    }else {
+      postsToRender = <Posts posts = {this.state.posts}/>
+    }
+
     return(
       <BrowserRouter>
         <div>
@@ -75,7 +87,7 @@ class App extends Component {
                   submitNewPost = {this.submitNewPost}
               />
           )} />
-          <Route path ="/" exact render = {() => <Posts posts = {this.state.posts} />} />
+          <Route path ="/" exact render = {() => postsToRender} />
           <Route path ="/post/:postIndex" exact render = {() => (
               <FullPost openPost = {(postIndex) => this.openPost(postIndex)} />
           )} />
