@@ -5,7 +5,7 @@ import './ArtistBox.css';
 export default class ArtistBox extends Component {   
 
   render() {
-    const { albumId,image, name, comments,listeners } = this.props.artist        
+    const { url,image, name, comments,listeners } = this.props.artist        
     return (
       <div className="ArtistBox">
         <div className="ArtistImage">
@@ -14,7 +14,8 @@ export default class ArtistBox extends Component {
         <div className="ArtistDetail">
           <h2>{name}</h2>          
           <h3>Comentarios:  {comments}</h3>            
-          <h3>Seguidores:  {listeners}</h3>            
+          <h3>Seguidores:  {listeners}</h3> 
+          <a target="_blank" href={url}>Redirigir</a>           
         </div>            
       </div>
     );

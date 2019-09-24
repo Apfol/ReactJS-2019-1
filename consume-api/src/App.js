@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
 import ArtistBox from "./Modules/ArtistBox"
-import {gettopartists} from './Modules/ApiClient'
 
 
 
@@ -13,9 +12,9 @@ export default class App extends Component {
 
   componentDidMount () {
 
-    const apiKey = "c83a1679902d8fa544f8dba9a6e305b2";
+    
     const URL = "http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=colombia&api_key=c83a1679902d8fa544f8dba9a6e305b2&format=json";
-
+    
     fetch(URL)
             .then(response => response.json())
             .then(data => data.topartists.artist)
@@ -26,7 +25,9 @@ export default class App extends Component {
                       albumId: artist.mbid,
                       name: artist.name,
                       image:artist.image[3]["#text"],
-                      listeners: artist.listeners
+                      listeners: artist.listeners,
+                      url: artist.url,
+                      comments: Math.floor( Math.random() * (3000000 - 100000) + 100000)
                   }
               })
               this.setState({
@@ -36,19 +37,13 @@ export default class App extends Component {
     }
   
 
-  render() {
-  const artist = {
-    albumId: "A",
-    name: this.state.artistSelected,
-    image:"https://pbs.twimg.com/profile_images/1106225279918329867/zyPV96RA_400x400.jpg",
-    listeners: "12"
-  }  
+  render() { 
 
   return (
     <div className="App"> 
       <h1>Los mejores albumes de: </h1> 
       {console.log(this.state.artistList)}
-      {this.state.artistList.map(item =>  <ArtistBox artist =  {item} /> )}        
+      {this.state.artistList.map((item,index) =>  <ArtistBox key={index} artist =  {item} /> )}        
                     
     </div>
   );
