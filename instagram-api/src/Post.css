@@ -1,8 +1,33 @@
 .all{
     background-color: rgba(255, 255, 255, 0.877);
-    padding: 0 33%
+    padding: 0 33%;    
+    margin-bottom: 20px;
+    width: 400px;
   }
 
   .title{
      color: #FF0000;
+     text-align: center;
+  }
+
+  .header * {
+      display: inline-block;
+      margin-bottom: 10px;
+  }
+
+  .imageProfile{
+      border-radius: 50%;      
+      width: 60px;
+      height: 60px;
+  }
+
+  .username{
+      font-size: 40px;
+      margin-left:20px;
+      vertical-align: top;
+  }
+
+  .image{
+      width: 350px;
+      height: 350px;
   }

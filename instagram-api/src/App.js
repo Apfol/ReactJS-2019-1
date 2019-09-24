@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import axios from 'axios'
 import Post from './Post'
+import classes from './App.css';
 
 class App extends React.Component{
 
@@ -41,16 +42,20 @@ postInfo = {
   post:[]
 }
 
-  render(){
-    return (
-      this.postInfo.post.map(
+  render(){    
+    return (  
+      <div>
+        <h1 className={classes.title}>My Instagram Photos</h1>
+        {this.postInfo.post.map(
         posting => <Post
                     imageProfile={posting.imageProfileLink}
                     username={posting.userName}
                     image={posting.imageURL}
                     likes={posting.likes}
                     caption={posting.description}/>
-      )
+      )}
+      </div>
+      
     )
   }
 }
