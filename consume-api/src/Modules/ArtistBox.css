@@ -1,0 +1,19 @@
+.ArtistBox{
+    background-color: rgba(206, 216, 207, 0.74);
+    width: 50%;      
+    overflow: hidden;  
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+}
+.ArtistDetail {       
+    height: 50%;    
+}
+.ArtistDetail *{       
+    display: block;
+}
+.ArtistImage{    
+    float: left; 
+}
+.Image{
+    width: 50%;
+}
