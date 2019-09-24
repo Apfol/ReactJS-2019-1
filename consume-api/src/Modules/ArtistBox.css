@@ -1,18 +1,24 @@
 .ArtistBox{
     background-color: rgba(206, 216, 207, 0.74);
-    width: 50%;      
+    width: 60%;      
     overflow: hidden;  
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: auto;
+    margin-bottom: 5px;
 }
 .ArtistDetail {       
-    height: 50%;    
+    height: 50%; 
+    width: 50%;  
+    display: inline-block;
+    position: relative;
+    right: 40px; 
 }
 .ArtistDetail *{       
     display: block;
 }
-.ArtistImage{    
-    float: left; 
+.ArtistImage{   
+    width: 50%;
+    display: inline-block; 
 }
 .Image{
     width: 50%;

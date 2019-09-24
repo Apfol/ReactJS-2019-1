@@ -12,9 +12,28 @@ export default class App extends Component {
   }
 
   componentDidMount () {
-    gettopartists()
-        .then(data => this.setState({artistsList:data}))        
-  }  
+
+    const apiKey = "c83a1679902d8fa544f8dba9a6e305b2";
+    const URL = "http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=colombia&api_key=c83a1679902d8fa544f8dba9a6e305b2&format=json";
+
+    fetch(URL)
+            .then(response => response.json())
+            .then(data => data.topartists.artist)
+            .then(artist =>{
+              console.log(artist)
+              var artistNew = artist.map(artist => {
+                  return {
+                      albumId: artist.mbid,
+                      name: artist.name,
+                      image:artist.image[3]["#text"],
+                      listeners: artist.listeners
+                  }
+              })
+              this.setState({
+                  artistList: artistNew
+              })
+            })
+    }
   
 
   render() {
@@ -29,9 +48,7 @@ export default class App extends Component {
     <div className="App"> 
       <h1>Los mejores albumes de: </h1> 
       {console.log(this.state.artistList)}
-      {this.state.artistList.map(item =>
-      {return <ArtistBox artist =  {item} />}      
-      )}        
+      {this.state.artistList.map(item =>  <ArtistBox artist =  {item} /> )}        
                     
     </div>
   );
