@@ -3,7 +3,8 @@ import classes from './Post.css';
 
 const Post = props => {
     return(                          
-        <div className={classes.all}>            
+        <div className={classes.all}> 
+            <div className={classes.title}>My Instagram Photos</div>           
             <div className={classes.header}>
                 <img src={props.imageProfile} className={classes.imageProfile} alt=""/>  
                 <div className={classes.username}>{props.username}</div>  

@@ -3,13 +3,6 @@
     padding: 0 33%
   }
 
-  .header * {
-      display: inline;
-  }
-
-  .imageProfile{
-    display: inline;
-  }
-  .username{
-    display: inline; 
+  .title{
+     color: #FF0000;
   }

@@ -28,7 +28,7 @@ class App extends React.Component{
           userName: posts.user.username,
           imageProfileLink:  posts.user.profile_picture,
           imageURL: posts.images.standard_resolution.url,
-          likes:posts.likes,
+          likes:posts.likes.count,
           description: posts.caption.text
         }        
       });
