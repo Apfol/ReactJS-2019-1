@@ -1,0 +1,24 @@
+.foot
+{
+    display: block;
+    background-color: rgb(170, 31, 212);
+    color:white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:100px;
+   
+}
+.hrf
+{
+    margin-top: 20px;
+    margin-right: 20px;
+    float:right;
+}
+a{
+    padding-right:10px;
+}
+h5{
+    float:left;
+    margin-left: 20px;
+}

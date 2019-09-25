@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "paragraph": "",
+        "Button": "Go anywhere",
+        "active": true
+    },
+    {
+        "id": 1,
+        "url": "/about",
+        "title": "About",
+        "active": true
+    },
+    {
+        "id": 2,
+        "url": "/login",
+        "title": "Login",
+        "active": true
+    }, 
+    {
+        "id": 3,
+        "url": "/profile",
+        "title": "Profile",
+        "active": true
+    },    
+    {
+        "id": 4,
+        "url": "/courses",
+        "title": "Courses",
+        "active": true
+    }
+]

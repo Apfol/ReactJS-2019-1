@@ -1,0 +1,20 @@
+[
+    {
+        "id": 0,
+        "title": "Home",
+        "link": "#",
+        "done": false
+    },
+    {
+        "id": 1,
+        "title": "About",
+        "link": "www.google.com",
+        "done": false
+    },    
+    {
+        "id": 2,
+        "title": "Courses",
+        "link": "lorem ipsum",
+        "done": false
+    }
+]

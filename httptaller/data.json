@@ -1,0 +1,73 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "Child Bride",
+            "body":"some comment1"
+        },
+        {
+            "id": 2,
+            "title": "Last Time I Committed Suicide, The",
+            "body":"some comment2"
+
+        },
+        {
+            "id": 3,
+            "title": "Jerry Seinfeld: 'I'm Telling You for the Last Time'",
+            "body":"some comment3"
+
+        },
+        {
+            "id": 4,
+            "title": "Youth Without Youth",
+            "body":"some comment4"
+
+        },
+        {
+            "id": 5,
+            "title": "Happy Here and Now",
+            "body":"some comment5"
+
+        },
+        {
+            "id": 6,
+            "title": "Wedding in Blood (Noces rouges, Les)",
+            "body":"some comment6"
+
+        },
+        {
+            "id": 7,
+            "title": "Vampire in Venice (Nosferatu a Venezia) (Nosferatu in Venice)",
+            "body":"some comment7"
+
+        },
+        {
+            "id": 8,
+            "title": "Monty Python's The Meaning of Life",
+            "body":"some comment8"
+
+        },
+        {
+            "id": 9,
+            "title": "Awakening, The",
+            "body":"some comment9"
+
+        },
+        {
+            "id": 10,
+            "title": "Trip, The",
+            "body":"some comment10"
+
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "body": "some comment",
+            "postId": 1
+        }
+    ],
+    "profile": {
+        "name": "typicode"
+    }
+}
