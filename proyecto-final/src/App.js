@@ -1,9 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-import NavigationBar from './header/NavigationBar/NavigationBar';
-import PictureSlider from './body/PictureSlider/PictureSlider';
-import Home from './body/Home/Home';
-import Footer from './footer/Footer';
+import { BrowserRouter, Route } from 'react-router-dom';
+import NavigationBar from './components/NavigationBar/NavigationBar';
+import Home from './components/Home/Home';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -14,6 +13,7 @@ function App() {
           <NavigationBar></NavigationBar>
         </header>
         <Route path="/" exact component={Home} />
+        <Route path="/tourism" component="" />
         <footer>
           <Footer></Footer>
         </footer>
