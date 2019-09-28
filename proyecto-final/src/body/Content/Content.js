@@ -1,5 +1,4 @@
 import React from 'react';
-import "./Content.css";
 import classes from "./Content.css";
 import image1 from './assets/iglesia.jpg';
 import noticia1 from './assets/convocatoria.jpeg';

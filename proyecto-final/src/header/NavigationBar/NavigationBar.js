@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.png';
 import { Navbar, Nav, Form, NavDropdown, Button, FormControl } from 'react-bootstrap';
-import "./NavigationBar.css"
 import classes from './NavigationBar.css';
 
 export default class NavigationBar extends React.Component {
@@ -22,7 +21,7 @@ export default class NavigationBar extends React.Component {
   }
 
   changeState = () => {
-    this.temp == 34 ? this.temp-- : this.temp++;
+    this.temp === 34 ? this.temp-- : this.temp++;
     this.setState({
       temperature: this.temp,
     });
@@ -37,6 +36,7 @@ export default class NavigationBar extends React.Component {
               src={logo}
               width="50"
               height="50"
+              alt="logo"
               className="d-inline-block align-top"
             />
           </Navbar.Brand>
