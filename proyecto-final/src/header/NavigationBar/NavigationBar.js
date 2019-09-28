@@ -52,6 +52,7 @@ export default class NavigationBar extends React.Component {
             <Nav className="mr-auto">
               <Nav.Link href="#home">Municipio</Nav.Link>
               <Nav.Link href="#link">Alcadía</Nav.Link>
+              <Nav.Link href="#turismo">Turismo</Nav.Link>
               <NavDropdown title="Atención al ciudadano" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Peticiones, quejas, reclamos y sugerencias</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
