@@ -1,14 +1,16 @@
 .categories_list{
     list-style: none;
     padding: 0;
+    margin: 5px;
 }
 
-.card-body{
+.card_body{
     transition: box-shadow .3s;
     margin: 0 0 5px 0;
+    padding: 1px
 }
 
-.card-body:hover{
+.card_body:hover{
     text-decoration: none;
     box-shadow: 0 0 5px 5px rgb(147, 153, 172);
 }

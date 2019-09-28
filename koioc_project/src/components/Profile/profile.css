@@ -30,14 +30,14 @@ p{
   width:-webkit-fill-available;
 }
 
-.photo-div{ 
+.photo_div{ 
   width: 25%;
   padding: 0;
   display: inline-block;
   float: left;
 }
 
-.photo-profile{ 
+.photo_profile{ 
   border-radius: 50%;    
   width: 100%;
   height: 100%;
@@ -45,11 +45,11 @@ p{
   margin-bottom: 16px;
 }
 
-.update-photo{ 
+.update_photo{ 
   color: blue;
 }
 
-.name-div{ 
+.name_div{ 
   width: 75%;
   padding: 0;
   display: inline-block;
@@ -62,7 +62,7 @@ p{
   line-height: 30px;
 }
 
-.text-profile{ 
+.text_profile{ 
     margin-bottom: 16px;
     letter-spacing: 1px;
     font-size: 20px;

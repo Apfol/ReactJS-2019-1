@@ -1,5 +1,5 @@
 import React from 'react';
-import './Product.css';
+import classes from './Product.css';
 import { Modal, Button } from 'react-bootstrap';
  
 
@@ -16,7 +16,7 @@ class Product extends React.Component{
 
     render(){
         return(
-        <li className="product" >
+        <li className={classes.product} >
             <div onClick={this.handleShow}>
                 <img src={this.props.product.image} alt="category-pic"></img>
                 <p>{this.props.product.tittle}</p>
@@ -26,7 +26,7 @@ class Product extends React.Component{
                 <Modal.Title className="modal_tittle tittle" >{this.props.product.tittle}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <section className="modal_details">
+                    <section className={classes.modal_details}>
                         <img src={this.props.product.image} alt={`product${this.props.product.tittle}`} ></img>
                         <section>
                             <h3>Details:</h3>

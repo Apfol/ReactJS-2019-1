@@ -75,47 +75,6 @@ input{
     display: block;
 }
 
-.login{
-    background-color: rgb(63,81,181);
-    color: #fff;
-}
-.login:hover {
-    background-color: rgb(44, 59, 143);
-}
-
-.forgetPass {
-    text-align: center;
-    color: rgb(63,81,181);
-    cursor: pointer;
-}
-.forgetPass:link {
-    text-decoration: none;
-}
-.forgetPass:visited {
-    text-decoration: none;
-}  
-.forgetPass:hover {
-    text-decoration: underline;
-}
-.forgetPass:active {
-    text-decoration: underline;
-}
-
-.loginSep {
-    border-top: 1px solid #cbd2d6;
-    position: relative;
-    margin: 25px 0 10px;
-    text-align: center;
-}
-
-.separator {
-    background-color: #fff;
-    padding: 0 .5em;
-    position: relative;
-    color: #6c7378;
-    top: -.7em;
-}
-
 .signUp{
     background-color: rgb(201, 206, 236);
     color: black;

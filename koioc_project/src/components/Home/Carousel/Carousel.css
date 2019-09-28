@@ -3,13 +3,13 @@
 	width: 100%;
 }
 
-.image-slide {
+.image_slide {
 	height: 100%;
 	width: 100%;
 
 }
 
-.slide-arrow {
+.slide_arrow {
 	color: rgb(119, 20, 212);
 	cursor: pointer;
 	font-size: 2rem;
@@ -17,10 +17,10 @@
 	top: 45%;
 }
 
-.slide-arrow.right {
+.slide_arrow.right {
 	right: 2rem;
 }
 
-.slide-arrow.left {
+.slide_arrow.left {
 	left: 2rem;
 }
