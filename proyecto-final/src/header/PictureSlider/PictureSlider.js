@@ -1,9 +1,10 @@
 import React from 'react';
-import image4 from './assets/parapente.png';
-import image5 from './assets/lechuza.png';
-import image6 from './assets/pile.png';
+import image4 from './parapente.png';
+import image5 from './lechuza.png';
+import image6 from './pile.png';
 import { Carousel } from 'react-bootstrap';
-import SliderCard from './SliderCard'
+import SliderCard from '../SliderCard/SliderCard';
+import "./PictureSlider.css";
 
 class PictureSlider extends React.Component {
     render() {

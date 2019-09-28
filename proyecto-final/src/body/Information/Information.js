@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Information.css"
 
 
 class Information extends React.Component {

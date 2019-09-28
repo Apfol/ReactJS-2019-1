@@ -1,0 +1,36 @@
+.navbar,
+.navbar-default {
+    background-image: linear-gradient(to bottom,#48567F, 0,#48567F    100%) !important; /* override background image gradient w/ flat color */
+}
+
+.brand-subtext {
+    font-size: 13px;
+    text-align: initial;
+}
+
+.textBlack {
+  color: black;
+  font-weight: bold;
+}S
+
+.botonNav {
+  color: #ffffff;
+}
+
+.clima{
+  width: 25%;
+}
+
+@keyframes sun-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sun {
+  animation: App-logo-spin infinite 20s linear;
+  pointer-events: none;
+}

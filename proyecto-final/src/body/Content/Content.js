@@ -1,5 +1,5 @@
 import React from 'react';
-import "./body.css";
+import "./Content.css";
 import image1 from './assets/iglesia.jpg';
 import noticia1 from './assets/convocatoria.jpeg';
 import noticia2 from './assets/convenio.jpg';
@@ -7,8 +7,8 @@ import noticia3 from './assets/informe.jpg';
 import noticia4 from './assets/noticia1.jpg';
 import anmelden from './assets/underConstruction.png';
 import { Carousel, Card, Button, ButtonToolbar, OverlayTrigger, Tooltip, Image } from 'react-bootstrap';
-import Notices from './Notices'
-import Information from './Information'
+import News from '../News/News'
+import Information from '../Information/Information'
 
 export default class Body extends React.Component {
     render() {
@@ -30,13 +30,13 @@ export default class Body extends React.Component {
                         <Card.Body>
                             <div className="container">
                                 <ul class="nav nav-pills nav-stacked scroll">
-                                    <Notices notice={noticia1} p="Convocatoria Laboral"
+                                    <News notice={noticia1} p="Convocatoria Laboral"
                                         info="La Alcaldía invita a toda la comunidad a la convocatoria laboral que se realizará el día 27 de Septiembre." />
-                                    <Notices notice={noticia2} p="Convenio Educativo"
+                                    <News notice={noticia2} p="Convenio Educativo"
                                         info="Se informa a la comunidad el nuevo convenio realizado entre la Alcaldía Municipal y la Universidad de La Sabana." />
-                                    <Notices notice={noticia3} p="Informe del Consejo Municipal"
+                                    <News notice={noticia3} p="Informe del Consejo Municipal"
                                         info="El consejo de la Alcaldía Municipal de Sopó presenta su séptimo informe del año 2019 " />
-                                    <Notices notice={noticia4} p="Concurso de Cuento Corto"
+                                    <News notice={noticia4} p="Concurso de Cuento Corto"
                                         info="La Alcadía Municipal invita a la comunidad a participar en la 12° edición del Concurso de Cuento Corto." />
                                 </ul>
                             </div>

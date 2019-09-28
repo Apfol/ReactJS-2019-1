@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './assets/logo.png';
-import "./header.css";
+import logo from './logo.png';
+import "./NavigationBar.css";
 import { Navbar, Nav, Form, NavDropdown, Button, FormControl } from 'react-bootstrap';
 
 export default class NavigationBar extends React.Component {

@@ -1,8 +1,8 @@
 import React from 'react';
-import NavigationBar from './header/NavigationBar';
+import NavigationBar from './header/NavigationBar/NavigationBar';
 import './App.css';
-import PictureSlider from './header/PictureSlider';
-import Body from './body/body';
+import PictureSlider from './header/PictureSlider/PictureSlider';
+import Content from './body/Content/Content';
 import Footer from './footer/Footer';
 
 
@@ -13,7 +13,7 @@ function App() {
         <NavigationBar></NavigationBar>
         <PictureSlider></PictureSlider>
       </header>
-      <Body></Body>
+      <Content></Content>
       <footer>
         <Footer></Footer>
       </footer>
