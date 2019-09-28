@@ -1,0 +1,27 @@
+.banner{
+    background-image: url(/img/initial-banner-with-changes.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    margin-top: 150px;
+    margin-bottom: 60px;
+    width: 95%;
+    height: 352px;
+}
+
+.right_text{
+    padding: 10px;
+    text-align: center;
+    float: right;
+    width: 50%;
+}
+
+.right_text h1{
+    color: aliceblue;
+    font-size: 40px;
+}
+
+

@@ -1,0 +1,42 @@
+.carousel{
+    width: 95%;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    margin-bottom: 17px;
+    margin-top: 17px;  
+    
+    
+}
+
+.left_arrow{
+    width: 7%;
+    margin-right: 2px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.left_arrow img {
+    width: 100%;
+}
+
+
+
+
+.right_arrow{
+    width: 7%;
+    margin-left: 2px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.right_arrow img{
+    width: 100%;
+}
+
+.container{
+    width:84.5%;
+    display: inline-block;
+    vertical-align: middle;
+}
+

@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import classes from './Book.css';
 
 class Book extends Component {
-   
+
     render() {
         return (
-            <div id="box">
+            <div className={classes.book_box}>
                 <header>
                     <img src={this.props.img} alt={this.props.alt} />
                     <hr />
