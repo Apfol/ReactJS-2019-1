@@ -1,7 +1,8 @@
 import React from 'react';
-import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image';
+import "./News.css"
 
-class Notices extends React.Component {
+class News extends React.Component {
     render = () => {
         return (
             <li class="nav-item noticia">
@@ -19,4 +20,4 @@ class Notices extends React.Component {
     };
 }
 
-export default Notices;
+export default News;
