@@ -21,7 +21,7 @@ export default class NavigationBar extends React.Component {
   }
 
   changeState = () => {
-    this.temp === 34 ? this.temp-- : this.temp++;
+    this.temp === 36 ? this.temp-- : this.temp++;
     this.setState({
       temperature: this.temp,
     });
