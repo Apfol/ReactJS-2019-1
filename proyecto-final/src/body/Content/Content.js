@@ -1,35 +1,36 @@
 import React from 'react';
 import "./Content.css";
+import classes from "./Content.css";
 import image1 from './assets/iglesia.jpg';
 import noticia1 from './assets/convocatoria.jpeg';
 import noticia2 from './assets/convenio.jpg';
 import noticia3 from './assets/informe.jpg';
 import noticia4 from './assets/noticia1.jpg';
 import anmelden from './assets/underConstruction.png';
-import { Carousel, Card, Button, ButtonToolbar, OverlayTrigger, Tooltip, Image } from 'react-bootstrap';
+import { Card, ButtonToolbar, OverlayTrigger, Tooltip, Image } from 'react-bootstrap';
 import News from '../News/News'
 import Information from '../Information/Information'
 
 export default class Body extends React.Component {
     render() {
         return (
-            <div className="row cuerpo">
+            <div className={`${classes.cuerpo} row`}>
                 <div className="col-md-6">
-                    <Card className="conNews">
+                    <Card className={classes.conNews}>
                         <Card.Header style={{ backgroundColor: '#48567F' }}>
                             <div className="row">
                                 <div className="col-md-5">
-                                    <h1 className="title">Noticias</h1>
+                                    <h1 className={classes.title}>Noticias</h1>
                                 </div>
                                 <div className="col-md-7">
-                                    <p className="newsDesc">Encuentra las más recientes noticias sobre el municipio
+                                    <p className={classes.newsDesc}>Encuentra las más recientes noticias sobre el municipio
                                     y mantente al tanto de los eventos, novedades y demás. </p>
                                 </div>
                             </div>
                         </Card.Header>
                         <Card.Body>
                             <div className="container">
-                                <ul class="nav nav-pills nav-stacked scroll">
+                                <ul class={`nav nav-pills nav-stacked ${classes.scroll}`}>
                                     <News notice={noticia1} p="Convocatoria Laboral"
                                         info="La Alcaldía invita a toda la comunidad a la convocatoria laboral que se realizará el día 27 de Septiembre." />
                                     <News notice={noticia2} p="Convenio Educativo"
@@ -44,7 +45,7 @@ export default class Body extends React.Component {
                     </Card>
                 </div>
                 <div className="col-md-6">
-                    <p class="webDesc">¡Bienvenido/a a la página oficial del Municipio de Sopó!</p>
+                    <p class={classes.webDesc}>¡Bienvenido/a a la página oficial del Municipio de Sopó!</p>
                     <div className="row">
                         <div className="col-md-3">
                             <ButtonToolbar>
@@ -72,16 +73,16 @@ export default class Body extends React.Component {
                             <Information info1="Población" info2="26.768 Hab" />
                             <Information info1="Altitud" info2="2587 m.s.n.m" />
                             <Information info1="Código Postal" info2="251001" />
-                            <a href="#info" class="infoLink">Más Información...</a>
+                            <a href="#info" class={classes.infoLink}>Más Información...</a>
                         </div>
                     </div>
-                        <div class="row anuncio">
+                        <div class={`row ${classes.anuncio}`}>
                             <div class="col-sm-1"></div>
                             <div class="col-sm-3">
                                 <Image src={anmelden} style={{ height: '150px' }} />
                             </div>
                             <div class="col-md-7">
-                                <h1 class="anunT">Pronto, más contenido...</h1>
+                                <h1 class={classes.anunT}>Pronto, más contenido...</h1>
                             </div>
                             <div class="col-sm-1"></div>
                         </div>

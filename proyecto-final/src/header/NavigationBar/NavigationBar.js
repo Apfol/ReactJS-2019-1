@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from './logo.png';
-import "./NavigationBar.css";
 import { Navbar, Nav, Form, NavDropdown, Button, FormControl } from 'react-bootstrap';
+import "./NavigationBar.css"
+import classes from './NavigationBar.css';
 
 export default class NavigationBar extends React.Component {
 
@@ -37,13 +38,12 @@ export default class NavigationBar extends React.Component {
               width="50"
               height="50"
               className="d-inline-block align-top"
-              alt="React Bootstrap logo"
             />
           </Navbar.Brand>
           <Navbar.Brand href="#home">
             Sopó Cundinamarca
             <br />
-            <div className="brand-subtext">
+            <div className={classes.brandSubtext}>
               Seguridad y Prosperidad
             </div>
           </Navbar.Brand>
@@ -60,7 +60,7 @@ export default class NavigationBar extends React.Component {
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Nav className="justify-content-center clima">
+            <Nav className={classes.clima}>
               <Nav.Link><i class="fas fa-sun fa-lg sun"></i> {this.state.temperature}°C</Nav.Link>
             </Nav>
             <Nav>

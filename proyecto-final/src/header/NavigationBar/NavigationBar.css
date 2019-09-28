@@ -3,19 +3,9 @@
     background-image: linear-gradient(to bottom,#48567F, 0,#48567F    100%) !important; /* override background image gradient w/ flat color */
 }
 
-.brand-subtext {
+.brandSubtext {
     font-size: 13px;
     text-align: initial;
-}
-
-.textBlack {
-  color: black;
-  font-weight: bold;
-}
-
-
-.botonNav {
-  color: #ffffff;
 }
 
 .clima{
