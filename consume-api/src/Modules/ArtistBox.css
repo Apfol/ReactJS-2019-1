@@ -1,0 +1,36 @@
+.ArtistBox{
+    background-color: rgba(206, 216, 207, 0.74);
+    width: 60%;      
+    overflow: hidden;  
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+.ArtistDetail {       
+    height: 50%; 
+    width: 50%;  
+    display: inline-block;
+    position: relative;
+    right: 40px; 
+}
+.ArtistDetail *{       
+    display: block;
+}
+.ArtistImage{   
+    width: 50%;
+    display: inline-block; 
+    position: relative;
+    bottom: 30px;
+}
+.Image{
+    width: 50%;
+}
+
+.ArtistDetail a{
+    background-color: rgb(136, 127, 255);
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
