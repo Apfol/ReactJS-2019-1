@@ -11,6 +11,10 @@ div#box{
     border-radius: 10px;
   }
 
+  div#reader{
+    height: 1000px;
+  }
+
 
   
   div#box img{

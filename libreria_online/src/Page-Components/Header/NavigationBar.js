@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './NavigationBar.css';
+import { Link } from 'react-router-dom';
 
 
 function NavigationBar(props) {
@@ -14,13 +15,13 @@ function NavigationBar(props) {
                 <nav className={classes.nav}>
                     <ul className={classes.ulnav}>
                         <li>
-                            <a href="index.html">Inicio</a>
+                            <Link to="/">Inicio</Link>
                         </li>
                         <li>
-                            <a href="index.html">Top Libros</a>
+                            <Link to="/lector">Top Libros</Link>
                         </li>
                         <li>
-                            <a href="index.html">Iniciar Sesión</a>
+                            <Link to="/session/sign-in">Iniciar Sesión</Link>
                         </li>
                         <li>
                             <input type="text" placeholder="¿Qué estás buscando?" />
