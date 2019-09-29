@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import classes from './TouristPlaceCard.css';
 import StarRatingComponent from 'react-star-rating-component';
-
-
 
 export default class TouristPlaceCard extends Component {
     render() {
@@ -28,3 +26,5 @@ export default class TouristPlaceCard extends Component {
         this.props.handleClick(this.props.id)
     }
 }
+
+

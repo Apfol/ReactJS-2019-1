@@ -1,10 +1,9 @@
 
 import React, { Component } from 'react';
 import axios from '../axiosInstance';
-import Places from '../Places/Places';
 import TouristPlaceCard from '../TouristPlaceCard/TouristPlaceCard';
 import { Container, Row, Col } from 'react-bootstrap';
-import classes from './Tourism.css';
+import PlaceDetailed from '../PlaceDetailed/PlaceDetailed';
 
 export default class Tourism extends Component {
 
@@ -58,6 +57,15 @@ export default class Tourism extends Component {
             </div>
         )
     }
+    
+    getPlace(idPlace) {
+        this.state.touristPlaces.forEach((place) => {
+            if (place.id === idPlace) {
+                console.log(place);
+                return place;
+            }; 
+        })
+    }
 
     render() {
         if (this.state.idPlaceSelected === null) {
@@ -72,7 +80,9 @@ export default class Tourism extends Component {
                     <Row>
                         <Col>{this.getPlaces()}</Col>
                         <Col>
-                        
+                            <PlaceDetailed 
+                            title={this.state.touristPlaces[this.state.idPlaceSelected - 1].title}
+                            description={this.state.touristPlaces[this.state.idPlaceSelected - 1].description} />
                         </Col>
                     </Row>
                 </Container>
