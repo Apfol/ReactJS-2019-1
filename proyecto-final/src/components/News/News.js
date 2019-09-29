@@ -29,7 +29,7 @@ class News extends Component {
     render() {
         return(
             <div>
-                <p className = {classes.title}>NOTICIAS PRRO</p>
+                <p className = {classes.title}>Noticias al Dia</p>
                 <div className = {classes.container}>
                     {this.state.News.map( aNew =>
                         <NewsVerticalCard

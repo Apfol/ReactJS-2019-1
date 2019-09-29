@@ -14,7 +14,7 @@ class NewsVerticalCard extends Component {
                     <div>
                         <p className = {classes.title}>{this.props.title}</p> 
                         <p className = {classes.info}>{this.props.info}</p>
-                        {/* <p className = {classes.fullInfo}>{this.props.fullInfo}</p> */}
+                        <p className = {classes.fullInfo}>{this.props.fullInfo}</p>
                     </div>
                 </div>
             </Link>
