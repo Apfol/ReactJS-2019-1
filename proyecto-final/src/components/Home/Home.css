@@ -3,38 +3,13 @@
     margin-bottom: 25px;
 }
 
-.scroll {
-    height: 400px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
+
 
 .information{
     height: 100%;
     width: 100%;
     filter:brightness(0.5);
     background-image: url(./assets/iglesia.jpg);
-}
-
-.conNews{
-    margin-left: 20px;
-}
-
-.title{
-    position: relative;
-    top: 10%;
-    color: white;
-    font-size: 50px;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-weight: bolder;
-}
-
-.newsDesc{
-    position: relative;
-    color: white;
-    top: 10%;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-weight: lighter;
 }
 
 .webDesc{

@@ -29,7 +29,7 @@ export default class NavigationBar extends React.Component {
 
   render() {
     return (
-      <div className="navContainer">
+      <div className= {classes.navContainer}>
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="/">
             <img
@@ -51,7 +51,7 @@ export default class NavigationBar extends React.Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link href="/tourism">Turismo</Nav.Link>
-              <Nav.Link href="/notices">Noticias</Nav.Link>
+              <Nav.Link href="/news">Noticias</Nav.Link>
               <NavDropdown title="Atención al ciudadano" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Peticiones, quejas, reclamos y sugerencias</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

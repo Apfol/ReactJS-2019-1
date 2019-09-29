@@ -1,23 +1,48 @@
-import React from 'react';
-import Image from 'react-bootstrap/Image';
-import classes from "./News.css";
+import React, { Component } from 'react';
+import axios from '../axiosInstance';
+import NewsVerticalCard from '../NewsVerticalCard/NewsVerticalCard.js';
+import classes from './News.css';
 
-class News extends React.Component {
-    render = () => {
-        return (
-            <li class={`nav-item ${classes.noticia}`}>
-                <div className={`row ${classes.notices}`}>
-                    <div className={`col-md-6 ${classes.cols}`}>
-                        <Image className={classes.noticeImg} src={this.props.notice} fluid />
-                    </div>
-                    <div className={`col-md-6 ${classes.cols}`}>
-                        <a href="#nothing"><h5>{this.props.p}</h5></a>
-                        <h9>{this.props.info}</h9>
-                    </div>
+class News extends Component {
+    state = {
+        News: []
+    }
+
+    componentDidMount() {
+        axios.get('/news')
+            .then(response => {
+                var updatedNews = response.data;
+                updatedNews = updatedNews.map(aNew => {
+                    return {
+                        img: aNew.img,
+                        title: aNew.title,
+                        info: aNew.info,
+                        fullInfo: aNew.fullInfo,
+                    }
+                });
+                this.setState({
+                    News: updatedNews,
+                });
+            })
+    }
+
+    render() {
+        return(
+            <div>
+                <p className = {classes.title}>NOTICIAS PRRO</p>
+                <div className = {classes.container}>
+                    {this.state.News.map( aNew =>
+                        <NewsVerticalCard
+                            img = {aNew.img}
+                            title = {aNew.title}
+                            info = {aNew.info}
+                            fullInfo = {aNew.fullInfo}
+                        />
+                    )}
                 </div>
-            </li>
-        );
-    };
+            </div>
+        )
+    }
 }
 
 export default News;
