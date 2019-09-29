@@ -1,28 +1,53 @@
 import React from 'react';
 import classes from './PlaceDetailed.css';
-import { Card, Row, Col, Container } from 'react-bootstrap';
+import { Card, Row, Col, Container, Image } from 'react-bootstrap';
+import StarRatingComponent from 'react-star-rating-component';
+import CommentForm from '../CommentForm/CommentForm';
 
 export default function PlaceDetailed(props) {
     return (
         <div className={classes.placeDetailed}>
-            <div>
-                <h1 className={classes.title}>{props.place["title"]}</h1>
-                <h3>{props.place["detailedDescription"]}</h3>
-                {props.place["comments"].map(comment => {
-                    return (
-                        <Card className={classes.card} border="dark" style={{ width: '50rem' }}>
-                            <Card.Header>{comment.author}</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Buen lugar de estudio</Card.Title>
-                                <Card.Text>
-                                    {comment.body}
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    )
-                })}
-            </div>
+            <Container>
+                <Row>
+                    <Image src={props.place.img} height="300" width="100%" />
+                </Row>
+                <Row>
+                    <h2 className={classes.title}>{props.place["title"]}</h2>
+                </Row>
+                <Row>
+                    <Col>
+                        <p>{props.place["detailedDescription"]}</p>
+                        <p>Agrega tu experiencia en este sitio.</p>
+                        <CommentForm></CommentForm>
+                    </Col>
+                    <Col>
+                        <StarRatingComponent
+                            className={classes.star}
+                            name="rate1"
+                            starCount={5}
+                            value={props.place["score"]}
+                        />
+                        <h4 className={classes.comment}>Comentarios</h4>
+                        {props.place["comments"].map(comment => {
+                            return (
+                                <Card className={classes.card} border="dark">
+                                    <Card.Header>{comment.author}</Card.Header>
+                                    <Card.Body>
+                                        <Card.Title>Buen lugar</Card.Title>
+                                        <Card.Text>
+                                            {comment.body}
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            )
+                        })}
+                    </Col>
+
+                </Row>
+
+            </Container>
         </div>
+
     )
 }
 

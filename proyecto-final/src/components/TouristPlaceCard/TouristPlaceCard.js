@@ -18,7 +18,7 @@ export default class TouristPlaceCard extends Component {
                         <StarRatingComponent
                             name="rate1"
                             starCount={5}
-                            value={3}
+                            value={this.props.score}
                         />
                     </Card.Body>
                 </Card>

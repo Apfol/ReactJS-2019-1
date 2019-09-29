@@ -60,6 +60,7 @@ export default class Tourism extends Component {
                             title={place.title}
                             description={place.description}
                             img={place.img}
+                            score={place.score}
                             handleClick={this.onClickCard.bind(this)}
                             id={place.id}
                         />
