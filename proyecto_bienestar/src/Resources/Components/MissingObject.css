@@ -70,11 +70,12 @@ li{
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     font-size: 30px;
-    margin-left: 70px;    
+    margin-left: 70px;
+    margin-bottom:30px;    
     padding: 10px;
 }
 
-.Other{
+.MineOther{
 
     margin-top: 30px;
 }

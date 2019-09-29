@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import classes from './App.css';
 import MissingObjectList from './Resources/Components/MissingObjectList';
 //import SportsEquipment from './Resources/Components/SportsEquipment';
 import SideBar from './Resources/Components/SideBar';
@@ -19,7 +19,7 @@ function App() {
 
   
   return (
-    <div className="App">            
+    <div className={classes.App}>
       <SideBar object = {object}/>     
       <MissingObjectList></MissingObjectList>
     </div>

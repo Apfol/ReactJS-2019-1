@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import "./SearchFilter.css";
+import classes from "./SearchFilter.css";
 class SearchFilter extends Component {
   render() {
     return (
-      <form className="SearchFilter">
-        <input className="InputValue" type="text" placeholder=" Escriba el articulo aca..." />        
-        <select name="Tipo de Busqueda" className="Selector">
+      <form className={classes.SearchFilter}>
+        <input className={classes.InputValue} type="text" placeholder=" Escriba el articulo aca..." />        
+        <select name="Tipo de Busqueda" className={classes.Selector}>
           <option value="Name">Nombre del objeto</option>
           <option value="Location">Lugar de perdida</option>
         </select>
-        <button className="Search">Buscar</button>
+        <button className={classes.Search}>Buscar</button>
       </form>
     );
   }

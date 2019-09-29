@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./MissingObjectList.css";
+import classes from "./MissingObjectList.css";
 import MissingObject from "./MissingObject";
 import SearchFilter from "./SearchFilter";
 
@@ -18,7 +18,7 @@ class MissingObjectList extends Component {
       }
   render() {
     return (      
-      <div className="MissingObjectList">                         
+      <div className={classes.MissingObjectList}>
           <SearchFilter/>
             {this.state.objects.map(object => <MissingObject name = {object.name} location = {object.location} 
          by = {object.by}/>)} 
