@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-
 import MissingObjectList from './Resources/Components/MissingObjectList';
 import SportsEquipment from './Resources/Components/SportsEquipment';
 import SideBar from './Resources/Components/SideBar';
