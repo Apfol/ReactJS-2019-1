@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './footer.css';
+import classes from './Footer.css';
 import { Navbar, Nav } from 'react-bootstrap';
 
 

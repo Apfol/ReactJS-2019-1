@@ -2,14 +2,22 @@
 import React, { Component } from 'react';
 import axios from '../axiosInstance';
 import TouristPlaceCard from '../TouristPlaceCard/TouristPlaceCard';
-import { Container, Row, Col } from 'react-bootstrap';
 import PlaceDetailed from '../PlaceDetailed/PlaceDetailed';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 export default class Tourism extends Component {
 
     state = {
         touristPlaces: [],
-        idPlaceSelected: null,
+        placeSelected: {
+            title: "",
+            description: "",
+            score: "",
+            img: "",
+            id: "",
+            comments: [],
+            detailedDescription: "",
+        },
     }
 
     componentDidMount() {
@@ -23,6 +31,8 @@ export default class Tourism extends Component {
                         score: place.score,
                         img: place.img,
                         id: place.id,
+                        comments: place.comments,
+                        detailedDescription: place.detailedDescription,
                     }
                 });
                 console.log(updatedPlaces);
@@ -35,8 +45,9 @@ export default class Tourism extends Component {
     }
 
     onClickCard(itemPosition) {
+        const place = this.state.touristPlaces.find(({ id }) => id === itemPosition);
         this.setState({
-            idPlaceSelected: itemPosition,
+            placeSelected: place,
         });
     }
 
@@ -57,37 +68,19 @@ export default class Tourism extends Component {
             </div>
         )
     }
-    
-    getPlace(idPlace) {
-        this.state.touristPlaces.forEach((place) => {
-            if (place.id === idPlace) {
-                console.log(place);
-                return place;
-            }; 
-        })
-    }
+
 
     render() {
-        if (this.state.idPlaceSelected === null) {
-            return (
-                <div>
-                    {this.getPlaces()}
-                </div>
-            )
-        } else {
-            return (
-                <Container>
-                    <Row>
-                        <Col>{this.getPlaces()}</Col>
-                        <Col>
-                            <PlaceDetailed 
-                            title={this.state.touristPlaces[this.state.idPlaceSelected - 1].title}
-                            description={this.state.touristPlaces[this.state.idPlaceSelected - 1].description} />
-                        </Col>
-                    </Row>
-                </Container>
-            )
-        }
+        return (
+            <BrowserRouter>
+                <Route path="/tourism/" exact>{this.getPlaces()}</Route>
+                <Route path="/tourism/:placeId" render={() => (
+                    <PlaceDetailed
+                        place={this.state.placeSelected}
+                    />
+                )} />
+            </BrowserRouter>
+        )
     }
 }
 
