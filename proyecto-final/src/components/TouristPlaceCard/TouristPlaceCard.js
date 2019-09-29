@@ -1,23 +1,30 @@
-import React from 'react';
-import { Card } from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Card, Button } from 'react-bootstrap';
 import classes from './TouristPlaceCard.css';
 import StarRatingComponent from 'react-star-rating-component';
 
-export default function TouristicPlaceCard(props) {
-    return (
-        <Card className={classes.card} style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={props.img} height="150" />
-            <Card.Body>
-                <Card.Title>{props.title}</Card.Title>
-                <Card.Text>
-                    {props.description}
-                </Card.Text>
-                <StarRatingComponent
-                    name="rate1"
-                    starCount={5}
-                    value={3}
-                />
-            </Card.Body>
-        </Card>
-    )
+
+
+export default class TouristPlaceCard extends Component {
+    render() {
+        return (
+            <Card className={classes.card} style={{ width: '18rem' }} onClick={this.onClick}>
+                <Card.Img variant="top" src={this.props.img} height="150" />
+                <Card.Body>
+                    <Card.Title>{this.props.title}</Card.Title>
+                    <Card.Text>
+                        {this.props.description}
+                    </Card.Text>
+                    <StarRatingComponent
+                        name="rate1"
+                        starCount={5}
+                        value={3}
+                    />
+                </Card.Body>
+            </Card>
+        )
+    }
+    onClick = () => {
+        this.props.handleClick(this.props.id)
+    }
 }
