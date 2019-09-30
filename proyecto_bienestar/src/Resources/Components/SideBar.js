@@ -8,7 +8,7 @@ class SideBar extends Component {
   render() {
     return (
       <div className={classes.sidenav}>
-        <div className={classes.Profile-Image}>
+        <div className={classes.ProfileImage}>
           <img className={classes.Avatar} src={faker.image.avatar()}/>
         </div>
         <div>
