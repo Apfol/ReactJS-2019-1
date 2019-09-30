@@ -8,11 +8,11 @@
     background-color: #316e7d;
     overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
-    box-shadow: 2px 2px 5px black;    
+    box-shadow: 2px 2px 5px black;        
   }
 
   .Profile-Image{
-    margin-top: 10%;
+    margin-top: 20px;
   }
 
   .Avatar{
@@ -23,7 +23,7 @@
 
   }
 
-  .NavContent p {
+  .NavContent a {
     margin-left: 15px;
     padding-top: 5px;
     text-decoration: none;
@@ -32,11 +32,12 @@
     display: block;
     transition: 0.3s;    
     border-bottom: 2px solid #4CAF50;
+    margin-bottom: 15px;
     width: 80%;
     cursor: pointer;
   }
 
-  .NavContent p:hover {
+  .NavContent a:hover {
     background-color: #6DFC71;
     color: black;
     box-shadow: 2px 2px 5px black;  
@@ -61,7 +62,6 @@
 
   .SettingsButton{
 
-    float: left;
-    margin-top: 10%;
-    margin-left: 10%;    
+    float: center; 
+    margin-top: 50px;       
   }
