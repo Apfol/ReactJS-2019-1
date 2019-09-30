@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './App.css';
-//import SportsEquipment from './Resources/Components/SportsEquipment';
+import SportsEquipment from './Resources/Components/SportsEquipment';
 import SideBar from './Resources/Components/SideBar';
 //import NavBarComponent from './Resources/Components/NavBar';
 import {BrowserRouter} from 'react-router-dom'
@@ -28,7 +28,12 @@ function App() {
             <div>
               <MissingObjectList></MissingObjectList>
             </div>
-          )}/>         
+          )}/>
+         <Route path="/sport" render ={() => (
+            <div>
+              <SportsEquipment></SportsEquipment>
+            </div>
+          )}/>           
       </div>
     </BrowserRouter>    
     
