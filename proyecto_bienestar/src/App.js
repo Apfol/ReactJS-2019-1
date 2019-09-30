@@ -1,9 +1,11 @@
 import React from 'react';
 import classes from './App.css';
-import MissingObjectList from './Resources/Components/MissingObjectList';
 //import SportsEquipment from './Resources/Components/SportsEquipment';
 import SideBar from './Resources/Components/SideBar';
 //import NavBarComponent from './Resources/Components/NavBar';
+import {BrowserRouter} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
+import MissingObjectList from './Resources/Components/MissingObjectList';
 
 
 function App() {
@@ -19,10 +21,17 @@ function App() {
 
   
   return (
-    <div className={classes.App}>
-      <SideBar object = {object}/>     
-      <MissingObjectList></MissingObjectList>
-    </div>
+    <BrowserRouter>
+      <div className={classes.App}>
+        <SideBar object = {object}/>  
+        <Route path="/missing-object-list" render ={() => (
+            <div>
+              <MissingObjectList></MissingObjectList>
+            </div>
+          )}/>         
+      </div>
+    </BrowserRouter>    
+    
   );
 }
 

@@ -7,9 +7,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 
-
-
-
 class NavBarComponent extends Component {
     state = {
         objects:[
@@ -47,7 +44,6 @@ class NavBarComponent extends Component {
   </Navbar.Collapse>
 </Navbar>
         </div>   
-        
     );
   }
 }
