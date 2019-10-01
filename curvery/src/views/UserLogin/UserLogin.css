@@ -1,15 +1,12 @@
-label{
+/* label{
     font-weight: bold;
     margin-right: 20px;
 
 }
 input{
     text-align: left;
-}
-div{
-    margin: 20px;
-}
+} */
 
-input[type="submit"]{
-
+.container{
+    color: black
 }

@@ -1,22 +1,58 @@
 import React, { Component } from "react";
-import VideoDetails from "../VideoDetails";
-import VideoList from "../VideoList";
-
+import VideoDetails from "../../components/VideoDetails/VideoDetails";
+import VideoList from "../../components/VideosList/VideoList";
 import './CoursePlayer.css';
-export class CoursePlayer extends Component {
-  render() {
-    // const videoUrl = `https://www.youtube.com/embed/${this.props.video.url}?controls=1`;
-    const videoUrl = `https://www.youtube.com/embed/6vX8wT1G798?controls=1`;
 
+import YoutubeApiAxios from '../../services/YoutubeApiAxios';
+
+export class CoursePlayer extends Component {
+
+  state = {
+    selectedVideo: {},
+    videos:[]
+  }
+
+  componentDidMount(){
+    this.loadPlaylist();
+  }
+
+  loadPlaylist =  async ()=>{
+    const response = await YoutubeApiAxios.get("playlists", {
+      params: {
+        ...YoutubeApiAxios.defaults.params,
+        part: "snippet",
+        maxResults: 100,
+        playlistId: `${this.props.match.playlistId}`
+      }
+    });
+    console.log(response.data.items);
+    this.setState({
+      videos: response.data.items.map(item=>{
+        return {
+          ...item.snippet,
+          videourl:`https://www.youtube.com/embed/${item.resourceId.videoId}?controls=1`
+        }
+      }),
+      selectedVideo: {
+        ...response.data.items[0].snippet,
+        videourl:`https://www.youtube.com/embed/${response.data.items[0].resourceId.videoId}?controls=1`        
+      }
+    });
+  }
+
+  onVideoSelect = video => {
+    this.setState({
+      selectedVideo: video
+    });
+  };
+
+
+  render() {
     return (
       <div className="container">
-          <VideoDetails video={{url:videoUrl}} ></VideoDetails>
+          <VideoDetails video={this.state.selectedVideo} ></VideoDetails>
           <VideoList 
-            videos={
-                {list: 
-                    [{title:"I.1: Random Walker - The Nature of Code",url:"rqecAdEGW6I"},
-                    {title:"I.2: Probability Basics - The Nature of Code", url:"frh0coyRmJQ"},
-                    {title:"I.3: Gaussian Distribution - The Nature of Code",url:"8uyR-YU_0dg"}]}}>
+            videos={this.state.videos}>
             </VideoList>
       </div>
     );

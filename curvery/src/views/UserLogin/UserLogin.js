@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
-import "./Login.css";
+import classes from "./UserLogin.css";
+
 export class Login extends Component {
   state = {
     username: "",
@@ -12,11 +13,12 @@ export class Login extends Component {
     // TODO: Make call and check if register
 
     e.preventDefault();
+
+    this.props.startSession(this.state);
+    console.log(this.state);
     this.setState({
       logged: true
     });
-    this.props.startSession(this.state);
-    console.log(this.state);
   };
 
   onChange = event => {
@@ -31,7 +33,7 @@ export class Login extends Component {
     }
 
     return (
-      <div className="container">
+      <div className={classes.container}>
         <form onSubmit={this.onSubmit}>
           <div>
             <label htmlFor="username">Username:</label>

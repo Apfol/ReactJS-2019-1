@@ -1,12 +1,31 @@
-import React from 'react';
 import './App.css';
-import Router from './router/Router'
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import React, { Component } from 'react'
 
-function App() {
-  
-  return (
-    <Router></Router>
-  );
+
+import Router from './router/router';
+
+class App extends Component {
+
+  state = {
+    user: {
+      logged: false,
+      username: "",
+      password: ""
+    }
+  }
+
+  startSession = (userData) => {
+    this.setState(prevState => ({
+      user: { ...userData, ...{ logged: true } }
+    }));
+  }
+
+  render() {
+    return (
+      <Router startSession={this.startSession.bind(this)}></Router>
+    );
+  }
 }
 
 export default App;

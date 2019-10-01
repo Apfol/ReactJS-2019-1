@@ -69,7 +69,7 @@
     border: 2px solid rgb(255, 0, 242);
     transition: all .5s;
   }
-   input {
+.button input {
     position: absolute;
     margin: auto;
     top: 0;
