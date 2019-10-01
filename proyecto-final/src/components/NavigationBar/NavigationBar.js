@@ -32,7 +32,7 @@ export default class NavigationBar extends React.Component {
     return (
       <div className= {classes.navContainer}>
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/">
+          <Link to="/" className = {classes.links}>
             <img
               src={logo}
               width="50"
@@ -40,19 +40,19 @@ export default class NavigationBar extends React.Component {
               alt="logo"
               className="d-inline-block align-top"
             />
-          </Navbar.Brand>
-          <Navbar.Brand href="/">
+          </Link>
+          <Link to="/" className = {classes.links}>
             Sopó Cundinamarca
             <br />
             <div className={classes.brandSubtext}>
               Seguridad y Prosperidad
             </div>
-          </Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/tourism">Turismo</Nav.Link>
-              <Nav.Link href="/news">Noticias</Nav.Link>
+              <Link className = {classes.links} to="/tourism">Turismo</Link>
+              <Link className = {classes.links} to="/news">Noticias</Link>
               <NavDropdown title="Atención al ciudadano" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Peticiones, quejas, reclamos y sugerencias</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
