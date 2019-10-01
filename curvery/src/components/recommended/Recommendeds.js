@@ -10,7 +10,7 @@ class Recommendeds extends Component{
     }
     componentDidMount(){
         //json creado y alojado sin necesidad de permisos 
-        axios.get('https://api.myjson.com/bins/17d4i5')
+        axios.get('https://prueba-6418b.firebaseio.com/cursos.json')
         .then(res => {
             console.log(res);
             this.setState({courses: res.data});

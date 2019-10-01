@@ -10,7 +10,7 @@ class Intructors extends Component{
     }
     componentDidMount(){
         //json creado y alojado sin necesidad de permisos 
-        axios.get('https://api.myjson.com/bins/13wej9')
+        axios.get('https://prueba-6418b.firebaseio.com/persona.json')
         .then(res => {
             console.log(res);
             this.setState({courses: res.data});

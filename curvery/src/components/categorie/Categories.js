@@ -7,8 +7,8 @@ class Categories extends Component{
         error: []
     }
     componentDidMount(){
-        //json creado y alojado sin necesidad de permisos 
-        axios.get('https://api.myjson.com/bins/166vo5')
+        //json creahttps://api.myjson.com/bins/166vo5 do y alojado sin necesidad de permisos 
+        axios.get('https://prueba-6418b.firebaseio.com/categoria.json')
         .then(res => {
             console.log(res);
             this.setState({courses: res.data});

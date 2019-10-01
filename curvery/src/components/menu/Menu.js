@@ -6,9 +6,7 @@ import {Link, withRouter} from 'react-router-dom';
 
 function Menu(props) {
     const {history}=props;
-    
-    
-    
+
     function onFormSubmit(termSearch){
         console.log(termSearch);
     }
@@ -18,9 +16,10 @@ function Menu(props) {
                 <img className={menu.logo} src={logo} alt=""></img>
                 <div className={menu.menu}>
                 <nav className={menu.navigation_items}>
+                <li className={menu.navigation_item}><button onClick={() => history.goBack()}>ATRAS</button></li>
+                <li className={menu.navigation_item}><button onClick={() => history.push('/user')}>ADELANTE</button></li>
                 <li className={menu.navigation_item}><Link to="/home">HOME</Link></li>
                 <li className={menu.navigation_item}><Link to="/user">user</Link></li>
-                <li className={menu.navigation_item}><button onClick={() => history.push('/user')}>user prro</button></li>
                 <li className={menu.navigation_item}><Link>HOME</Link></li>
                 <li className={menu.navigation_item}><Link>HOME</Link></li>
                 </nav>
