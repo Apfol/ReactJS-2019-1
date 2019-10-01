@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 
 
 function NavigationBar(props) {
+    let userNav = "";
+    if (props.userNav) {
+        userNav = props.userNav;
+    }
     return (
         <div id="header-wrapper" className={classes.wrapper}>
             <header className={classes.header}>
@@ -18,7 +22,7 @@ function NavigationBar(props) {
                             <Link to="/">Inicio</Link>
                         </li>
                         <li>
-                            <Link to="/lector">Top Libros</Link>
+                            <Link to="/">Top Libros</Link>
                         </li>
                         <li>
                             <Link to="/session/sign-in">Iniciar Sesión</Link>
@@ -27,11 +31,12 @@ function NavigationBar(props) {
                             <input type="text" placeholder="¿Qué estás buscando?" />
                         </li>
                         <li>
-                            <a href="index.html">Sobre Nosotros</a>
+                            <a href="/">Sobre Nosotros</a>
                         </li>
                     </ul>
                 </nav>
             </header>
+            {userNav}
         </div>
     );
 }

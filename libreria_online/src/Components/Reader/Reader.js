@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { dataBooks } from '../../Data';
 import { Document, Page } from 'react-pdf';
 import ReaderTools from './ReaderTools';
 import InfoBook from './InfoBook';
+import classes from './Reader.css';
+import Question from '../Book/Question';
 
 
 class Reader extends Component {
@@ -13,7 +14,9 @@ class Reader extends Component {
             document: props.document,
             docComponent: {},
             numPages: 0,
-            pageNumber: 1
+            pageNumber: 1,
+            book: props.book
+
         }
 
     }
@@ -45,17 +48,23 @@ class Reader extends Component {
     }
     render() {
         return (
-            <div id="reader">
+            <div id="reader" className={classes.reader}>
+                <InfoBook name={this.state.book.name} author={this.state.book.author} date={this.state.book.date} isbn={this.state.book.isbn} />
                 <Document file={"/pdf_files/" + this.state.document + ".pdf"} onLoadSuccess={this.onDocumentLoadSuccess}  >
                     <Page pageNumber={this.state.pageNumber} />
                 </Document>
                 <ReaderTools nextPage={this.goToNextPage} prevPage={this.goToPrevPage}
                     numPage={this.state.pageNumber} pages={this.state.numPages} />
-                <InfoBook name={dataBooks[0].name} author={dataBooks[0].author} criticism={dataBooks[0].criticism} summary={dataBooks[0].summary} />
+                <section>
+                    {this.state.book.questions.map((q, index) => <Question key={index} title={q.title} option1={q.option1} option2={q.option2} option3={q.option3} option4={q.option4} />)}
+                    <button onClick={this.sendAnswers}>Enviar Respuestas</button>
+                </section>
             </div>
 
         );
     }
+
+    sendAnswers = () => { }
 }
 
 export default Reader;

@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import classes from './Book.css';
+import { Link } from 'react-router-dom';
 
 class Book extends Component {
+    state = {
+        pdfName: this.props.pdfName
+    };
 
     render() {
         return (
             <div className={classes.book_box}>
                 <header>
-                    <img src={this.props.img} alt={this.props.alt} />
+                    <img src={"/img/" + this.props.img} alt="" />
                     <hr />
-                    <h1>{this.props.name}</h1>
+                    <h1><Link to={"/books/" + this.props.pdfName} onClick={() => this.props.openReader(this.state.pdfName)}>{this.props.name} </Link></h1>
                 </header>
                 <hr />
                 <p>Isbn: {this.props.isbn}</p>

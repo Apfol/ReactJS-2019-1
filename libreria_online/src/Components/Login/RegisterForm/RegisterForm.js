@@ -9,6 +9,14 @@ function RegisterForm(props) {
                 <tbody>
                     <tr>
                         <td>
+                            <label>Imagen de perfil: </label>
+                        </td>
+                        <td>
+                            <input type="file" id="img_user" accept="image/gif, image/png, image/jpg, image/jpeg" onChange={(event) => props.loadInformation(event, "img")} />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <label>Nombre</label>
                         </td>
                         <td>

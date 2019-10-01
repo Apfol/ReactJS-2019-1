@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, withRouter } from 'react-router-dom';
 import classes from './loginForm.css';
 import LogIn from './LoginForm/LogIn';
 import RegisterForm from './RegisterForm/RegisterForm';
-import { users, setUsers, setLogged, setTempUser } from '../../Data';
+import { users, setUsers, setTempUser, setEntered } from '../../Data';
 import User from '../../Classes/User';
 
 class LoginForm extends Component {
@@ -11,6 +11,7 @@ class LoginForm extends Component {
     state = {
         users: users,
         newUserInfo: {
+            img: "",
             name: "",
             username: "",
             mail: "",
@@ -50,32 +51,32 @@ class LoginForm extends Component {
                 )} />
 
 
-                <button onClick={this.saludo}> buena pa</button>
+
             </div>
         )
     }
 
-    saludo = () => {
-        console.log(this.state.users)
-    }
+
 
     loadInformation = (event, type) => {
         var loadInformation = {
             ...this.state.newUserInfo
         }
-
-        loadInformation[type] = event.target.value;
-
+        if (type === "img") {
+            loadInformation[type] = document.getElementById("img_user").files[0].name;
+        } else {
+            loadInformation[type] = event.target.value;
+        }
         this.setState({
             newUserInfo: loadInformation
         });
     }
 
     submitNewUser = () => {
-        var updateUsers = [...this.state.users];
+        var updateUsers = [...users];
         var newUserInfo = { ...this.state.newUserInfo }
-        /* constructor(id, username, name, mail, pass, img, books = []) */
-        updateUsers.push(new User(newUserInfo.username, newUserInfo.name, newUserInfo.mail, newUserInfo.password));
+        /* constructor(username, name, mail, pass, img, books = []) */
+        updateUsers.push(new User(newUserInfo.username, newUserInfo.name, newUserInfo.mail, newUserInfo.password, newUserInfo.img));
         setUsers(updateUsers);
         console.log(users);
         this.setState({
@@ -91,8 +92,8 @@ class LoginForm extends Component {
     }
 
     checkUser = () => {
-        console.log(this.state.users);
-        var updateUsers = [...this.state.users];
+        console.log(users);
+        var updateUsers = [...users];
         var newUserInfo = { ...this.state.newUserInfo }
         var username = newUserInfo.username;
         var password = newUserInfo.password;
@@ -102,14 +103,18 @@ class LoginForm extends Component {
             temUser = updateUsers[i];
             console.log(temUser.username + " " + temUser.pass);
             if ((temUser.username === username) && (temUser.pass === password)) {
-                setLogged(true);
+                setEntered(true);
                 setTempUser(temUser);
-                alert("Buena pa ese es jaja xd ");
+                alert("Ingreso Exitoso");
+                this.props.login();
+                this.props.history.push("/session/sign-in");
                 break;
+            } else {
+                alert("El nombre de usuario o contraseña no es valido");
             }
         }
     }
 
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

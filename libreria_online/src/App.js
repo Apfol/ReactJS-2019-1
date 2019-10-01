@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
-import NavigationBar from './Page-Components/Header/NavigationBar';
+import NavigationBar from './Page-Components/NavigationBar/NavigationBar';
 import Banner from './Page-Components/Banner/Banner';
 import Carousel from './Page-Components/Carousel/Carousel';
-import { recomendBooks, tempQuestions, finaldataBooks, setTempUser } from './Data';
-import Reader from './Components/Reader/Reader';
-import { urlBooks } from './Data';
+import { recomendBooks, tempQuestions, finaldataBooks, users, setEntered, setTempUser } from './Data';
 import { pdfjs } from 'react-pdf';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Book from './Classes/Book';
-import Question from './Components/Book/Question';
+import BookClass from './Classes/Book';
 import User from './Classes/User';
 import LoginForm from './Components/Login/LoginForm';
+import HomeUser from './Components/HomeUser/HomeUser';
+import UserBar from './Page-Components/NavigationBar/UserBar';
+import UploadPdf from './Components/UploadPdf/UploadPdf';
+import Reader from './Components/Reader/Reader';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 
@@ -20,45 +21,65 @@ class App extends Component {
   constructor(props) {
 
     super(props);
-    //{ name: 'Libro 1', isbn: 1, author: 'autor1', date: 'date1', img: "logo192.png", alt: "algo", criticism: "", summary: "" },
-    // constructor(name, author, isbn, date, img, questions = []) {
-    //let books = finaldataBooks.map(bookInfo => (new Book(bookInfo.name, bookInfo.author, bookInfo.isbn, bookInfo.date, bookInfo.img, tempQuestions)));
-    // constructor(id, username, name, mail, pass, img, books = []) {
-    // let user = new User("0001", "juanvalag", "Juan", "juandva2016@gmail.com", "Juan2016", "1.jpg", books);
-    //setTempUser(user);
-    /*this.allbooks = dataBooks.map(book => (
-      new Book(book.name, book.author, book.isbn, book.date, book.img)
+    let books = finaldataBooks.map(bookInfo => (
+      new BookClass(bookInfo.name, bookInfo.author, bookInfo.isbn, bookInfo.date, bookInfo.img, tempQuestions, bookInfo.pdfName)
     ));
-    console.log(this.allbooks);*/
-    //console.log(user);
-    this.state = {};
+    let user = new User("juanvalag", "Juan", "juandva2016@gmail.com", "1234", "person.png", books);
+    users.push(user);
+    console.log(user);
+    this.state = {
+      userView: <LoginForm login={this.login} />,
+      userNav: "",
+      userUpload: "",
+      tempReader: "",
+      pdfName: ""
+    };
+  }
+
+  login = () => {
+    this.setState({
+      userNav: <UserBar logout={this.logout} />,
+      userView: <HomeUser openReader={this.openReader} />,
+      userUpload: <UploadPdf />
+    });
+  }
+
+  openReader = (book) => {
+    this.setState({
+      pdfName: book.pdfName,
+      tempReader: <Reader document={book.pdfName} book={book} />
+    });
+  }
+
+  logout = () => {
+    setEntered(false);
+    setTempUser({});
+    this.setState({
+      userView: <LoginForm login={this.login} />,
+      userNav: "",
+      userUpload: "",
+      tempReader: "",
+      pdfName: ""
+    });
   }
 
 
   render() {
 
     return (
-      <div id="page-wrapper" >
-        <BrowserRouter>
-          <NavigationBar />
-          <Route path="/lector" exact render={() => (
-            <>
-              <Reader document={urlBooks[0]} />
-              <Question />
-            </>
-          )} />
-          <Route path="/" exact render={() => (
-            <>
-              <Banner />
-              <Carousel booksInfo={recomendBooks} />
-            </>
-          )} />
-          <Route path="/session" render={() => (
-            <LoginForm />
-          )} />
+      <BrowserRouter>
+        <NavigationBar userNav={this.state.userNav} />
+        <Route path="/" exact render={() => (
+          <>
+            <Banner />
+            <Carousel booksInfo={recomendBooks} title="Libros Recomendados" />
+          </>
+        )} />
+        <Route path="/session/" render={() => this.state.userView} />
+        <Route path="/session/upload" render={() => this.state.userUpload} />
+        <Route path={"/books/" + this.state.pdfName} exact render={() => this.state.tempReader} />
+      </BrowserRouter>
 
-        </BrowserRouter>
-      </div>
     );
   }
 }

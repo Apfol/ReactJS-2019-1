@@ -60,21 +60,27 @@ class Carousel extends Component {
     setBooks() {
         return (
             this.props.booksInfo.map(
-                book => <Book img={"img/" + book.img} name={book.name} isbn={book.isbn} author={book.author} date={book.author} alt={book.alt} />)
+                book => <Book img={book.img} name={book.name} isbn={book.isbn} author={book.author} date={book.author} alt={book.alt} />)
         );
     }
 
     render() {
         return (
-            <div className={classes.carousel}>
-                <div className={classes.left_arrow} onClick={this.previousBooks}>
-                    <img alt="" src="img/left-arrow.png" />
-                </div>
-                <div className={classes.container}>
-                    {this.state.booksToRender}
-                </div>
-                <div className={classes.right_arrow} onClick={this.nextBooks}>
-                    <img alt="" src="img/right-arrow.png" />
+            <div >
+                <header>
+                    <h1>{this.props.title}</h1>
+                    <hr />
+                </header>
+                <div className={classes.carousel}>
+                    <div className={classes.left_arrow} onClick={this.previousBooks}>
+                        <img alt="" src="img/left-arrow.png" />
+                    </div>
+                    <div className={classes.container}>
+                        {this.state.booksToRender}
+                    </div>
+                    <div className={classes.right_arrow} onClick={this.nextBooks}>
+                        <img alt="" src="img/right-arrow.png" />
+                    </div>
                 </div>
             </div>
         );

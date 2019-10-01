@@ -72,19 +72,17 @@ div#info-book{
     box-shadow: 0px 0px 10px 0.5px gray; 
     border-radius: 10px;
 }
-
-section#info-person{
-  float:left; 
-  padding:5px;
-  background:white;
-  width:97%;
-  height:auto;
-  text-align: center;
-  box-shadow: 0px 0px 10px 0.5px gray; 
-  border-radius: 10px;
+#books_person{
+  display: inline-block;
 }
 
 div#reader{
   margin-top: 150px;
 }
 
+.userbar_button{
+  float: right;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-decoration: none;
+}

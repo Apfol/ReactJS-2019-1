@@ -18,8 +18,6 @@ class ReaderTools extends Component {
     render() {
         return (
             <div id="reader_tools">
-                Zomm: <button> + </button>
-                <button> - </button>
                 <p>pagina {this.props.numPage} de {this.props.pages}</p>
                 <button onClick={this.prevPage}>anterior</button>
                 <button onClick={this.nextPage}>siguiente</button>

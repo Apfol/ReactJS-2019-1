@@ -1,3 +1,19 @@
 .question{
+    padding: 10px;
     margin: 17px;
+    background: white;
+    border-radius: 5px;
+}
+
+input[type=text]{
+    width: 100px;
+}
+
+input[type=radio]{
+    display: inline-block;
+}
+
+p{
+display: inline-block;
+width: 97%;
 }
