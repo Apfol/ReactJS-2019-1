@@ -1,1 +1,0 @@
-Create a sliding puzzle game.
