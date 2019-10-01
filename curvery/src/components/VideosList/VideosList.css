@@ -1,0 +1,9 @@
+.video-list{
+    display: inline-block;
+    /* background-color: #8000f9; */
+    width: 25%;
+    height: 100%;
+    float: right;
+    margin-right: 10px;
+    margin-top: 3%;
+}
