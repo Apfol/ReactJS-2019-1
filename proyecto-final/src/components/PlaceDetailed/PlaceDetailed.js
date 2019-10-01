@@ -16,8 +16,8 @@ export default function PlaceDetailed(props) {
                 </Row>
                 <Row>
                     <Col>
-                        <p>{props.place["detailedDescription"]}</p>
-                        <p>Agrega tu experiencia en este sitio.</p>
+                        <p className={classes.detailedDescription}>{props.place["detailedDescription"]}</p>
+                        <p style={{fontSize : "20px", fontWeight: "bold", textAlign: "center", marginTop: "10%"}}>Agrega tu experiencia en este sitio.</p>
                         <CommentForm></CommentForm>
                     </Col>
                     <Col>
@@ -30,7 +30,7 @@ export default function PlaceDetailed(props) {
                         <h4 className={classes.comment}>Comentarios</h4>
                         {props.place["comments"].map(comment => {
                             return (
-                                <Card className={classes.card} border="dark">
+                                <Card className={classes.card} >
                                     <Card.Header>{comment.author}</Card.Header>
                                     <Card.Body>
                                         <Card.Title>Buen lugar</Card.Title>
