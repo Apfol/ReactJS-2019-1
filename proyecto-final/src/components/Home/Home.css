@@ -3,8 +3,6 @@
     margin-bottom: 25px;
 }
 
-
-
 .information{
     height: 100%;
     width: 100%;
@@ -12,34 +10,6 @@
     background-image: url(./assets/iglesia.jpg);
 }
 
-.webDesc{
-    position: relative;
-    color: #666666;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-weight: bolder;
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 40px;
-}
-
-.infoLink{
-    position: absolute;
-    bottom: 5px;
-    right: 8px;
-}
- 
-.anuncio{
-    margin-top: 40px;
-}
-
-.anunT{
-    font-size: 30px;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-weight: lighter;
-    color: gray;
-    position: absolute;
-    top: 50%;
 
 
-}
 

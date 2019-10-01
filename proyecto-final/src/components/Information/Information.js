@@ -7,10 +7,10 @@ class Information extends React.Component {
         return (
             <div className = "row">
                 <div className = "col-md-6" style={{ textAlign: 'right', fontSize: '16px'}}> 
-                    <h9><b>{this.props.info1}</b></h9>
+                    <h9><b>{this.props.name}</b></h9>
                 </div>
                 <div className = "col-md-6" style={{ textAlign: 'left', fontSize: '16px'}}>
-                    <h9>{this.props.info2}</h9>
+                    <h9>{this.props.content}</h9>
                 </div>
                 <br></br>
             </div>

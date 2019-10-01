@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'react-bootstrap/Image';
 import classes from "./NewsCard.css";
+import { Link } from 'react-router-dom';
 
 class NewsCard extends React.Component {
     render = () => {
@@ -11,13 +12,16 @@ class NewsCard extends React.Component {
                         <Image className={classes.noticeImg} src={this.props.img} fluid />
                     </div>
                     <div className={`col-md-6 ${classes.cols}`}>
-                        <a><h5>{this.props.title}</h5></a>
+                        <Link to={`/news/${this.props.id}`}>
+                            <h5>{this.props.title}</h5>
+                        </Link>
                         <h9>{this.props.info}</h9>
                     </div>
                 </div>
             </li>
         );
     };
+
 }
 
 export default NewsCard;

@@ -26,7 +26,6 @@ class NewsVerticalCard extends Component {
     onClick = () => {
         this.props.handleClick(this.props.id);
     }
-
 }
 
 export default NewsVerticalCard;
