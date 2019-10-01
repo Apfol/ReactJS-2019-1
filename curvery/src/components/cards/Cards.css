@@ -111,3 +111,6 @@
     white-space: normal;
     z-index: 10;
   }
+.video{
+  width:100%;
+}

@@ -5,7 +5,7 @@ import Recommended from '../../components/recommended/Recommended';
 import Categories from '../../components/categorie/Categorie';
 import Footer from '../../components/footer/Footer';
 import Instructor from '../../components/instructor/Instructor';
-import Video from '../../components/video/Video';
+// import Video from '../../components/video/Video';
 class Home extends Component{
     render(){
         return(
@@ -15,7 +15,6 @@ class Home extends Component{
             <Instructor></Instructor>
             <Categories></Categories>
             <Recommended></Recommended>
-            <Video></Video>
             <Footer></Footer>
             </div>
         )

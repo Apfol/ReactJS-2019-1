@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import cards from './Cards.css'
+import cards from './Cards.css';
+import Video from '../video/Video';
 class Cards extends Component{
     state = {
         courses: [],
@@ -23,9 +24,9 @@ class Cards extends Component{
         return(<div>
             <section class={cards.card}>
             {this.state.courses.map(
-                course => <div ref="vidRef" src="https://thumbs.gfycat.com/JollyLinearIbadanmalimbe-mobile.mp4" type="video/mp4" loop key={Date.now()} style={{ 'background-image': `url(${course.image})`}} className={cards.content_card} >
-           
-            <div className={cards.body_card}>
+                course => <div key={Date.now()} style={{ 'background-image': `url(${course.image})`}} className={cards.content_card} >
+                <div className={cards.body_card}>
+                <Video className={cards.video}></Video>
             <div className={cards.title_card}>
             <h3 className={cards.title1}>{course.title}</h3>
             <h2 className={cards.title2}>{course.title}</h2>

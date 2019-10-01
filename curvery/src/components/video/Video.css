@@ -1,7 +1,18 @@
 .video{
-    width: 40%;
+    /* width: 40%; */
+    width: 13%;
+    height: 352px;
+    position: absolute;
+    opacity: 0;
 }
 
 .video:hover{
-    width:100%
+
+    max-width: 500px;
+    opacity: 1;
+    background-color: black;
+    margin-left: 0px;
+    border-radius: 14px;
+    min-width: 500px;
+    height: 350px;
 }

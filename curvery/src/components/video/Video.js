@@ -9,7 +9,7 @@ class Video extends Component {
       // You can use the play method as normal on your video ref
       setTimeout(function() { //Start the timer
         this.refs.vidRef.play();
-    }.bind(this), 1000)
+    }.bind(this), 500)
 
     }
     
