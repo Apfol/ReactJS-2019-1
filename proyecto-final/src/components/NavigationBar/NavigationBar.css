@@ -3,9 +3,21 @@
     background-image: linear-gradient(to bottom,#48567F, 0,#48567F    100%) !important; /* override background image gradient w/ flat color */
 }
 
+.links{
+  color: #cccecf;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.links:hover{
+  text-decoration: none;
+  color: #8e9090;
+}
+
 .brandSubtext {
     font-size: 13px;
     text-align: initial;
+    text-decoration: none;   
 }
 
 .clima{
