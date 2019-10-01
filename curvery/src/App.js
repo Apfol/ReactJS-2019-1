@@ -4,6 +4,7 @@ import './App.css';
 import Router from './router/Router'
 =======
 import {BrowserRouter, Route} from "react-router-dom";
+// components
 import Home from './views/home/Home';
 
 
