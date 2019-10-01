@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import axios from '../axiosInstance';
 import NewsVerticalCard from '../NewsVerticalCard/NewsVerticalCard.js';
+import NewsDetailed from '../NewsDetailed/NewsDetailed.js';
 import classes from './News.css';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-class News extends Component {
+export default class News extends Component {
+
     state = {
-        News: []
+        News: [],
+        newsSelected : {
+            title : "",
+            info: "",
+            fullInfo: "",
+            img: "",
+        },
     }
 
     componentDidMount() {
@@ -14,6 +23,7 @@ class News extends Component {
                 var updatedNews = response.data;
                 updatedNews = updatedNews.map(aNew => {
                     return {
+                        id: aNew.id,
                         img: aNew.img,
                         title: aNew.title,
                         info: aNew.info,
@@ -26,16 +36,26 @@ class News extends Component {
             })
     }
 
-    render() {
+    onClickNews(itemPosition) {
+        const news = this.state.News.find(({ id }) => id === itemPosition);
+        this.setState({
+            newsSelected: news,
+        });
+        console.log(news);
+    }
+
+    getNews = () => {
         return(
             <div>
-                <p className = {classes.title}>Noticias al Dia</p>
+                <p className = {classes.title}>Noticias al Día</p>
                 <div className = {classes.container}>
                     {this.state.News.map( aNew =>
                         <NewsVerticalCard
                             img = {aNew.img}
                             title = {aNew.title}
                             info = {aNew.info}
+                            id = {aNew.id}
+                            handleClick = {this.onClickNews.bind(this)}
                             fullInfo = {aNew.fullInfo}
                         />
                     )}
@@ -43,6 +63,17 @@ class News extends Component {
             </div>
         )
     }
-}
 
-export default News;
+    render() {
+        return (
+            <BrowserRouter>
+                <Route path="/news/" exact>{this.getNews()}</Route>
+                <Route path="/news/:newsId" render={() => (
+                    <NewsDetailed
+                        news={this.state.newsSelected}
+                    />
+                )} />
+            </BrowserRouter>
+        )
+    }
+}

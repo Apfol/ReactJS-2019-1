@@ -1,5 +1,4 @@
 .container{
-    max-height: 30%;
     max-width: 45%;
     margin-left: 2.5%;
     margin-right: 2.5%;
@@ -26,6 +25,7 @@
 }
 
 .info{
+    height: 100px;
     margin-left: 10%;
     max-width: 80%;
     text-align: center;
@@ -34,10 +34,4 @@
     text-decoration: none;
 }
 
-.fullInfo{
-    margin-left: 10%;
-    max-width: 80%;
-    font-size: 14px;
-    text-align: justify;
-    text-decoration: none;
-}
+
