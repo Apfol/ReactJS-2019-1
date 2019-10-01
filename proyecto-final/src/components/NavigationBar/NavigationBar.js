@@ -53,13 +53,13 @@ export default class NavigationBar extends React.Component {
             <Nav className="mr-auto">
               <Link className = {classes.links} to="/tourism">Turismo</Link>
               <Link className = {classes.links} to="/news">Noticias</Link>
-              <NavDropdown title="Atención al ciudadano" id="basic-nav-dropdown">
+              {/* <NavDropdown title="Atención al ciudadano" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Peticiones, quejas, reclamos y sugerencias</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
             </Nav>
             <Nav className={classes.clima}>
               <Nav.Link><i class="fas fa-sun fa-lg sun"></i> {this.state.temperature}°C</Nav.Link>
