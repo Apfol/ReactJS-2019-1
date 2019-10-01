@@ -69,7 +69,7 @@ export default class News extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Route path="/news/" exact>{this.getNews()}</Route>
+                <Route path="/news" exact>{this.getNews()}</Route>
                 <Route path="/news/:placeId" render={() => (
                     <NewsDetailed
                         news = {this.state.newsSelected}
