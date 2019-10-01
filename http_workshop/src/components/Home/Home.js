@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import classes from "./Home.css"
-import List from "./List/List"
+import List from "../List/List"
 import axios from '../../AxiosInstance';
+
 class Home extends Component {
 	state = {
 		games: [],

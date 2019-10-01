@@ -1,0 +1,13 @@
+.home {
+    color: white;
+}
+
+.game-list {
+    margin: 3em 10em 0 10em;
+}
+
+.game-list .title {
+    font-size: 2em;
+    font-weight: 100;
+    margin-bottom: 0.3em
+}
