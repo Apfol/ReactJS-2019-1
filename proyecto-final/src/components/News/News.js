@@ -10,10 +10,11 @@ export default class News extends Component {
     state = {
         News: [],
         newsSelected : {
-            title : "",
+            id: "",
+            img: "",
+            title: "",
             info: "",
             fullInfo: "",
-            img: "",
         },
     }
 
@@ -34,14 +35,15 @@ export default class News extends Component {
                     News: updatedNews,
                 });
             })
+            .catch(error => {
+            });
     }
 
-    onClickNews(itemPosition) {
+    onClickNews(itemPosition) {   
         const news = this.state.News.find(({ id }) => id === itemPosition);
         this.setState({
             newsSelected: news,
-        });
-        console.log(news);
+        });  
     }
 
     getNews = () => {
@@ -68,9 +70,9 @@ export default class News extends Component {
         return (
             <BrowserRouter>
                 <Route path="/news/" exact>{this.getNews()}</Route>
-                <Route path="/news/:newsId" render={() => (
+                <Route path="/news/:placeId" render={() => (
                     <NewsDetailed
-                        news={this.state.newsSelected}
+                        news = {this.state.newsSelected}
                     />
                 )} />
             </BrowserRouter>

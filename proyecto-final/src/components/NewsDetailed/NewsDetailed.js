@@ -5,20 +5,22 @@ import { Row, Col, Container, Image } from 'react-bootstrap';
 
 export default function NewsDetailed(props){
 
+    console.log(props.news);
+
     return(
 
         <div className={classes.NewsDetailed}>
             <Container>
                 <Row>
                     <Col md={5}>
-                        <Image src={props.Image} className={classes.Image} />
+                        <Image src={props.news.img} className={classes.Image} height="300" width="100%" />
                     </Col>
                     <Col md={6}>
-                        <p className={classes.title}>{props.title}</p>
-                        <p className={classes.info}>{props.info}</p>
+                        <p className={classes.title}>{props.news["title"]}</p>
+                        <p className={classes.info}>{props.news["info"]}</p>
                     </Col>
                     <Col md={12}>
-                        <p className={classes.fullInfo}>{props.fullInfo}</p>
+                        <p className={classes.fullInfo}>{props.news["fullInfo"]}</p>
                     </Col>
                 </Row>
             </Container>
