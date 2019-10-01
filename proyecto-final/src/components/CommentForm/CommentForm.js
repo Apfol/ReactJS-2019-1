@@ -13,7 +13,7 @@ export default class CommentForm extends Component {
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Experiencia</Form.Label>
-                    <Form.Control style={{height: '100px'}} placeholder="Dinos cómo te pareció" />
+                    <Form.Control style={{paddingBottom: '100px', paddingTop: '20px'}} placeholder="Dinos cómo te pareció" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Comentar
