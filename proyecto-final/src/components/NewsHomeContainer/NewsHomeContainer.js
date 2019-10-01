@@ -16,6 +16,7 @@ export default class NewsHomeContainer extends Component {
                 var updatedNews = response.data;
                 updatedNews = updatedNews.map(aNew => {
                     return {
+                        id: aNew.id,
                         img: aNew.img,
                         title: aNew.title,
                         info: aNew.info,
@@ -49,6 +50,7 @@ export default class NewsHomeContainer extends Component {
                             <ul class={`nav nav-pills nav-stacked ${classes.scroll}`}>
                                 {this.state.News.map( New =>
                                     <NewsCard
+                                        id = {New.id}
                                         img = {New.img}
                                         title = {New.title}
                                         info = {New.info}
