@@ -27,6 +27,7 @@ class SideBar extends React.Component {
             </div>
             <Link to="/settings"><img className={classes.SettingsButton} src={settingsImage} href="#"></img></Link>
           </div>          
+
         </div>      
     );
   }

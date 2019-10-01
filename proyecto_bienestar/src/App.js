@@ -1,14 +1,18 @@
 import React from 'react';
 import classes from './App.css';
-//import SportsEquipment from './Resources/Components/SportsEquipment';
+
+import SportsEquipment from './Resources/Components/SportsEquipment';
+
 import SideBar from './Resources/Components/SideBar';
 //import NavBarComponent from './Resources/Components/NavBar';
 import {BrowserRouter} from 'react-router-dom'
 import {Route, Link} from 'react-router-dom'
 import MissingObjectList from './Resources/Components/MissingObjectList';
+
 import MyLostObjectList from './Resources/Components/MyLostObjectList';
 import FoundedObjects from './Resources/Components/FoundedObjectsList';
 import ContactUs from './Resources/Components/ContactUs'
+
 
 
 function App() {
@@ -31,6 +35,7 @@ function App() {
             <div>
               <MissingObjectList></MissingObjectList>
             </div>
+
           )}/>  
           <Route path="/my-lost-objects" render ={() => (
             <div>
@@ -44,7 +49,7 @@ function App() {
           )}/>
           <Route path="/sports-loan" render ={() => (
             <div>
-              <MissingObjectList></MissingObjectList>
+              <SportsEquipment></SportsEquipment>
             </div>
           )}/> 
           <Route path="/contact-us" render ={() => (
@@ -57,6 +62,7 @@ function App() {
               <MissingObjectList></MissingObjectList>
             </div>
           )}/>     
+
       </div>
     </BrowserRouter>    
     
