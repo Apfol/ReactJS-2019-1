@@ -23,7 +23,8 @@ class Cards extends Component{
         return(<div>
             <section class={cards.card}>
             {this.state.courses.map(
-                course => <div  key={Date.now()} style={{ 'background-image': `url(${course.image})`}} className={cards.content_card}>
+                course => <div ref="vidRef" src="https://thumbs.gfycat.com/JollyLinearIbadanmalimbe-mobile.mp4" type="video/mp4" loop key={Date.now()} style={{ 'background-image': `url(${course.image})`}} className={cards.content_card} >
+           
             <div className={cards.body_card}>
             <div className={cards.title_card}>
             <h3 className={cards.title1}>{course.title}</h3>
@@ -36,6 +37,7 @@ class Cards extends Component{
             </div>
             </div>
             </div>
+
             </div>
             )}
             </section>

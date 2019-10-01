@@ -28,7 +28,11 @@
 
   .content_card:hover{
     box-shadow: 4px 4px 14px -4px black;
+    display: block;
+    min-width: 500px;
+    height: 350px;
   }
+  
 .title_card{
     padding: 10px;
 }
