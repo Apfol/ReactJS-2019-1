@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './VideoDetails.css';
+import details from './VideoDetails.css';
 
 export class VideoDetails extends Component {
   state = {
@@ -11,9 +11,9 @@ export class VideoDetails extends Component {
   
   render() {
     return (
-        <div className="video-details">
+        <div className={details.video_details}>
           <h2>VideoPlayer</h2>
-          <iframe src={this.props.video.videoUrl} width="90%" height="800px"/>
+          <iframe src={this.props.video.videoUrl} width="100%" height="800px"/>
           <p>{this.props.video.title}</p>
         </div>
     );
