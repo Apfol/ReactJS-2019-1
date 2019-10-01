@@ -17,27 +17,30 @@ export class CoursePlayer extends Component {
   }
 
   loadPlaylist =  async ()=>{
-    const response = await YoutubeApiAxios.get("playlists", {
+    const response = await YoutubeApiAxios.get("playlistItems", {
       params: {
         ...YoutubeApiAxios.defaults.params,
         part: "snippet",
-        maxResults: 100,
-        playlistId: `${this.props.match.playlistId}`
+        maxResults: 50,
+        playlistId: `${this.props.match.params.playlistId}`
       }
     });
-    console.log(response.data.items);
+    console.log(response.data.items[0].snippet.resourceId.videoId);
     this.setState({
       videos: response.data.items.map(item=>{
         return {
           ...item.snippet,
-          videourl:`https://www.youtube.com/embed/${item.resourceId.videoId}?controls=1`
+          videoUrl:`https://www.youtube.com/embed/${item.snippet.resourceId.videoId}?controls=1?autoplay=1`
         }
       }),
       selectedVideo: {
         ...response.data.items[0].snippet,
-        videourl:`https://www.youtube.com/embed/${response.data.items[0].resourceId.videoId}?controls=1`        
+        videoUrl:`https://www.youtube.com/embed/${response.data.items[0].snippet.resourceId.videoId}?controls=1`        
       }
     });
+
+    console.log("Selected video ",this.state.selectedVideo);
+    
   }
 
   onVideoSelect = video => {
@@ -51,8 +54,7 @@ export class CoursePlayer extends Component {
     return (
       <div className="container">
           <VideoDetails video={this.state.selectedVideo} ></VideoDetails>
-          <VideoList 
-            videos={this.state.videos}>
+          <VideoList videos={this.state.videos} onSelectVideo={this.onVideoSelect}>
             </VideoList>
       </div>
     );

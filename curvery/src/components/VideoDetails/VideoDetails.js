@@ -13,7 +13,7 @@ export class VideoDetails extends Component {
     return (
         <div className="video-details">
           <h2>VideoPlayer</h2>
-          <iframe src={this.props.video.url} width="90%" height="800px"/>
+          <iframe src={this.props.video.videoUrl} width="90%" height="800px"/>
           <p>{this.props.video.title}</p>
         </div>
     );
