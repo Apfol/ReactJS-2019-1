@@ -4,14 +4,14 @@
 }
 
 .links{
-  color: #cccecf;
+  color: #9b9d9a;
   margin-right: 20px;
   vertical-align: middle;
 }
 
 .links:hover{
   text-decoration: none;
-  color: #8e9090;
+  color: #cccecf;
 }
 
 .brandSubtext {
