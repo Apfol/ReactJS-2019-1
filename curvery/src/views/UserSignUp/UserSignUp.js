@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
 import classes from "./UserSignUp.css";
-
+import Menu from "../../components/menu/Menu";
 export class UserSignUp extends Component {
   state = {
     username: "",
@@ -32,35 +32,38 @@ export class UserSignUp extends Component {
     }
 
     return (
+      <div>
+      <Menu></Menu>
       <div className={classes.container}>
-        <form onSubmit={this.onSubmit}>
-          <div>
-            <label htmlFor="username">Username:</label>
-            <input
-              id="username"
+      <form onSubmit={this.onSubmit}>
+      <div>
+      <label htmlFor="username">Username:</label>
+      <input
+      id="username"
               type="text"
               name="username"
               placeholder="username..."
               value={this.state.username}
               onChange={this.onChange}
-            />
+              />
           </div>
-
+          
           <div>
-            <label htmlFor="password">Password:</label>
-            <input
+          <label htmlFor="password">Password:</label>
+          <input
               id="password"
               type="password"
               name="password"
               value={this.state.password}
               onChange={this.onChange}
-            />
+              />
           </div>
-
+          
           <input type="submit" value="Log in" />
         </form>
-      </div>
-    );
+        </div>
+        </div>
+        );
   }
 }
 

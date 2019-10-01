@@ -8,7 +8,8 @@ div.navigation {
     position: relative;
     z-index: 1000;
     width: 100vw;
-    background-color: red;
+    /* background-color:#F29BB2; */
+    background-color:#F2636F;
   }
 
   div.navigation_wrap {
@@ -29,6 +30,7 @@ div.navigation {
     display: block;
     max-width: 10%;
     vertical-align: middle;
+    filter: invert(1);
   }
 
   div.menu {
@@ -55,7 +57,7 @@ div.navigation {
     box-sizing: border-box;
     display: flex;
       flex: 0 0 auto;
-    float: right;
+    /* float: right; */
     justify-content: center;
     position: relative;
     transform: translateY(0) translateX(0);
@@ -85,7 +87,12 @@ div.navigation {
     vertical-align: top;
   }
 
-  
+  .menu .navigation_item a{
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+  }
 
 
   /* ///////////////////////////////////// */
@@ -103,3 +110,21 @@ div.navigation {
     transition: all 1s;
     z-index: 4;
   }
+
+  .buttons_navigation{
+    /* position: absolute; */
+    margin-top: 4px;
+    margin-left: 3%;
+  }
+  .buttons_navigation button{
+    /* float: right; */
+    line-height: 20px;
+    border-radius: 100%;
+    width: 50px;
+    margin-left: 10px;
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    background-color: #F2636F;
+    color: white;
+} 
