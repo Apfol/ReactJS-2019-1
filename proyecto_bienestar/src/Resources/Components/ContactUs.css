@@ -1,0 +1,15 @@
+.ContactUs{
+
+    margin-top: 10px;
+    margin-left: 20%;      
+    width: 78%;    
+    background-color: transparent;      
+    overflow: hidden;
+}
+
+.Title{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif; 
+    border-radius: 50px;  
+    color: #ffffff;
+}

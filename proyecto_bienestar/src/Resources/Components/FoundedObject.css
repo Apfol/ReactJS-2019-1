@@ -57,20 +57,18 @@ li{
     
 }
 
-.Mine{    
-    width: 270px;       
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);    
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    border-radius: 5px;
-    text-align: center;        
-    font-size: 15px;    
-    cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    font-size: 30px;
-    margin-left: 70px;
-    margin-bottom:30px;    
-    padding: 10px;
+.ColorState{
+
+    width: 100px;
+     height: 100px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     background: #5cb85c;
+    display:inline-block;
+}
+
+.TextState{
+
+    display: inline-block;
 }

@@ -1,0 +1,14 @@
+.MissingObjectList{
+    margin-left: 20%;      
+    width: 78%;    
+    background-color: transparent;      
+    overflow: hidden;
+}
+
+.Title{
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 40px;
+    color:white;
+    margin-bottom: 20px;
+    
+}
