@@ -9,7 +9,7 @@ export default function NewsDetailed(props){
 
     return(
 
-        <div className={classes.NewsDetailed}>
+        <div className={classes.newsDetailed}>
             <Container>
                 <Row>
                     <Col md={5}>

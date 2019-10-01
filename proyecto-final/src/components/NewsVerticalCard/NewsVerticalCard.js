@@ -7,17 +7,19 @@ class NewsVerticalCard extends Component {
 
     render = () => {
         return (
-            <Link to={`/news/${this.props.id}`}>
+            
                 <div className={classes.container}>
                     <div>
                         <Image className={classes.image} src={this.props.img} fluid />
                     </div>
                     <div>
+                    <Link to={`/news/${this.props.id}`}>
                         <p className={classes.title} onClick={this.onClick}>{this.props.title}</p>
+                    </Link>
                         <p className={classes.info}>{this.props.info}</p>
                     </div>
                 </div>
-            </Link>
+            
         );
     };
 
