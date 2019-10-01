@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import classes from './Carousel.css';
-import {Textfield} from 'react-mdl';
 import { Carousel } from 'react-bootstrap';
 
 

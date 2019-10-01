@@ -1,4 +1,6 @@
 .comments_list{
     list-style: none;
-    padding: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

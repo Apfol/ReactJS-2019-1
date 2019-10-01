@@ -2,6 +2,11 @@ import React from 'react'
 import classes from './profile.css'
 
 const Perfil  = props => {
+    if(!props.valid){
+        alert("Usuario o contraseña invalido");
+        props.history.push('/');
+        return(null);
+    }
     console.log(props.profile)
     return(
         <div className={classes.all}>

@@ -1,4 +1,6 @@
-.card_body{
-    width: 33%;
+.comment{
+    width: 30%;
     display: inline-block;
+    margin: 10px;
+    padding: 5px;
 }

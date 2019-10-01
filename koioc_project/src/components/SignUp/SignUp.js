@@ -18,7 +18,7 @@ class SignUp extends Component{
 
 
     render(){
-        var signUp = ()=> {
+        var signUp = () => {
             const newUser = {
                 mail: this.mail.current.value,
                 password: this.password.current.value,
@@ -32,7 +32,8 @@ class SignUp extends Component{
                     number: this.phone.current.value,
                     type: "Celular"
                 },
-                photo: ""
+                photo: "",
+                services:[]
             }
             const help = this.props.users.concat(newUser);
             this.props.signUp(help);
@@ -47,12 +48,12 @@ class SignUp extends Component{
                         <img className={classes.logo2} src={logo2} alt="logo2-app"></img>
                     </div>
                     Nombre: <input ref={this.name} type="text"></input>
-                    Correo: <input ref={this.mail} type="text"></input>
-                    Contraseña: <input ref={this.password} type="text"></input>
+                    Correo: <input ref={this.mail} type="mail"></input>
+                    Contraseña: <input ref={this.password} type="password"></input>
                     Direccion: <input ref={this.address} type="text"></input>
                     Ciudad: <input ref={this.city} type="text"></input>
                     Codigo Postal: <input ref={this.zip_code} type="text"></input>
-                    Celular: <input ref={this.phone} type="text"></input>
+                    Celular: <input ref={this.phone} type="number"></input>
                     <Link to = "/">
                         <button onClick = {signUp} className={classes.signUp}>Crear nuevo usuario</button>
                     </Link>

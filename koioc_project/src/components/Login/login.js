@@ -3,8 +3,6 @@ import logo1 from '.././../assets/images/koioc_tittle.png';
 import logo2 from '.././../assets/images/logoceo.png';
 import classes from'./Login.css';
 import {Link, withRouter} from 'react-router-dom';
-import {ToastsContainer, ToastsStore, ToastsContainerPosition} from 'react-toasts';
-
 
 class Login extends Component{
 
@@ -18,7 +16,6 @@ class Login extends Component{
     render(){      
         return(
             <div className={classes.all}>
-                <ToastsContainer position={ToastsContainerPosition.TOP_RIGHT} store={ToastsStore}/>
                 <div className={classes.border}> 
                     <div className={classes.logo}>
                         <img className={classes.logo1} src={logo1} alt="logo1-app"></img>
@@ -41,26 +38,23 @@ class Login extends Component{
         )
     }
 
-    showAlert = (isValid) =>{
-        
-        console.log(isValid)
-        if (!isValid) {
-            alert("Your user or password is incorrect, please try again")
-        }
-    }
-
     login = () => {
         if(!this.props.data.isUserActive)
         {
             var valid = false;
             for(var i = 0; i < this.props.data.usrs.length; i++) {
                 if((this.props.data.usrs[i].mail === this.mail.current.value) && (this.props.data.usrs[i].password === this.password.current.value)) {
-                    this.props.updateActiveUser(this.props.data.usrs[i]);
                     valid = true;
+                    this.props.updateActiveUser(this.props.data.usrs[i]);
                     break;
                 }
             }
-            this.showAlert(valid);
+            const {history} = this.props;
+            if (!valid) {
+                history.push('/');
+            }else{
+                history.push('/home');
+            }
         }
         else{
             return true;

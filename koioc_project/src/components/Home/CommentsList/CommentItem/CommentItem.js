@@ -1,11 +1,11 @@
 import React from 'react';
-import classes from './CommentItem.css'
+import classes from'./CommentItem.css';
 
 const AdvantageItem = (props) =>{
     
     return(
-            <div className={classes.card_body}>
-                <div className="card p-3 text-center">
+            <div className = {classes.comment}>
+                <div className="card bg-light p-3 text-center">
                     <blockquote className="card-body">
                     <p>{props.comment.text}</p>
                         <footer>
@@ -14,8 +14,9 @@ const AdvantageItem = (props) =>{
                             </small>
                         </footer>
                     </blockquote>
-                </div>
-            </div>            
+                </div>    
+            </div>
+            
     )
 }
 

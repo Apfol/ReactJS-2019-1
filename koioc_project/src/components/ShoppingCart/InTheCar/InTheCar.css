@@ -1,0 +1,30 @@
+
+.service{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px 30%;
+    padding: 10px 20px 0 20px;
+}
+
+.names{
+    display: inline;
+}
+.names p{
+    margin-bottom: 5px;
+}
+
+.delete {
+    float: right;
+    width: 20px;
+    background: none;
+    border: none;
+}
+
+.photo {
+    display: inline;
+    width: 120px;
+    margin-right: 25px;
+    margin-top: 5px;
+    float: left;
+    border-radius: 5px;
+}
