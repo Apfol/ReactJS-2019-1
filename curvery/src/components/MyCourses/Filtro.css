@@ -1,0 +1,33 @@
+.filtro{
+    display: inline;
+    margin-left: 4%;
+}
+
+.categorias
+{
+    display: inline-block;
+    margin-left: 2%;
+    margin-top: 5%;
+    size: 6%;
+    font-size: 22px;
+
+}
+.categorias > a{
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+.categorias > a:hover{
+    color: brown;
+    text-decoration: underline;
+}
+.text{
+    position:relative;
+    display: inline;
+    color: black;
+    padding-right: 0px;
+}
+.button{
+    width: 50px;
+    height: 20px;
+}

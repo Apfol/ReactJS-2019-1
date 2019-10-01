@@ -3,6 +3,8 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 // components
 import Home from '../views/home/Home';
 import User from '../views/user/User';
+import MyCourses from '../views/MyCourses/MyCourses';
+import Courses from '../views/AllCourses/AllCourses';
 import About from '../views/About/About';
 import Login from '../views/UserLogin/UserLogin'
 import SignUp from '../views/UserSignUp/UserSignUp';
@@ -16,6 +18,8 @@ function Router({startSession}) {
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/user' exact component={User} />
+            <Route path='/mycourses' exact component={MyCourses} />
+            <Route path='/courses' exact component={Courses} />
             <Route path="/login" exact render={props => (
               <Login startSession={startSession}></Login>
             )}></Route>
