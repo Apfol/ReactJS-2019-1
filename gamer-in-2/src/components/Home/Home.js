@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CardList from "../CardList/CardList";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import axios from "../../AxiosInstance";
 import classes from "./Home.css";
 import FullGame from "../FullGame/FullGame";
@@ -8,8 +8,10 @@ import FullGame from "../FullGame/FullGame";
 export default class Home extends Component {
     state = {
         games: [],
+        gamesLog: [],
         loading: false,
-        error: false
+        error: false,
+        search: " "
     }
     componentDidMount() {
         this.setState({
@@ -17,9 +19,9 @@ export default class Home extends Component {
         });
         axios.get("/games")
             .then(response => {
-                console.log(response.data);
                 this.setState({
-                    games: response.data
+                    games: response.data,
+                    gamesLog: response.data
                 });
             })
             .catch(error => {
@@ -36,7 +38,26 @@ export default class Home extends Component {
     openGame = (gameIndex) => {
         return this.state.games.filter(game => game.id === gameIndex)[0];
     }
-
+    handleSearch = (e) => {
+        var filter = e.target.value;
+        this.setState({
+            search: e.target.value
+        });
+        this.setState({
+            games: [...this.state.gamesLog]
+        });
+        var newArray = this.state.games.filter((game) => {
+            return game.title.toUpperCase().includes(filter.toUpperCase());
+        });
+        this.setState({
+            games: newArray
+        });
+        if (filter === "") {
+            this.setState({
+                games: [...this.state.gamesLog]
+            });
+        }
+    }
     render() {
         var content;
         if (this.state.loading) {
@@ -46,14 +67,10 @@ export default class Home extends Component {
         } else {
             content = (
                 <React.Fragment>
-                    <div className={classes["game-list"]}>
-                        <h1 className={classes.title}>Pc Games</h1>
-                        <CardList games={this.state.games.filter(game => game.platform === "PC")} />
-                    </div>
-                    <div className={classes["game-list"]}>
-                        <h1 className={classes.title}>Console Games</h1>
-                        <CardList games={this.state.games.filter(game => game.platform === "Console")} />
-                    </div>
+                    <h1 className={classes.title}>Pc Games</h1>
+                    <CardList games={this.state.games.filter(game => game.platform === "PC")} />
+                    <h1 className={classes.title}>Console Games</h1>
+                    <CardList games={this.state.games.filter(game => game.platform === "Console")} />
                 </React.Fragment>
             )
         }
@@ -63,7 +80,10 @@ export default class Home extends Component {
                     return (<FullGame openGame={(gameIndex) => this.openGame(gameIndex)} />)
                 }} />
                 <div className={classes.home}>
-                    {content}
+                    <div className={classes["game-list"]}>
+                        <input type="text" placeholder="Search" className={classes.searchBar} onChange={this.handleSearch} />
+                        {content}
+                    </div>
                 </div >
             </React.Fragment>
         );

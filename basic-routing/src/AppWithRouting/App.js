@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, withRouter } from 'react-router-dom';
 import Posts from './Posts/Posts';
 import FullPost from './FullPost/FullPost';
 import NewPost from './NewPost/NewPost';
@@ -129,4 +129,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
