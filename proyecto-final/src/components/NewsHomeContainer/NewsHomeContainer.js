@@ -32,7 +32,7 @@ export default class NewsHomeContainer extends Component {
         return(
             <div className="col-md-6">
                 <Card className={classes.conNews}>
-                    <Link to={"/news"}>
+                    <Link to={"/news/"}>
                         <Card.Header style={{ backgroundColor: '#48567F' }}>
                             <div className="row">
                                 <div className="col-md-5">
@@ -61,6 +61,7 @@ export default class NewsHomeContainer extends Component {
                     </Card.Body>
                 </Card>
             </div>
+            
         )
     }
 }

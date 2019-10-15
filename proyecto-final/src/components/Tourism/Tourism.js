@@ -76,7 +76,7 @@ export default class Tourism extends Component {
         return (
             <BrowserRouter>
                 <Route path="/tourism/" exact>{this.getPlaces()}</Route>
-                <Route path="/tourism/:placeId" render={() => (
+                <Route path="/tourism/:placeId" exact render={() => (
                     <PlaceDetailed
                         place={this.state.placeSelected}
                     />

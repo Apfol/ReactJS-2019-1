@@ -1,16 +1,18 @@
 .cols{
     text-align: left;
+    text-decoration: none;
 }
 
 .noticeImg{
     height: 100%;
     width: 100%;
-
+    text-decoration: none;
 }
 
 .noticia{
     width: 100%;
     list-style: none;
+    text-decoration: none;
 }
 
 .notices{
@@ -18,5 +20,6 @@
     width: 100%;
     padding: 10px;
     border-bottom: solid 1px #D8D8D8;
+    text-decoration: none;
 }
 

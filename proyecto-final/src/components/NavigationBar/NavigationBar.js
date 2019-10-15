@@ -32,7 +32,7 @@ export default class NavigationBar extends React.Component {
     return (
       <div className={classes.navContainer}>
         <Navbar bg="dark" variant="dark">
-          <Link to="/" className = {classes.links}>
+          <Link to="/" className = {classes.link}>
             <img
               src={logo}
               width="50"
@@ -53,21 +53,14 @@ export default class NavigationBar extends React.Component {
             <Nav className="mr-auto">
               <Link className = {classes.links} to="/tourism">Turismo</Link>
               <Link className = {classes.links} to="/news">Noticias</Link>
-              {/* <NavDropdown title="Atención al ciudadano" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Peticiones, quejas, reclamos y sugerencias</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-              </NavDropdown> */}
             </Nav>
             <Nav className={classes.clima}>
               <Nav.Link><i class="fas fa-sun fa-lg sun"></i> {this.state.temperature}°C</Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link href="https://www.youtube.com/user/alcaldiadesopo/videos"><i class="fab fa-youtube fa-lg"></i></Nav.Link>
-              <Nav.Link href="https://es-la.facebook.com/AlcaldiadeSopo/"><i class="fab fa-facebook-f fa-lg"></i></Nav.Link>
-              <Nav.Link href="https://twitter.com/alcaldiadesopo?lang=es"><i class="fab fa-twitter fa-lg"></i></Nav.Link>
+              <Nav.Link href="https://www.youtube.com/user/alcaldiadesopo/videos" target = "_blank"><i class="fab fa-youtube fa-lg"></i></Nav.Link>
+              <Nav.Link href="https://es-la.facebook.com/AlcaldiadeSopo/" target = "_blank"><i class="fab fa-facebook-f fa-lg"></i></Nav.Link>
+              <Nav.Link href="https://twitter.com/alcaldiadesopo?lang=es" target = "_blank"><i class="fab fa-twitter fa-lg"></i></Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
               </Nav.Link>
               <Form inline>
