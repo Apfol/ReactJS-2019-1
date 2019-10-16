@@ -5,6 +5,9 @@ import * as actionTypes from '../../store/actions';
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
+import ListControl from '../../components/ListControl/ListControl';
+import ListOutput from '../../components/ListOutput/ListOutput';
+
 class Counter extends Component {
 
     render () {
@@ -15,6 +18,8 @@ class Counter extends Component {
                 <CounterControl label="Decrement" clicked={() => this.props.onDecrementCounter()}  />
                 <CounterControl label="Add 5" clicked={() => this.props.onAdd( 5 )}  />
                 <CounterControl label="Subtract 5" clicked={() => this.props.onSubtract( 5 )}  />
+                <ListControl label="List" clicked={() => this.props.onList(this.props.ctr)} />
+                <ListOutput value={this.props.list} />
             </div>
         );
     }
@@ -22,7 +27,8 @@ class Counter extends Component {
 
 const mapStateToProps = state => {
     return {
-        ctr: state.counterStore.counter
+        ctr: state.counterStore.counter,
+        list: state.listStore.list,
     }
 }
 
@@ -38,6 +44,12 @@ const mapDispatchToProps = dispatch => {
         }),
         onSubtract: (value) => dispatch({
             type: actionTypes.SUBTRACT,
+            payload: {
+                value: value
+            }
+        }),
+        onList: (value) => dispatch({
+            type: actionTypes.SAVE,
             payload: {
                 value: value
             }
