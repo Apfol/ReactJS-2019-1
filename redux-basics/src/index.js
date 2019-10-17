@@ -7,9 +7,11 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 import counterReducer from './store/reducers/counter';
+import listReducer from './store/reducers/list.js';
 
 const rootReducer = combineReducers ({
-    counterStore: counterReducer
+    counterStore: counterReducer,
+    listStore: listReducer
 });
 
 const store = createStore(rootReducer);
