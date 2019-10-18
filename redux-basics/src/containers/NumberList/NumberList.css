@@ -1,0 +1,15 @@
+.NumberList{
+    display: block;
+    background-color: rgb(236, 203, 131);
+    margin: auto;
+    width: 500px;    
+}
+.Item{
+    width: 15%;
+    margin:auto;
+    margin-top: 5px;
+    background-color: rgb(48, 156, 184);
+    padding: 0px;
+    text-align: center;
+    border-radius: 10%  15%;
+}

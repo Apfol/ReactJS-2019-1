@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions';
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
+import NumberList from '../../containers/NumberList/NumberList';
 
 class Counter extends Component {
 
@@ -15,6 +16,8 @@ class Counter extends Component {
                 <CounterControl label="Decrement" clicked={() => this.props.onDecrementCounter()}  />
                 <CounterControl label="Add 5" clicked={() => this.props.onAdd( 5 )}  />
                 <CounterControl label="Subtract 5" clicked={() => this.props.onSubtract( 5 )}  />
+                <CounterControl label="Save Number" clicked={() => this.props.Save(this.props.ctr)}  />
+                <NumberList numeros = {this.props.nus}/>                
             </div>
         );
     }
@@ -22,14 +25,22 @@ class Counter extends Component {
 
 const mapStateToProps = state => {
     return {
-        ctr: state.counterStore.counter
+        ctr: state.counterStore.counter,
+        nus: state.saveStore.numbers,
+        h: state.saveStore.hola
     }
 }
 
 const mapDispatchToProps = dispatch => {
-    return {
+    return {       
+        Save: (value) => dispatch({
+            type: actionTypes.SAVE,
+            payload: {
+                newNumber: value
+            }
+        }),
         onIncrementCounter: () => dispatch({type: actionTypes.INCREMENT}),
-        onDecrementCounter: () => dispatch({type: actionTypes.DECREMENT}),
+        onDecrementCounter: () => dispatch({type: actionTypes.DECREMENT}),        
         onAdd: (value) => dispatch({
             type: actionTypes.ADD,
             payload: {
