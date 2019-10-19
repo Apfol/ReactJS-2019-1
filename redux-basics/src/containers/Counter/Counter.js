@@ -5,6 +5,7 @@ import * as actionTypes from '../../store/actions';
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
+
 class Counter extends Component {
 
     render () {
@@ -15,6 +16,8 @@ class Counter extends Component {
                 <CounterControl label="Decrement" clicked={() => this.props.onDecrementCounter()}  />
                 <CounterControl label="Add 5" clicked={() => this.props.onAdd( 5 )}  />
                 <CounterControl label="Subtract 5" clicked={() => this.props.onSubtract( 5 )}  />
+                <CounterControl label="Add element" clicked={() => this.props.addElement(this.props.ctr)} />
+                {this.props.lst.map((element) => <p>{element}</p>)}
             </div>
         );
     }
@@ -22,7 +25,8 @@ class Counter extends Component {
 
 const mapStateToProps = state => {
     return {
-        ctr: state.counterStore.counter
+        ctr: state.counterStore.counter,
+        lst: state.listStore.lst
     }
 }
 
@@ -42,6 +46,13 @@ const mapDispatchToProps = dispatch => {
                 value: value
             }
         }),
+        addElement: (element) => dispatch({
+            type: actionTypes.ADDTOLIST,
+            payload: {
+                element: element
+            }
+        }),
+
     }
 }
 
