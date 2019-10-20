@@ -15,13 +15,21 @@ export const decrement = () => {
     };
 };
 
-export const add = (value) => {
+export const addResult = ( value ) => {
     return {
         type: ADD,
         payload: {
             value: value
         }
-    };
+    }
+}
+
+export const add = (value) => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(addResult(value))
+        }, 2000);
+    }
 };
 
 export const subtract = (value) => {
