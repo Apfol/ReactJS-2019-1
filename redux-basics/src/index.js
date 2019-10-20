@@ -7,16 +7,22 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 import counterReducer from './store/reducers/counter';
+import saveCounterReducer from './store/reducers/store';
 
-const rootReducer = combineReducers ({
-    counterStore: counterReducer
+const rootReducer = combineReducers({
+    counterStore: counterReducer,
+    saveCounterReducer: saveCounterReducer
 });
 
 const store = createStore(rootReducer);
 
+store.subscribe(() => {
+    console.log('[Subscription]: ', store.getState());
+});
+
 ReactDOM.render(
-    <Provider store = {store}>
+    <Provider store={store}>
         <App />
     </Provider>,
-document.getElementById('root'));
+    document.getElementById('root'));
 registerServiceWorker();
