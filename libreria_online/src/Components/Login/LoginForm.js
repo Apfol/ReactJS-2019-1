@@ -101,7 +101,6 @@ class LoginForm extends Component {
         var temUser;
         for (var i = 0; i < updateUsers.length; i++) {
             temUser = updateUsers[i];
-            console.log(temUser.username + " " + temUser.pass);
             if ((temUser.username === username) && (temUser.pass === password)) {
                 setEntered(true);
                 setTempUser(temUser);

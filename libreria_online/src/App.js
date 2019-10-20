@@ -3,7 +3,7 @@ import './App.css';
 import NavigationBar from './Page-Components/NavigationBar/NavigationBar';
 import Banner from './Page-Components/Banner/Banner';
 import Carousel from './Page-Components/Carousel/Carousel';
-import { recomendBooks, tempQuestions, finaldataBooks, users, setEntered, setTempUser } from './Data';
+import { recomendBooks, tempQuestions, finaldataBooks, users, setEntered, setTempUser, setUsers } from './Data';
 import { pdfjs } from 'react-pdf';
 import { BrowserRouter, Route } from 'react-router-dom';
 import BookClass from './Classes/Book';
@@ -21,12 +21,9 @@ class App extends Component {
   constructor(props) {
 
     super(props);
-    let books = finaldataBooks.map(bookInfo => (
-      new BookClass(bookInfo.name, bookInfo.author, bookInfo.isbn, bookInfo.date, bookInfo.img, tempQuestions, bookInfo.pdfName)
-    ));
-    let user = new User("juanvalag", "Juan", "juandva2016@gmail.com", "1234", "person.png", books);
-    users.push(user);
-    console.log(user);
+    this.addUsers();
+    this.addUser();
+    console.log(users);
     this.state = {
       userView: <LoginForm login={this.login} />,
       userNav: "",
@@ -34,6 +31,28 @@ class App extends Component {
       tempReader: "",
       pdfName: ""
     };
+  }
+
+  addUsers = () => {
+    fetch("https://my-json-server.typicode.com/juanvalag/data/users")
+      .then(response => {
+        return (response.json());
+      })
+      .then(data => {
+        setUsers(data.map((persondata) => {
+          console.log(persondata);
+          return (new User(persondata.username, persondata.name, persondata.mail, persondata.pass, persondata.img));
+        }));
+      });
+  }
+
+  addUser = () => {
+    let books = finaldataBooks.map(bookInfo => (
+      new BookClass(bookInfo.name, bookInfo.author, bookInfo.isbn, bookInfo.date, bookInfo.img, tempQuestions, bookInfo.pdfName)
+    ));
+    let user = new User("juanvalag", "Juan", "juandva2016@gmail.com", "1234", "person.png", books);
+    users.push(user);
+    console.log(user);
   }
 
   login = () => {

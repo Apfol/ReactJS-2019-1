@@ -51,7 +51,7 @@ class Reader extends Component {
             <div id="reader" className={classes.reader}>
                 <InfoBook name={this.state.book.name} author={this.state.book.author} date={this.state.book.date} isbn={this.state.book.isbn} />
                 <Document file={"/pdf_files/" + this.state.document + ".pdf"} onLoadSuccess={this.onDocumentLoadSuccess}  >
-                    <Page pageNumber={this.state.pageNumber} />
+                    <Page pageNumber={this.state.pageNumber} width="500" />
                 </Document>
                 <ReaderTools nextPage={this.goToNextPage} prevPage={this.goToPrevPage}
                     numPage={this.state.pageNumber} pages={this.state.numPages} />
