@@ -7,16 +7,18 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 import counterReducer from './store/reducers/counter';
+import counterSave from './store/reducers/save';
 
-const rootReducer = combineReducers ({
-    counterStore: counterReducer
+const rootReducer = combineReducers({
+    counterStore: counterReducer,
+    counterSave: counterSave
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
-    <Provider store = {store}>
+    <Provider store={store}>
         <App />
     </Provider>,
-document.getElementById('root'));
+    document.getElementById('root'));
 registerServiceWorker();
