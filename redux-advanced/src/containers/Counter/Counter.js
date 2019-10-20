@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import * as actionCreators from '../../store/actions/actions';
+import * as actionCreators from '../../store/actions/counter';
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
@@ -11,12 +11,18 @@ class Counter extends Component {
         return (
             <div>
                 <CounterOutput value={this.props.ctr} />
-                <CounterControl label="Increment" clicked={() => this.props.onIncrementCounter()} />
+                <CounterControl label="Increment" clicked={() => this.increment()} />
                 <CounterControl label="Decrement" clicked={() => this.props.onDecrementCounter()}  />
                 <CounterControl label="Add 5" clicked={() => this.props.onAdd( 5 )}  />
                 <CounterControl label="Subtract 5" clicked={() => this.props.onSubtract( 5 )}  />
             </div>
         );
+    }
+
+    increment () {
+        setTimeout(() => {
+            this.props.onIncrementCounter()
+        }, 2000);
     }
 }
 
