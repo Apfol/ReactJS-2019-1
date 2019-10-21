@@ -1,0 +1,12 @@
+.List-Container{
+    margin-left: 43.5%;
+    background-color: rgb(231, 231, 231);
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    
+}
+.List-Container p{
+    padding: 10px;
+    font-weight: 700;
+}
