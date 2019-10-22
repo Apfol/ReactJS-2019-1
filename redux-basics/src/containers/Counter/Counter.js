@@ -15,21 +15,34 @@ class Counter extends Component {
                 <CounterControl label="Decrement" clicked={() => this.props.onDecrementCounter()}  />
                 <CounterControl label="Add 5" clicked={() => this.props.onAdd( 5 )}  />
                 <CounterControl label="Subtract 5" clicked={() => this.props.onSubtract( 5 )}  />
-            </div>
+                <CounterControl label="Save Count" clicked={() => this.props.onSave(this.props.ctr)} />
+                {
+                this.props.list.map((value, index) => {
+                    return (
+                        <p>Counter {index + 1}: {value}</p>
+                    );
+                })
+                }
+            </div>      
         );
     }
 }
 
 const mapStateToProps = state => {
     return {
-        ctr: state.counterStore.counter
+        ctr: state.counterStore.counter,
+        list: state.listStore.list
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onIncrementCounter: () => dispatch({type: actionTypes.INCREMENT}),
-        onDecrementCounter: () => dispatch({type: actionTypes.DECREMENT}),
+        onIncrementCounter: () => dispatch({
+            type: actionTypes.INCREMENT
+        }),
+        onDecrementCounter: () => dispatch({
+            type: actionTypes.DECREMENT
+        }),
         onAdd: (value) => dispatch({
             type: actionTypes.ADD,
             payload: {
@@ -38,6 +51,12 @@ const mapDispatchToProps = dispatch => {
         }),
         onSubtract: (value) => dispatch({
             type: actionTypes.SUBTRACT,
+            payload: {
+                value: value
+            }
+        }),
+        onSave: (value) => dispatch({
+            type: actionTypes.SAVE,
             payload: {
                 value: value
             }
