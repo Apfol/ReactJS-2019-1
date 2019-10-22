@@ -14,7 +14,9 @@ class Counter extends Component {
                 <CounterControl label="Increment" clicked={() => this.props.onIncrementCounter()} />
                 <CounterControl label="Decrement" clicked={() => this.props.onDecrementCounter()}  />
                 <CounterControl label="Add 5" clicked={() => this.props.onAdd( 5 )}  />
-                <CounterControl label="Subtract 5" clicked={() => this.props.onSubtract( 5 )}  />
+                <CounterControl label="Subtract 5" clicked={() => this.props.onSubtract( 5 )}/>
+                <CounterControl label="Save" clicked={() => this.props.onSave(this.props.ctr)}/>
+                {this.props.ctrArray.map((item,index)=>(<CounterOutput key={index} value={item}/>))}
             </div>
         );
     }
@@ -22,9 +24,10 @@ class Counter extends Component {
 
 const mapStateToProps = state => {
     return {
-        ctr: state.counterStore.counter
+        ctr: state.counterStore.counter,
+        ctrArray: [...state.saveCounterStore.countArray]
     }
-}
+};
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -42,7 +45,13 @@ const mapDispatchToProps = dispatch => {
                 value: value
             }
         }),
+        onSave:(value) => dispatch({
+            type: actionTypes.SAVE_COUNTER,
+            payload: {
+                value: value
+            }
+        })
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
