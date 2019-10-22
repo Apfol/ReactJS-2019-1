@@ -1,3 +1,12 @@
 .reader{
 margin-top: 200px;
 }
+
+.page{
+    height: 792px;
+width: 612px;
+}
+
+.reader{
+    display: inline-block;
+}

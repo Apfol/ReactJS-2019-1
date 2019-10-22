@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import classes from './ReaderTools.css';
+
 
 class ReaderTools extends Component {
 
@@ -17,7 +19,7 @@ class ReaderTools extends Component {
     }
     render() {
         return (
-            <div id="reader_tools">
+            <div id="reader_tools" className={classes.readerTools}>
                 <p>pagina {this.props.numPage} de {this.props.pages}</p>
                 <button onClick={this.prevPage}>anterior</button>
                 <button onClick={this.nextPage}>siguiente</button>

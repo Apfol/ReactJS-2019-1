@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Book from '../Book/Book';
 import InfoPerson from '../Person/InfoPerson';
-import Reader from '../Reader/Reader';
 import { Route } from 'react-router-dom';
 import { tempUser } from '../../Data';
 import classes from "./HomeUser.css";
@@ -38,7 +37,7 @@ class HomeUser extends Component {
     }
     openReader = (pdfName) => {
         let tempBook = tempUser.books.filter(book => book.pdfName === pdfName);
-        //  alert(tempBook[0].pdfName);
+
         this.props.openReader(tempBook[0]);
     }
 }

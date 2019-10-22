@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classes from './InfoBook.css';
 
 class InfoBook extends Component {
 
@@ -11,7 +12,7 @@ class InfoBook extends Component {
 
     render() {
         return (
-            <div id="info-book">
+            <div className={classes.infobook}>
                 <h1>Nombre del libro: {this.state.name}</h1>
                 <p>Autor: {this.state.author}</p>
                 <p>Fecha de Subida: {this.state.date}</p>

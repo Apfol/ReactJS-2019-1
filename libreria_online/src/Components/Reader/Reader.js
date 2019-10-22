@@ -48,13 +48,17 @@ class Reader extends Component {
     }
     render() {
         return (
-            <div id="reader" className={classes.reader}>
-                <InfoBook name={this.state.book.name} author={this.state.book.author} date={this.state.book.date} isbn={this.state.book.isbn} />
-                <Document file={"/pdf_files/" + this.state.document + ".pdf"} onLoadSuccess={this.onDocumentLoadSuccess}  >
-                    <Page pageNumber={this.state.pageNumber} width="500" />
-                </Document>
-                <ReaderTools nextPage={this.goToNextPage} prevPage={this.goToPrevPage}
-                    numPage={this.state.pageNumber} pages={this.state.numPages} />
+            <div id="reader" className={classes.wrapper}>
+                <section className={classes.reader}>
+                    <InfoBook name={this.state.book.name} author={this.state.book.author} date={this.state.book.date} isbn={this.state.book.isbn} />
+                    <Document file={"/pdf_files/" + this.state.document + ".pdf"} onLoadSuccess={this.onDocumentLoadSuccess}  >
+                        <div className={classes.page}>
+                            <Page pageNumber={this.state.pageNumber} />
+                        </div>
+                    </Document>
+                    <ReaderTools nextPage={this.goToNextPage} prevPage={this.goToPrevPage}
+                        numPage={this.state.pageNumber} pages={this.state.numPages} />
+                </section>
                 <section>
                     {this.state.book.questions.map((q, index) => <Question key={index} title={q.title} option1={q.option1} option2={q.option2} option3={q.option3} option4={q.option4} />)}
                     <button onClick={this.sendAnswers}>Enviar Respuestas</button>
