@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Let's play</title>
+    <link rel="stylesheet" href="CSS/Style.css">
+</head>
+<body>
+<div class="board">
+    <div id="table" style="display: table;">
+        <div id="row1" style="display: table-row;">
+            <div id="card11" class="tile1" onClick="move(1,1);"></div>
+            <div id="card12" class="tile2" onClick="move(1,2);"></div>
+            <div id="card13" class="tile3" onClick="move(1,3);"></div>
+        </div>
+        <div id="row2" style="display: table-row;">
+            <div id="card21" class="tile4" onClick="move(2,1);"></div>
+            <div id="card22" class="tile5" onClick="move(2,2);"></div>
+            <div id="card23" class="tile6" onClick="move(2,3);"></div>
+        </div>
+        <div id="row3" style="display: table-row;">
+            <div id="card31" class="tile7" onClick="move(3,1);"></div>
+            <div id="card32" class="tile8" onClick="move(3,2);"></div>
+            <div id="card33" class="tile9" onClick="move(3,3);"></div>
+        </div>
+    </div>
+</div>
+<button onClick="shuffle();">New Game</button>
+
+<div class="Solution">
+    <h1>Solution</h1>
+    <img src="Images/1.jpg" alt="">
+</div>
+
+<script src="js/Script.js"></script>
+</body>
+</html>

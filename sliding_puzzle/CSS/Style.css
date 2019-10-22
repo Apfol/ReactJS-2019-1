@@ -1,0 +1,41 @@
+body{
+    text-align: center;
+    background: #aaaaaa;
+}
+
+.board{
+    display: inline-block;
+    text-align: center;
+    width: 900px;
+    height: 900px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: black;
+}
+
+.tile1, .tile2, .tile3, .tile4, .tile5, .tile6, .tile7, .tile8, .tile9 {
+    display: table-cell;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    background-image: url("../Images/1.jpg");
+    cursor: pointer;
+    text-align: center;
+}
+
+.tile1 {background-position: left top;}
+.tile2 {background-position: center top;}
+.tile3 {background-position: right top;}
+.tile4 {background-position: left center;}
+.tile5 {background-position: center center;}
+.tile6 {background-position: right center;}
+.tile7 {background-position: left bottom;}
+.tile8 {background-position: center bottom;}
+.tile9 {background: white; cursor: default;}
+
+button{display: inline-block; text-align: center;}
+
+.Solution{
+    padding-top: 3%;
+}
+
