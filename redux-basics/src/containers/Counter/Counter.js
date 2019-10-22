@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions';
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
+import CounterList from '../../components/CounterList/CounterList';
 
 class Counter extends Component {
 
@@ -15,6 +16,8 @@ class Counter extends Component {
                 <CounterControl label="Decrement" clicked={() => this.props.onDecrementCounter()}  />
                 <CounterControl label="Add 5" clicked={() => this.props.onAdd( 5 )}  />
                 <CounterControl label="Subtract 5" clicked={() => this.props.onSubtract( 5 )}  />
+                <CounterControl label="Save" clicked={() => this.props.onSave(this.props.ctr)}/>
+                <CounterList value={this.props.num}/>
             </div>
         );
     }
@@ -22,7 +25,8 @@ class Counter extends Component {
 
 const mapStateToProps = state => {
     return {
-        ctr: state.counterStore.counter
+        ctr: state.counterStore.counter,
+        num: state.saveStore.numbers       
     }
 }
 
@@ -42,6 +46,12 @@ const mapDispatchToProps = dispatch => {
                 value: value
             }
         }),
+        onSave: (value) => dispatch({
+            type: actionTypes.SAVE,
+            payload:{
+                value: value
+            }
+        })
     }
 }
 
