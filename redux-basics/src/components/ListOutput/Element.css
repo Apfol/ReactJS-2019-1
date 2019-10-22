@@ -1,0 +1,6 @@
+.Element{
+    margin: 5px;
+    display: inline-block;
+    background-color: aqua;
+    width: 200px;
+}
