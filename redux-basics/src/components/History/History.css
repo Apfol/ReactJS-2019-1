@@ -1,0 +1,12 @@
+.numberList {
+    margin: 0 5px;
+    background-color: #fa923f;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px 0;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 5px;
+    width: 38px;
+}
