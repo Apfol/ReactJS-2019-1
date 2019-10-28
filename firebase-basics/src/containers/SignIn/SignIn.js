@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './SignIn.css';
 
+import Spinner from '../../components/Spinner/Spinner';
+
 import * as actionCreators from '../../store/actions/';
 
 class SignIn extends Component {
@@ -38,10 +40,20 @@ class SignIn extends Component {
                         value={this.state.password}
                         onChange={(event) => {this.updateSignInInfo(event, 'password')}}
                     /><br/>
-                    <button onClick = {this.submitSignInForm}>Submit</button>
+                    {this.renderButton()}
                 </div>
             </div>
         );
+    }
+
+    renderButton() {
+        let button = <button onClick = {this.submitSignInForm}>Submit</button>;
+
+        if (this.props.loadingAuth) {
+            button = <Spinner />;
+        }
+
+        return button;
     }
 
     updateSignInInfo = (event, type) => {
@@ -65,7 +77,8 @@ class SignIn extends Component {
 
 const mapStateToProps = state => {
     return {
-        isUserLoggedIn: state.authenticationStore.isUserLoggedIn
+        isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
+        loadingAuth: state.authenticationStore.loadingAuth
     }
 }
 

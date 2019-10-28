@@ -1,5 +1,17 @@
 import * as actionTypes from './actionTypes';
 
+const startLoading = () => {
+    return {
+        type: actionTypes.START_LOADING
+    }
+}
+
+const endLoading = () => {
+    return {
+        type: actionTypes.END_LOADING
+    }
+}
+
 export const logIn = (userName) => {
     return {
         type: actionTypes.LOGIN,
