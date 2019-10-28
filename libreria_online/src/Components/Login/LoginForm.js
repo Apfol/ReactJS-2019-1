@@ -5,6 +5,7 @@ import LogIn from './LoginForm/LogIn';
 import RegisterForm from './RegisterForm/RegisterForm';
 import { users, setUsers, setTempUser, setEntered } from '../../Data';
 import User from '../../Classes/User';
+import { connect } from 'react-redux';
 
 class LoginForm extends Component {
     // constructor(id, username, name, mail, pass, img, books = []) {
