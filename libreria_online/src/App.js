@@ -22,8 +22,6 @@ class App extends Component {
 
     super(props);
     this.addUsers();
-    this.addUser();
-    console.log(users);
     this.state = {
       userView: <LoginForm login={this.login} />,
       userNav: "",
@@ -40,20 +38,20 @@ class App extends Component {
       })
       .then(data => {
         setUsers(data.map((persondata) => {
-          console.log(persondata);
           return (new User(persondata.username, persondata.name, persondata.mail, persondata.pass, persondata.img));
         }));
+        let books = finaldataBooks.map(bookInfo => (
+          new BookClass(bookInfo.name, bookInfo.author, bookInfo.isbn, bookInfo.date, bookInfo.img, tempQuestions, bookInfo.pdfName)
+        ));
+        /* constructor(username, name, mail, pass, img, books = []) */
+        let user = new User("juanvalag", "Juan", "juandva2016@gmail.com", "1234", "person.png", books);
+        let newUsers = users;
+        newUsers.push(user);
+        setUsers(newUsers);
       });
+
   }
 
-  addUser = () => {
-    let books = finaldataBooks.map(bookInfo => (
-      new BookClass(bookInfo.name, bookInfo.author, bookInfo.isbn, bookInfo.date, bookInfo.img, tempQuestions, bookInfo.pdfName)
-    ));
-    let user = new User("juanvalag", "Juan", "juandva2016@gmail.com", "1234", "person.png", books);
-    users.push(user);
-    console.log(user);
-  }
 
   login = () => {
     this.setState({
@@ -84,7 +82,6 @@ class App extends Component {
 
 
   render() {
-
     return (
       <BrowserRouter>
         <NavigationBar userNav={this.state.userNav} />

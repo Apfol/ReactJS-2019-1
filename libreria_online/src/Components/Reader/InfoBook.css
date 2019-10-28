@@ -1,4 +1,6 @@
 .infobook{
+   display: inline-block;
+   vertical-align: top;
     padding: 0px;
     width:100px;
 }

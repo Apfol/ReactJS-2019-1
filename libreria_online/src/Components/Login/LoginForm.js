@@ -99,18 +99,21 @@ class LoginForm extends Component {
         var password = newUserInfo.password;
 
         var temUser;
+        let valid = false;
         for (var i = 0; i < updateUsers.length; i++) {
             temUser = updateUsers[i];
             if ((temUser.username === username) && (temUser.pass === password)) {
                 setEntered(true);
                 setTempUser(temUser);
                 alert("Ingreso Exitoso");
+                valid = true;
                 this.props.login();
                 this.props.history.push("/session/sign-in");
                 break;
-            } else {
-                alert("El nombre de usuario o contraseña no es valido");
             }
+        }
+        if (!valid) {
+            alert("El usuario o contraseña es invalido");
         }
     }
 

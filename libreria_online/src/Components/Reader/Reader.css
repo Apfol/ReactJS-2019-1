@@ -1,12 +1,23 @@
 .reader{
 margin-top: 200px;
+width:100%;
+padding-bottom: 12px;
+margin-bottom: 15px;
 }
 
-.page{
-    height: 792px;
-width: 612px;
-}
-
-.reader{
+.container{
     display: inline-block;
+    height: 900px;
+    background: white;
+    vertical-align: top;
+    position: static;
+    width:610px;
 }
+
+.document{
+  display: inline-block;
+width: 600px;
+
+}
+
+
