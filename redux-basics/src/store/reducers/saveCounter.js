@@ -1,4 +1,5 @@
 import * as actionType from "../actions";
+
 const initialState = {
     counterList: []
 }
