@@ -14,6 +14,8 @@ function NavigationBar(props) {
                 <div className={classes.logo} >
                     <img alt="" src="img/papel-airplane-icon.png" />
                     <img className={classes.logo_name} alt="" src="img/readme-name.png" />
+                    {/*  <img alt="" src={require("../../img/papel-airplane-icon.png")} />
+                    <img className={classes.logo_name} alt="" src={require("../../img/readme-name.png")} /> */}
                 </div>
 
                 <nav className={classes.nav}>
