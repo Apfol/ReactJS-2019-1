@@ -15,11 +15,24 @@ const endLoading = () => {
     }
 }
 
-const saveSession = (userName) => {
+const saveSession = (userName, token, localId) => {
     return {
         type: actionTypes.LOGIN,
         payload: {
-            userName: userName
+            userName: userName,
+            idToken: token,
+            localId: localId
+        }
+    };
+};
+
+const saveSignIn = (userName, token, localId) => {
+    return {
+        type: actionTypes.SIGN_IN,
+        payload: {
+            userName: userName,
+            idToken: token,
+            localId: localId
         }
     };
 };
@@ -29,13 +42,26 @@ export const logIn = (authData, onSuccessCallback) => {
         dispatch(startLoading())
         axios.post('/accounts:signInWithPassword?key='+API_KEY, authData)
             .then(response => {
+                const userEmail = authData.email;
+                const token = response.data.idToken;
+                const localId = response.data.localId;
+                let userSession = {
+                    token,
+                    userEmail,
+                    localId
+                };
+
+                userSession = JSON.stringify(userSession);
+
                 console.log(response);
 
-                dispatch(saveSession(authData.email));
+                localStorage.setItem('userSession', userSession);
+
+                dispatch(saveSession(userEmail, token, localId));
                 dispatch(endLoading());
 
                 if (onSuccessCallback) {
-                    onSuccessCallback()
+                    onSuccessCallback();
                 }
             })
             .catch(error => {
@@ -45,29 +71,23 @@ export const logIn = (authData, onSuccessCallback) => {
             })
     }
 };
-
-export const saveSignIn = (userName) => {
-    return {
-        type: actionTypes.SIGN_IN,
-        payload: {
-            userName: userName
-        }
-    };
-};
-
 
 export const signIn = (authData, onSuccessCallback) => {
     return dispatch => {
         dispatch(startLoading())
         axios.post('/accounts:signUp?key='+API_KEY, authData)
             .then(response => {
+                const userEmail = authData.email;
+                const token = response.data.idToken;
+                const localId = response.data.localId;
+
                 console.log(response);
 
-                dispatch(saveSignIn(authData.email));
+                dispatch(saveSignIn(userEmail, token, localId));
                 dispatch(endLoading());
 
                 if (onSuccessCallback) {
-                    onSuccessCallback()
+                    onSuccessCallback();
                 }
             })
             .catch(error => {
@@ -78,7 +98,23 @@ export const signIn = (authData, onSuccessCallback) => {
     }
 };
 
+export const persistAuthentication = () => {
+    return dispatch => {
+        let userSession = localStorage.getItem('userSession');
+
+        if(!userSession) {
+            dispatch(logOut());
+        } else {
+            userSession = JSON.parse(userSession);
+
+            dispatch(saveSignIn(userSession.userEmail, userSession.token, userSession.localId));
+        }
+    }
+}
+
 export const logOut = () => {
+    localStorage.removeItem('userSession');
+
     return {
         type: actionTypes.LOG_OUT
     };

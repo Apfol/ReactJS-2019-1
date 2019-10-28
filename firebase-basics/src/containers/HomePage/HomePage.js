@@ -33,6 +33,12 @@ class HomePage extends Component {
         }
     }
 
+    componentWillUpdate (nextProps, nextState) {
+        if (!this.state.isUserLoggedIn && nextState.isUserLoggedIn) {
+            this.props.onFetchPosts();
+        }
+    }
+
     render () {
         return (
             this.state.isUserLoggedIn ? this.onUserLoggedIn() : this.onUserLoggedOut()

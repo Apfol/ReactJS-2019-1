@@ -13,7 +13,7 @@ class SignIn extends Component {
         password: ''
     }
 
-    componentWillMount () {
+    componentDidUpdate () {
         if (this.state.isUserLoggedIn) {
             this.props.history.push('/');
         }
