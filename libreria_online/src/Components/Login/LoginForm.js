@@ -3,27 +3,23 @@ import { Route, Link, withRouter } from 'react-router-dom';
 import classes from './loginForm.css';
 import LogIn from './LoginForm/LogIn';
 import RegisterForm from './RegisterForm/RegisterForm';
-import { users, setUsers, setTempUser, setEntered } from '../../Data';
+import { users, setTempUser, setEntered } from '../../Data';
 import User from '../../Classes/User';
 import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/loginActionGenerator';
 
 class LoginForm extends Component {
     // constructor(id, username, name, mail, pass, img, books = []) {
     state = {
-        users: users,
         newUserInfo: {
-            img: "",
-            name: "",
-            username: "",
-            mail: "",
-            password: ""
-        }
+            img: "", name: "", username: "", mail: "", password: ""
+        },
+        message: ""
     }
 
 
     render() {
         return (
-
             <div className={classes.login_form}>
                 <header>
                     <nav className="nav-bar">
@@ -33,7 +29,6 @@ class LoginForm extends Component {
                         </ul>
                     </nav>
                 </header>
-
 
                 <Route path="/session/sign-in" exact render={() => (
                     <LogIn
@@ -51,20 +46,25 @@ class LoginForm extends Component {
                     />
                 )} />
 
-
-
+                <section className={classes.message}>
+                    <p>{this.state.message}</p>
+                </section>
             </div>
         )
     }
-
-
 
     loadInformation = (event, type) => {
         var loadInformation = {
             ...this.state.newUserInfo
         }
         if (type === "img") {
-            loadInformation[type] = document.getElementById("img_user").files[0].name;
+            var file = document.getElementById("img_user").files[0];
+            if (file) {
+                loadInformation[type] = file.name;
+            } else {
+                loadInformation[type] = "";
+            }
+
         } else {
             loadInformation[type] = event.target.value;
         }
@@ -74,50 +74,87 @@ class LoginForm extends Component {
     }
 
     submitNewUser = () => {
-        var updateUsers = [...users];
         var newUserInfo = { ...this.state.newUserInfo }
-        /* constructor(username, name, mail, pass, img, books = []) */
-        updateUsers.push(new User(newUserInfo.username, newUserInfo.name, newUserInfo.mail, newUserInfo.password, newUserInfo.img));
-        setUsers(updateUsers);
-        console.log(users);
-        this.setState({
-            users: updateUsers,
-            newUserInfo: {
-                id: "",
-                name: "",
-                username: "",
-                mail: "",
-                password: ""
+        let notEmpty = this.checkObjectProperties(newUserInfo);
+        let newUser;
+        if (notEmpty) {
+            newUser = new User(newUserInfo.username, newUserInfo.name, newUserInfo.mail, newUserInfo.password, newUserInfo.img);
+            if (!this.searchUser(newUser)) {
+                this.props.onAddUser(newUser);
+                document.getElementById("img_user").value = "";
+                this.setState({
+                    newUserInfo: {
+                        img: "",
+                        name: "",
+                        username: "",
+                        mail: "",
+                        password: ""
+                    },
+                    message: ""
+                });
+            } else {
+                this.setState({ message: "Ya Hay Una Persona Con El Nombre De Usuario o Contraseña Ingresados" });
             }
-        })
+        } else {
+            this.setState({ message: "Debe llenar todos los campos" });
+        }
+
+    }
+
+    checkObjectProperties = (newUserInfo) => {
+        var valid = true;
+        for (var attri in newUserInfo) {
+            if (newUserInfo.hasOwnProperty(attri)) {
+                if (newUserInfo[attri] === "") {
+                    alert("Estoy en blanco :'v");
+                    valid = false;
+                }
+            }
+        }
+        return valid;
+    }
+
+    searchUser = (newUser) => {
+        var exists = false;
+        console.log(users);
+        var stateUsers = [...this.props.users];
+        var tempUser;
+        for (var i = 0; i < stateUsers.length; i++) {
+            tempUser = stateUsers[i];
+            if ((tempUser.username === newUser.username) && (tempUser.pass === newUser.pass)) {
+                exists = true;
+            }
+        }
+        return exists;
     }
 
     checkUser = () => {
-        console.log(users);
-        var updateUsers = [...users];
-        var newUserInfo = { ...this.state.newUserInfo }
-        var username = newUserInfo.username;
-        var password = newUserInfo.password;
-
-        var temUser;
-        let valid = false;
-        for (var i = 0; i < updateUsers.length; i++) {
-            temUser = updateUsers[i];
-            if ((temUser.username === username) && (temUser.pass === password)) {
-                setEntered(true);
-                setTempUser(temUser);
-                alert("Ingreso Exitoso");
-                valid = true;
-                this.props.login();
-                this.props.history.push("/session/sign-in");
-                break;
-            }
-        }
-        if (!valid) {
+        let newUserInfo = { ...this.state.newUserInfo }
+        var tempUser = new User(newUserInfo.username, newUserInfo.name, newUserInfo.mail, newUserInfo.password, newUserInfo.img);
+        if (this.searchUser(tempUser)) {
+            setEntered(true);
+            setTempUser(tempUser);
+            alert("Ingreso Exitoso");
+            this.props.login();
+            this.props.history.push("/session/sign-in");
+        } else {
             alert("El usuario o contraseña es invalido");
         }
     }
 
 }
 
-export default withRouter(LoginForm);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onAddUser: (newUser) => dispatch(actionCreators.addUser(newUser)),
+        onSetLoggedUser: (user) => dispatch(actionCreators.setLoggedUser(user))
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        users: state.sessionStore.users
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(LoginForm));
