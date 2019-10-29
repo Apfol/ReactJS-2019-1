@@ -27,6 +27,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        // Accede a los props que redux me pone
         onBtnSaveClicked: (value) => dispatch({
             type: actionTypes.SAVE_BTN_ACTION,
             payload: {

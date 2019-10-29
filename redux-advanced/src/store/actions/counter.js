@@ -1,5 +1,7 @@
 import * as actionTypes from './actionsTypes';
 
+
+// TODOS LOS ACTION CREATORS
 export const increment = () => {
     return {
         type: actionTypes.INCREMENT
@@ -21,8 +23,9 @@ const addResult = ( value ) => {
     }
 }
 
+// Action creater that is just a function that calls the dispatch
 export const add = (value) => {
-    return dispatch => {
+    return dispatch => { // Porque instale el thunk para hacer dispatch
         setTimeout(() => {
             dispatch(addResult(value))
         }, 2000);

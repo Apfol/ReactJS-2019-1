@@ -26,6 +26,7 @@ const mapStateToProps = state => {
     }
 }
 
+// Genera un prop con el nombre que se quiera
 const mapDispatchToProps = dispatch => {
     return {
         onIncrementCounter: () => dispatch({type: actionTypes.INCREMENT}),

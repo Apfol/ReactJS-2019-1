@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk'
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
@@ -13,6 +13,7 @@ const rootReducer = combineReducers ({
     counterStore: counterReducer
 });
 
+// Recibe store y retorna resultado
 const logger = store => {
     return next => {
         return action => {
@@ -25,8 +26,10 @@ const logger = store => {
     }
 };
 
+// Accede a la extension o al compose de redux
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+// Thunk para hacer solicitudes asincronas
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger, thunk)));
 
 ReactDOM.render(
