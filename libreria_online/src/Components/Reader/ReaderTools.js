@@ -19,7 +19,7 @@ class ReaderTools extends Component {
     }
     render() {
         return (
-            <div id="reader_tools" className={classes.readerTools}>
+            <div className={classes.readerTools}>
                 <p>pagina {this.props.numPage} de {this.props.pages}</p>
                 <button onClick={this.prevPage}>anterior</button>
                 <button onClick={this.nextPage}>siguiente</button>
