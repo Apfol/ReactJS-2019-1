@@ -4,6 +4,8 @@ import './LogIn.css';
 
 import Spinner from '../../components/Spinner/Spinner';
 
+import {ToastsContainer, ToastsStore, ToastsContainerPosition} from 'react-toasts';
+
 import * as actionCreators from '../../store/actions/';
 
 class LogIn extends Component {
@@ -19,10 +21,14 @@ class LogIn extends Component {
         }
     }
 
-    componentWillReceiveProps (nextState) {
+    componentWillReceiveProps = (nextProps) =>{
         this.setState({
-            isUserLoggedIn: nextState.isUserLoggedIn
+            isUserLoggedIn: nextProps.isUserLoggedIn
         });
+        if (nextProps.error !== '') {
+            ToastsStore.error('Ups, there was an error: ' + nextProps.error);
+            nextProps.onSaveError();
+        }
     }
 
     render () {
@@ -41,6 +47,7 @@ class LogIn extends Component {
                         onChange={(event) => {this.updateLoginInfo(event, 'password')}}
                     /><br/>
                     {this.renderButton()}
+                    <ToastsContainer position={ToastsContainerPosition.BOTTOM_LEFT} store={ToastsStore}/>
                 </div>
             </div>
         );
@@ -84,7 +91,8 @@ class LogIn extends Component {
 const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
-        loadingAuth: state.authenticationStore.loadingAuth
+        loadingAuth: state.authenticationStore.loadingAuth,
+        error: state.authenticationStore.error
     }
 }
 
@@ -92,7 +100,8 @@ const mapDispatchToProps = dispatch => {
     return {
         onUserLogin: (authData, onSuccessCallback) => dispatch(
             actionCreators.logIn(authData, onSuccessCallback)
-        )
+        ),
+        onSaveError: () => dispatch(actionCreators.saveError("")),
     }
 }
 

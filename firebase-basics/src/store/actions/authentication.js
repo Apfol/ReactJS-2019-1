@@ -15,6 +15,15 @@ const endLoading = () => {
     }
 }
 
+export const saveError = (e) => {
+    return {
+        type: actionTypes.SAVE_ERROR,
+        payload: {
+            error: e
+        }
+    }
+}
+
 const saveSession = (userName, token, localId) => {
     return {
         type: actionTypes.LOGIN,
@@ -65,7 +74,8 @@ export const logIn = (authData, onSuccessCallback) => {
                 }
             })
             .catch(error => {
-                console.log(error);
+                var e = error.response.data.error.message;
+                dispatch(saveError(e));
 
                 dispatch(endLoading());
             })
@@ -91,7 +101,8 @@ export const signIn = (authData, onSuccessCallback) => {
                 }
             })
             .catch(error => {
-                console.log(error);
+                var e = error.response.data.error.message;
+                dispatch(saveError(e));
 
                 dispatch(endLoading());
             })
