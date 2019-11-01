@@ -59,6 +59,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.LOG_OUT: return logOut(state, action);
         case actionTypes.START_LOADING: return startLoading(state, action);
         case actionTypes.END_LOADING: return endLoading(state, action);
+        case actionTypes.WRONG_LOG_IN: return endLoading(state,action);
         default: return state;
     }
 }

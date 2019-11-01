@@ -15,6 +15,13 @@ const endLoading = () => {
     }
 }
 
+const wrongLogIn = () => {
+    return {
+        type: actionTypes.WRONG_LOG_IN
+    }
+
+}
+
 const saveSession = (userName, token, localId) => {
     return {
         type: actionTypes.LOGIN,
@@ -65,6 +72,7 @@ export const logIn = (authData, onSuccessCallback) => {
                 }
             })
             .catch(error => {
+                dispatch(wrongLogIn());
                 console.log(error);
 
                 dispatch(endLoading());
@@ -91,6 +99,7 @@ export const signIn = (authData, onSuccessCallback) => {
                 }
             })
             .catch(error => {
+                dispatch(wrongLogIn());
                 console.log(error);
 
                 dispatch(endLoading());

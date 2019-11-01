@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './LogIn.css';
 
 import Spinner from '../../components/Spinner/Spinner';
+import wrong from '../../components/Wrong/wrong'
 
 import * as actionCreators from '../../store/actions/';
 
