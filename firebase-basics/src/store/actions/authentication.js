@@ -72,8 +72,7 @@ export const logIn = (authData, onSuccessCallback) => {
                 }
             })
             .catch(error => {
-                dispatch(wrongLogIn());
-                console.log(error);
+            dispatch(wrongLogIn());                
 
                 dispatch(endLoading());
             })

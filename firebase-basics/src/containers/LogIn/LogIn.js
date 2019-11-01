@@ -7,6 +7,7 @@ import Wrong from '../../components/Wrong/wrong.js'
 
 import * as actionCreators from '../../store/actions/';
 
+
 class LogIn extends Component {
     state = {
         isUserLoggedIn: this.props.isUserLoggedIn,
@@ -27,6 +28,7 @@ class LogIn extends Component {
     }
 
     render () {
+         
         return (
             <div className="login__form">
                 <h1 style = {{textAlign: 'center'}}>Log in</h1>
@@ -42,21 +44,20 @@ class LogIn extends Component {
                         onChange={(event) => {this.updateLoginInfo(event, 'password')}}
                     /><br/>
                     {this.renderButton()}
+                    {this.props.failedLogIn ? <Wrong/> : null}
                 </div>
             </div>
         );
     }
 
     renderButton() {
-        let button = <button onClick = {this.submitLoginForm}>Submit</button>;
+        var button = <button onClick = {this.submitLoginForm}>Submit</button>;
 
-        if (this.props.loadingAuth) {
-            button = <Spinner />;
+        if (this.props.loadingAuth) {   
+            button = <Spinner />;            
         }
 
-        if(this.props.failedLogIn){
-            button = <Wrong/>
-        }
+        
         return button;
     }
 
@@ -88,7 +89,8 @@ class LogIn extends Component {
 const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
-        loadingAuth: state.authenticationStore.loadingAuth
+        loadingAuth: state.authenticationStore.loadingAuth,
+        failedLogIn: state.authenticationStore.failedLogIn
     }
 }
 
