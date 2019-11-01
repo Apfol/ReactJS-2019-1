@@ -14,6 +14,11 @@ const endLoading = () => {
         type: actionTypes.END_LOADING
     }
 }
+export const loginerror = () => {
+    return {
+        type: actionTypes.LOGIN_ERROR
+    }
+}
 
 const saveSession = (userName, token, localId) => {
     return {
@@ -66,7 +71,7 @@ export const logIn = (authData, onSuccessCallback) => {
             })
             .catch(error => {
                 console.log(error);
-
+                dispatch(loginerror());
                 dispatch(endLoading());
             })
     }

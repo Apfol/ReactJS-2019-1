@@ -12,6 +12,10 @@ class LogIn extends Component {
         userName: '',
         password: ''
     }
+    
+    componentWillUnmount(){
+         this.props.deleteError();
+    }
 
     componentDidUpdate () {
         if (this.state.isUserLoggedIn) {
@@ -40,10 +44,23 @@ class LogIn extends Component {
                         value={this.state.password}
                         onChange={(event) => {this.updateLoginInfo(event, 'password')}}
                     /><br/>
+                    {this.renderError()}
                     {this.renderButton()}
+                    
                 </div>
             </div>
         );
+    }
+
+    renderError() {
+        let msg = <h5>Usuario y/o contraseña erronea por favor intente de nuevo</h5>
+
+        if (this.props.loginerrorbool) {
+            return msg;
+        }
+        else {
+            return null;
+        }        
     }
 
     renderButton() {
@@ -84,7 +101,8 @@ class LogIn extends Component {
 const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
-        loadingAuth: state.authenticationStore.loadingAuth
+        loadingAuth: state.authenticationStore.loadingAuth,
+        loginerrorbool: state.authenticationStore.loginerrorbool
     }
 }
 
@@ -92,7 +110,10 @@ const mapDispatchToProps = dispatch => {
     return {
         onUserLogin: (authData, onSuccessCallback) => dispatch(
             actionCreators.logIn(authData, onSuccessCallback)
-        )
+        ),
+        deleteError:() => dispatch(
+            actionCreators.loginerror()
+        )        
     }
 }
 
