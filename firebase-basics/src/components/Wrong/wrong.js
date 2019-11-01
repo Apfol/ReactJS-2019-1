@@ -4,8 +4,8 @@ import wrongpng from './wrong.png'
 
 const wrong = () => {
     return (
-        <div className="wrong">
-            <img src={wrongpng} alt="wrong"/>
+        <div>
+            <img src={wrongpng} alt="wrong" className="wrong"/>
         </div>
     );
 }

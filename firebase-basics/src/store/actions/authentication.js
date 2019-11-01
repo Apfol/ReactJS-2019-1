@@ -15,7 +15,7 @@ const endLoading = () => {
     }
 }
 
-const wrongLogIn = () => {
+export const wrongLogIn = () => {
     return {
         type: actionTypes.WRONG_LOG_IN
     }

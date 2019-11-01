@@ -54,7 +54,7 @@ const endLoading = (state, action) => {
 }
 
 const wrongLogIn = (state,action) => {
-    return updateObject(state,{failedLogIn: true});
+    return updateObject(state,{failedLogIn: !state.failedLogIn});
 }
 
 const reducer = (state = initialState, action) => {

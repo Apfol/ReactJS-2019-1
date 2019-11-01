@@ -15,6 +15,10 @@ class LogIn extends Component {
         password: ''
     }
 
+    componentWillUnmount(){
+        this.props.changeError();
+    }
+
     componentDidUpdate () {
         if (this.state.isUserLoggedIn) {
             this.props.history.push('/');
@@ -33,18 +37,20 @@ class LogIn extends Component {
             <div className="login__form">
                 <h1 style = {{textAlign: 'center'}}>Log in</h1>
                 <div>
+                {this.props.failedLogIn ? <Wrong/> : null}
                     <p>Username:</p>
                     <input type="text"
                         value={this.state.userName}
                         onChange={(event) => {this.updateLoginInfo(event, 'userName')}}
                     />
+                    
                     <p>Password:</p>
                     <input type="password"
                         value={this.state.password}
                         onChange={(event) => {this.updateLoginInfo(event, 'password')}}
                     /><br/>
+                    
                     {this.renderButton()}
-                    {this.props.failedLogIn ? <Wrong/> : null}
                 </div>
             </div>
         );
@@ -98,7 +104,11 @@ const mapDispatchToProps = dispatch => {
     return {
         onUserLogin: (authData, onSuccessCallback) => dispatch(
             actionCreators.logIn(authData, onSuccessCallback)
+        ),
+        changeError:() => dispatch(
+            actionCreators.wrongLogIn()
         )
+
     }
 }
 
