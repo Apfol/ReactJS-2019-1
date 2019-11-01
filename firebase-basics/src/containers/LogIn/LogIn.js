@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './LogIn.css';
 
 import Spinner from '../../components/Spinner/Spinner';
-import wrong from '../../components/Wrong/wrong'
+import Wrong from '../../components/Wrong/wrong.js'
 
 import * as actionCreators from '../../store/actions/';
 
@@ -54,6 +54,9 @@ class LogIn extends Component {
             button = <Spinner />;
         }
 
+        if(this.props.failedLogIn){
+            button = <Wrong/>
+        }
         return button;
     }
 
