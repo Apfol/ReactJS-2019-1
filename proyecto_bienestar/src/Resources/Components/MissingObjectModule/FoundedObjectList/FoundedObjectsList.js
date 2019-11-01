@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import classes from "./FoundedObjectsList.css";
-import FoundedObject from "./FoundedObject";
-import SearchFilter from "./SearchFilter";
-import axios from "./Data/AxiosInstance"
+import FoundedObject from "../FoundedObject/FoundedObject";
+import SearchFilter from "../MissingObjectList/SearchFilter";
+import axios from "../../Data/AxiosInstance"
 
 
 class FoundedObjectsList extends React.Component {

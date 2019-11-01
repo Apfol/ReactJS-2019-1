@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './sportsEquipment.css';
-import axios from './Data/AxiosInstance.js';
+import axios from '../Data/AxiosInstance.js';
 class SportsEquipment extends React.Component {
     state={
       sEquipment:[],
