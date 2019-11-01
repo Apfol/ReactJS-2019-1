@@ -1,51 +1,138 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import "./NavBar.css";
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
+import {Nav, Modal, Navbar, Button} from "react-bootstrap";
+import {IoMdContact} from "react-icons/io";
+import { Link} from 'react-router-dom';
+import * as actionCreators from '../../../Store/Actions/';
+
 
 class NavBarComponent extends Component {
-    state = {
-        objects:[
-          {name: "Celular Xyz", location: "Biblioteca", by: "Cristian"},
-          {name: "Sombrilla", location: "Atelier 205", by: "Laura"},
-          {name: "Celular y", location: "Edificio B-105", by: "Pedro"},
-          {name: "Cargador Iphone", location: "Edificio B-204", by: "Leidy"},
-          {name: "Cachucha", location: "Biblioteca", by: "Juan"},
-          {name: "Botilito", location: "Biblioteca", by: "Felipe"},
-          {name: "Chaqueta", location: "Biblioteca", by: "Cristian"},          
-        ]
-      }
+  state = {
+    smShow: false,
+    nuevo: false,
+    userName: '',
+    password: '',
+    objects: [
+      { name: "Celular Xyz", location: "Biblioteca", by: "Cristian" },
+      { name: "Sombrilla", location: "Atelier 205", by: "Laura" },
+      { name: "Celular y", location: "Edificio B-105", by: "Pedro" },
+      { name: "Cargador Iphone", location: "Edificio B-204", by: "Leidy" },
+      { name: "Cachucha", location: "Biblioteca", by: "Juan" },
+      { name: "Botilito", location: "Biblioteca", by: "Felipe" },
+      { name: "Chaqueta", location: "Biblioteca", by: "Cristian" }
+    ]
+  };
+  
+  setSmShow() {
+    this.setState({
+      smShow: !this.state.smShow
+    });    
+  }
+
   render() {
-    return (   
-        <div>
+    return (
+      <div>
         <Navbar bg="light" expand="lg">
-  <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#link">Link</Nav.Link>
-      <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-      </NavDropdown>
-    </Nav>
-    <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-success">Search</Button>
-    </Form>
-  </Navbar.Collapse>
-</Navbar>
-        </div>   
+          <Navbar.Brand href="#home">Unisabana Objetos Perdidos</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="#home">
+                <Link to="/missing-object-list">Inicio</Link>
+              </Nav.Link>
+              <Nav.Link href="#link">Link</Nav.Link>              
+            </Nav>                          
+              <Button variant="outline-success" onClick={() => this.setSmShow()}>Ingresar</Button>            
+          </Navbar.Collapse>
+        </Navbar>
+
+        <Modal
+          size="sm"
+          show={this.state.smShow && !this.state.isUserLoggedIn}
+          onHide={() => this.setSmShow()}
+          aria-labelledby="example-modal-sizes-title-sm"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-modal-sizes-title-sm">
+              Ingresar     
+              <IoMdContact size = "30px"/>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>            
+            <form action="/action_page.php">
+              <div class="form-group">
+                <label for="email">Correo Electronico:</label>
+                <input
+                  type="email"
+                  class="form-control"                  
+                  placeholder="Ingresar Correo Electronico"                  
+                  value={this.state.userName}
+                  onChange={(event) => {this.updateLoginInfo(event, 'userName')}}             
+                />
+              </div>
+              <div class="form-group">
+                <label for="pwd">Contraseña:</label>
+                <input
+                  type="password"
+                  class="form-control"                  
+                  placeholder="Ingresar Contraseña"       
+                  value={this.state.password}
+                  onChange={(event) => {this.updateLoginInfo(event, 'password')}}           
+                />
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="remember" /> Remember me
+                </label>
+              </div>
+              <Button variant="primary" onClick={this.submitLoginForm}>Ingresar</Button>                      
+                
+            </form>
+          </Modal.Body>
+        </Modal>
+      </div>
     );
+  }
+  submitLoginForm = () => {
+    const userData = {
+        email: this.state.userName,
+        password: this.state.password
+    }
+
+    this.props.onUserLogin(userData, () => {
+        this.props.history.push('/');
+    });
+  }
+
+  updateLoginInfo = (event, type) => {
+    var updatedLoginInfo = {
+      ...this.state
+    }
+    updatedLoginInfo[type] = event.target.value;
+    this.setState({
+      userName: updatedLoginInfo.userName,
+      password: updatedLoginInfo.password
+    });
+  }
+}
+const mapStateToProps = state => {
+  return {
+      isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
+      loadingAuth: state.authenticationStore.loadingAuth,
+      loginerrorbool: state.authenticationStore.loginerrorbool
   }
 }
 
-export default NavBarComponent;
+const mapDispatchToProps = dispatch => {
+  return {
+      onUserLogin: (authData, onSuccessCallback) => dispatch(
+          actionCreators.logIn(authData, onSuccessCallback)
+      ),
+      deleteError:() => dispatch(
+          actionCreators.loginerror()
+      )        
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBarComponent);

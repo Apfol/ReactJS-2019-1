@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import classes from "./SideBar.css";
-import settingsImage from "./settings.png";
+import settingsImage from "../../Assest/settings.png";
 import faker from 'faker';
-//import MissingObjectList from './Resources/Components/MissingObjectList';
-import { BrowserRouter, Route, Link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 class SideBar extends React.Component {

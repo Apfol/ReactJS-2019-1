@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classes from "./MissingObjectList.css";
 import MissingObject from "../MissingObject/MissingObject";
-import SearchFilter from "../../SearchFilter";
+import SearchFilter from "./SearchFilter";
 
 
 class MissingObjectList extends Component {

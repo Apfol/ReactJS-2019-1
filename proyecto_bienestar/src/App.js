@@ -1,18 +1,18 @@
 import React from 'react';
 import classes from './App.css';
 
-import SportsEquipment from './Resources/Components/SportsEquipment';
+import SportsEquipment from './Resources/Components/SportsEquipmentModule/SportsEquipment';
 
-import SideBar from './Resources/Components/SideBar';
+import SideBar from './Resources/Components/NavBar/SideBar';
 //import NavBarComponent from './Resources/Components/NavBar';
 import {BrowserRouter} from 'react-router-dom'
 import {Route, Link} from 'react-router-dom'
-import MissingObjectList from './Resources/Components/MissingObjectList';
-
-import MyLostObjectList from './Resources/Components/MyLostObjectList';
-import FoundedObjects from './Resources/Components/FoundedObjectsList';
-import ContactUs from './Resources/Components/ContactUs'
-
+import MissingObjectList from './Resources/Components/MissingObjectModule/MissingObjectList/MissingObjectList';
+import NavBar from './Resources/Components/NavBar/NavBar'
+import MyLostObjectList from './Resources/Components/MissingObjectModule/MyLostObjectList/MyLostObjectList';
+import FoundedObjects from './Resources/Components/MissingObjectModule/FoundedObjectList/FoundedObjectsList';
+import ContactUs from './Resources/Components/ContactUsModule/ContactUs'
+import {Col, Row, Container} from 'react-bootstrap'
 
 
 function App() {
@@ -28,9 +28,14 @@ function App() {
 
   
   return (
-    <BrowserRouter>
-      <div className={classes.App}>
-        <SideBar object = {object}/>  
+    <BrowserRouter>     
+    <div className={classes.App}>        
+          <NavBar/>              
+        <Row>
+        <Col xs={2}>
+          <SideBar object = {object}/>    
+        </Col>
+        <Col xs={9}>                                                   
         <Route path="/missing-object-list" render ={() => (
             <div>
               <MissingObjectList></MissingObjectList>
@@ -63,7 +68,10 @@ function App() {
             </div>
           )}/>     
 
-      </div>
+      
+        </Col>
+        </Row>   
+        </div>               
     </BrowserRouter>    
     
   );

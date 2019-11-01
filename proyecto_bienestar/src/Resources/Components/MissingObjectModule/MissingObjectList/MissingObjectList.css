@@ -1,6 +1,5 @@
-.MissingObjectList{
-    margin-left: 20%;      
-    width: 78%;    
+.MissingObjectList{    
+    width: 100%;    
     background-color: transparent;      
     overflow: hidden;
 }
