@@ -10,7 +10,9 @@ class LogIn extends Component {
     state = {
         isUserLoggedIn: this.props.isUserLoggedIn,
         userName: '',
-        password: ''
+        password: '',
+        look:  'login__form',
+        sign: 'noSign'
     }
 
     componentDidUpdate () {
@@ -27,7 +29,7 @@ class LogIn extends Component {
 
     render () {
         return (
-            <div className="login__form">
+            <div className= {this.state.look}>
                 <h1 style = {{textAlign: 'center'}}>Log in</h1>
                 <div>
                     <p>Username:</p>
@@ -42,6 +44,7 @@ class LogIn extends Component {
                     /><br/>
                     {this.renderButton()}
                 </div>
+                <p className= {this.state.sign}>Usuario o contraseña incorrectos :(</p>
             </div>
         );
     }
@@ -74,6 +77,19 @@ class LogIn extends Component {
             email: this.state.userName,
             password: this.state.password
         }
+
+        if(localStorage.getItem('error') == "True"){
+            this.setState({
+                look: 'login__Error',
+                sign: 'sign'
+            })
+        }else{
+            this.setState({
+                look: 'login__form',
+                sign: 'noSign'
+            })
+        }
+        console.log(localStorage.getItem('error'));
 
         this.props.onUserLogin(userData, () => {
             this.props.history.push('/');

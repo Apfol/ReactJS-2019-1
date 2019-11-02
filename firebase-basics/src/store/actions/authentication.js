@@ -3,6 +3,9 @@ import axios from '../../instances/axios-authentication';
 
 const API_KEY = 'AIzaSyDNMJLoK-YoyV3d-fBih1xrr-zQgACHmoY';
 
+localStorage.setItem('error', 'True');
+
+
 const startLoading = () => {
     return {
         type: actionTypes.START_LOADING
@@ -63,10 +66,11 @@ export const logIn = (authData, onSuccessCallback) => {
                 if (onSuccessCallback) {
                     onSuccessCallback();
                 }
+                localStorage.setItem('error', 'False');
             })
             .catch(error => {
                 console.log(error);
-
+                localStorage.setItem('error', "True");
                 dispatch(endLoading());
             })
     }
@@ -119,3 +123,4 @@ export const logOut = () => {
         type: actionTypes.LOG_OUT
     };
 };
+
