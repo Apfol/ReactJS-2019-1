@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import "./NavBar.css";
 import {Nav, Modal, Navbar, Button} from "react-bootstrap";
 import {IoMdContact} from "react-icons/io";
-import { Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import MyUser from './MyUSer/MyUser'
 import * as actionCreators from '../../../Store/Actions/';
 
 
@@ -30,6 +31,16 @@ class NavBarComponent extends Component {
     });    
   }
 
+  getModalStatus(){
+    console.log(this.props.isUserLoggedIn)    
+    if(this.state.smShow && !this.props.isUserLoggedIn){      
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
   render() {
     return (
       <div>
@@ -42,14 +53,22 @@ class NavBarComponent extends Component {
                 <Link to="/missing-object-list">Inicio</Link>
               </Nav.Link>
               <Nav.Link href="#link">Link</Nav.Link>              
-            </Nav>                          
-              <Button variant="outline-success" onClick={() => this.setSmShow()}>Ingresar</Button>            
+            </Nav>     
+            {
+            !this.props.isUserLoggedIn ? 
+            <Button variant="outline-success" onClick={() => this.setSmShow()}>Ingresar</Button>   
+            :
+            <MyUser 
+            user = {this.props.CurrentUser}>
+            </MyUser>
+            }                     
+                        
           </Navbar.Collapse>
         </Navbar>
 
         <Modal
           size="sm"
-          show={this.state.smShow && !this.state.isUserLoggedIn}
+          show={this.getModalStatus()}
           onHide={() => this.setSmShow()}
           aria-labelledby="example-modal-sizes-title-sm"
         >
@@ -86,8 +105,8 @@ class NavBarComponent extends Component {
                   <input type="checkbox" name="remember" /> Remember me
                 </label>
               </div>
-              <Button variant="primary" onClick={this.submitLoginForm}>Ingresar</Button>                      
-                
+              {this.props.loginerrorbool ? <h6>Usuario y/o contraseña incorrecta</h6>:null}
+              <Button variant="primary" onClick={this.submitLoginForm}>Ingresar</Button>                                                               
             </form>
           </Modal.Body>
         </Modal>
@@ -120,7 +139,8 @@ const mapStateToProps = state => {
   return {
       isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
       loadingAuth: state.authenticationStore.loadingAuth,
-      loginerrorbool: state.authenticationStore.loginerrorbool
+      loginerrorbool: state.authenticationStore.loginerrorbool,
+      CurrentUser: state.authenticationStore.userLoggedIn
   }
 }
 
