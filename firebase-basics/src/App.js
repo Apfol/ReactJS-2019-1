@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { connect } from 'react-redux';
 
@@ -12,18 +12,18 @@ import NotFound from './containers/NotFound/NotFound';
 
 class App extends Component {
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.onPersistAuthentication();
   }
 
-  render () {
+  render() {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path = '/' component = {HomePage} exact/>
-          <Route path = '/login'  component = {LogIn}/>
-          <Route path = '/signin' component = {SignIn}/>
-          <Route component = {NotFound} />
+          <Route path='/' component={HomePage} exact />
+          <Route path='/login' component={LogIn} />
+          <Route path='/signin' component={SignIn} />
+          <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
     );
@@ -32,7 +32,7 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onPersistAuthentication: () => dispatch( actionCreators.persistAuthentication() )
+    onPersistAuthentication: () => dispatch(actionCreators.persistAuthentication())
   };
 };
 

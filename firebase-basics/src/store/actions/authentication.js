@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../instances/axios-authentication';
 
-const API_KEY = 'AIzaSyDNMJLoK-YoyV3d-fBih1xrr-zQgACHmoY';
+const API_KEY = 'AIzaSyCzs7Ni4pV406_mpVKJaU4evPJ0HbXygXY';
 
 const startLoading = () => {
     return {
@@ -36,11 +36,20 @@ const saveSignIn = (userName, token, localId) => {
         }
     };
 };
-
+const loginError = () => {
+    return {
+        type: actionTypes.LOGIN_ERROR
+    }
+}
+const signInError = () => {
+    return {
+        type: actionTypes.SIGN_IN_ERROR
+    }
+}
 export const logIn = (authData, onSuccessCallback) => {
     return dispatch => {
         dispatch(startLoading())
-        axios.post('/accounts:signInWithPassword?key='+API_KEY, authData)
+        axios.post('/accounts:signInWithPassword?key=' + API_KEY, authData)
             .then(response => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
@@ -65,8 +74,7 @@ export const logIn = (authData, onSuccessCallback) => {
                 }
             })
             .catch(error => {
-                console.log(error);
-
+                dispatch(loginError());
                 dispatch(endLoading());
             })
     }
@@ -75,7 +83,7 @@ export const logIn = (authData, onSuccessCallback) => {
 export const signIn = (authData, onSuccessCallback) => {
     return dispatch => {
         dispatch(startLoading())
-        axios.post('/accounts:signUp?key='+API_KEY, authData)
+        axios.post('/accounts:signUp?key=' + API_KEY, authData)
             .then(response => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
@@ -91,8 +99,7 @@ export const signIn = (authData, onSuccessCallback) => {
                 }
             })
             .catch(error => {
-                console.log(error);
-
+                dispatch(signInError());
                 dispatch(endLoading());
             })
     }
@@ -102,7 +109,7 @@ export const persistAuthentication = () => {
     return dispatch => {
         let userSession = localStorage.getItem('userSession');
 
-        if(!userSession) {
+        if (!userSession) {
             dispatch(logOut());
         } else {
             userSession = JSON.parse(userSession);

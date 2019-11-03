@@ -3,13 +3,8 @@ import './Spinner.css';
 
 const Spinner = () => {
     return (
-        <div className="Loader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    );
+        <div className="loader">Loading...</div>
+    )
 }
 
 export default Spinner;

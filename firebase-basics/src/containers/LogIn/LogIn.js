@@ -13,41 +13,45 @@ class LogIn extends Component {
         password: ''
     }
 
-    componentDidUpdate () {
+    componentDidUpdate() {
         if (this.state.isUserLoggedIn) {
             this.props.history.push('/');
         }
     }
 
-    componentWillReceiveProps (nextState) {
+    componentWillReceiveProps(nextState) {
         this.setState({
             isUserLoggedIn: nextState.isUserLoggedIn
         });
     }
 
-    render () {
+    render() {
         return (
             <div className="login__form">
-                <h1 style = {{textAlign: 'center'}}>Log in</h1>
-                <div>
-                    <p>Username:</p>
-                    <input type="text"
-                        value={this.state.userName}
-                        onChange={(event) => {this.updateLoginInfo(event, 'userName')}}
-                    />
-                    <p>Password:</p>
-                    <input type="password"
-                        value={this.state.password}
-                        onChange={(event) => {this.updateLoginInfo(event, 'password')}}
-                    /><br/>
-                    {this.renderButton()}
-                </div>
+                <form onSubmit={this.submitLoginForm}>
+                    <h1 style={{ textAlign: 'center' }}>Log in</h1>
+                    {this.props.error ? (<p>Error, please try again</p>) : ("")}
+                    <div>
+                        <p>Username:</p>
+                        <input type="text"
+                            value={this.state.userName}
+                            onChange={(event) => { this.updateLoginInfo(event, 'userName') }}
+                        />
+                        <p>Password:</p>
+                        <input type="password"
+                            value={this.state.password}
+                            onChange={(event) => { this.updateLoginInfo(event, 'password') }}
+                        />
+                        <br />
+                        {this.renderButton()}
+                    </div>
+                </form>
             </div>
         );
     }
 
     renderButton() {
-        let button = <button onClick = {this.submitLoginForm}>Submit</button>;
+        let button = <button>Submit</button>;
 
         if (this.props.loadingAuth) {
             button = <Spinner />;
@@ -58,18 +62,19 @@ class LogIn extends Component {
 
     updateLoginInfo = (event, type) => {
         var updatedLoginInfo = {
-          ...this.state
+            ...this.state
         }
 
         updatedLoginInfo[type] = event.target.value;
 
         this.setState({
-          userName: updatedLoginInfo.userName,
-          password: updatedLoginInfo.password
+            userName: updatedLoginInfo.userName,
+            password: updatedLoginInfo.password
         });
     }
 
-    submitLoginForm = () => {
+    submitLoginForm = (e) => {
+        e.preventDefault();
         const userData = {
             email: this.state.userName,
             password: this.state.password
@@ -84,7 +89,8 @@ class LogIn extends Component {
 const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
-        loadingAuth: state.authenticationStore.loadingAuth
+        loadingAuth: state.authenticationStore.loadingAuth,
+        error: state.authenticationStore.error
     }
 }
 
