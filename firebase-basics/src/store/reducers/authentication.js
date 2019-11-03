@@ -8,7 +8,8 @@ const initialState = {
         idToken: '',
         localId: ''
     },
-    loadingAuth: false
+    loadingAuth: false,
+    error: false,
 }
 
 const login = (state, action) => {
@@ -18,7 +19,7 @@ const login = (state, action) => {
             userName: action.payload.userName,
             idToken: action.payload.idToken,
             localId: action.payload.localId
-        }
+        },
     });
 }
 
@@ -29,7 +30,7 @@ const signIn = (state, action) => {
             userName: action.payload.userName,
             idToken: action.payload.idToken,
             localId: action.payload.localId
-        }
+        },
     });
 }
 
@@ -52,6 +53,10 @@ const endLoading = (state, action) => {
     return updateObject(state, { loadingAuth: false });
 }
 
+const errorS = (state, action) => {
+    return updateObject(state, { error: true });
+}
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.LOGIN: return login(state, action);
@@ -59,6 +64,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.LOG_OUT: return logOut(state, action);
         case actionTypes.START_LOADING: return startLoading(state, action);
         case actionTypes.END_LOADING: return endLoading(state, action);
+        case actionTypes.ERROR: return errorS(state, action);
         default: return state;
     }
 }

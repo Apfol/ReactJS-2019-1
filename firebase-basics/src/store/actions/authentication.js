@@ -3,6 +3,12 @@ import axios from '../../instances/axios-authentication';
 
 const API_KEY = 'AIzaSyDNMJLoK-YoyV3d-fBih1xrr-zQgACHmoY';
 
+const errorS = () => {
+    return{
+        type: actionTypes.ERROR
+    }
+}
+
 const startLoading = () => {
     return {
         type: actionTypes.START_LOADING
@@ -59,6 +65,7 @@ export const logIn = (authData, onSuccessCallback) => {
 
                 dispatch(saveSession(userEmail, token, localId));
                 dispatch(endLoading());
+                
 
                 if (onSuccessCallback) {
                     onSuccessCallback();
@@ -66,8 +73,8 @@ export const logIn = (authData, onSuccessCallback) => {
             })
             .catch(error => {
                 console.log(error);
-
                 dispatch(endLoading());
+                dispatch(errorS());
             })
     }
 };
@@ -92,7 +99,6 @@ export const signIn = (authData, onSuccessCallback) => {
             })
             .catch(error => {
                 console.log(error);
-
                 dispatch(endLoading());
             })
     }

@@ -17,7 +17,7 @@ class HomePage extends Component {
             title: "",
             author: "",
             content: ""
-        }
+        },
     }
 
     componentWillReceiveProps (nextState) {
