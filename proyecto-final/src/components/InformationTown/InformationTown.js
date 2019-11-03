@@ -4,7 +4,7 @@ import anmelden from '../Home/assets/underConstruction.png';
 import { ButtonToolbar, OverlayTrigger, Tooltip, Image } from 'react-bootstrap';
 import Information from '../Information/Information.js';
 import classes from './InformationTown.css';
-import axios from '../axiosInstance.js';
+import axios from '../../instances/axiosInstance';
 
 
 class InformationTown extends Component{

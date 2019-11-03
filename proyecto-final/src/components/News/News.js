@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from '../axiosInstance';
+import axios from '../../instances/axiosInstance';
 import NewsVerticalCard from '../NewsVerticalCard/NewsVerticalCard.js';
 import NewsDetailed from '../NewsDetailed/NewsDetailed.js';
 import classes from './News.css';

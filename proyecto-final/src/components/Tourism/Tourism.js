@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import axios from '../axiosInstance';
+import axios from '../../instances/axiosInstance';
 import TouristPlaceCard from '../TouristPlaceCard/TouristPlaceCard';
 import PlaceDetailed from '../PlaceDetailed/PlaceDetailed';
 import { Route } from 'react-router-dom';

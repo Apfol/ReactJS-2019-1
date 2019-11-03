@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Card } from 'react-bootstrap';
 import NewsCard from '../NewsCard/NewsCard';
 import classes from './NewsHomeContainer.css';
-import axios from '../axiosInstance.js';
+import axios from '../../instances/axiosInstance';
 import { Link } from 'react-router-dom';
 
 export default class NewsHomeContainer extends Component {
