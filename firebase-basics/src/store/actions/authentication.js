@@ -15,6 +15,30 @@ const endLoading = () => {
     }
 }
 
+const startSigninError = () => {
+    return {
+        type: actionTypes.START_SIGNIN_ERROR
+    }
+}
+
+const endSigninError = () => {
+    return {
+        type: actionTypes.END_SIGNIN_ERROR
+    }
+}
+
+const startloginError = () => {
+    return {
+        type: actionTypes.START_LOGIN_ERROR
+    }
+}
+
+const endloginError = () => {
+    return {
+        type: actionTypes.END_LOGIN_ERROR
+    }
+}
+
 const saveSession = (userName, token, localId) => {
     return {
         type: actionTypes.LOGIN,
@@ -39,8 +63,9 @@ const saveSignIn = (userName, token, localId) => {
 
 export const logIn = (authData, onSuccessCallback) => {
     return dispatch => {
-        dispatch(startLoading())
-        axios.post('/accounts:signInWithPassword?key='+API_KEY, authData)
+        dispatch(startLoading());
+        dispatch(endloginError());
+        axios.post('/accounts:signInWithPassword?key=' + API_KEY, authData)
             .then(response => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
@@ -66,16 +91,17 @@ export const logIn = (authData, onSuccessCallback) => {
             })
             .catch(error => {
                 console.log(error);
-
                 dispatch(endLoading());
+                dispatch(startloginError());
             })
     }
 };
 
 export const signIn = (authData, onSuccessCallback) => {
     return dispatch => {
-        dispatch(startLoading())
-        axios.post('/accounts:signUp?key='+API_KEY, authData)
+        dispatch(startLoading());
+        dispatch(endSigninError());
+        axios.post('/accounts:signUp?key=' + API_KEY, authData)
             .then(response => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
@@ -92,8 +118,8 @@ export const signIn = (authData, onSuccessCallback) => {
             })
             .catch(error => {
                 console.log(error);
-
                 dispatch(endLoading());
+                dispatch(startSigninError());
             })
     }
 };
@@ -102,7 +128,7 @@ export const persistAuthentication = () => {
     return dispatch => {
         let userSession = localStorage.getItem('userSession');
 
-        if(!userSession) {
+        if (!userSession) {
             dispatch(logOut());
         } else {
             userSession = JSON.parse(userSession);

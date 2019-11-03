@@ -13,6 +13,18 @@ const endLoading = () => {
     }
 }
 
+const startFetchPostError = () => {
+    return {
+        type: actionTypes.START_FETCHPOST_ERROR
+    }
+}
+
+const endFetchPostError = () => {
+    return {
+        type: actionTypes.END_FETCHPOST_ERROR
+    }
+}
+
 const storePost = post => {
     return {
         type: actionTypes.SAVE_POST,
@@ -25,7 +37,7 @@ const storePost = post => {
 export const savePost = post => {
     return dispatch => {
         dispatch(startLoading());
-
+        dispatch(endFetchPostError());
         axios.post('/posts.json', post)
             .then(response => {
                 console.log(response);
@@ -35,8 +47,8 @@ export const savePost = post => {
             })
             .catch(error => {
                 console.log(error);
-
                 dispatch(endLoading());
+                dispatch(startFetchPostError());
             })
     }
 };
@@ -53,13 +65,13 @@ const loadPosts = posts => {
 export const fetchPosts = () => {
     return dispatch => {
         dispatch(startLoading());
-
+        dispatch(endFetchPostError());
         axios.get('/posts.json')
             .then(response => {
                 console.log(response);
 
                 const posts = Object.values(response.data).map((post) => {
-                    return {...post};
+                    return { ...post };
                 });
 
                 dispatch(loadPosts(posts));
@@ -69,6 +81,7 @@ export const fetchPosts = () => {
                 console.log(error);
 
                 dispatch(endLoading());
+                dispatch(startFetchPostError());
             })
     }
 }
