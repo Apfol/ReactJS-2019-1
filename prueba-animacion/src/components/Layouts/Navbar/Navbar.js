@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import {auth} from '../../services/firebase';
+import { NavLink, Redirect } from 'react-router-dom';
+import {auth} from '../../../services/firebase';
 import {connect} from 'react-redux';
 
 
@@ -27,6 +27,7 @@ const Navbar = ({ currentUser }) => {
             ) : null}
           </ul>
         </div>
+        {false && <Redirect to="home"/>}
       </div>
     );
   };
