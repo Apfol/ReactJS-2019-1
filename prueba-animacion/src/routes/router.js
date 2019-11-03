@@ -17,8 +17,8 @@ function Router() {
     <Route exact path='/' component={Home}></Route>
     <Route exact path='/sign-in' component={SignIn}></Route>
     <Route exact path='/sign-up' component={SignUp}></Route>
-    <Footer></Footer>
     </Switch>
+    <Footer></Footer>
       </BrowserRouter>
   );
 }
