@@ -63,7 +63,7 @@ class SignIn extends Component {
         let error = <div />;
 
         if (this.props.isSigninError) {
-            error = <Error />
+            error = <Error message="Datos erroneos." />
         }
         return error;
     }

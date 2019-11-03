@@ -63,7 +63,7 @@ class LogIn extends Component {
         let error = <div />;
 
         if (this.props.isLoginError) {
-            error = <Error />
+            error = <Error message="Datos erroneos." />
         }
         return error;
     }

@@ -78,7 +78,7 @@ class HomePage extends Component {
         let error = <div />;
 
         if (this.props.isFetchPostError) {
-            error = <Error />
+            error = <Error message="Error al obtener posts" />
         }
         return error;
     }
