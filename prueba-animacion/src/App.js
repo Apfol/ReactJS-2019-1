@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {auth} from './services/firebase';
-import { setCurrentUser, clearCurrentUser } from './redux/auth/auth.actions';
+import { setCurrentUser, clearCurrentUser } from './redux/Logger/auth/auth.actions';
 import Router from './routes/router';
 
 
