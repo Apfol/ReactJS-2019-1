@@ -6,7 +6,7 @@ import Footer from '../components/Layouts/Footer/Footer';
 //Views
 import Home from '../views/Home/Home';
 import SignIn from '../components/Log/SignIn/SignIn';
-import SignUp from '../components/SignUp/SignUp';
+import SignUp from '../components/Log/SignUp/SignUp';
 
 
 function Router() {
