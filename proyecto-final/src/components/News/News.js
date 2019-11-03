@@ -3,7 +3,7 @@ import axios from '../axiosInstance';
 import NewsVerticalCard from '../NewsVerticalCard/NewsVerticalCard.js';
 import NewsDetailed from '../NewsDetailed/NewsDetailed.js';
 import classes from './News.css';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 export default class News extends Component {
 

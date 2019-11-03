@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.png';
-import { Navbar, Nav, Form, Button, FormControl } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import classes from './NavigationBar.css';
 
@@ -32,7 +32,7 @@ export default class NavigationBar extends React.Component {
     return (
       <div className={classes.navContainer}>
         <Navbar bg="dark" variant="dark">
-          <Link to="/" className = {classes.link}>
+          <Link to="/" className={classes.link}>
             <img
               src={logo}
               width="50"
@@ -41,7 +41,7 @@ export default class NavigationBar extends React.Component {
               className="d-inline-block align-top"
             />
           </Link>
-          <Link to="/" className = {classes.links}>
+          <Link to="/" className={classes.links}>
             Sopó Cundinamarca
             <br />
             <div className={classes.brandSubtext}>
@@ -51,23 +51,20 @@ export default class NavigationBar extends React.Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Link className = {classes.links} to="/tourism">Turismo</Link>
-              <Link className = {classes.links} to="/news">Noticias</Link>
+              <Link className={classes.links} to="/tourism">Turismo</Link>
+              <Link className={classes.links} to="/news">Noticias</Link>
             </Nav>
             <Nav className={classes.clima}>
               <Nav.Link><i class="fas fa-sun fa-lg sun"></i> {this.state.temperature}°C</Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link href="https://www.youtube.com/user/alcaldiadesopo/videos" target = "_blank"><i class="fab fa-youtube fa-lg"></i></Nav.Link>
-              <Nav.Link href="https://es-la.facebook.com/AlcaldiadeSopo/" target = "_blank"><i class="fab fa-facebook-f fa-lg"></i></Nav.Link>
-              <Nav.Link href="https://twitter.com/alcaldiadesopo?lang=es" target = "_blank"><i class="fab fa-twitter fa-lg"></i></Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-              </Nav.Link>
-              <Form inline>
-                <FormControl type="text" placeholder="¿Qué buscas?" className="mr-sm-2" />
-                <Button variant="secondary">Buscar</Button>
-              </Form>
+              <Nav.Link href="https://www.youtube.com/user/alcaldiadesopo/videos" target="_blank"><i class="fab fa-youtube fa-lg"></i></Nav.Link>
+              <Nav.Link href="https://es-la.facebook.com/AlcaldiadeSopo/" target="_blank"><i class="fab fa-facebook-f fa-lg"></i></Nav.Link>
+              <Nav.Link href="https://twitter.com/alcaldiadesopo?lang=es" target="_blank"><i class="fab fa-twitter fa-lg"></i></Nav.Link>
+              <Nav.Link eventKey={2} href="#memes" />
+              <Nav.Link eventKey={2} href="#memes" />
             </Nav>
+            <Link className={classes.links} to="/news">Iniciar sesión</Link>
           </Navbar.Collapse>
         </Navbar>
       </div>

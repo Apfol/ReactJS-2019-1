@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'react-bootstrap/Image';
 import classes from "./NewsCard.css";
-import { Link } from 'react-router-dom';
 
 class NewsCard extends React.Component {
     render = () => {

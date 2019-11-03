@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from '../axiosInstance';
 import TouristPlaceCard from '../TouristPlaceCard/TouristPlaceCard';
 import PlaceDetailed from '../PlaceDetailed/PlaceDetailed';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 export default class Tourism extends Component {
 

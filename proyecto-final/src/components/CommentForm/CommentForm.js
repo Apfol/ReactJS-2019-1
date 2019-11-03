@@ -1,6 +1,5 @@
 import { Form, Button } from 'react-bootstrap';
 import React, { Component } from 'react';
-import classes from './CommentForm.css'
 
 export default class CommentForm extends Component {
     render() {
