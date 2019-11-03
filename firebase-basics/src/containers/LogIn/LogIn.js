@@ -48,7 +48,6 @@ class LogIn extends Component {
 
     renderButton() {
         let button = <button onClick = {this.submitLoginForm}>Submit</button>;
-
         if (this.props.loadingAuth) {
             button = <Spinner />;
         }

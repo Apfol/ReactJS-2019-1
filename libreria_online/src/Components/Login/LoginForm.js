@@ -31,11 +31,14 @@ class LoginForm extends Component {
                 </header>
 
                 <Route path="/session/sign-in" exact render={() => (
-                    <LogIn
-                        newUserInfo={this.state.newUserInfo}
-                        loadInformation={this.loadInformation}
-                        checkUser={this.checkUser}
-                    />
+                    <>
+                        <LogIn
+                            newUserInfo={this.state.newUserInfo}
+                            loadInformation={this.loadInformation}
+                            checkUser={this.checkUser}
+                        />
+                        <h1>{this.props.tempUserName}</h1>
+                    </>
                 )} />
 
                 <Route path="/session/register" exact render={() => (
@@ -129,17 +132,28 @@ class LoginForm extends Component {
     }
 
     checkUser = () => {
+        /* 
+         var tempUser = new User(newUserInfo.username, newUserInfo.name, newUserInfo.mail, newUserInfo.password, newUserInfo.img);
+         if (this.searchUser(tempUser)) {
+             setEntered(true);
+             setTempUser(tempUser);
+             alert("Ingreso Exitoso");
+             this.props.login();
+             this.props.history.push("/session/sign-in");
+         } else {
+             alert("El usuario o contraseña es invalido");
+         }*/
+
         let newUserInfo = { ...this.state.newUserInfo }
-        var tempUser = new User(newUserInfo.username, newUserInfo.name, newUserInfo.mail, newUserInfo.password, newUserInfo.img);
-        if (this.searchUser(tempUser)) {
-            setEntered(true);
-            setTempUser(tempUser);
-            alert("Ingreso Exitoso");
-            this.props.login();
-            this.props.history.push("/session/sign-in");
-        } else {
-            alert("El usuario o contraseña es invalido");
+        let userData = {
+            email: newUserInfo.username,
+            password: newUserInfo.password
         }
+
+        this.props.onSetLoggedUser(userData, () => {
+            this.props.history.push("/");
+        })
+
     }
 
 }
@@ -147,13 +161,13 @@ class LoginForm extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         onAddUser: (newUser) => dispatch(actionCreators.addUser(newUser)),
-        onSetLoggedUser: (user) => dispatch(actionCreators.setLoggedUser(user))
+        onSetLoggedUser: (userData, successfulFunction) => dispatch(actionCreators.logOn(userData, successfulFunction))
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        users: state.sessionStore.users
+        tempUserName: state.sessionStore.loggedUser.userName
     }
 }
 

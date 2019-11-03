@@ -4,8 +4,12 @@ import updateObject from '../utility';
 
 const initialState = {
     logged: false,
-    loggedUser: {},
-    users: []
+    loggedUser: {
+        userName: '',
+        localId: '',
+        idToken: ''
+    },
+    loadingAuth: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -24,8 +28,13 @@ const addUser = (state, action) => {
 }
 
 const setLoggedUser = (state, action) => {
-    const userTemp = action.payload.user;
-    return updateObject(state, { logged: true, loggedUser: userTemp });
+    return updateObject(state, {
+        logged: true, loggedUser: {
+            userName: action.payload.userEmail,
+            localId: action.payload.localId,
+            idToken: action.payload.idToken
+        }
+    });
 }
 
 export default reducer;
