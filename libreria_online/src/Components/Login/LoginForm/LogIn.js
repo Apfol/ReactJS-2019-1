@@ -12,16 +12,16 @@ function LogIn(props) {
 
                     <tr>
                         <td>
-                            <label>Nombre de Usuario</label>
+                            <label>Correo Electronico: </label>
                         </td>
                         <td>
-                            <input type="text" value={props.newUserInfo["username"]}
-                                onChange={(event) => props.loadInformation(event, 'username')} />
+                            <input type="text" value={props.newUserInfo["mail"]}
+                                onChange={(event) => props.loadInformation(event, 'mail')} />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label>Contraseña</label>
+                            <label>Contraseña: </label>
                         </td>
                         <td>
                             <input type="text" value={props.newUserInfo["password"]}
@@ -30,7 +30,7 @@ function LogIn(props) {
                     </tr>
                     <tr>
                         <td>
-                            <button onClick={props.checkUser}>Iniciar sesion</button>
+                            <button onClick={props.logOn}>Iniciar sesion</button>
                         </td>
                     </tr>
                 </tbody>

@@ -4,6 +4,7 @@ import InfoPerson from '../Person/InfoPerson';
 import { Route } from 'react-router-dom';
 import { tempUser } from '../../Data';
 import classes from "./HomeUser.css";
+import { connect } from 'react-redux';
 
 
 class HomeUser extends Component {
@@ -21,13 +22,13 @@ class HomeUser extends Component {
             <>
                 <Route path="/session/sign-in" exact render={() => (
                     <div className={classes.books_person} id="">
-                        <InfoPerson src={tempUser.img} name={tempUser.name} bookNum={tempUser.books.length} bookR="" />
+                        <InfoPerson src={tempUser.img} name={tempUser.name} bookNum={tempUser.books} bookR="" />
                         <div>
                             <h1>Libros subidos</h1>
                             <hr />
                             <div>
-                                {tempUser.books.map((book, index) =>
-                                    <Book key={index} img={book.img} name={book.name} date={book.date} author={book.author} isbn={book.isbn} openReader={this.openReader} pdfName={book.pdfName} />)}
+                                {/*tempUser.books.map((book, index) =>
+                                    <Book key={index} img={book.img} name={book.name} date={book.date} author={book.author} isbn={book.isbn} openReader={this.openReader} pdfName={book.pdfName} />)*/}
                             </div>
                         </div>
                     </div>)} />
@@ -37,9 +38,14 @@ class HomeUser extends Component {
     }
     openReader = (pdfName) => {
         let tempBook = tempUser.books.filter(book => book.pdfName === pdfName);
-
         this.props.openReader(tempBook[0]);
     }
 }
 
-export default HomeUser;
+const mapStateToProps = (state) => {
+    return {
+        tempUser: state.sessionStore.loggedUser
+    }
+}
+
+export default connect(mapStateToProps, null)(HomeUser);

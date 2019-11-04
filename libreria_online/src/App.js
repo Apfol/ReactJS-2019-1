@@ -13,6 +13,9 @@ import HomeUser from './Components/HomeUser/HomeUser';
 import UserBar from './Page-Components/NavigationBar/UserBar';
 import UploadPdf from './Components/UploadPdf/UploadPdf';
 import Reader from './Components/Reader/Reader';
+import { connect } from 'react-redux';
+import * as actionCreator from './store/actions/loginActionGenerator';
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 
@@ -21,7 +24,7 @@ class App extends Component {
   constructor(props) {
 
     super(props);
-    this.addUsers();
+
     this.state = {
       userView: <LoginForm login={this.login} />,
       userNav: "",
@@ -31,35 +34,12 @@ class App extends Component {
     };
   }
 
-  addUsers = () => {
-    fetch("https://my-json-server.typicode.com/juanvalag/data/users")
-      .then(response => {
-        return (response.json());
-      })
-      .then(data => {
-        setUsers(data.map((persondata) => {
-          return (new User(persondata.username, persondata.name, persondata.mail, persondata.pass, persondata.img));
-        }));
-        let books = finaldataBooks.map(bookInfo => (
-          new BookClass(bookInfo.name, bookInfo.author, bookInfo.isbn, bookInfo.date, bookInfo.img, tempQuestions, bookInfo.pdfName)
-        ));
-        /* constructor(username, name, mail, pass, img, books = []) */
-        let user = new User("juanvalag", "Juan", "juandva2016@gmail.com", "1234", "person.png", books);
-        let newUsers = users;
-        newUsers.push(user);
-        setUsers(newUsers);
-      });
-
+  componentDidMount() {
+    this.props.onPersistAuthentication();
   }
 
 
-  login = () => {
-    this.setState({
-      userNav: <UserBar logout={this.logout} />,
-      userView: <HomeUser openReader={this.openReader} />,
-      userUpload: <UploadPdf />
-    });
-  }
+
 
   openReader = (book) => {
     this.setState({
@@ -67,32 +47,26 @@ class App extends Component {
       tempReader: <Reader document={book.pdfName} book={book} />
     });
   }
-
-  logout = () => {
-    setEntered(false);
-    setTempUser({});
-    this.setState({
-      userView: <LoginForm login={this.login} />,
-      userNav: "",
-      userUpload: "",
-      tempReader: "",
-      pdfName: ""
-    });
-  }
-
+  
 
   render() {
+    let userNav = "", userView = (<LoginForm login={this.login} />), userUpload = "";
+    if (this.props.isUserLogOn) {
+      userNav = (<UserBar logout={this.logout} />);
+      userView = (<HomeUser openReader={this.openReader} />);
+      userUpload = (<UploadPdf />);
+    }
     return (
       <BrowserRouter>
-        <NavigationBar userNav={this.state.userNav} />
+        <NavigationBar userNav={userNav} />
         <Route path="/" exact render={() => (
           <>
             <Banner />
             <Carousel booksInfo={recomendBooks} title="Libros Recomendados" />
           </>
         )} />
-        <Route path="/session/" render={() => this.state.userView} />
-        <Route path="/session/upload" render={() => this.state.userUpload} />
+        <Route path="/session/" render={() => userView} />
+        <Route path="/session/upload" render={() => userUpload} />
         <Route path={"/books/" + this.state.pdfName} exact render={() => this.state.tempReader} />
       </BrowserRouter>
 
@@ -100,5 +74,17 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onPersistAuthentication: () => dispatch(actionCreator.persistAuthenticaction())
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    isUserLogOn: state.sessionStore.logged
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 

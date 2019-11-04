@@ -3,7 +3,6 @@ import { Route, Link, withRouter } from 'react-router-dom';
 import classes from './loginForm.css';
 import LogIn from './LoginForm/LogIn';
 import RegisterForm from './RegisterForm/RegisterForm';
-import { users, setTempUser, setEntered } from '../../Data';
 import User from '../../Classes/User';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/loginActionGenerator';
@@ -35,9 +34,9 @@ class LoginForm extends Component {
                         <LogIn
                             newUserInfo={this.state.newUserInfo}
                             loadInformation={this.loadInformation}
-                            checkUser={this.checkUser}
+                            logOn={this.logOn}
                         />
-                        <h1>{this.props.tempUserName}</h1>
+                        <h1>{this.props.tempUserEmail}</h1>
                     </>
                 )} />
 
@@ -51,6 +50,7 @@ class LoginForm extends Component {
 
                 <section className={classes.message}>
                     <p>{this.state.message}</p>
+                    <p>{this.props.sessionMessage}</p>
                 </section>
             </div>
         )
@@ -82,22 +82,19 @@ class LoginForm extends Component {
         let newUser;
         if (notEmpty) {
             newUser = new User(newUserInfo.username, newUserInfo.name, newUserInfo.mail, newUserInfo.password, newUserInfo.img);
-            if (!this.searchUser(newUser)) {
-                this.props.onAddUser(newUser);
-                document.getElementById("img_user").value = "";
-                this.setState({
-                    newUserInfo: {
-                        img: "",
-                        name: "",
-                        username: "",
-                        mail: "",
-                        password: ""
-                    },
-                    message: ""
-                });
-            } else {
-                this.setState({ message: "Ya Hay Una Persona Con El Nombre De Usuario o Contraseña Ingresados" });
-            }
+            this.props.onAddUser(newUser);
+            document.getElementById("img_user").value = "";
+            this.setState({
+                newUserInfo: {
+                    img: "",
+                    name: "",
+                    username: "",
+                    mail: "",
+                    password: ""
+                },
+                message: ""
+            });
+            this.props.login();
         } else {
             this.setState({ message: "Debe llenar todos los campos" });
         }
@@ -109,7 +106,6 @@ class LoginForm extends Component {
         for (var attri in newUserInfo) {
             if (newUserInfo.hasOwnProperty(attri)) {
                 if (newUserInfo[attri] === "") {
-                    alert("Estoy en blanco :'v");
                     valid = false;
                 }
             }
@@ -117,57 +113,35 @@ class LoginForm extends Component {
         return valid;
     }
 
-    searchUser = (newUser) => {
-        var exists = false;
-        console.log(users);
-        var stateUsers = [...this.props.users];
-        var tempUser;
-        for (var i = 0; i < stateUsers.length; i++) {
-            tempUser = stateUsers[i];
-            if ((tempUser.username === newUser.username) && (tempUser.pass === newUser.pass)) {
-                exists = true;
-            }
-        }
-        return exists;
-    }
 
-    checkUser = () => {
-        /* 
-         var tempUser = new User(newUserInfo.username, newUserInfo.name, newUserInfo.mail, newUserInfo.password, newUserInfo.img);
-         if (this.searchUser(tempUser)) {
-             setEntered(true);
-             setTempUser(tempUser);
-             alert("Ingreso Exitoso");
-             this.props.login();
-             this.props.history.push("/session/sign-in");
-         } else {
-             alert("El usuario o contraseña es invalido");
-         }*/
 
+    logOn = () => {
         let newUserInfo = { ...this.state.newUserInfo }
-        let userData = {
-            email: newUserInfo.username,
-            password: newUserInfo.password
+        if (newUserInfo.mail && newUserInfo.password) {
+            let userData = {
+                email: newUserInfo.mail,
+                password: newUserInfo.password
+            }
+            this.props.onSetLoggedUser(userData);
+            this.props.login();
+        } else {
+            this.setState({ message: "Debe llenar todos los campos" });
         }
-
-        this.props.onSetLoggedUser(userData, () => {
-            this.props.history.push("/");
-        })
-
     }
 
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onAddUser: (newUser) => dispatch(actionCreators.addUser(newUser)),
+        onAddUser: (newUser, successfulFunction) => dispatch(actionCreators.signUp(newUser, successfulFunction)),
         onSetLoggedUser: (userData, successfulFunction) => dispatch(actionCreators.logOn(userData, successfulFunction))
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        tempUserName: state.sessionStore.loggedUser.userName
+        tempUserEmail: state.sessionStore.loggedUser.userEmail,
+        sessionMessage: state.sessionStore.message
     }
 }
 
