@@ -1,10 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+// import Google from '../../components/Log/Google/Google';
 
 const Home = ({ currentUser }) => {
   return (
     <div className="home">
       <h1>Home page</h1>
+      {//<Google></Google>
+      }
       {currentUser && currentUser ? (
         <p>You are logged in as {currentUser.email}</p>
       ) : (
