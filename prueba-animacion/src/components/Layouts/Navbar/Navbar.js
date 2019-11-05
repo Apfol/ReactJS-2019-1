@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import {auth} from '../../../services/firebase';
 import {connect} from 'react-redux';
@@ -9,27 +9,21 @@ import open from './style/burger-menu.svg';
 import NavBar from './style/Navbar.css';
 
 const Navbar = ({ currentUser }) => {
-    // const overlay = document.getElementById('overlay');
-
-    // const blanco = NavBar.show_menu;
+   
+    // const [count, setCount] = useState(0);
     function showMenu(){
         console.log('pero');
-        var elemento = document.getElementById("overlay");
-        // elemento.classList.add('NavBar.show_menu');
-
-        elemento.className += 'NavBar.nav NavBar.show_menu';
+        var hoja = document.getElementsByTagName("nav")
+        // hoja.innerHTML = ".nav {border: 2px solid black; background-color: blue;}";
+        // document.body.appendChild(hoja);
+        // hoja.classList.remove("foo");
     }
-    function closeMenu(){
-        console.log('pero');
-        var elemento = document.getElementById("overlay");
-        // elemento.classList.add('NavBar.show_menu');
-
-        elemento.className -= 'NavBar.nav NavBar.show_menu';
-    }
+        const [menuActive, setMenuState] = useState(false);
+    
     return (
       <div className={NavBar.navbar}>
-        <nav className={`${NavBar.nav}`} id="overlay">
-        <img src={close} alt="menu"  onClick={closeMenu} className={NavBar.close_button} id="close-menu"></img>
+        <nav className={`${NavBar.nav} ${menuActive ? "yellow" : ""}`} id="overlay">
+        <img src={close} alt="menu" className={NavBar.close_button} id="close-menu"></img>
         <ul className={NavBar.ul}>
             <li>
                 <NavLink className={NavBar.link} to='/'>Home</NavLink>
@@ -66,8 +60,8 @@ const Navbar = ({ currentUser }) => {
         </ul>
         </nav>
         <header className={NavBar.header}>
-        <NavLink to='/sign-up' onClick={showMenu} className={NavBar.logo}>MySite</NavLink>
-        <img src={open} alt="menu" onClick={showMenu} className={NavBar.menu_btn} id="open-menu"></img>
+        <NavLink to='/sign-up' onClick={showMenu} className={`${NavBar.logo} ${menuActive ? "yellow" : ""}`}>My Logo</NavLink>
+        <img src={open} alt="menu" onClick={() => setMenuState(!menuActive)} className={NavBar.menu_btn} id="open-menu"></img>
         </header>
       </div>
     );

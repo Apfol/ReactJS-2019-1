@@ -178,3 +178,8 @@ html {
         opacity: 1;
     }
 }
+
+
+.yellow {
+    background: yellow;
+  }
