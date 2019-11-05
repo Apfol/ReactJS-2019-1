@@ -56,7 +56,6 @@ export const logIn = (authData, onSuccessCallback) => {
                     userEmail,
                     localId
                 };
-
                 userSession = JSON.stringify(userSession);
 
                 console.log(response);
