@@ -27,7 +27,8 @@ function Menu(props) {
                                 (
                                     <div>
                                         <li className={menu.navigation_item}>Bienvenido {props.userLoggedIn.username}</li>
-                                        <li className={menu.navigation_item}><button onClick={()=>{props.onLogOut()}}>Log Out</button></li>
+                                        <li className={menu.navigation_item}><button onClick={() => { props.onLogOut() }}>Log Out</button></li>
+                                        <li className={menu.navigation_item}><Link to="/mycourses">Mis cursos</Link></li>
                                     </div>
                                 ) :
                                 (
@@ -37,7 +38,9 @@ function Menu(props) {
                                     </div>
 
                                 )
-                            }        </nav>
+                            }
+                            <li className={menu.navigation_item}><Link to="/courses">Cursos</Link></li>
+                        </nav>
                         <SearchBar onFormSubmit={onFormSubmit}></SearchBar>
 
                     </div>
