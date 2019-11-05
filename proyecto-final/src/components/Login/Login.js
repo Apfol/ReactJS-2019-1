@@ -1,11 +1,12 @@
 import classes from './Login.css';
 import React, { Component } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Form, Container, Row, Col } from 'react-bootstrap';
 import Spinner from '../Spinner/Spinner';
 import Error from '../Error/Error';
 import * as actionCreators from '../../store/actions/authentication';
 import { connect } from 'react-redux';
 import image from './assets/man.png'
+import ButtonComponet from '../Button/ButtonComponent';
 
 class Login extends Component {
 
@@ -59,21 +60,15 @@ class Login extends Component {
         let buttons =
             <Row>
                 <Col>
-                    <Button variant="primary" type="submit" className={classes.logIn}>
-                        Iniciar sesión
-                    </Button>
+                    <ButtonComponet variant="primary" linkTo="./" label="Iniciar sesión" />
                 </Col>
                 <Col>
-                    {/* <Button variant="outline-primary" type="submit">
-                        Registrarte
-            </Button> */}
+                    <ButtonComponet variant="outline-primary" linkTo="./signup" label="Registrarte" />
                 </Col>
             </Row>;
-
         if (this.props.loadingAuth) {
             buttons = <Spinner />;
         }
-
         return buttons;
     }
 
