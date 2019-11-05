@@ -13,7 +13,7 @@ import SignUp from '../views/UserSignUp/UserSignUp';
 import CoursePlayer from '../views/CoursePlayer/CoursePlayer';
 
 
-function Router({startSession}) {
+function Router(props) {
   return (
     <BrowserRouter>
           <Switch>
@@ -22,10 +22,10 @@ function Router({startSession}) {
             <Route path='/mycourses' exact component={MyCourses} />
             <Route path='/courses' exact component={Courses} />
             <Route path="/login" exact render={props => (
-              <Login startSession={startSession}></Login>
+              <Login ></Login>
             )}></Route>
             <Route path="/sign_up" exact render={props => (
-              <SignUp startSession={startSession}></SignUp>
+              <SignUp ></SignUp>
             )}></Route>
             <Route path='/player/:playlistId' exact component={CoursePlayer}></Route>
             <Route path="/about" exact component={About}></Route>
