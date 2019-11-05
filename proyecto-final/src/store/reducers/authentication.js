@@ -9,7 +9,7 @@ const initialState = {
         localId: ''
     },
     loadingAuth: false,
-    isSigninError: false,
+    isSignupError: false,
     isLoginError: false,
 }
 
@@ -55,11 +55,11 @@ const endLoading = state => {
 }
 
 const startSignUpError = state => {
-    return updateObject(state, { isSigninError: true });
+    return updateObject(state, { isSignupError: true });
 }
 
 const endSignUpError = state => {
-    return updateObject(state, { isSigninError: false });
+    return updateObject(state, { isSignupError: false });
 }
 
 const startLogininError = state => {
@@ -73,7 +73,7 @@ const endLogininError = state => {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.LOGIN: return login(state, action);
-        case actionTypes.SIGN_IN: return signUp(state, action);
+        case actionTypes.SIGN_UP: return signUp(state, action);
         case actionTypes.LOG_OUT: return logOut(state, action);
         case actionTypes.START_LOADING: return startLoading(state, action);
         case actionTypes.END_LOADING: return endLoading(state, action);
