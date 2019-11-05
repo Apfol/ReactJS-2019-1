@@ -8,6 +8,11 @@ const startLoading = () => {
         type: actionTypes.START_LOADING
     }
 }
+const enterError = () => {
+    return{
+        type: actionTypers.ENTER_ERROR
+    }
+}
 
 const endLoading = () => {
     return {
@@ -36,6 +41,8 @@ const saveSignIn = (userName, token, localId) => {
         }
     };
 };
+
+
 
 export const logIn = (authData, onSuccessCallback) => {
     return dispatch => {
@@ -66,7 +73,7 @@ export const logIn = (authData, onSuccessCallback) => {
             })
             .catch(error => {
                 console.log(error);
-
+                dispatch(enterError());
                 dispatch(endLoading());
             })
     }
@@ -92,7 +99,7 @@ export const signIn = (authData, onSuccessCallback) => {
             })
             .catch(error => {
                 console.log(error);
-
+                dispatch(enterError());
                 dispatch(endLoading());
             })
     }
