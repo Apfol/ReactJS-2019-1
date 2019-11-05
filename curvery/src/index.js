@@ -9,9 +9,11 @@ import thunk from 'redux-thunk';
 
 // TODO: PUT ALL REDUCERS IN A FILE AND COMBINE AND THEN IMPORT HERE JUST THE store
 import authenticationReducer from './store/reducers/authentication';
+import search from './store/reducers/search';
 
 const rootReducer = combineReducers({
     authenticationStore: authenticationReducer,
+    searchStore: search
 });
 
 
