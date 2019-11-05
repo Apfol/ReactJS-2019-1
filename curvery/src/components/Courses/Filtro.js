@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import filtro from './Filtro.css'
-
+import{createStore} from 'redux';
+import course from'./Courses.js';
 
 class Filtro extends Component{
+    handleClick(id,event) {
+    return(<course func={id}></course>);
+   }
     render(){
         return(
             <div className={filtro.filtro}>
@@ -11,7 +15,7 @@ class Filtro extends Component{
                 <a href="#">Mis cursos</a> <br />
                 <a href="#">Mi lista</a> <br />
                 <h4>Categorias</h4>
-                <a href="#"> -Ilustración</a> <br />
+                <a onClick={(e) =>this.handleClick('Ilustración',e)}> -Ilustración</a> <br />
                 <a href="#"> -Fotografía y Video</a> <br />
                 <a href="#"> -Marketing y Negocios</a> <br />
                 <a href="#"> -Diseño</a> <br />
