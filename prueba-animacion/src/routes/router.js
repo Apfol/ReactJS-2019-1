@@ -14,9 +14,9 @@ function Router() {
     <BrowserRouter>
     <Navbar></Navbar>
     <Switch>
-    <Route exact path='/' component={Home}></Route>
-    <Route exact path='/sign-in' component={SignIn}></Route>
-    <Route exact path='/sign-up' component={SignUp}></Route>
+    <Route path='/' component={Home}></Route>
+    <Route path='/sign-in' component={SignIn}></Route>
+    <Route path='/sign-up' component={SignUp}></Route>
     </Switch>
     <Footer></Footer>
       </BrowserRouter>

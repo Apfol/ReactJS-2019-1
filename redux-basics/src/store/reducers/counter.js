@@ -27,5 +27,8 @@ const reducer = (state = initialState, action) => {
     }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85c2175d7bf690f47d0dfebdb697c1a397b2d5fb
 export default reducer;
