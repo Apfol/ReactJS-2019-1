@@ -9,6 +9,18 @@ const startLoading = () => {
     }
 }
 
+const loginError = () => {
+    return {
+        type: actionTypes.LOGIN_ERROR
+    }
+}
+
+const signupError = () => {
+    return {
+        type: actionTypes.SIGNUP_ERROR
+    }
+}
+
 const endLoading = () => {
     return {
         type: actionTypes.END_LOADING
@@ -66,8 +78,9 @@ export const logIn = (authData, onSuccessCallback) => {
             })
             .catch(error => {
                 console.log(error);
-
+                dispatch(loginError());
                 dispatch(endLoading());
+                
             })
     }
 };
@@ -92,7 +105,7 @@ export const signIn = (authData, onSuccessCallback) => {
             })
             .catch(error => {
                 console.log(error);
-
+                dispatch(signupError());
                 dispatch(endLoading());
             })
     }

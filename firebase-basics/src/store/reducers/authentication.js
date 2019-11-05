@@ -3,6 +3,8 @@ import updateObject from '../utility';
 
 const initialState = {
     isUserLoggedIn: false,
+    loginError: false,
+    signupError: false,
     userLoggedIn: {
         userName: '',
         idToken: '',
@@ -22,6 +24,13 @@ const login = (state, action) => {
     });
 }
 
+const loginError = (state, action) => {
+    return updateObject(state, {
+        loginError: true
+    
+    });
+}
+
 const signIn = (state, action) => {
     return updateObject(state, {
         isUserLoggedIn: true,
@@ -30,6 +39,12 @@ const signIn = (state, action) => {
             idToken: action.payload.idToken,
             localId: action.payload.localId
         }
+    });
+}
+
+const signupError = (state, action) => {
+    return updateObject(state, {
+        signupError: true,
     });
 }
 
@@ -59,6 +74,8 @@ const reducer = (state = initialState, action) => {
         case actionTypes.LOG_OUT: return logOut(state, action);
         case actionTypes.START_LOADING: return startLoading(state, action);
         case actionTypes.END_LOADING: return endLoading(state, action);
+        case actionTypes.LOGIN_ERROR: return loginError(state, action);
+        case actionTypes.SIGNUP_ERROR: return signupError(state, action);
         default: return state;
     }
 }

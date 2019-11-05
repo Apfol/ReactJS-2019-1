@@ -10,7 +10,8 @@ class SignIn extends Component {
     state = {
         isUserLoggedIn: this.props.isUserLoggedIn,
         userName: '',
-        password: ''
+        password: '',
+        signupError: this.props.signupError
     }
 
     componentDidUpdate () {
@@ -41,6 +42,7 @@ class SignIn extends Component {
                         onChange={(event) => {this.updateSignInInfo(event, 'password')}}
                     /><br/>
                     {this.renderButton()}
+                    {this.renderSignupError()}
                 </div>
             </div>
         );
@@ -56,6 +58,14 @@ class SignIn extends Component {
         return button;
     }
 
+    renderSignupError(){
+        if (this.props.signupError) {
+            return alert("You have entered an invalid username or password");
+        }
+        else {
+            return null;
+        }
+    }
     updateSignInInfo = (event, type) => {
         var updatedLoginInfo = {
           ...this.state
@@ -84,7 +94,8 @@ class SignIn extends Component {
 const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
-        loadingAuth: state.authenticationStore.loadingAuth
+        loadingAuth: state.authenticationStore.loadingAuth,
+        signupError: state.authenticationStore.signupError
     }
 }
 
