@@ -10,7 +10,8 @@ class SignIn extends Component {
     state = {
         isUserLoggedIn: this.props.isUserLoggedIn,
         userName: '',
-        password: ''
+        password: '',
+        errors : '',
     }
 
     componentDidUpdate () {
@@ -28,7 +29,7 @@ class SignIn extends Component {
     render () {
         return (
             <div className="sign-in__form">
-                <h1 style = {{textAlign: 'center'}}>Sign in</h1>
+                <h1 style = {{textAlign: 'center'}}>Sign Up</h1>
                 <div>
                     <p>Username:</p>
                     <input type="text"
@@ -41,9 +42,15 @@ class SignIn extends Component {
                         onChange={(event) => {this.updateSignInInfo(event, 'password')}}
                     /><br/>
                     {this.renderButton()}
+
+                    {this.renderErrors()}
                 </div>
             </div>
         );
+    }
+
+    renderErrors(){
+        return this.props.siginErrors ? <h3>There was an error with the email or password because the email is already registered 😱  </h3>: "";
     }
 
     renderButton() {
@@ -78,13 +85,21 @@ class SignIn extends Component {
         this.props.onUserSignIn(userData, () => {
             this.props.history.push('/');
         });
+
+        // Pues ya no se pudo
+        if(!this.state.isUserLoggedIn){
+            this.setState({
+                errors: true
+            })
+        }
     }
 }
 
 const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
-        loadingAuth: state.authenticationStore.loadingAuth
+        loadingAuth: state.authenticationStore.loadingAuth,
+        siginErrors: state.errorsStore.sign_up_error
     }
 }
 

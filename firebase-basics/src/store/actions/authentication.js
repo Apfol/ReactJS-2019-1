@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../instances/axios-authentication';
-
-const API_KEY = 'AIzaSyDNMJLoK-YoyV3d-fBih1xrr-zQgACHmoY';
+import {setLoginErrors, setSignUpErrors} from  './errors';
+const API_KEY = 'AIzaSyAT-XImd5ExqSH-3y2x1_dZ6WrnXVAbKJ0';
 
 const startLoading = () => {
     return {
@@ -41,7 +41,7 @@ export const logIn = (authData, onSuccessCallback) => {
     return dispatch => {
         dispatch(startLoading())
         axios.post('/accounts:signInWithPassword?key='+API_KEY, authData)
-            .then(response => {
+            .then(response => {                
                 const userEmail = authData.email;
                 const token = response.data.idToken;
                 const localId = response.data.localId;
@@ -52,9 +52,6 @@ export const logIn = (authData, onSuccessCallback) => {
                 };
 
                 userSession = JSON.stringify(userSession);
-
-                console.log(response);
-
                 localStorage.setItem('userSession', userSession);
 
                 dispatch(saveSession(userEmail, token, localId));
@@ -63,45 +60,44 @@ export const logIn = (authData, onSuccessCallback) => {
                 if (onSuccessCallback) {
                     onSuccessCallback();
                 }
+
             })
             .catch(error => {
-                console.log(error);
-
                 dispatch(endLoading());
+                setLoginErrors("Nothing, there was an error in the login");
             })
     }
 };
 
 export const signIn = (authData, onSuccessCallback) => {
+    let error = true;
     return dispatch => {
-        dispatch(startLoading())
+        dispatch(startLoading());
         axios.post('/accounts:signUp?key='+API_KEY, authData)
             .then(response => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
                 const localId = response.data.localId;
 
-                console.log(response);
-
                 dispatch(saveSignIn(userEmail, token, localId));
                 dispatch(endLoading());
-
+                error = false;
                 if (onSuccessCallback) {
                     onSuccessCallback();
                 }
+                console.log("fkjsdfnojsdfnñsdasdo ",response);
             })
             .catch(error => {
-                console.log(error);
-
                 dispatch(endLoading());
-            })
+                console.log("Errrross");
+                setSignUpErrors("Nothing, there was an error in the sign up process");
+            });
     }
 };
 
 export const persistAuthentication = () => {
     return dispatch => {
         let userSession = localStorage.getItem('userSession');
-
         if(!userSession) {
             dispatch(logOut());
         } else {

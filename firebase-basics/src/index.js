@@ -9,10 +9,12 @@ import * as serviceWorker from './serviceWorker';
 
 import authenticationReducer from './store/reducers/authentication';
 import postsReducer from './store/reducers/posts';
+import errorsReducer from './store/reducers/errors';
 
 const rootReducer = combineReducers ({
     authenticationStore: authenticationReducer,
-    postsStore: postsReducer
+    postsStore: postsReducer,
+    errorsStore: errorsReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -29,12 +29,14 @@ class HomePage extends Component {
 
     componentDidMount () {
         if (this.state.isUserLoggedIn) {
+            // TODO: GET THE USER'S POSTS
             this.props.onFetchPosts();
         }
     }
 
     componentWillUpdate (nextProps, nextState) {
         if (!this.state.isUserLoggedIn && nextState.isUserLoggedIn) {
+            // TODO: GET THE USER'S POSTS
             this.props.onFetchPosts();
         }
     }
