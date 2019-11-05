@@ -20,49 +20,49 @@ class HomePage extends Component {
         }
     }
 
-    componentWillReceiveProps (nextState) {
+    componentWillReceiveProps(nextState) {
         this.setState({
             isUserLoggedIn: nextState.isUserLoggedIn,
             posts: nextState.posts
         });
     }
 
-    componentDidMount () {
+    componentDidMount() {
         if (this.state.isUserLoggedIn) {
             this.props.onFetchPosts();
         }
     }
 
-    componentWillUpdate (nextProps, nextState) {
+    componentWillUpdate(nextProps, nextState) {
         if (!this.state.isUserLoggedIn && nextState.isUserLoggedIn) {
             this.props.onFetchPosts();
         }
     }
 
-    render () {
+    render() {
         return (
             this.state.isUserLoggedIn ? this.onUserLoggedIn() : this.onUserLoggedOut()
         );
     }
 
-    onUserLoggedIn () {
+    onUserLoggedIn() {
         return (
             <div>
                 <h1>Home</h1>
                 <p>Logged as: {this.props.userLoggedIn.userName}</p>
                 <button onClick={this.props.onLogOut}>Log out</button>
                 <NewPost
-                    newPostInfo = {this.state.newPostInfo}
-                    updateNewPostData = {this.updateNewPostData}
-                    submitNewPost = {this.submitNewPost}
+                    newPostInfo={this.state.newPostInfo}
+                    updateNewPostData={this.updateNewPostData}
+                    submitNewPost={this.submitNewPost}
                 />
                 {this.renderPosts()}
             </div>
         );
     }
 
-    renderPosts () {
-        let posts = <Posts posts = {this.state.posts}/>;
+    renderPosts() {
+        let posts = <Posts posts={this.state.posts} />;
 
         if (this.props.loadingPosts) {
             posts = <Spinner />;
@@ -73,7 +73,7 @@ class HomePage extends Component {
 
     updateNewPostData = (event, type) => {
         var updatedNewPostInfo = {
-          ...this.state.newPostInfo
+            ...this.state.newPostInfo
         }
 
         updatedNewPostInfo[type] = event.target.value;
@@ -84,7 +84,7 @@ class HomePage extends Component {
     }
 
     submitNewPost = () => {
-        var newPostInfo = {...this.state.newPostInfo};
+        var newPostInfo = { ...this.state.newPostInfo };
 
         this.props.onSavePost(newPostInfo);
 
@@ -97,15 +97,15 @@ class HomePage extends Component {
         })
     }
 
-    onUserLoggedOut () {
+    onUserLoggedOut() {
         return (
-            <div style = {{textAlign: 'center'}}>
+            <div style={{ textAlign: 'center' }}>
                 <h1>Welcome to this awesome app!</h1>
                 <h2>If you already have an account please Log in</h2>
                 <h2>Otherwise please sign up.</h2>
-                <div className = "home-page__button-section">
-                    <Button label="Log in" linkTo='./login' type='primary'/>
-                    <Button label="Sign in" linkTo='./signin' type='secondary'/>
+                <div className="home-page__button-section">
+                    <Button label="Log in" linkTo='./login' type='primary' />
+                    <Button label="Sign Up" linkTo='./signin' type='secondary' />
                 </div>
             </div>
         );
@@ -124,7 +124,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onSavePost: (post) => dispatch(actionCreators.savePost(post)),
-        onFetchPosts: () =>dispatch(actionCreators.fetchPosts()),
+        onFetchPosts: () => dispatch(actionCreators.fetchPosts()),
         onLogOut: () => dispatch(actionCreators.logOut())
     }
 }

@@ -40,7 +40,7 @@ const saveSignIn = (userName, token, localId) => {
 export const logIn = (authData, onSuccessCallback) => {
     return dispatch => {
         dispatch(startLoading())
-        axios.post('/accounts:signInWithPassword?key='+API_KEY, authData)
+        axios.post('/accounts:signInWithPassword?key=' + API_KEY, authData)
             .then(response => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
@@ -65,17 +65,49 @@ export const logIn = (authData, onSuccessCallback) => {
                 }
             })
             .catch(error => {
-                console.log(error);
-
+                if (error.response) {
+                    dispatch(throwError(error.response.data.error.message));
+                } else {
+                    console.log(error);
+                }
                 dispatch(endLoading());
             })
     }
 };
 
+export const throwError = (message) => {
+    switch (message) {
+        case "EMAIL_NOT_FOUND":
+            message = "No existe el Correo ingresado";
+            break;
+        case "INVALID_PASSWORD":
+            message = "La contraseña Ingresada no Corresponde al usuario ingresado";
+            break;
+        case "INVALID_EMAIL":
+            message = "El correo es invalido, por favor revise los datos";
+            break;
+        case "WEAK_PASSWORD":
+            message = "La contraseña debe tener como minimo 6 caracteres";
+            break;
+        case "EMAIL_EXISTS":
+            message = "El correo ya existe debes intentar con otro";
+            break;
+
+        default:
+            break;
+    }
+    return {
+        type: actionTypes.ERROR,
+        payload: {
+            message: message
+        }
+    }
+}
+
 export const signIn = (authData, onSuccessCallback) => {
     return dispatch => {
         dispatch(startLoading())
-        axios.post('/accounts:signUp?key='+API_KEY, authData)
+        axios.post('/accounts:signUp?key=' + API_KEY, authData)
             .then(response => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
@@ -91,8 +123,12 @@ export const signIn = (authData, onSuccessCallback) => {
                 }
             })
             .catch(error => {
-                console.log(error);
-
+                if (error.response) {
+                    dispatch(throwError(error.response.data.error.message));
+                } else {
+                    console.log(error);
+                }
+                dispatch(endLoading());
                 dispatch(endLoading());
             })
     }
@@ -102,7 +138,7 @@ export const persistAuthentication = () => {
     return dispatch => {
         let userSession = localStorage.getItem('userSession');
 
-        if(!userSession) {
+        if (!userSession) {
             dispatch(logOut());
         } else {
             userSession = JSON.parse(userSession);

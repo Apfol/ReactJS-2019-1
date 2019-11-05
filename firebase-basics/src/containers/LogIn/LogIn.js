@@ -42,6 +42,7 @@ class LogIn extends Component {
                     /><br/>
                     {this.renderButton()}
                 </div>
+                <h2 style={{color: 'red'}}>{this.props.errorMessage}</h2>
             </div>
         );
     }
@@ -83,7 +84,8 @@ class LogIn extends Component {
 const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
-        loadingAuth: state.authenticationStore.loadingAuth
+        loadingAuth: state.authenticationStore.loadingAuth,
+        errorMessage: state.authenticationStore.message
     }
 }
 
