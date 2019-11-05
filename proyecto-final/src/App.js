@@ -12,9 +12,6 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <header>
-          <NavigationBar></NavigationBar>
-        </header>
         <Route path="/" exact component={Home} />
         <Route path="/tourism" component={Tourism} />
         <Route path="/news" component={News} />

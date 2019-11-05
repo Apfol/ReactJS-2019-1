@@ -4,6 +4,7 @@ import NewsVerticalCard from '../NewsVerticalCard/NewsVerticalCard.js';
 import NewsDetailed from '../NewsDetailed/NewsDetailed.js';
 import classes from './News.css';
 import { Route } from 'react-router-dom';
+import NavigationBar from '../NavigationBar/NavigationBar.js';
 
 export default class News extends Component {
 
@@ -69,6 +70,7 @@ export default class News extends Component {
     render() {
         return (
             <div>
+                <NavigationBar/>
                 <Route path="/news" exact>{this.getNews()}</Route>
                 <Route path="/news/:placeId" render={() => (
                     <NewsDetailed

@@ -4,6 +4,7 @@ import axios from '../../instances/axiosInstance';
 import TouristPlaceCard from '../TouristPlaceCard/TouristPlaceCard';
 import PlaceDetailed from '../PlaceDetailed/PlaceDetailed';
 import { Route } from 'react-router-dom';
+import NavigationBar from '../NavigationBar/NavigationBar.js';
 
 export default class Tourism extends Component {
 
@@ -55,6 +56,7 @@ export default class Tourism extends Component {
     getPlaces = () => {
         return (
             <div>
+                <NavigationBar/>
                 {this.state.touristPlaces.map(place => {
                     return (
                         <TouristPlaceCard

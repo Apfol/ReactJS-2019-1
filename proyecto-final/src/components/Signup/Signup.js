@@ -6,6 +6,7 @@ import * as actionCreators from '../../store/actions/authentication';
 import Error from '../../components/Error/Error';
 import ButtonComponet from '../Button/ButtonComponent';
 import classes from './Signup.css';
+import NavigationBar from '../NavigationBar/NavigationBar.js';
 
 class Signup extends Component {
 
@@ -29,26 +30,29 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className={classes.container} >
-                <Form className={classes.form} >
-                    <Container>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Correo electrónico</Form.Label>
-                            <Form.Control type="email" placeholder="Correo" />
-                            <Form.Text className="text-muted">
-                                We'll never share your email with anyone else.
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Contraseña</Form.Label>
-                            <Form.Control type="password" placeholder="Contraseña" />
-                        </Form.Group>
+            <div>
+                <NavigationBar/>
+                <div className={classes.container} >
+                    <Form className={classes.form} >
+                        <Container>
+                            <Form.Group controlId="formBasicEmail">
+                                <Form.Label>Correo electrónico</Form.Label>
+                                <Form.Control type="email" placeholder="Correo" />
+                                <Form.Text className="text-muted">
+                                    We'll never share your email with anyone else.
+                                </Form.Text>
+                            </Form.Group>
+                            <Form.Group controlId="formBasicPassword">
+                                <Form.Label>Contraseña</Form.Label>
+                                <Form.Control type="password" placeholder="Contraseña" />
+                            </Form.Group>
+                            <br />
+                        </Container>
+                        {this.renderButtons()}
                         <br />
-                    </Container>
-                    {this.renderButtons()}
-                    <br />
-                    {this.renderError()}
-                </Form>
+                        {this.renderError()}
+                    </Form>
+                </div>
             </div>
         )
     }

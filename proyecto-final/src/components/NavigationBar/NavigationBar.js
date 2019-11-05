@@ -65,6 +65,7 @@ export default class NavigationBar extends React.Component {
               <Nav.Link eventKey={2} href="#memes" />
             </Nav>
             <Link className={classes.links} to="/login">Iniciar sesión</Link>
+            <Link className={classes.links} to="/signup">Registrarse</Link>
           </Navbar.Collapse>
         </Navbar>
       </div>
