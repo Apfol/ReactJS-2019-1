@@ -1,13 +1,13 @@
-import classes from './Login.css';
 import React, { Component } from 'react';
-import { Form, Container, Row, Col } from 'react-bootstrap';
-import Spinner from '../Spinner/Spinner';
-import Error from '../Error/Error';
-import * as actionCreators from '../../store/actions/authentication';
 import { connect } from 'react-redux';
+import { Form, Container, Row, Col } from 'react-bootstrap';
+import Spinner from '../../components/Spinner/Spinner';
+import * as actionCreators from '../../store/actions/authentication';
+import Error from '../../components/Error/Error';
 import ButtonComponet from '../Button/ButtonComponent';
+import classes from './Signup.css';
 
-class Login extends Component {
+class Signup extends Component {
 
     state = {
         isUserLoggedIn: this.props.isUserLoggedIn,
@@ -50,34 +50,32 @@ class Login extends Component {
                     {this.renderError()}
                 </Form>
             </div>
-        );
+        )
     }
 
     renderButtons() {
         let buttons =
             <Row>
                 <Col>
-                    <ButtonComponet variant="primary" linkTo="./" label="Iniciar sesión" />
-                </Col>
-                <Col>
-                    <ButtonComponet variant="outline-primary" linkTo="./signup" label="Registrarte" />
+                    <ButtonComponet variant="primary" label="Registrarte" linkTo="./" />
                 </Col>
             </Row>;
         if (this.props.loadingAuth) {
             buttons = <Spinner />;
         }
+
         return buttons;
     }
 
     renderError() {
         let error = <div />;
-        if (this.props.isLoginError) {
+        if (this.props.isSignUpError) {
             error = <Error message="Datos erroneos." />
         }
         return error;
     }
 
-    updateLoginInfo = (event, type) => {
+    updateSignUpInfo = (event, type) => {
         var updatedLoginInfo = {
             ...this.state
         }
@@ -90,13 +88,13 @@ class Login extends Component {
         });
     }
 
-    submitLoginForm = () => {
+    submitSignUpForm = () => {
         const userData = {
             email: this.state.userName,
             password: this.state.password
         }
 
-        this.props.onUserLogin(userData, () => {
+        this.props.onUserSignUp(userData, () => {
             this.props.history.push('/');
         });
     }
@@ -106,16 +104,16 @@ const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
         loadingAuth: state.authenticationStore.loadingAuth,
-        isLoginError: state.authenticationStore.isLoginError,
+        isSignUpError: state.authenticationStore.isSignupError,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onUserLogin: (authData, onSuccessCallback) => dispatch(
-            actionCreators.logIn(authData, onSuccessCallback)
+        onUserSignUp: (authData, onSuccessCallback) => dispatch(
+            actionCreators.signUp(authData, onSuccessCallback)
         )
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

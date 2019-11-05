@@ -5,7 +5,8 @@ import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer.js';
 import Tourism from "./components/Tourism/Tourism.js";
 import News from "./components/News/News.js";
-import Login from "./components/Login/Login.js"
+import Login from "./components/Login/Login.js";
+import Signup from "./components/Signup/Signup";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/tourism" component={Tourism} />
         <Route path="/news" component={News} />
         <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
         <footer>
           <Footer></Footer>
         </footer>
