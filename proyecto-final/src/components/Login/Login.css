@@ -1,7 +1,25 @@
+.logInContainer{
+    margin-top: 30px;
+}
+
 .container {
-    height: 30rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 40%;
+    display: inline-block;
+    vertical-align: middle;
+    align-self: center;
+}
+
+.imgContainer {
+    display: inline-block;
+    width: 59%;
+    vertical-align: middle;
+}
+
+.img{
+    width: 75%;
+    margin-left: 12%;
+}
+
+.logIn{
+    margin-left: 15px;
 }

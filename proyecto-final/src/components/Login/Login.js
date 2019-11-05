@@ -5,6 +5,7 @@ import Spinner from '../Spinner/Spinner';
 import Error from '../Error/Error';
 import * as actionCreators from '../../store/actions/authentication';
 import { connect } from 'react-redux';
+import image from './assets/man.png'
 
 class Login extends Component {
 
@@ -28,26 +29,28 @@ class Login extends Component {
 
     render() {
         return (
-            <div className={classes.container} >
-                <Form className={classes.form} >
-                    <Container>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Correo electrónico</Form.Label>
-                            <Form.Control type="email" placeholder="Correo" />
-                            <Form.Text className="text-muted">
-                                We'll never share your email with anyone else.
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Contraseña</Form.Label>
-                            <Form.Control type="password" placeholder="Contraseña" />
-                        </Form.Group>
-                    <br />
-                    </Container>
-                    {this.renderButtons()}
-                    <br />
-                    {this.renderError()}
-                </Form>
+            <div className={classes.logInContainer}>
+                <div className={classes.imgContainer}>
+                    <img className={classes.img} src={image}></img>
+                </div>
+                <div className={classes.container} >
+                    <Form className={classes.form} >
+                        <Container>
+                            <Form.Group controlId="formBasicEmail">
+                                <Form.Label>Correo electrónico</Form.Label>
+                                <Form.Control type="email" placeholder="Correo" />
+                            </Form.Group>
+                            <Form.Group controlId="formBasicPassword">
+                                <Form.Label>Contraseña</Form.Label>
+                                <Form.Control type="password" placeholder="Contraseña" />
+                            </Form.Group>
+                        <br />
+                        </Container>
+                        {this.renderButtons()}
+                        <br />
+                        {this.renderError()}
+                    </Form>
+                </div>
             </div>
         );
     }
@@ -56,14 +59,14 @@ class Login extends Component {
         let buttons =
             <Row>
                 <Col>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" className={classes.logIn}>
                         Iniciar sesión
-            </Button>
+                    </Button>
                 </Col>
                 <Col>
-                    <Button variant="outline-primary" type="submit">
+                    {/* <Button variant="outline-primary" type="submit">
                         Registrarte
-            </Button>
+            </Button> */}
                 </Col>
             </Row>;
 
