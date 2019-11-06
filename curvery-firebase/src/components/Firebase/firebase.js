@@ -15,17 +15,18 @@ import 'firebase/database';
 
 
 // CONFIG PROYECTO PRUEBA
-const firebaseConfig = {
-    apiKey: "AIzaSyAD4ItQJ4-yyx-6wNcGNsdq2Zo6asnqYL8",
-    authDomain: "curvery-team.firebaseapp.com",
-    databaseURL: "https://curvery-team.firebaseio.com",
-    projectId: "curvery-team",
-    storageBucket: "curvery-team.appspot.com",
-    messagingSenderId: "389294509055",
-    appId: "1:389294509055:web:926c1f7badb5769b6635ca",
-    measurementId: "G-PLT3L94B5Q"
-  };
-  
+
+ const firebaseConfig = {
+     apiKey: "AIzaSyAD4ItQJ4-yyx-6wNcGNsdq2Zo6asnqYL8",
+     authDomain: "curvery-team.firebaseapp.com",
+     databaseURL: "https://curvery-team.firebaseio.com",
+     projectId: "curvery-team",
+     storageBucket: "curvery-team.appspot.com",
+     messagingSenderId: "389294509055",
+     appId: "1:389294509055:web:926c1f7badb5769b6635ca",
+     measurementId: "G-PLT3L94B5Q"
+   };
+
   class Firebase {
       constructor() {
           app.initializeApp(firebaseConfig);
@@ -65,6 +66,11 @@ const firebaseConfig = {
       //Password Update
       doPasswordUpdate = password =>
       this.auth.currentUser.updatePassword(password);
+      //VERIFICACION POR CORREO
+      doSendEmailVerification = () =>
+      this.auth.currentUser.sendEmailVerification({
+      url: "http://localhost:3000",// REDIRECT LINK AFTER VERIFICATION
+      });
 
       // *** Merge Auth and DB User API *** //
   onAuthUserListener = (next, fallback) =>
@@ -82,6 +88,8 @@ const firebaseConfig = {
           authUser = {
             uid: authUser.uid,
             email: authUser.email,
+            emailVerified: authUser.emailVerified,
+            providerData: authUser.providerData,
             ...dbUser,
           };
           next(authUser);
