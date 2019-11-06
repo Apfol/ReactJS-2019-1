@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import classes from "./Navbar.css";
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import logo from "../../assets/GamerIn.png"
-
+import * as actionCreators from '../../store/actions/';
 class Navbar extends Component {
+    logOut = () => {
+        this.props.onLogOut();
+        this.props.history.push('/');
+    }
     render() {
         return (
             <header className={classes.header}>
@@ -18,14 +22,22 @@ class Navbar extends Component {
                         }
                     </ul>
                 </nav>
-                <Link className={classes.cta} to="/login" ><button className={classes.button}>Login</button></Link>
+                {this.props.isUserLoggedIn ? ("") : (<Link className={classes.cta} to="/login" ><button className={classes.button}>Login</button></Link>)}
+                {this.props.isUserLoggedIn ? (<button className={classes.button} onClick={() => this.logOut()} >Log out</button>) : ("")}
             </header>
         )
     }
+
 }
+
 const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
     }
 }
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogOut: () => dispatch(actionCreators.logOut())
+    }
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));
