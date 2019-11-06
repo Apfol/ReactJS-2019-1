@@ -8,7 +8,7 @@ import SignInPage from '../SignIn/SignIn';
 import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home/Home';
 import AccountPage from '../Account';
-import AdminPage from '../Admin/Admin';
+import AdminPage from '../Admin';
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
