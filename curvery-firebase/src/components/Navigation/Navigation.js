@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import SignOutButton from '../SignOut/SignOut';
 import * as ROUTES from '../../constants/routes';
+import * as ROLES from '../../constants/roles';
 
 import {AuthUserContext} from '../Session'
 
@@ -10,13 +11,13 @@ const Navigation = () => (
   <div>
     <AuthUserContext.Consumer>
       {authUser =>
-        authUser ? <NavigationAuth /> : <NavigationNonAuth />
+        authUser ? <NavigationAuth authUser={authUser} /> : <NavigationNonAuth />
       }
     </AuthUserContext.Consumer>
   </div>
 );
 
-const NavigationAuth = () => (
+const NavigationAuth = ({ authUser }) => (
 
   <ul>
   <li>
@@ -28,9 +29,11 @@ const NavigationAuth = () => (
   <li>
   <NavLink to={ROUTES.ACCOUNT}>Account</NavLink>
   </li>
-  <li>
-  <NavLink to={ROUTES.ADMIN}>Admin</NavLink>
-  </li>
+  {!!authUser.roles[ROLES.ADMIN] && (
+    <li>
+      <NavLink to={ROUTES.ADMIN}>Admin</NavLink>
+    </li>
+  )}
   <li>
   <SignOutButton />
   </li>
