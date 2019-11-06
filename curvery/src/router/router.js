@@ -5,6 +5,7 @@ import Home from '../views/home/Home';
 import User from '../views/user/User';
 import MyCourses from '../views/MyCourses/MyCourses';
 import Courses from '../views/AllCourses/AllCourses';
+import Test1 from '../views/TestPage/Test1';
 import About from '../views/About/About';
 import Login from '../views/UserLogin/UserLogin'
 import SignUp from '../views/UserSignUp/UserSignUp';

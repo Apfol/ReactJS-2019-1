@@ -1,60 +1,165 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import YoutubeApiAxios from '../../services/YoutubeApiAxios';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import style from './Course.css';
 
 import recommendeds from './Courses.css'
+import { connect } from 'http2';
+
 
 class Courses extends Component {
-    state = {
-        playlists: [],
-        error: []
-    }
-    componentDidMount() {
-        this.loadPlaylist();
-    }
+  constructor() {
+    super();
+    this.state = {
+      playlists: [],
+      q: this.props.searchTerm,
+      currentPage: 1,
+      todosPerPage: 6,
+      pages: []
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-    loadPlaylist = async () => {
-        const response = await YoutubeApiAxios.get("search", {
-            params: {
-                ...YoutubeApiAxios.defaults.params,
-                part: "snippet",
-                maxResults: 50,
-                q: `the nature of code`,
-                type: 'playlist'
-            }
-        });
-        const someArray = response.data.items;
-        for(var i=0;i<44;i++)
-        {
-            someArray.pop();
+  componentDidMount() {
+    this.loadPlaylist();
+  }
+
+  loadPlaylist = async () => {
+    const response = await YoutubeApiAxios.get("search", {
+      params: {
+        ...YoutubeApiAxios.defaults.params,
+        part: "snippet",
+        maxResults: 45,
+        q: this.state.q,
+        type: 'playlist'
+      }
+    });
+    const someArray = response.data.items;
+    this.setState({
+
+      playlists: someArray
+
+    });
+    console.log(this.state.playlists);
+
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(this.state.playlists.length / this.state.todosPerPage); i++) {
+      let page = [];
+      if (i == 1) {
+        page = {
+          pageIndex: i,
+          pageStatus: style.active
         }
-        this.setState({
-            
-            playlists: someArray
+      }
+      else {
+        page = {
+          pageIndex: i,
+          pageStatus: "style.active"
+        }
+      }
+      pageNumbers.push(page);
 
-        });
-        console.log(this.state.playlists);
-        
     }
-    render() {
-        return (
-            <div className={recommendeds.container}>
-                <main className={recommendeds.grid}>
-                    {this.state.playlists.map(
-                        course => <article key={Date.now()} className={recommendeds.card}>
-                            <img src={course.snippet.thumbnails.high.url} alt="Sample"></img>
-                            <div className={recommendeds.text}>
-                                <span>{course.snippet.channelTitle}</span>
-                                <h3>{course.snippet.title}</h3>
-                                <p>{course.snippet.description}</p>
-                                <Link to={"/player/"+course.id.playlistId}>VER MÁS</Link>
-                            </div>
-                        </article>
-                    )}
-                </main>
-            </div>
-        )
+    this.setState({
+      pages: pageNumbers
+    })
+    //console.log(this.state.pages);
+
+  }
+  handleClick(id, event) {
+    //console.log(id);
+
+    const updatedPages = [...this.state.pages];
+    for (let i = 0; i < updatedPages.length; i++) {
+      if (i == (id - 1)) {
+        updatedPages[i].pageStatus = style.active;
+      }
+      else {
+        updatedPages[i].pageStatus = "Unselected";
+      }
     }
+
+    this.setState({
+      currentPage: Number(event.target.id),
+      pages: updatedPages
+    });
+    console.log(this.state.pages);
+  }
+  Click(event) {
+    this.setState({
+      q: 'Ilustracion'
+    });
+    this.componentDidMount();
+
+  }
+  Cursos() {
+    const { playlists, currentPage, todosPerPage } = this.state;
+
+    const indexOfLastTodo = currentPage * todosPerPage;
+    const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+    const currentTodos = playlists.slice(indexOfFirstTodo, indexOfLastTodo);
+
+    const cursos = currentTodos.map((todo, index) => {
+      return (
+
+        <div >
+          <main className={recommendeds.grid}>
+            <article key={Date.now()} className={recommendeds.card}>
+              <img src={todo.snippet.thumbnails.high.url} alt="Sample"></img>
+              <div className={recommendeds.text}>
+                <span>{todo.snippet.channelTitle}</span>
+                <h3>{todo.snippet.title}</h3>
+                <p>{todo.snippet.description}</p>
+                <Link to={"/player/" + todo.id.playlistId}>VER MÁS</Link>
+              </div>
+            </article>
+          </main>
+        </div>
+
+      );
+    });
+    return cursos;
+  }
+  Pagina() {
+
+    const paginas = this.state.pages.map(page => {
+      return (
+        <a
+          key={page.pageIndex}
+          id={page.pageIndex}
+          onClick={(e) => this.handleClick(page.pageIndex, e)}
+          className={page.pageStatus}
+        >
+          {page.pageIndex}
+        </a>
+      );
+    });
+    return paginas;
+  }
+  render() {
+
+
+    return (
+      <div className={recommendeds.container}>
+        <main className={recommendeds.grid}>
+          {this.Cursos()}
+        </main>
+        <div className={style.pag}>
+          <a >&laquo;</a>
+          {this.Pagina()}
+          <a onClick={(e) => this.Click(e)}>&raquo;</a>
+        </div>
+      </div>
+
+    );
+  }
 }
-export default Courses;
+const mapStateToProps = state => {
+  return {
+    searchTerm:state.searchStore.searchTerm,
+    filters: state.searchStore.filters
+  }
+}
+
+export default connect(mapStateToProps)(Courses);
