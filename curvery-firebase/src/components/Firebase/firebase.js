@@ -36,7 +36,8 @@ const firebaseConfig = {
           this.googleProvider = new app.auth.GoogleAuthProvider();
           //FACEBOOK
           this.facebookProvider = new app.auth.FacebookAuthProvider();
-
+          //TWITTER
+          this.twitterProvider = new app.auth.TwitterAuthProvider();
 
 
       }
@@ -54,6 +55,9 @@ const firebaseConfig = {
       //FACEBOOK SIGN IN
       doSignInWithFacebook = () =>
       this.auth.signInWithPopup(this.facebookProvider);
+      //TWITTER SIGN IN
+      doSignInWithTwitter = () =>
+      this.auth.signInWithPopup(this.twitterProvider);
       //Sign Out
       doSignOut = () => this.auth.signOut();
       //Password Reset
