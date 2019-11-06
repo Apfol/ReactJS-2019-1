@@ -32,6 +32,13 @@ const firebaseConfig = {
           this.auth = app.auth();
           this.db = app.database();
 
+          //GOOGLE
+          this.googleProvider = new app.auth.GoogleAuthProvider();
+          //FACEBOOK
+          this.facebookProvider = new app.auth.FacebookAuthProvider();
+
+
+
       }
 
       // AUTH API
@@ -41,6 +48,12 @@ const firebaseConfig = {
       //Sign In
       doSignInWithEmailAndPassword = (email, password) =>
       this.auth.signInWithEmailAndPassword(email, password);
+      // GOOGLE SIGN IN
+      doSignInWithGoogle = () =>
+      this.auth.signInWithPopup(this.googleProvider);
+      //FACEBOOK SIGN IN
+      doSignInWithFacebook = () =>
+      this.auth.signInWithPopup(this.facebookProvider);
       //Sign Out
       doSignOut = () => this.auth.signOut();
       //Password Reset
