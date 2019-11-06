@@ -9,7 +9,8 @@ import HomePage from './containers/HomePage/HomePage'
 import LogIn from './containers/LogIn/LogIn';
 import SignIn from './containers/SignIn/SignIn';
 import NotFound from './containers/NotFound/NotFound';
-
+import Profile from './containers/Profile/Profile';
+import Layout from './containers/Layout/Layout';
 class App extends Component {
 
   componentDidMount() {
@@ -19,12 +20,16 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Switch>
-          <Route path='/' component={HomePage} exact />
-          <Route path='/login' component={LogIn} />
-          <Route path='/signin' component={SignIn} />
-          <Route component={NotFound} />
-        </Switch>
+        <Layout>
+          <Switch>
+            <Route path='/' component={HomePage} exact />
+            <Route path='/home' component={HomePage} exact />
+            <Route path='/login' component={LogIn} />
+            <Route path='/signin' component={SignIn} />
+            <Route path='/profile' component={Profile} />
+            <Route component={NotFound} />
+          </Switch>
+        </Layout>
       </BrowserRouter>
     );
   }
