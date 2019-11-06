@@ -30,7 +30,7 @@ const mapStateToProps = state => {
     return {
         ctr: state.counterStore.counter
     }
-}
+};
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -39,6 +39,6 @@ const mapDispatchToProps = dispatch => {
         onAdd: (value) => dispatch(actionCreators.add(value)),
         onSubtract: (value) => dispatch(actionCreators.subtract(value))
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

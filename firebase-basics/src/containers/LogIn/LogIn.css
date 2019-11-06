@@ -18,3 +18,10 @@
     left: 50%;
     margin-left: -50px;
 }
+
+.error{
+    display: flex;
+    border: 2px solid black;
+    background: #A84155;
+    align-self: center;
+}

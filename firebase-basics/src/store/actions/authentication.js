@@ -3,17 +3,24 @@ import axios from '../../instances/axios-authentication';
 
 const API_KEY = 'AIzaSyDNMJLoK-YoyV3d-fBih1xrr-zQgACHmoY';
 
+const loginError = ()=>{
+    return{
+        type:actionTypes.LOGIN_ERROR
+    };
+};
+
+
 const startLoading = () => {
     return {
         type: actionTypes.START_LOADING
     }
-}
+};
 
 const endLoading = () => {
     return {
         type: actionTypes.END_LOADING
     }
-}
+};
 
 const saveSession = (userName, token, localId) => {
     return {
@@ -39,7 +46,7 @@ const saveSignIn = (userName, token, localId) => {
 
 export const logIn = (authData, onSuccessCallback) => {
     return dispatch => {
-        dispatch(startLoading())
+        dispatch(startLoading());
         axios.post('/accounts:signInWithPassword?key='+API_KEY, authData)
             .then(response => {
                 const userEmail = authData.email;
@@ -74,7 +81,7 @@ export const logIn = (authData, onSuccessCallback) => {
 
 export const signIn = (authData, onSuccessCallback) => {
     return dispatch => {
-        dispatch(startLoading())
+        dispatch(startLoading());
         axios.post('/accounts:signUp?key='+API_KEY, authData)
             .then(response => {
                 const userEmail = authData.email;
@@ -110,7 +117,7 @@ export const persistAuthentication = () => {
             dispatch(saveSignIn(userSession.userEmail, userSession.token, userSession.localId));
         }
     }
-}
+};
 
 export const logOut = () => {
     localStorage.removeItem('userSession');

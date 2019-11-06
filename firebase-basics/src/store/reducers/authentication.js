@@ -3,13 +3,14 @@ import updateObject from '../utility';
 
 const initialState = {
     isUserLoggedIn: false,
+    loginError: false,
     userLoggedIn: {
         userName: '',
         idToken: '',
         localId: ''
     },
     loadingAuth: false
-}
+};
 
 const login = (state, action) => {
     return updateObject(state, {
@@ -20,7 +21,14 @@ const login = (state, action) => {
             localId: action.payload.localId
         }
     });
-}
+};
+
+const loginError = (state) =>{
+    return updateObject(state,{
+        ...state,
+        loginError: true,
+    });
+};
 
 const signIn = (state, action) => {
     return updateObject(state, {
@@ -42,15 +50,15 @@ const logOut = (state, action) => {
             localId: ''
         }
     });
-}
+};
 
 const startLoading = (state, action) => {
     return updateObject(state, { loadingAuth: true });
-}
+};
 
 const endLoading = (state, action) => {
     return updateObject(state, { loadingAuth: false });
-}
+};
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -61,6 +69,6 @@ const reducer = (state = initialState, action) => {
         case actionTypes.END_LOADING: return endLoading(state, action);
         default: return state;
     }
-}
+};
 
 export default reducer;

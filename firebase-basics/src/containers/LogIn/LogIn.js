@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import './LogIn.css';
 
 import Spinner from '../../components/Spinner/Spinner';
@@ -13,44 +13,49 @@ class LogIn extends Component {
         password: ''
     }
 
-    componentDidUpdate () {
+    componentDidUpdate() {
         if (this.state.isUserLoggedIn) {
             this.props.history.push('/');
         }
     }
 
-    componentWillReceiveProps (nextState) {
+    componentWillReceiveProps(nextState) {
         this.setState({
             isUserLoggedIn: nextState.isUserLoggedIn
         });
     }
 
-    render () {
+    render() {
         return (
             <div className="login__form">
-                <h1 style = {{textAlign: 'center'}}>Log in</h1>
+                <h1 style={{textAlign: 'center'}}>Log in</h1>
                 <div>
                     <p>Username:</p>
                     <input type="text"
-                        value={this.state.userName}
-                        onChange={(event) => {this.updateLoginInfo(event, 'userName')}}
+                           value={this.state.userName}
+                           onChange={(event) => {
+                               this.updateLoginInfo(event, 'userName')
+                           }}
                     />
                     <p>Password:</p>
                     <input type="password"
-                        value={this.state.password}
-                        onChange={(event) => {this.updateLoginInfo(event, 'password')}}
+                           value={this.state.password}
+                           onChange={(event) => {
+                               this.updateLoginInfo(event, 'password')
+                           }}
                     /><br/>
                     {this.renderButton()}
+                    {this.rederLoginError()}
                 </div>
             </div>
         );
     }
 
     renderButton() {
-        let button = <button onClick = {this.submitLoginForm}>Submit</button>;
+        let button = <button onClick={this.submitLoginForm}>Submit</button>;
 
         if (this.props.loadingAuth) {
-            button = <Spinner />;
+            button = <Spinner/>;
         }
 
         return button;
@@ -58,16 +63,27 @@ class LogIn extends Component {
 
     updateLoginInfo = (event, type) => {
         var updatedLoginInfo = {
-          ...this.state
+            ...this.state
         }
 
         updatedLoginInfo[type] = event.target.value;
 
         this.setState({
-          userName: updatedLoginInfo.userName,
-          password: updatedLoginInfo.password
+            userName: updatedLoginInfo.userName,
+            password: updatedLoginInfo.password
         });
     }
+
+    rederLoginError = () => {
+        if (this.props.loginError) {
+            return (
+                <div className={classes.error}>
+                    <p>Your user or password is incorrect. please check your credentials</p>
+                </div>
+            )
+        }
+        return <></>
+    };
 
     submitLoginForm = () => {
         const userData = {
@@ -84,7 +100,8 @@ class LogIn extends Component {
 const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
-        loadingAuth: state.authenticationStore.loadingAuth
+        loadingAuth: state.authenticationStore.loadingAuth,
+        loginError: state.authenticationStore.loginError
     }
 }
 
@@ -93,6 +110,7 @@ const mapDispatchToProps = dispatch => {
         onUserLogin: (authData, onSuccessCallback) => dispatch(
             actionCreators.logIn(authData, onSuccessCallback)
         )
+
     }
 }
 
