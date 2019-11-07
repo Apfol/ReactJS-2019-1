@@ -60,6 +60,7 @@ class MissingObjectList extends Component {
           </div>
 
           {this.state.lgShow === true ? <NewMissingObject 
+                                            newObjectData = {this.state.newObjectData}
                                             getModalStatus = {this.state.lgShow}
                                             setLgShow = {this.setLgShow}
                                             uploadMissingObjectObjHandleChange = {this.uploadMissingObjectObjHandleChange}

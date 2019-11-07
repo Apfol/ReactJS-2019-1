@@ -21,7 +21,7 @@ var newMissingObject = (props) => {
                     type="text"
                     class="form-control"                  
                     placeholder="¿Quién lo encontró?"                  
-                    value={props.newObjectData["foundedBy"]}
+                    value={props.newObjectData.foundedBy}
                     onChange={(event) => {props.uploadMissingObjectObjHandleChange(event,'foundedBy')}}
                   />
                 </div>
@@ -36,6 +36,16 @@ var newMissingObject = (props) => {
                   />
                 </div>
                 <div class="form-group">
+                  <label for="objectName">¿Cuál es el objeto perdido?</label>
+                  <input
+                    type="text"
+                    class="form-control"                  
+                    placeholder="Nombre del objeto perdido"       
+                    value={props.newObjectData["objectName"]}
+                    onChange={(event) => {props.uploadMissingObjectObjHandleChange(event,'objectName')}}
+                  />
+                </div>   
+                <div class="form-group">
                   <label for="imagen">Imagen del objeto perdido</label>
                   <input
                     type="file"
@@ -44,17 +54,7 @@ var newMissingObject = (props) => {
                     value={props.newObjectData["image"]}
                     onChange={(event) => {props.uploadMissingObjectObjHandleChange(event,'image')}}
                   />
-                </div> 
-                <div class="form-group">
-                  <label for="objectName">¿Cuál es el objeto perdido?</label>
-                  <input
-                    type="file"
-                    class="form-control"                  
-                    placeholder="Selección de imagen"       
-                    value={props.newObjectData["objectName"]}
-                    onChange={(event) => {props.uploadMissingObjectObjHandleChange(event,'objectName')}}
-                  />
-                </div>             
+                </div>   
                 <Button variant="primary" onClick={props.submitNewMissingObjectObj}>Ingresar Objeto Perdido</Button>                                                               
               </form>
             </Modal.Body>
