@@ -23,14 +23,15 @@ const uploadMissingObject = (uploadMissingObjectPost) => {
     }
 }
 
-export const updateMissingObjectAction = (missingObjectData, onSuccessCallback) => {
+export const updateMissingObjectAction = (missingObjectData) => {
     return dispatch => {
         dispatch(startLoading())
         axios.post('https://proyectobienestar-21e23.firebaseio.com/missingObject.json', missingObjectData)
             .then(response => {
                                                 
-                console.log("Sirvio" + response);   
-                dispatch(uploadMissingObject(missingObjectData));
+                console.log("Sirvio" + response);                
+                
+                dispatch(uploadMissingObject(missingObjectData));                
                 dispatch(endLoading());
             })
             .catch(error => {   

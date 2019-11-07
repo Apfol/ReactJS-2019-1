@@ -11,21 +11,9 @@ import * as actionCreators from '../../../Store/Actions/';
 class NavBarComponent extends Component {
   state = {
     smShow: false,
-    lgShow: false,
     nuevo: false,
     userName: '',
-    password: '',
-     newObjectData: [
-      {
-        isFounded: false,
-        foundedBy: '',
-        foundLocation: '',
-        image: null,
-        isDelivered: false,
-        lostBy: '',
-        objectName: ''
-      }
-    ]
+    password: ''     
   };
   
   setSmShow() {    
@@ -34,32 +22,14 @@ class NavBarComponent extends Component {
       });  
   }
 
-  setLgShow(){
-    this.setState({
-      lgShow: !this.state.lgShow
-    });  
-  }
-
-  getModalStatus(switchModal){
-    switch (switchModal) {
-      case 1:
-        console.log(this.props.isUserLoggedIn)    
-          if(this.state.smShow && !this.props.isUserLoggedIn){      
-            return true;
-          }
-          else{
-            return false;
-          }
-      case 2:   
-          if(this.state.lgShow){                  
-            return true;            
-          }
-          else{
-            return false;
-          }
-      default:
-        break;
-    }
+  getModalStatus(){
+    console.log(this.props.isUserLoggedIn)    
+      if(this.state.smShow && !this.props.isUserLoggedIn){      
+        return true;
+      }
+      else{
+        return false;
+      }
   }
 
   render() {
@@ -82,60 +52,11 @@ class NavBarComponent extends Component {
               <MyUser 
             user = {this.props.CurrentUser}>
             </MyUser>
-            <Button variant="outline-success" onClick={() => this.setLgShow()}>Añadir Objeto Perdido </Button>
+            
             </div>            
             }         
           </Navbar.Collapse>
         </Navbar>
-
-        <Modal
-          size="lg"
-          show={this.getModalStatus(2)}
-          onHide={() => this.setLgShow()}
-          aria-labelledby="example-modal-sizes-title-lg"
-        >
-          <Modal.Header closeButton>
-            <Modal.Title id="example-modal-sizes-title-lg">
-              Ingresar Objeto Perdido     
-              <IoMdContact size = "30px"/>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>            
-            <form action="/action_page.php">
-              <div class="form-group">
-                <label for="encontrado">Encontrado por:</label>
-                <input
-                  type="text"
-                  class="form-control"                  
-                  placeholder="¿Quién lo encontró?"                  
-                  value={this.state.newObjectData.foundedBy}
-                  onChange={(event) => {this.uploadMissingObjectObj(event,'foundedBy')}}
-                />
-              </div>
-              <div class="form-group">
-                <label for="lugarEncontrado">Lugar Donde fue encontrado</label>
-                <input
-                  type="text"
-                  class="form-control"                  
-                  placeholder="¿Donde lo encontró?"       
-                  value={this.state.newObjectData.foundLocation}
-                  onChange={(event) => {this.uploadMissingObjectObj(event,'foundLocatioin')}}
-                />
-              </div>
-              <div class="form-group">
-                <label for="imagen">Imagen del objeto perdido</label>
-                <input
-                  type="file"
-                  class="form-control"                  
-                  placeholder="Selección de imagen"       
-                  value={this.state.newObjectData.image}
-                  onChange={(event) => {this.uploadMissingObjectObj(event,'image')}}
-                />
-              </div>              
-              <Button variant="primary" onClick={this.uploadMissingObjectObj}>Ingresar Objeto Perdido</Button>                                                               
-            </form>
-          </Modal.Body>
-        </Modal>
 
         <Modal
           size="sm"
@@ -184,36 +105,6 @@ class NavBarComponent extends Component {
       </div>
     );
   }
-
-  uploadMissingObjectObj = () => {
-    /*const objectData = {
-      isFounded: false,
-        foundedBy: this.state.objects.foundedBy,
-        foundLocation: this.state.objects.foundLocation,
-        image: this.state.objects.image,
-        isDelivered: false,
-        lostBy: this.state.objects.lostBy,
-        objectName: this.state.objects.objectName
-    }*/
-
-    var objectData = {...this.state.newObjectData}
-
-    this.props.onUploadMissingObject(objectData);
-
-    this.setState({
-
-      newObjectData:{
-        isFounded: false,
-        foundedBy: '',
-        foundLocation: '',
-        image: '',
-        isDelivered: false,
-        lostBy: '',
-        objectName: ''
-      }
-    })
-    
-  }  
 
   submitLoginForm = () => {
     const userData = {
