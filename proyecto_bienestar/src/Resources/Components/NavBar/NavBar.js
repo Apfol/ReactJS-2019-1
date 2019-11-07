@@ -15,7 +15,7 @@ class NavBarComponent extends Component {
     nuevo: false,
     userName: '',
     password: '',
-     objects: [
+     newObjectData: [
       {
         isFounded: false,
         foundedBy: '',
@@ -108,7 +108,7 @@ class NavBarComponent extends Component {
                   type="text"
                   class="form-control"                  
                   placeholder="¿Quién lo encontró?"                  
-                  value={this.state.objects.foundedBy}
+                  value={this.state.newObjectData.foundedBy}
                   onChange={(event) => {this.uploadMissingObjectObj()}}
                 />
               </div>
@@ -118,7 +118,7 @@ class NavBarComponent extends Component {
                   type="text"
                   class="form-control"                  
                   placeholder="¿Donde lo encontró?"       
-                  value={this.state.objects.foundLocation}
+                  value={this.state.newObjectData.foundLocation}
                   onChange={(event) => {this.uploadMissingObjectObj()}}
                 />
               </div>
@@ -128,7 +128,7 @@ class NavBarComponent extends Component {
                   type="file"
                   class="form-control"                  
                   placeholder="Selección de imagen"       
-                  value={this.state.objects.image}
+                  value={this.state.newObjectData.image}
                   onChange={(event) => {this.uploadMissingObjectObj()}}
                 />
               </div>              
@@ -196,8 +196,19 @@ class NavBarComponent extends Component {
         objectName: this.state.objects.objectName
     }
 
-    this.props.onUploadMissingObject(objectData, () => {
-      this.props.history.push('/')
+    this.props.uploadMissingObjectState(objectData);
+
+    this.setState({
+
+      newObjectData:{
+        isFounded: false,
+        foundedBy: '',
+        foundLocation: '',
+        image: '',
+        isDelivered: false,
+        lostBy: '',
+        objectName: ''
+      }
     })
     
   }  
@@ -225,7 +236,7 @@ class NavBarComponent extends Component {
   }
 }
 const mapStateToProps = state => {
-  return {
+  return /*console.log(state)*/ {
       isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
       loadingAuth: state.authenticationStore.loadingAuth,
       loginerrorbool: state.authenticationStore.loginerrorbool,
@@ -242,8 +253,8 @@ const mapDispatchToProps = dispatch => {
       deleteError:() => dispatch(
           actionCreators.loginerror()
       ),
-      onUploadMissingObject:(missingObjectData, onSuccessCallBack) => dispatch(
-          actionCreators.updateMissingObjectAction(missingObjectData,onSuccessCallBack)
+      onUploadMissingObject:(missingObjectData) => dispatch(
+          actionCreators.updateMissingObjectAction(missingObjectData)
       )        
   }
 }

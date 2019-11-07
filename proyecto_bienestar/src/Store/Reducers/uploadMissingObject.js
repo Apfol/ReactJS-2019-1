@@ -15,7 +15,6 @@ const updateMissingObject = (state,action) => {
 
     return updateObject(state, {
         missingObject:{
-
             isFounded:false,
             foundedBy: action.payload.nameStudent,
             foundLocation: action.payload.foundlocation,
@@ -24,7 +23,6 @@ const updateMissingObject = (state,action) => {
             lostBy: '',
             objectName: action.payload.objectname
         }
-        
     });
 }
 
