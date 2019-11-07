@@ -109,7 +109,7 @@ class NavBarComponent extends Component {
                   class="form-control"                  
                   placeholder="¿Quién lo encontró?"                  
                   value={this.state.newObjectData.foundedBy}
-                  onChange={(event) => {this.uploadMissingObjectObj()}}
+                  onChange={(event) => {this.uploadMissingObjectObj(event,'foundedBy')}}
                 />
               </div>
               <div class="form-group">
@@ -119,7 +119,7 @@ class NavBarComponent extends Component {
                   class="form-control"                  
                   placeholder="¿Donde lo encontró?"       
                   value={this.state.newObjectData.foundLocation}
-                  onChange={(event) => {this.uploadMissingObjectObj()}}
+                  onChange={(event) => {this.uploadMissingObjectObj(event,'foundLocatioin')}}
                 />
               </div>
               <div class="form-group">
@@ -129,7 +129,7 @@ class NavBarComponent extends Component {
                   class="form-control"                  
                   placeholder="Selección de imagen"       
                   value={this.state.newObjectData.image}
-                  onChange={(event) => {this.uploadMissingObjectObj()}}
+                  onChange={(event) => {this.uploadMissingObjectObj(event,'image')}}
                 />
               </div>              
               <Button variant="primary" onClick={this.uploadMissingObjectObj}>Ingresar Objeto Perdido</Button>                                                               
@@ -186,7 +186,7 @@ class NavBarComponent extends Component {
   }
 
   uploadMissingObjectObj = () => {
-    const objectData = {
+    /*const objectData = {
       isFounded: false,
         foundedBy: this.state.objects.foundedBy,
         foundLocation: this.state.objects.foundLocation,
@@ -194,9 +194,11 @@ class NavBarComponent extends Component {
         isDelivered: false,
         lostBy: this.state.objects.lostBy,
         objectName: this.state.objects.objectName
-    }
+    }*/
 
-    this.props.uploadMissingObjectState(objectData);
+    var objectData = {...this.state.newObjectData}
+
+    this.props.onUploadMissingObject(objectData);
 
     this.setState({
 
@@ -241,7 +243,7 @@ const mapStateToProps = state => {
       loadingAuth: state.authenticationStore.loadingAuth,
       loginerrorbool: state.authenticationStore.loginerrorbool,
       CurrentUser: state.authenticationStore.userLoggedIn,
-      //uploadMissingObjectState: 
+      uploadMissingObjectState: state.missingObjectStore.uploadMissingObjectState
   }
 }
 

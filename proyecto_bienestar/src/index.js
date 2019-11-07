@@ -8,9 +8,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import authenticationReducer from './Store/Reducers/authentication';
+import missingObjectReducer from './Store/Reducers/uploadMissingObject';
 
 const rootReducer = combineReducers ({
-    authenticationStore: authenticationReducer    
+    authenticationStore: authenticationReducer,   
+    missingObjectStore: missingObjectReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

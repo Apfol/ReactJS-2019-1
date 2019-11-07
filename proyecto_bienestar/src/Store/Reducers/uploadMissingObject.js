@@ -2,13 +2,14 @@ import * as actionTypes from '../../Store/Actions/actionTypes';
 import updateObject from './utility';
 
 const initialState = {
-    isFounded: false,
+    /*isFounded: false,
     foundedBy: '',
     foundLocation: '',
     image: '',
     isDelivered: false,
     lostBy: '',
-    objectName: ''
+    objectName: ''*/
+    posts: []
 }
 
 const updateMissingObject = (state,action) => {
