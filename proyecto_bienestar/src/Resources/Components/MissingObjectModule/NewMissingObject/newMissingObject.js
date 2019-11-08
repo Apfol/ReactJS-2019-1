@@ -52,7 +52,7 @@ var newMissingObject = (props) => {
                     class="form-control"                  
                     placeholder="Selección de imagen"       
                     value={props.newObjectData["image"]}
-                    onChange={(event) => {props.uploadMissingObjectObjHandleChange(event,'image')}}
+                    onChange={props.uploadMissingObjectOnUpload}
                   />
                 </div>   
                 <Button variant="primary" onClick={props.submitNewMissingObjectObj}>Ingresar Objeto Perdido</Button>                                                               

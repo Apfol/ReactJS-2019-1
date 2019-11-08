@@ -5,17 +5,19 @@ import MissingObject from "../MissingObject/MissingObject";
 import SearchFilter from "./SearchFilter";
 import NewMissingObject from "../NewMissingObject/newMissingObject"
 import * as actionCreators from '../../../../Store/Actions/'; 
+import firebase from 'firebase';
 
 
 class MissingObjectList extends Component {
   state = {
     lgShow: false,
+    picture: null,
     newObjectData:
     {
       isFounded: false,
       foundedBy: '',
       foundLocation: '',
-      image: null,
+      image: '',
       isDelivered: false,
       lostBy: '',
       objectName: ''
@@ -59,21 +61,38 @@ class MissingObjectList extends Component {
             </button>             
           </div>
 
-          {this.state.lgShow === true ? <NewMissingObject 
-                                            newObjectData = {this.state.newObjectData}
-                                            getModalStatus = {this.state.lgShow}
-                                            setLgShow = {this.setLgShow}
-                                            uploadMissingObjectObjHandleChange = {this.uploadMissingObjectObjHandleChange}
-                                            submitNewMissingObjectObj = {this.submitNewMissingObjectObj}/> : null}               
+          {this.state.lgShow === true ? 
+          <NewMissingObject newObjectData = {this.state.newObjectData} getModalStatus = {this.state.lgShow}
+                            setLgShow = {this.setLgShow} uploadMissingObjectObjHandleChange = {this.uploadMissingObjectObjHandleChange}
+                            submitNewMissingObjectObj = {this.submitNewMissingObjectObj}
+                            uploadMissingObjectOnUpload = {this.uploadMissingObjectOnUpload} /> : null}               
       </div>
     );
   }
 
-  uploadMissingObjectObjHandleChange = (event, type) => {       
+   handleUpload(event){
+     const file = event.target.files[0];
+     const storageRef = firebase.storage().ref(`/fotosObjetosPerdidos/${file.name}`);
+     const task = storageRef.put(file);
+
+     task.on('state_changed', snapshot => {
+       
+     }, () => {
+       this.setState({
+        newObjectData:{
+          image:task.snapshot.downloadURL
+        }
+       });
+     })
+   }
+
+  uploadMissingObjectObjHandleChange = (event, type) => {  
+    
     this.setState({
       newObjectData:{
-        ...this.state.newObjectData,
-        [type]: event.target.value
+        ...this.state.newObjectData,        
+        [type]: event.target.value,
+        
       }
     })
     console.log(this.state.newObjectData)
