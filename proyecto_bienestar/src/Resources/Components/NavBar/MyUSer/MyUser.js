@@ -4,11 +4,12 @@ const MyUser = (props) => {
     return (
         <div className={classes.MyUser}>                       
             <div className={classes.correo}>
-                <h6>{props.user.userName}</h6>
+                <h6>{props.user.email}</h6>
             </div>
             <div className={classes.UserPhoto}>
-                
+                        
             </div> 
+            
         </div>
     );
 }
