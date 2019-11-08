@@ -59,7 +59,7 @@ export const fetchPosts = () => {
                 console.log(response);
 
                 const posts = Object.values(response.data).map((post) => {
-                    return {...post};
+                    return { ...post };
                 });
 
                 dispatch(loadPosts(posts));

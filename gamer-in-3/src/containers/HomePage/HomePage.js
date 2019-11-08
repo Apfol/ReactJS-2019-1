@@ -1,26 +1,13 @@
 import React, { Component } from 'react'
 import GameList from '../../components/GameList/GameList';
 import classes from './HomePage.css';
-import axios from '../../instances/axios-posts';
+import { connect } from 'react-redux';
+
+import * as actionCreators from '../../store/actions/';
 
 class HomePage extends Component {
     state = {
         games: []
-    }
-    componentDidMount() {
-        axios.get("/games.json")
-            .then(response => {
-                const games = Object.values(response.data).map((game) => {
-                    return { ...game };
-                });
-                console.log(games);
-                this.setState({
-                    games: games
-                });
-            })
-            .catch(error => {
-                console.log(error);
-            });
     }
     render() {
         return (
@@ -33,11 +20,19 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className={classes.wrapper}>
-                    Home page
-                    <GameList games={this.state.games} />
+                    {this.props.games.map((gameType, index) => {
+                        return <GameList games={gameType} title={gameType[0].platform} key={index} />
+                    })}
                 </div>
             </div>
         )
     }
 }
-export default HomePage;
+const mapStateToProps = state => {
+    return {
+        games: state.gamesStore.gamesGroup,
+        loadingGames: state.gamesStore.loadingGames
+    }
+}
+
+export default connect(mapStateToProps)(HomePage);

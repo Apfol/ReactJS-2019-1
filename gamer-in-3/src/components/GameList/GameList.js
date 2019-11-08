@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import GameCard from "../GameCard/GameCard"
-import "./GameList.css"
+import classes from "./GameList.css"
 
 export default class GameList extends Component {
+
     render() {
 
         var cards = this.props.games.map((game, index) => {
@@ -15,7 +16,10 @@ export default class GameList extends Component {
 
         return (
             <div>
-                {cards}
+                <h2 className={classes['section-title']}>{this.props.title} games</h2>
+                <div className={classes.wrapper}>
+                    {cards}
+                </div>
             </div>
         );
     }

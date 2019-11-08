@@ -11,11 +11,11 @@ const savePost = (state, action) => {
 
     updatedPosts.push(action.payload.post);
 
-    return updateObject(state, { posts: updatedPosts});
+    return updateObject(state, { posts: updatedPosts });
 }
 
 const fetchPosts = (state, action) => {
-    return updateObject(state, { posts: action.payload.posts})
+    return updateObject(state, { posts: action.payload.posts })
 }
 
 const startLoading = (state, action) => {

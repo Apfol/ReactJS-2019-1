@@ -9,10 +9,13 @@ import * as serviceWorker from './serviceWorker';
 
 import authenticationReducer from './store/reducers/authentication';
 import postsReducer from './store/reducers/posts';
+import gamesReducer from './store/reducers/games';
 
-const rootReducer = combineReducers ({
+const rootReducer = combineReducers({
     authenticationStore: authenticationReducer,
-    postsStore: postsReducer
+    postsStore: postsReducer,
+    gamesStore: gamesReducer
+
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -20,9 +23,9 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
-    <Provider store = {store}>
+    <Provider store={store}>
         <App />
     </Provider>,
-document.getElementById('root'));
+    document.getElementById('root'));
 
 serviceWorker.unregister();

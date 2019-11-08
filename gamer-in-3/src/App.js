@@ -11,10 +11,12 @@ import SignIn from './containers/SignIn/SignIn';
 import NotFound from './containers/NotFound/NotFound';
 import Profile from './containers/Profile/Profile';
 import Layout from './containers/Layout/Layout';
+import GameInfo from './containers/GameInfo/GameInfo';
 class App extends Component {
 
   componentDidMount() {
     this.props.onPersistAuthentication();
+    this.props.onFetchGames();
   }
 
   render() {
@@ -27,6 +29,7 @@ class App extends Component {
             <Route path='/login' component={LogIn} />
             <Route path='/signin' component={SignIn} />
             <Route path='/profile' component={Profile} />
+            <Route path='/game/:gameIndex' component={GameInfo} />
             <Route component={NotFound} />
           </Switch>
         </Layout>
@@ -37,7 +40,8 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onPersistAuthentication: () => dispatch(actionCreators.persistAuthentication())
+    onPersistAuthentication: () => dispatch(actionCreators.persistAuthentication()),
+    onFetchGames: () => dispatch(actionCreators.fetchGames())
   };
 };
 
