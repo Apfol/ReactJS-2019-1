@@ -47,6 +47,9 @@ export const logIn = (authData, onSuccessCallback) => {
         dispatch(startLoading())
         axios.post('/accounts:signInWithPassword?key='+API_KEY, authData)
             .then(response => {
+                axios.post('/accounts:lookup?key='+API_KEY,response.data.idToken).then(
+
+                )
                 const userEmail = authData.email;
                 const token = response.data.idToken;
                 const localId = response.data.localId;
@@ -56,12 +59,9 @@ export const logIn = (authData, onSuccessCallback) => {
                     localId
                 };
 
-                userSession = JSON.stringify(userSession);
-
-                console.log(response);
+                userSession = JSON.stringify(userSession);                
 
                 localStorage.setItem('userSession', userSession);
-
                 dispatch(saveSession(userEmail, token, localId));
                 dispatch(endLoading());
 
@@ -85,9 +85,7 @@ export const signIn = (authData, onSuccessCallback) => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
                 const localId = response.data.localId;
-
-                console.log(response);
-
+                
                 dispatch(saveSignIn(userEmail, token, localId));
                 dispatch(endLoading());
 
@@ -97,7 +95,6 @@ export const signIn = (authData, onSuccessCallback) => {
             })
             .catch(error => {
                 console.log(error);
-
                 dispatch(endLoading());
             })
     }
