@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from "react-router-dom";
 import logo from "../../assets/GamerIn.png"
 import * as actionCreators from '../../store/actions/';
+
 class Navbar extends Component {
     logOut = () => {
         this.props.onLogOut();
@@ -22,10 +23,27 @@ class Navbar extends Component {
                         }
                     </ul>
                 </nav>
-                {this.props.isUserLoggedIn ? ("") : (<Link className={classes.cta} to="/login" ><button className={classes.button}>Login</button></Link>)}
-                {this.props.isUserLoggedIn ? (<button className={classes.button} onClick={() => this.logOut()} >Log out</button>) : ("")}
+                {this.renderButtons(this.props.isUserLoggedIn)}
             </header>
         )
+    }
+    renderButtons = (loggedIn) => {
+        if (loggedIn) {
+            return (
+                <button className={`${classes.button} ${classes['color-blue']}`} onClick={() => this.logOut()} >Log out</button>
+            )
+        } else {
+            return (
+                <div>
+                    <Link className={classes.cta} to="/login" >
+                        <button className={`${classes.button} ${classes['color-blue']}`}>Log In</button>
+                    </Link>
+                    <Link className={classes.cta} to="/signin" >
+                        <button className={`${classes.button} ${classes['color-green']}`}>Sign In</button>
+                    </Link>
+                </div>
+            )
+        }
     }
 
 }

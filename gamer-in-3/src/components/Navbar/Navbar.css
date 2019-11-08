@@ -36,14 +36,26 @@ li, a, button {
 }
 
 .button {
+    margin: 0 5px;
     padding: 9px 25px;
-    background-color: rgba(0, 136, 169, 1);
     border: none;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
 
-button:hover {
-    background-color: rgba(0, 136, 169, 0.8)
+.color-blue {
+    background-color: rgba(0, 136, 169, 1);
+}
+
+.color-green {
+    background-color: rgba(0, 136, 80, 1);
+}
+
+.color-blue:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+.color-green:hover {
+    background-color: rgba(0, 136, 80, 0.8);
 }

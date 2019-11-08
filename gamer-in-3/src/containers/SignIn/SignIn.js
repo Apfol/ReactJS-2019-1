@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './SignIn.css';
+import classes from './SignIn.css';
 
 import Spinner from '../../components/Spinner/Spinner';
 
@@ -27,22 +27,33 @@ class SignIn extends Component {
 
     render() {
         return (
-            <div className="sign-in__form">
-                <h1 style={{ textAlign: 'center' }}>Sign in</h1>
-                {this.props.error ? (<p>Error, please try again</p>) : ("")}
-                <div>
-                    <p>Username:</p>
-                    <input type="text"
-                        value={this.state.userName}
-                        onChange={(event) => { this.updateSignInInfo(event, 'userName') }}
-                    />
-                    <p>Password:</p>
-                    <input type="password"
-                        value={this.state.password}
-                        onChange={(event) => { this.updateSignInInfo(event, 'password') }}
-                    /><br />
-                    {this.renderButton()}
+            <div>
+                <div className={classes.margin}>
+                    <div className={classes.back}></div>
+                    <div className={classes["sign-in__form"]}>
+                        <form onSubmit={this.submitSignInForm}>
+                            <h1 style={{ textAlign: 'center' }}>Sign in</h1>
+                            {this.props.error ? (<p>Error, please try again</p>) : ("")}
+                            <div>
+                                <p className={classes.text}>Username:</p>
+                                <input type="email"
+                                    className={classes.input}
+                                    value={this.state.userName}
+                                    onChange={(event) => { this.updateSignInInfo(event, 'userName') }}
+                                />
+                                <p className={classes.text}>Password:</p>
+                                <input type="password"
+                                    className={classes.input}
+                                    value={this.state.password}
+                                    onChange={(event) => { this.updateSignInInfo(event, 'password') }}
+                                />
+                                <br />
+                                {this.renderButton()}
+                            </div>
+                        </form>
+                    </div>
                 </div>
+
             </div>
         );
     }
@@ -70,7 +81,8 @@ class SignIn extends Component {
         });
     }
 
-    submitSignInForm = () => {
+    submitSignInForm = (e) => {
+        e.preventDefault();
         const userData = {
             email: this.state.userName,
             password: this.state.password
