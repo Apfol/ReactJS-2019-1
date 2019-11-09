@@ -5,6 +5,7 @@ import NewsDetailed from '../NewsDetailed/NewsDetailed.js';
 import classes from './News.css';
 import { Route } from 'react-router-dom';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
+import Footer from '../Footer/Footer.js';
 
 export default class News extends Component {
 
@@ -77,6 +78,7 @@ export default class News extends Component {
                         news = {this.state.newsSelected}
                     />
                 )} />
+                <Footer/>
             </div>
         )
     }

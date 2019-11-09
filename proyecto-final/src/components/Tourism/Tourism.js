@@ -5,6 +5,7 @@ import TouristPlaceCard from '../TouristPlaceCard/TouristPlaceCard';
 import PlaceDetailed from '../PlaceDetailed/PlaceDetailed';
 import { Route } from 'react-router-dom';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
+import Footer from '../Footer/Footer.js';
 
 export default class Tourism extends Component {
 
@@ -69,6 +70,7 @@ export default class Tourism extends Component {
                         />
                     )
                 })}
+                <Footer/>
             </div>
         )
     }

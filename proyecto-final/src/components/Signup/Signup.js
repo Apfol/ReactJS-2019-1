@@ -7,6 +7,7 @@ import Error from '../../components/Error/Error';
 import ButtonComponet from '../Button/ButtonComponent';
 import classes from './Signup.css';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
+import Footer from '../Footer/Footer.js';
 
 class Signup extends Component {
 
@@ -53,6 +54,7 @@ class Signup extends Component {
                         {this.renderError()}
                     </Form>
                 </div>
+                <Footer/>
             </div>
         )
     }

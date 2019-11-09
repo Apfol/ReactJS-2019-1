@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import NavigationBar from './components/NavigationBar/NavigationBar';
 import Home from './components/Home/Home';
-import Footer from './components/Footer/Footer.js';
 import Tourism from "./components/Tourism/Tourism.js";
 import News from "./components/News/News.js";
 import Login from "./components/Login/Login.js";
@@ -17,9 +15,6 @@ function App() {
         <Route path="/news" component={News} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <footer>
-          <Footer></Footer>
-        </footer>
       </div>
     </BrowserRouter>
   );
