@@ -115,8 +115,7 @@ class Signup extends Component {
         const userData = {
             email: this.state.email,
             password: this.state.password,
-            names: this.state.names,
-            surnames: this.state.surnames
+            displayName: this.state.names + " " + this.state.surnames,
         }
 
         this.props.onUserSignUp(userData, () => {

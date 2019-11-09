@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../instances/axios-authentication';
+import { saveUser } from './user';
 
 const API_KEY = 'AIzaSyDN8WGwmWm1ljKJ6BZsiIpV5aIRbXq7YyI';
 
@@ -61,6 +62,10 @@ const saveSignUp = (userName, token, localId) => {
     };
 };
 
+//export const getUserData = (authData, onSuccessCallback) => {
+
+//}
+
 export const logIn = (authData, onSuccessCallback) => {
     return dispatch => {
         dispatch(startLoading());
@@ -70,6 +75,8 @@ export const logIn = (authData, onSuccessCallback) => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
                 const localId = response.data.localId;
+                const displayName = authData.displayName;
+
                 let userSession = {
                     token,
                     userEmail,
@@ -81,8 +88,7 @@ export const logIn = (authData, onSuccessCallback) => {
                 console.log(response);
 
                 localStorage.setItem('userSession', userSession);
-
-                dispatch(saveSession(userEmail, token, localId));
+                dispatch(saveSession(displayName, token, localId));
                 dispatch(endLoading());
 
                 if (onSuccessCallback) {
@@ -103,13 +109,13 @@ export const signUp = (authData, onSuccessCallback) => {
         dispatch(endSignupError());
         axios.post('/accounts:signUp?key=' + API_KEY, authData)
             .then(response => {
-                const userEmail = authData.email;
                 const token = response.data.idToken;
                 const localId = response.data.localId;
+                const displayName = authData.displayName;
 
                 console.log(response);
 
-                dispatch(saveSignUp(userEmail, token, localId));
+                dispatch(saveSignUp(displayName, token, localId));
                 dispatch(endLoading());
 
                 if (onSuccessCallback) {

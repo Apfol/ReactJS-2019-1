@@ -4,13 +4,14 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import classes from './NavigationBar.css';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/authentication';
+import * as actionCreators from '../../store/actions/';
 
 class NavigationBar extends Component {
   state = {
     isUserLoggedIn: this.props.isUserLoggedIn,
     temperature: this.temp,
     userName: this.props.userLoggedIn.userName,
+    userNames: this.props.user.userNames
   }
   temp = 32
 
@@ -139,12 +140,14 @@ const mapStateToProps = state => {
   return {
     isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
     userLoggedIn: state.authenticationStore.userLoggedIn,
+    user: state.userStore.user,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onLogOut: () => dispatch(actionCreators.logOut())
+    onLogOut: () => dispatch(actionCreators.logOut()),
+    onFetchUser: () => dispatch(actionCreators.fetchUser()),
   }
 }
 

@@ -8,9 +8,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import authenticationReducer from './store/reducers/authentication';
+import userReducer from './store/reducers/user';
 
 const rootReducer = combineReducers ({
     authenticationStore: authenticationReducer,
+    userStore: userReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
