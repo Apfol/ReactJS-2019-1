@@ -3,3 +3,7 @@
     font-weight: bolder;
     text-align: center;
 }
+
+.container{
+    min-height: 675px
+}

@@ -1,3 +1,7 @@
+.fullContainer{
+    height: 675px;
+}
+
 .container {
     width: 40%;
     display: inline-block;
