@@ -16,7 +16,7 @@ export default class GameList extends Component {
 
         return (
             <div>
-                <h2 className={classes['section-title']}>{this.props.title} games</h2>
+                {this.props.noTitle ? ("") : (<h2 className={classes['section-title']}>{this.props.title} games</h2>)}
                 <div className={classes.wrapper}>
                     {cards}
                 </div>

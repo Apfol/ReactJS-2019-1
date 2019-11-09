@@ -3,8 +3,6 @@ import GameList from '../../components/GameList/GameList';
 import classes from './HomePage.css';
 import { connect } from 'react-redux';
 
-import * as actionCreators from '../../store/actions/';
-
 class HomePage extends Component {
     state = {
         games: []
@@ -21,7 +19,7 @@ class HomePage extends Component {
                 </div>
                 <div className={classes.wrapper}>
                     {this.props.games.map((gameType, index) => {
-                        return <GameList games={gameType} title={gameType[0].platform} key={index} />
+                        return <GameList games={gameType.slice(0, 4)} title={gameType[0].platform} key={index} />
                     })}
                 </div>
             </div>

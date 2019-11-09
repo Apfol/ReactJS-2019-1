@@ -12,6 +12,7 @@ import NotFound from './containers/NotFound/NotFound';
 import Profile from './containers/Profile/Profile';
 import Layout from './containers/Layout/Layout';
 import GameInfo from './containers/GameInfo/GameInfo';
+import Games from './containers/Games/Games';
 class App extends Component {
 
   componentDidMount() {
@@ -29,6 +30,7 @@ class App extends Component {
             <Route path='/login' component={LogIn} />
             <Route path='/signin' component={SignIn} />
             <Route path='/profile' component={Profile} />
+            <Route path='/games' component={Games} />
             <Route path='/game/:gameIndex' component={GameInfo} />
             <Route component={NotFound} />
           </Switch>
