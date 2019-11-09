@@ -1,5 +1,5 @@
-.placeDetailed {
-    margin-top: 20px;
+.place {
+    margin-top: 100px;
 }
 
 .card {
@@ -12,6 +12,10 @@
 
 .comment {
     margin-left: 20px;
+}
+
+.comments{
+    margin-bottom: 180px;
 }
 
 .star {

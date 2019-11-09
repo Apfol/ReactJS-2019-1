@@ -1,13 +1,15 @@
 .cuerpo{
     width: 100%;
-    margin-bottom: 25px;
+}
+
+.newsContainer{
+    
 }
 
 .information{
-    height: 100%;
-    width: 100%;
     filter:brightness(0.5);
     background-image: url(./assets/iglesia.jpg);
+
 }
 
 

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from '../../instances/axiosInstance';
-import TouristPlaceCard from '../TouristPlaceCard/TouristPlaceCard';
-import PlaceDetailed from '../PlaceDetailed/PlaceDetailed';
+import TouristPlaceCard from '../../components/TouristPlaceCard/TouristPlaceCard';
+import PlaceDetailed from '../../components/PlaceDetailed/PlaceDetailed';
 import { Route } from 'react-router-dom';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
-import Footer from '../Footer/Footer.js';
+import Footer from '../../components/Footer/Footer.js';
 
 export default class Tourism extends Component {
     state = {
@@ -55,6 +55,7 @@ export default class Tourism extends Component {
     getPlaces = () => {
         return (
             <div>
+                <NavigationBar/>
                 {this.state.touristPlaces.map(place => {
                     return (
                         <TouristPlaceCard
@@ -67,6 +68,7 @@ export default class Tourism extends Component {
                         />
                     )
                 })}
+                <Footer/>
             </div>
         )
     }
@@ -75,14 +77,12 @@ export default class Tourism extends Component {
     render() {
         return (
             <div>
-                <NavigationBar/>
                 <Route path="/tourism/" exact>{this.getPlaces()}</Route>
                 <Route path="/tourism/:placeId" exact render={() => (
                     <PlaceDetailed
                         place={this.state.placeSelected}
                     />
                 )} />
-                <Footer/>
             </div>
         )
     }
