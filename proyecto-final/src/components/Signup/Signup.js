@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, Container, Row, Col } from 'react-bootstrap';
+import { Form, Container, Row, Col, Button } from 'react-bootstrap';
 import Spinner from '../../components/Spinner/Spinner';
 import * as actionCreators from '../../store/actions/authentication';
 import Error from '../../components/Error/Error';
@@ -13,8 +13,10 @@ class Signup extends Component {
 
     state = {
         isUserLoggedIn: this.props.isUserLoggedIn,
-        userName: '',
-        password: ''
+        email: '',
+        password: '',
+        names: '',
+        surnames: ''
     }
 
     componentDidUpdate() {
@@ -32,20 +34,31 @@ class Signup extends Component {
     render() {
         return (
             <div>
-                <NavigationBar/>
+                <NavigationBar />
                 <div className={classes.container} >
                     <Form className={classes.form} >
                         <Container>
+                            <Row>
+                                <Col>
+                                    <Form.Group controlId="formBasicName">
+                                        <Form.Label>Nombres</Form.Label>
+                                        <Form.Control type="text" placeholder="Nombres" onChange={(event) => { this.updateSignUpInfo(event, 'names') }} />
+                                    </Form.Group>
+                                </Col>
+                                <Col>
+                                    <Form.Group controlId="formBasicName">
+                                        <Form.Label>Apellidos</Form.Label>
+                                        <Form.Control type="text" placeholder="Apellidos" onChange={(event) => { this.updateSignUpInfo(event, 'surnames') }} />
+                                    </Form.Group>
+                                </Col>
+                            </Row>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Correo electrónico</Form.Label>
-                                <Form.Control type="email" placeholder="Correo" />
-                                <Form.Text className="text-muted">
-                                    We'll never share your email with anyone else.
-                                </Form.Text>
+                                <Form.Control type="email" placeholder="Correo" onChange={(event) => { this.updateSignUpInfo(event, 'email') }} />
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label>Contraseña</Form.Label>
-                                <Form.Control type="password" placeholder="Contraseña" />
+                                <Form.Control type="password" placeholder="Contraseña" onChange={(event) => { this.updateSignUpInfo(event, 'password') }} />
                             </Form.Group>
                             <br />
                         </Container>
@@ -54,7 +67,7 @@ class Signup extends Component {
                         {this.renderError()}
                     </Form>
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         )
     }
@@ -63,7 +76,9 @@ class Signup extends Component {
         let buttons =
             <Row>
                 <Col>
-                    <ButtonComponet variant="primary" label="Registrarte" linkTo="./" />
+                    <Button variant="primary" onClick={this.submitSignUpForm} >
+                        Registrarte
+                    </Button>
                 </Col>
             </Row>;
         if (this.props.loadingAuth) {
@@ -89,15 +104,19 @@ class Signup extends Component {
         updatedLoginInfo[type] = event.target.value;
 
         this.setState({
-            userName: updatedLoginInfo.userName,
-            password: updatedLoginInfo.password
+            email: updatedLoginInfo.email,
+            password: updatedLoginInfo.password,
+            names: updatedLoginInfo.names,
+            surnames: updatedLoginInfo.surnames
         });
     }
 
     submitSignUpForm = () => {
         const userData = {
-            email: this.state.userName,
-            password: this.state.password
+            email: this.state.email,
+            password: this.state.password,
+            names: this.state.names,
+            surnames: this.state.surnames
         }
 
         this.props.onUserSignUp(userData, () => {
