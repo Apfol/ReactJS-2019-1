@@ -30,7 +30,6 @@ export class UserSignUp extends Component {
 
   onSubmit = e => {
     // TODO: Make call and check if register
-
     e.preventDefault();
     const userData = {
       email: this.state.email,
@@ -45,6 +44,8 @@ export class UserSignUp extends Component {
         username: this.state.username,
         email: this.state.email
       });  
+
+      // TODO: Save in the session storage the info to use that user's id
     });
 
   };
