@@ -21,9 +21,12 @@ const searchTermFilters = (searchTerm, filters)=>{
 
 export const search = (searchTer=null, filters=null)=>{
     return dispatch => {
-        if(filters==null){
+        if(filters==null || filters.length==0){
+            console.log("Dispatch sin filtros");
+            
             dispatch(searchTerm(searchTer));
-        }else if(searchTerm != null && filters != null){
+        }else if(searchTerm != null && (filters != null && filters.length>0)){
+            console.log("Dispatch completo");
             dispatch(searchTermFilters(searchTer, filters))
         }
     }

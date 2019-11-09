@@ -10,10 +10,6 @@ import * as actionCreators from '../../store/actions/';
 
 function Menu(props) {
     const { history } = props;
-
-    function onFormSubmit(termSearch) {
-        console.log(termSearch);
-    }
     return (
         <div>
             <div className={menu.navigation}>
@@ -41,7 +37,7 @@ function Menu(props) {
                             }
                             <li className={menu.navigation_item}><Link to="/courses">Cursos</Link></li>
                         </nav>
-                        <SearchBar onFormSubmit={onFormSubmit}></SearchBar>
+                        <SearchBar></SearchBar>
 
                     </div>
                 </div>

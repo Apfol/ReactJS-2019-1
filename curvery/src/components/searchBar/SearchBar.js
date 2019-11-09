@@ -5,8 +5,8 @@ import {connect} from 'react-redux';
 
 class SearchBar extends Component{
     state = {
-        searchTerm: this.props.searchTerm,
-        filters: this.props.filers
+        searchTerm: "",
+        filters: []
     }
 
     handleChange = (event)=>{
@@ -19,11 +19,9 @@ class SearchBar extends Component{
 
     handleSubmit = (event)=>{
         const { searchTerm } = this.state;
-        const { onFormSubmit } = this.props;
         event.preventDefault();
-        onFormSubmit(searchTerm);
-        // TODO: CHANGE
-        this.props.onSearchTerm(this.state.searchTerm, null);
+        // TODO: CHANGE TO SEND FILTERS
+        this.props.onSearchTerm(this.state.searchTerm, this.state.filters);
     }
     
     render(){
@@ -36,17 +34,11 @@ class SearchBar extends Component{
     }
 }
 
-const mapStateToProps = state=>{
-    return {
-        searchTerm: state.searchStore.searchTerm,
-        filers: state.searchStore.filters,
-    }
-}
 
-const mapDispathToProps = dispatch=>{
+const mapDispatchToProps = dispatch=>{
     return {
         onSearchTerm: (searchTerm, filters) => dispatch(search(searchTerm, filters))
     }
 }
 
-export default connect(mapStateToProps,mapDispathToProps)(SearchBar);
+export default connect(null,mapDispatchToProps)(SearchBar);
