@@ -27,13 +27,13 @@ class Tourism extends Component {
         this.props.onFetchTourism();
     }
 
-    componentWillUpdate (nextProps, nextState) {
+    componentWillUpdate(nextState) {
         if (!this.state.isUserLoggedIn && nextState.isUserLoggedIn) {
             this.props.onFetchTourism();
         }
     }
 
-    componentWillReceiveProps (nextState) {
+    componentWillReceiveProps(nextState) {
         this.setState({
             isUserLoggedIn: nextState.isUserLoggedIn,
             places: nextState.places,
@@ -47,11 +47,11 @@ class Tourism extends Component {
         });
         console.log(place);
     }
-                            
+
     getPlaces = () => {
-        return(
+        return (
             <div>
-                {this.state.places.map( place =>
+                {this.state.places.map(place =>
                     <TouristPlaceCard
                         title={place.title}
                         description={place.description}
@@ -68,14 +68,14 @@ class Tourism extends Component {
     render() {
         return (
             <div>
-                <NavigationBar/>
+                <NavigationBar />
                 <Route path="/tourism/" exact>{this.getPlaces()}</Route>
                 <Route path="/tourism/:placeId" exact render={() => (
                     <PlaceDetailed
                         place={this.state.placeSelected}
                     />
                 )} />
-                <Footer/>
+                <Footer />
             </div>
         )
     }
@@ -92,7 +92,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchTourism: () =>dispatch(actionCreators.fetchTourism()),
+        onFetchTourism: () => dispatch(actionCreators.fetchTourism()),
     }
 }
 
