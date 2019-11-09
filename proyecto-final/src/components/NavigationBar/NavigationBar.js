@@ -38,7 +38,6 @@ class NavigationBar extends Component {
   }
 
   userLogIn() {
-    console.log(this.state.userName);
     return(
       <div className={classes.navContainer}>
         <Navbar bg="dark" variant="dark">

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import TouristPlaceCard from '../TouristPlaceCard/TouristPlaceCard';
 import PlaceDetailed from '../PlaceDetailed/PlaceDetailed';
 import { Route } from 'react-router-dom';
-import NavigationBar from '../NavigationBar/NavigationBar.js';
-import Footer from '../Footer/Footer.js';
 import { connect } from 'react-redux';
+import classes from './Tourism.css';
 
 import * as actionCreators from '../../store/actions/tourism.js';
+import CommentForm from '../CommentForm/CommentForm';
 
 class Tourism extends Component {
     state = {
@@ -66,18 +66,46 @@ class Tourism extends Component {
     }
 
     render() {
-        return (
+        if(this.state.isUserLoggedIn == false){
+            return(
+                this.onUserLogOut()
+            )
+        }
+        else{
+            return (
+                this.onUserLogIn()
+            )
+        }
+    }
+
+    onUserLogIn(){
+        return(
             <div>
-                <NavigationBar />
-                <Route path="/tourism/" exact>{this.getPlaces()}</Route>
-                <Route path="/tourism/:placeId" exact render={() => (
-                    <PlaceDetailed
-                        place={this.state.placeSelected}
-                    />
-                )} />
-                <Footer />
+            <Route path="/tourism/" exact>{this.getPlaces()}</Route>
+            <Route path="/tourism/:placeId" exact render={() => (
+                <div>
+                    <PlaceDetailed place={this.state.placeSelected} />
+                    <CommentForm></CommentForm>
+                </div>
+            )} />
             </div>
         )
+        
+    }
+
+    onUserLogOut(){
+        return(
+            <div>
+            <Route path="/tourism/" exact>{this.getPlaces()}</Route>
+            <Route path="/tourism/:placeId" exact render={() => (
+                <div>
+                    <PlaceDetailed place={this.state.placeSelected} />
+                    <p className = {classes.sesion}>Inicia Sesion para comentar tu experiencia</p>
+                </div>
+            )} />
+            </div>
+        )
+        
     }
 }
 

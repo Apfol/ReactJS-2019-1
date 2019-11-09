@@ -6,6 +6,8 @@ import { Route } from 'react-router-dom';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
 import Footer from '../Footer/Footer.js';
 import { connect } from 'react-redux';
+import { Row, Col, Container, Image } from 'react-bootstrap';
+import CommentForm from '../CommentForm/CommentForm';
 
 import * as actionCreators from '../../store/actions/news.js';
 
@@ -67,16 +69,51 @@ class News extends Component {
     }
 
     render() {
-        return (
+        if(this.state.isUserLoggedIn == false){
+            return(
+                this.onUserLogOut()
+            )
+        }
+        else{
+            return (
+                this.onUserLogIn()
+            )
+        }
+        
+    }
+
+    onUserLogIn(){
+        return(
             <div>
-                <NavigationBar/>
                 <Route path="/news" exact>{this.getNews()}</Route>
                 <Route path="/news/:placeId" render={() => (
-                    <NewsDetailed
-                        news = {this.state.newsSelected}
-                    />
+                    <div>
+                        <NewsDetailed news = {this.state.newsSelected}/>
+                        <Col md={2}>
+                            <p style={{ fontSize: "20px", fontWeight: "bolder", textAlign: "center" }}>Discusión</p>
+                        </Col>
+                        <Col md={5}>
+                            <div style={{ borderBottom: "1px solid gray", height: "10px" }}></div>
+                        </Col>
+                        <Col md={12}>
+                            <CommentForm></CommentForm>
+                        </Col>
+                    </div> 
                 )} />
-                <Footer/>
+            </div>
+        )
+    }
+
+    onUserLogOut(){
+        return(
+            <div>
+                <Route path="/news" exact>{this.getNews()}</Route>
+                <Route path="/news/:placeId" render={() => (
+                    <div>
+                        <NewsDetailed news = {this.state.newsSelected}/>
+                        <p className = {classes.sesion}>Inicia Sesión para comentar</p>
+                    </div> 
+                )} />
             </div>
         )
     }

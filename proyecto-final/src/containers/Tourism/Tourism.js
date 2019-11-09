@@ -4,7 +4,6 @@ import TouristPlaceCard from '../../components/TouristPlaceCard/TouristPlaceCard
 import PlaceDetailed from '../../components/PlaceDetailed/PlaceDetailed';
 import { Route } from 'react-router-dom';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
-import Footer from '../../components/Footer/Footer.js';
 
 export default class Tourism extends Component {
     state = {
@@ -68,7 +67,6 @@ export default class Tourism extends Component {
                         />
                     )
                 })}
-                <Footer/>
             </div>
         )
     }
