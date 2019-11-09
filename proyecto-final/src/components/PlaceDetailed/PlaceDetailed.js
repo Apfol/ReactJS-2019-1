@@ -31,19 +31,21 @@ export default function PlaceDetailed(props) {
                             value={props.place["score"]}
                         />
                         <h4 className={classes.comment}>Comentarios</h4>
-                        {props.place["comments"].map(comment => {
-                            return (
-                                <Card className={classes.card} >
-                                    <Card.Header>{comment.author}</Card.Header>
-                                    <Card.Body>
-                                        <Card.Title>Buen lugar</Card.Title>
-                                        <Card.Text>
-                                            {comment.body}
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            )
-                        })}
+                        <div className={classes.comments}>
+                            {props.place["comments"].map(comment => {
+                                return (
+                                    <Card className={classes.card} >
+                                        <Card.Header>{comment.author}</Card.Header>
+                                        <Card.Body>
+                                            <Card.Title>Buen lugar</Card.Title>
+                                            <Card.Text>
+                                                {comment.body}
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                )
+                            })}
+                        </div>
                     </Col>
                 </Row>
             </Container>

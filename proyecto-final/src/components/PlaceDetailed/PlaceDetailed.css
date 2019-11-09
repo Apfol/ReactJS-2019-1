@@ -1,6 +1,5 @@
 .place {
     margin-top: 100px;
-    margin-bottom: 40px;
 }
 
 .card {
@@ -13,6 +12,10 @@
 
 .comment {
     margin-left: 20px;
+}
+
+.comments{
+    margin-bottom: 180px;
 }
 
 .star {
