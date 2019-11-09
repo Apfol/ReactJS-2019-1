@@ -1,6 +1,5 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../instances/axios-authentication';
-import { saveUser } from './user';
 
 const API_KEY = 'AIzaSyDN8WGwmWm1ljKJ6BZsiIpV5aIRbXq7YyI';
 
@@ -62,9 +61,32 @@ const saveSignUp = (userName, token, localId) => {
     };
 };
 
-//export const getUserData = (authData, onSuccessCallback) => {
+const getUserData = (displayName, idToken, localId) => {
+    return {
+        type: actionTypes.GET_DATA,
+        payload: {
+            userName: displayName,
+            idToken: idToken,
+            localId: localId
+        }
+    };
+}
 
-//}
+export const userData = idToken => {
+    return dispatch => {
+        axios.post('/accounts:lookup?key=' + API_KEY, idToken)
+            .then(response => {
+                const displayName = response.data.displayName;
+                const idToken = idToken;
+                const localId = response.data.localId;
+                console.log(response);
+                dispatch(getUserData(displayName, idToken, localId));
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+}
 
 export const logIn = (authData, onSuccessCallback) => {
     return dispatch => {
@@ -75,7 +97,6 @@ export const logIn = (authData, onSuccessCallback) => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
                 const localId = response.data.localId;
-                const displayName = authData.displayName;
 
                 let userSession = {
                     token,
@@ -88,7 +109,7 @@ export const logIn = (authData, onSuccessCallback) => {
                 console.log(response);
 
                 localStorage.setItem('userSession', userSession);
-                dispatch(saveSession(displayName, token, localId));
+                dispatch(saveSession(userEmail, token, localId));
                 dispatch(endLoading());
 
                 if (onSuccessCallback) {

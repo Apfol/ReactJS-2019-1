@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from './logo.png';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -11,20 +11,21 @@ class NavigationBar extends Component {
     isUserLoggedIn: this.props.isUserLoggedIn,
     temperature: this.temp,
     userName: this.props.userLoggedIn.userName,
-    userNames: this.props.user.userNames
+    idToken: this.props.userLoggedIn.idToken
   }
   temp = 32
 
   componentDidMount() {
+    this.props.onGetData();
     setInterval(() => {
       this.changeState();
     }, 2000);
-  } 
+  }
 
   componentWillReceiveProps(nextState) {
-      this.setState({
-        isUserLoggedIn: nextState.isUserLoggedIn
-      });
+    this.setState({
+      isUserLoggedIn: nextState.isUserLoggedIn
+    });
   }
 
   changeState = () => {
@@ -35,7 +36,7 @@ class NavigationBar extends Component {
   }
 
   userLogIn() {
-    return(
+    return (
       <div className={classes.navContainer}>
         <Navbar bg="dark" variant="dark">
           <Link to="/" className={classes.link}>
@@ -123,13 +124,13 @@ class NavigationBar extends Component {
   }
 
   render() {
-    if(this.state.isUserLoggedIn == false ){
-      return(
+    if (this.state.isUserLoggedIn == false) {
+      return (
         this.userLogOut()
       );
     }
-    else{
-      return(
+    else {
+      return (
         this.userLogIn()
       );
     }
@@ -140,14 +141,13 @@ const mapStateToProps = state => {
   return {
     isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
     userLoggedIn: state.authenticationStore.userLoggedIn,
-    user: state.userStore.user,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     onLogOut: () => dispatch(actionCreators.logOut()),
-    onFetchUser: () => dispatch(actionCreators.fetchUser()),
+    onGetData: (idToken) => dispatch(actionCreators.userData(idToken))
   }
 }
 

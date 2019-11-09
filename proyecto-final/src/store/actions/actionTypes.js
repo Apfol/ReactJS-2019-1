@@ -14,3 +14,4 @@ export const END_LOGIN_ERROR = 'END_LOGIN_ERROR';
 export const FETCH_NEWS = 'FETCH_NEWS';
 
 export const FETCH_TOURISM = 'FETCH_TOURISM';
+export const GET_DATA = 'GET_DATA';

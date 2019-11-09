@@ -19,11 +19,11 @@ const fetchPosts = (state, action) => {
     return updateObject(state, { posts: action.payload.posts })
 }
 
-const startLoading = (state, action) => {
+const startLoading = state => {
     return updateObject(state, { loadingPosts: true });
 }
 
-const endLoading = (state, action) => {
+const endLoading = state => {
     return updateObject(state, { loadingPosts: false });
 }
 
