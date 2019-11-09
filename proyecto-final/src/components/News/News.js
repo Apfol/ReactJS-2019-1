@@ -24,7 +24,6 @@ class News extends Component {
 
     componentDidMount() {
         this.props.onFetchNews();
-        console.log(this.state.news);
     }
 
     componentWillUpdate (nextProps, nextState) {
