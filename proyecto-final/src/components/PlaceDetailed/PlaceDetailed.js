@@ -3,11 +3,14 @@ import classes from './PlaceDetailed.css';
 import { Card, Row, Col, Container, Image } from 'react-bootstrap';
 import StarRatingComponent from 'react-star-rating-component';
 import CommentForm from '../CommentForm/CommentForm';
+import NavigationBar from '../NavigationBar/NavigationBar.js';
+import Footer from '../../components/Footer/Footer.js';
 
 export default function PlaceDetailed(props) {
     return (
-        <div className={classes.placeDetailed}>
-            <Container>
+        <div>
+            <NavigationBar/>
+            <Container className={classes.place}>
                 <Row>
                     <Image src={props.place.img} height="300" width="100%" />
                 </Row>
@@ -42,10 +45,9 @@ export default function PlaceDetailed(props) {
                             )
                         })}
                     </Col>
-
                 </Row>
-
             </Container>
+            <Footer/>
         </div>
 
     )
