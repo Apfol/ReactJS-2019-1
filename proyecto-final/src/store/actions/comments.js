@@ -27,7 +27,7 @@ const storeComment = comment => {
 export const saveComment = (comment, idPlace) => {
     return dispatch => {
         dispatch(startLoading());
-        axios.post('/touristPlaces/' + idPlace + '/comments', comment)
+        axios.post('/touristPlaces/' + idPlace + '/comments.json', comment)
             .then(response => {
                 console.log(response);
                 dispatch(storeComment(comment));

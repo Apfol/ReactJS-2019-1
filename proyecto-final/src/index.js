@@ -9,12 +9,14 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import authenticationReducer from './store/reducers/authentication';
 import newsReducer from './store/reducers/news.js';
-import tourismReducer from './store/reducers/tourism.js'
+import tourismReducer from './store/reducers/tourism.js';
+import commentReducer from './store/reducers/comments.js';
 
 const rootReducer = combineReducers ({
     authenticationStore: authenticationReducer,
     newsStore: newsReducer,
     tourismStore: tourismReducer,
+    commentStore: commentReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -2,16 +2,12 @@ import * as actionTypes from '../actions/actionTypes';
 import updateObject from '../utility';
 
 const initialState = {
-    comments: [],
+    comment: [],
     loadingComments: false,
 }
 
 const saveComment = (state, action) => {
-    const updatedComments = [...state.comments];
-
-    updatedPosts.push(action.payload.comment);
-
-    return updateObject(state, {  comments: updatedComments });
+    return updateObject(state, {  comment: action.payload.comment });
 }
 
 const startLoading = state => {

@@ -8,9 +8,16 @@ class CommentForm extends Component {
 
     state = {
         newCommentInfo: {
-            author: this.props.userLoggedIn.userName,
-            body: ""
+            author: "",
+            body: "",
+            title: "",
         }
+    }
+
+    componentWillReceiveProps(nextState) {
+        this.setState({
+            newCommentInfo: nextState.newCommentInfo,
+        });
     }
 
     render() {
@@ -18,8 +25,8 @@ class CommentForm extends Component {
             <div>
                 <Form className={classes.form} > 
                     <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Nombre</Form.Label>
-                        <Form.Control placeholder="Introduce tu nombre" />
+                        <Form.Label>Título del comentario</Form.Label>
+                        <Form.Control placeholder="Introduce el título" onChange={(event) => { this.updateCommentInfo(event, 'title') }} />
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Experiencia</Form.Label>
@@ -42,14 +49,16 @@ class CommentForm extends Component {
 
         this.setState({
             author: updatedCommentInfo.author,
+            title: updatedCommentInfo.title,
             body: updatedCommentInfo.body
         });
     }
 
     submitCommentForm = () => {
         const commentData = {
-            author: this.state.author,
-            body: this.state.body
+            author: this.props.userLoggedIn.userName,
+            body: this.state.body,
+            title: this.state.title
         }
 
         this.props.onSaveComment(commentData, this.props.idPlace);
