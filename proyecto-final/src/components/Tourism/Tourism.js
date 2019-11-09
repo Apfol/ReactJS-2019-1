@@ -85,7 +85,7 @@ class Tourism extends Component {
             <Route path="/tourism/:placeId" exact render={() => (
                 <div>
                     <PlaceDetailed place={this.state.placeSelected} />
-                    <CommentForm></CommentForm>
+                    <CommentForm placeId={this.state.placeSelected} ></CommentForm>
                 </div>
             )} />
             </div>
