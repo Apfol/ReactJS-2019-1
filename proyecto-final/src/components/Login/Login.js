@@ -10,8 +10,6 @@ import image from './assets/man.png'
 class Login extends Component {
     state = {
         isUserLoggedIn: this.props.isUserLoggedIn,
-        userName: '',
-        password: ''
     }
 
     componentDidUpdate() {

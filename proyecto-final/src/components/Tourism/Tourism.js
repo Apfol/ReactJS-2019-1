@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import axios from '../../instances/axiosInstance';
 import TouristPlaceCard from '../TouristPlaceCard/TouristPlaceCard';
@@ -8,7 +7,6 @@ import NavigationBar from '../NavigationBar/NavigationBar.js';
 import Footer from '../Footer/Footer.js';
 
 export default class Tourism extends Component {
-
     state = {
         touristPlaces: [],
         placeSelected: {

@@ -4,9 +4,7 @@ import updateObject from '../utility';
 const initialState = {
     isUserLoggedIn: false,
     userLoggedIn: {
-        name: '',
-        lastName: '',
-        email: '',
+        userName: '',
         idToken: '',
         localId: ''
     },
