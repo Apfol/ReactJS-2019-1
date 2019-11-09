@@ -12,8 +12,6 @@ body {
   position: relative;
 }
 
-body::after{ content:''; display:block; height:100px; }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

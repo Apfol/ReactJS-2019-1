@@ -1,3 +1,11 @@
+.navContainer{
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0;
+  z-index: 10000;
+}
+
 .navbar,
 .navbar-default {
     background-image: linear-gradient(to bottom,#48567F, 0,#48567F    100%) !important; /* override background image gradient w/ flat color */

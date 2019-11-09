@@ -9,7 +9,7 @@ import classes from "./PictureSlider.css";
 class PictureSlider extends React.Component {
     render() {
         return (
-            <Carousel indicators={false}>
+            <Carousel indicators={false} className={classes.carousel}>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
