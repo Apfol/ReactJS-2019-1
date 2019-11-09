@@ -38,9 +38,13 @@ export class UserSignUp extends Component {
     }
 
     this.props.onUserSignIn(userData, () => {
+      // Callback todo salio bien 'successCallback'
       // this.props.history.push('/');
-      console.log("Redireccionado");
-
+      this.props.firebase.db.ref().child('users').push({
+        name: this.state.name,
+        username: this.state.username,
+        email: this.state.email
+      });  
     });
 
   };
@@ -72,7 +76,17 @@ export class UserSignUp extends Component {
                 onChange={this.onChange}
               />
             </div>
-
+            <div>
+              <label htmlFor="name">Name:</label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="name..."
+                value={this.state.name}
+                onChange={this.onChange}
+              />
+            </div>
             <div>
               <label htmlFor="email">Email:</label>
               <input

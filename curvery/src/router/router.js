@@ -10,6 +10,8 @@ import About from '../views/About/About';
 import Login from '../views/UserLogin/UserLogin'
 import SignUp from '../views/UserSignUp/UserSignUp';
 
+import {FirebaseContext} from '../services/Firebase'
+
 import CoursePlayer from '../views/CoursePlayer/CoursePlayer';
 
 
@@ -17,18 +19,21 @@ function Router(props) {
   return (
     <BrowserRouter>
           <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/user' exact component={User} />
-            <Route path='/mycourses' exact component={MyCourses} />
-            <Route path='/courses' exact component={Courses} />
-            <Route path="/login" exact render={props => (
+            <Route path='/user' component={User} />
+            <Route path='/mycourses' component={MyCourses} />
+            <Route path='/courses' component={Courses} />
+            <Route path="/login" render={props => (
               <Login ></Login>
-            )}></Route>
-            <Route path="/sign_up" exact render={props => (
-              <SignUp ></SignUp>
-            )}></Route>
-            <Route path='/player/:playlistId' exact component={CoursePlayer}></Route>
-            <Route path="/about" exact component={About}></Route>
+              )}></Route>
+            <Route path="/sign_up" render={props => (
+              <FirebaseContext.Consumer>
+                {firebase => <SignUp firebase={firebase}></SignUp>}
+              </FirebaseContext.Consumer>
+              
+              )}></Route>
+            <Route path='/player/:playlistId'  component={CoursePlayer}></Route>
+            <Route path="/about" component={About}></Route>
+              <Route path='/' component={Home} />
           </Switch>
       </BrowserRouter>
   );
