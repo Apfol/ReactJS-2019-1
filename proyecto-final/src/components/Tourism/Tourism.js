@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import axios from '../../instances/axiosInstance';
 import TouristPlaceCard from '../TouristPlaceCard/TouristPlaceCard';
 import PlaceDetailed from '../PlaceDetailed/PlaceDetailed';
 import { Route } from 'react-router-dom';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
 import Footer from '../Footer/Footer.js';
+import { connect } from 'react-redux';
 
-export default class Tourism extends Component {
+import * as actionCreators from '../../store/actions/tourism.js';
+
+class Tourism extends Component {
     state = {
-        touristPlaces: [],
+        isUserLoggedIn: this.props.isUserLoggedIn,
+        places: this.props.places,
         placeSelected: {
             title: "",
             description: "",
@@ -21,56 +24,46 @@ export default class Tourism extends Component {
     }
 
     componentDidMount() {
-        axios.get('/touristPlaces')
-            .then(response => {
-                var updatedPlaces = response.data;
-                updatedPlaces = updatedPlaces.map(place => {
-                    return {
-                        title: place.title,
-                        description: place.description,
-                        score: place.score,
-                        img: place.img,
-                        id: place.id,
-                        comments: place.comments,
-                        detailedDescription: place.detailedDescription,
-                    }
-                });
-                console.log(updatedPlaces);
-                this.setState({
-                    touristPlaces: updatedPlaces,
-                });
-            })
-            .catch(error => {
-            });
+        this.props.onFetchTourism();
+    }
+
+    componentWillUpdate (nextProps, nextState) {
+        if (!this.state.isUserLoggedIn && nextState.isUserLoggedIn) {
+            this.props.onFetchTourism();
+        }
+    }
+
+    componentWillReceiveProps (nextState) {
+        this.setState({
+            isUserLoggedIn: nextState.isUserLoggedIn,
+            places: nextState.places,
+        });
     }
 
     onClickCard(itemPosition) {
-        const place = this.state.touristPlaces.find(({ id }) => id === itemPosition);
+        const place = this.state.places.find(({ id }) => id === itemPosition);
         this.setState({
             placeSelected: place,
         });
         console.log(place);
     }
-
+                            
     getPlaces = () => {
-        return (
+        return(
             <div>
-                {this.state.touristPlaces.map(place => {
-                    return (
-                        <TouristPlaceCard
-                            title={place.title}
-                            description={place.description}
-                            img={place.img}
-                            score={place.score}
-                            handleClick={this.onClickCard.bind(this)}
-                            id={place.id}
-                        />
-                    )
-                })}
+                {this.state.places.map( place =>
+                    <TouristPlaceCard
+                        title={place.title}
+                        description={place.description}
+                        img={place.img}
+                        score={place.score}
+                        handleClick={this.onClickCard.bind(this)}
+                        id={place.id}
+                    />
+                )}
             </div>
         )
     }
-
 
     render() {
         return (
@@ -87,4 +80,21 @@ export default class Tourism extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
+        userLoggedIn: state.authenticationStore.userLoggedIn,
+        places: state.tourismStore.places,
+        loadingPlaces: state.tourismStore.loadingPlaces
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchTourism: () =>dispatch(actionCreators.fetchTourism()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tourism);
 

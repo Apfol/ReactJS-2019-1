@@ -2,30 +2,31 @@ import React, {Component} from 'react';
 import { Card } from 'react-bootstrap';
 import NewsCard from '../NewsCard/NewsCard';
 import classes from './NewsHomeContainer.css';
-import axios from '../../instances/axiosInstance';
+import axios from '../../instances/axios-news.js';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class NewsHomeContainer extends Component {
+import * as actionCreators from '../../store/actions/news.js';
+
+class NewsHomeContainer extends Component {
     state = {
-        News: []
+        news: this.props.news,
     }
 
     componentDidMount() {
-        axios.get('/news')
-            .then(response => {
-                var updatedNews = response.data;
-                updatedNews = updatedNews.map(aNew => {
-                    return {
-                        id: aNew.id,
-                        img: aNew.img,
-                        title: aNew.title,
-                        info: aNew.info,
-                    }
-                });
-                this.setState({
-                    News: updatedNews,
-                });
-            })
+        this.props.onFetchNews();
+    }
+
+    componentWillUpdate (nextProps, nextState) {
+        if (!this.state.isUserLoggedIn && nextState.isUserLoggedIn) {
+            this.props.onFetchNews();
+        }
+    }
+
+    componentWillReceiveProps (nextState) {
+        this.setState({
+            news: nextState.news,
+        });
     }
 
     render() {
@@ -48,7 +49,7 @@ export default class NewsHomeContainer extends Component {
                     <Card.Body>
                         <div className="container">
                             <ul class={`nav nav-pills nav-stacked ${classes.scroll}`}>
-                                {this.state.News.map( New =>
+                                {this.state.news.map( New =>
                                     <NewsCard
                                         id = {New.id}
                                         img = {New.img}
@@ -65,3 +66,18 @@ export default class NewsHomeContainer extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        news: state.newsStore.news,
+        loadingNews: state.newsStore.loadingNews
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchNews: () =>dispatch(actionCreators.fetchNews()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewsHomeContainer);
