@@ -6,7 +6,6 @@ import Error from '../Error/Error';
 import * as actionCreators from '../../store/actions/authentication';
 import { connect } from 'react-redux';
 import image from './assets/man.png'
-import ButtonComponet from '../Button/ButtonComponent';
 
 class Login extends Component {
     state = {

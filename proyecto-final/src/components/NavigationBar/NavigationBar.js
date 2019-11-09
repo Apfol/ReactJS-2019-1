@@ -1,23 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.png';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import classes from './NavigationBar.css';
+import { connect } from 'react-redux';
 
-export default class NavigationBar extends React.Component {
-
+class NavigationBar extends Component {
   state = {
     isUserLoggedIn: this.props.isUserLoggedIn,
-    userName: ''
+    temperature: this.temp,
   }
   temp = 32;
-
-  constructor() {
-    super();
-    this.state = {
-      temperature: this.temp,
-    }
-  }
 
   componentDidMount() {
     setInterval(() => {
@@ -29,13 +22,13 @@ export default class NavigationBar extends React.Component {
     if (this.state.isUserLoggedIn) {
         this.props.history.push('/');
     }
-}
+  }
 
-componentWillReceiveProps(nextState) {
-    this.setState({
+  componentWillReceiveProps(nextState) {
+      this.setState({
         isUserLoggedIn: nextState.isUserLoggedIn
-    });
-}
+      });
+  }
 
   changeState = () => {
     this.temp === 36 ? this.temp-- : this.temp++;
@@ -91,16 +84,8 @@ componentWillReceiveProps(nextState) {
 
 const mapStateToProps = state => {
   return {
-      isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
+    isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-      onUserLogin: (authData, onSuccessCallback) => dispatch(
-          actionCreators.logIn(authData, onSuccessCallback)
-      )
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);
+export default connect(mapStateToProps)(NavigationBar);
