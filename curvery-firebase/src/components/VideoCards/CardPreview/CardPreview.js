@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import axios from 'axios';
-import cards from './Cards.css';
-import Video from '../video/Video';
-import YoutubeApiAxios from '../../services/YoutubeApiAxios';
 
-class Cards extends Component{
+import YoutubeApiAxios from '../../../services/YoutubeApiAxios';
+
+import cards from './CardStyle.css'
+
+class CardPreview extends Component{
     state = {
         playlists: [],
         q:`python`,
@@ -73,4 +73,4 @@ class Cards extends Component{
         )
     }
 }
-export default Cards;
+export default CardPreview;
