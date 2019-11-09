@@ -16,15 +16,16 @@ class NavigationBar extends Component {
   temp = 32
 
   componentDidMount() {
-    this.props.onGetData();
     setInterval(() => {
       this.changeState();
     }, 2000);
   }
 
   componentWillReceiveProps(nextState) {
+    console.log(this.state.userName);
     this.setState({
-      isUserLoggedIn: nextState.isUserLoggedIn
+      isUserLoggedIn: nextState.isUserLoggedIn,
+      userName: nextState.userName,
     });
   }
 
@@ -36,7 +37,8 @@ class NavigationBar extends Component {
   }
 
   userLogIn() {
-    return (
+    console.log(this.state.userName);
+    return(
       <div className={classes.navContainer}>
         <Navbar bg="dark" variant="dark">
           <Link to="/" className={classes.link}>
@@ -71,7 +73,7 @@ class NavigationBar extends Component {
               <Nav.Link eventKey={2} href="#memes" />
               <Nav.Link eventKey={2} href="#memes" />
             </Nav>
-            <Link className={classes.links} to="/information">{this.state.userName}</Link>
+            <Link className={classes.links} to="/information">{this.props.userLoggedIn.userName}</Link>
             <Link className={classes.links} onClick={this.props.onLogOut}>Cerrar Sesión</Link>
           </Navbar.Collapse>
         </Navbar>
