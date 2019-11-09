@@ -30,7 +30,6 @@ export class UserSignUp extends Component {
 
   onSubmit = e => {
     // TODO: Make call and check if register
-
     e.preventDefault();
     const userData = {
       email: this.state.email,
@@ -38,9 +37,15 @@ export class UserSignUp extends Component {
     }
 
     this.props.onUserSignIn(userData, () => {
+      // Callback todo salio bien 'successCallback'
       // this.props.history.push('/');
-      console.log("Redireccionado");
+      this.props.firebase.db.ref().child('users').push({
+        name: this.state.name,
+        username: this.state.username,
+        email: this.state.email
+      });  
 
+      // TODO: Save in the session storage the info to use that user's id
     });
 
   };
@@ -72,7 +77,17 @@ export class UserSignUp extends Component {
                 onChange={this.onChange}
               />
             </div>
-
+            <div>
+              <label htmlFor="name">Name:</label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="name..."
+                value={this.state.name}
+                onChange={this.onChange}
+              />
+            </div>
             <div>
               <label htmlFor="email">Email:</label>
               <input
