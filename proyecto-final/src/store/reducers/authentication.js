@@ -35,7 +35,17 @@ const signUp = (state, action) => {
     });
 }
 
-const logOut = (state, action) => {
+const getData = (state, action) => {
+    return updateObject(state, {
+        userLoggedIn: {
+            userName: action.payload.userName,
+            idToken: action.payload.idToken,
+            localId: action.payload.localId
+        }
+    });
+}
+
+const logOut = state => {
     return updateObject(state, {
         isUserLoggedIn: false,
         userLoggedIn: {
@@ -75,6 +85,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.LOGIN: return login(state, action);
         case actionTypes.SIGN_UP: return signUp(state, action);
         case actionTypes.LOG_OUT: return logOut(state, action);
+        case actionTypes.GET_DATA: return getData(state, action);
         case actionTypes.START_LOADING: return startLoading(state, action);
         case actionTypes.END_LOADING: return endLoading(state, action);
         case actionTypes.START_SIGNUP_ERROR: return startSignUpError(state, action);

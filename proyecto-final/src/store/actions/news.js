@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import axios from '../../instances/axios-news.js';
+import axios from '../../instances/axios-database';
 
 const startLoading = () => {
     return {

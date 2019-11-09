@@ -1,25 +1,33 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from './logo.png';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import classes from './NavigationBar.css';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/authentication';
+import * as actionCreators from '../../store/actions/';
 
 class NavigationBar extends Component {
   state = {
     isUserLoggedIn: this.props.isUserLoggedIn,
     temperature: this.temp,
     userName: this.props.userLoggedIn.userName,
+    idToken: this.props.userLoggedIn.idToken
   }
   temp = 32
 
+  componentDidMount() {
+    this.props.onGetData(this.props.userLoggedIn.idToken);
+    setInterval(() => {
+      this.changeState();
+    }, 2000);
+  }
+
   componentWillReceiveProps(nextState) {
-      console.log(this.state.userName);
-      this.setState({
-        isUserLoggedIn: nextState.isUserLoggedIn,
-        userName: nextState.userName,
-      });
+    console.log(this.state.userName);
+    this.setState({
+      isUserLoggedIn: nextState.isUserLoggedIn,
+      userName: nextState.userName,
+    });
   }
 
   changeState = () => {
@@ -118,13 +126,13 @@ class NavigationBar extends Component {
   }
 
   render() {
-    if(this.state.isUserLoggedIn == false ){
-      return(
+    if (this.state.isUserLoggedIn == false) {
+      return (
         this.userLogOut()
       );
     }
-    else{
-      return(
+    else {
+      return (
         this.userLogIn()
       );
     }
@@ -140,7 +148,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onLogOut: () => dispatch(actionCreators.logOut())
+    onLogOut: () => dispatch(actionCreators.logOut()),
+    onGetData: (idToken) => dispatch(actionCreators.userData(idToken))
   }
 }
 

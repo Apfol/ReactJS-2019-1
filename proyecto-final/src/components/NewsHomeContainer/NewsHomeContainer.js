@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { Card } from 'react-bootstrap';
 import NewsCard from '../NewsCard/NewsCard';
 import classes from './NewsHomeContainer.css';
-import axios from '../../instances/axios-news.js';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 

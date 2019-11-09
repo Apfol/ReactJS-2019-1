@@ -61,6 +61,33 @@ const saveSignUp = (userName, token, localId) => {
     };
 };
 
+const getUserData = (displayName, idToken, localId) => {
+    return {
+        type: actionTypes.GET_DATA,
+        payload: {
+            userName: displayName,
+            idToken: idToken,
+            localId: localId
+        }
+    };
+}
+
+export const userData = idToken => {
+    return dispatch => {
+        axios.post('/accounts:lookup?key=' + API_KEY, idToken)
+            .then(response => {
+                const displayName = response.data.displayName;
+                const idToken = idToken;
+                const localId = response.data.localId;
+                console.log(response);
+                dispatch(getUserData(displayName, idToken, localId));
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+}
+
 export const logIn = (authData, onSuccessCallback) => {
     return dispatch => {
         dispatch(startLoading());
@@ -70,6 +97,7 @@ export const logIn = (authData, onSuccessCallback) => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
                 const localId = response.data.localId;
+
                 let userSession = {
                     token,
                     userEmail,
@@ -81,7 +109,6 @@ export const logIn = (authData, onSuccessCallback) => {
                 console.log(response);
 
                 localStorage.setItem('userSession', userSession);
-
                 dispatch(saveSession(userEmail, token, localId));
                 dispatch(endLoading());
 
@@ -103,13 +130,13 @@ export const signUp = (authData, onSuccessCallback) => {
         dispatch(endSignupError());
         axios.post('/accounts:signUp?key=' + API_KEY, authData)
             .then(response => {
-                const userEmail = authData.email;
                 const token = response.data.idToken;
                 const localId = response.data.localId;
+                const displayName = authData.displayName;
 
                 console.log(response);
 
-                dispatch(saveSignUp(userEmail, token, localId));
+                dispatch(saveSignUp(displayName, token, localId));
                 dispatch(endLoading());
 
                 if (onSuccessCallback) {
