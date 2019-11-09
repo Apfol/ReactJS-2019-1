@@ -16,6 +16,7 @@ class NavigationBar extends Component {
   temp = 32
 
   componentDidMount() {
+    this.props.onGetData(this.props.userLoggedIn.idToken);
     setInterval(() => {
       this.changeState();
     }, 2000);
