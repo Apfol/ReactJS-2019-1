@@ -80,7 +80,7 @@ class Tourism extends Component {
 
     onUserLogIn(){
         return(
-            <div>
+            <div className = {classes.container}>
             <Route path="/tourism/" exact>{this.getPlaces()}</Route>
             <Route path="/tourism/:placeId" exact render={() => (
                 <div>
@@ -95,12 +95,12 @@ class Tourism extends Component {
 
     onUserLogOut(){
         return(
-            <div>
+            <div className = {classes.container}>
             <Route path="/tourism/" exact>{this.getPlaces()}</Route>
             <Route path="/tourism/:placeId" exact render={() => (
                 <div>
                     <PlaceDetailed place={this.state.placeSelected} />
-                    <p className = {classes.sesion}>Inicia Sesion para comentar tu experiencia</p>
+                    <h1 className = {classes.sesion}>Inicia Sesion para comentar tu experiencia</h1>
                 </div>
             )} />
             </div>

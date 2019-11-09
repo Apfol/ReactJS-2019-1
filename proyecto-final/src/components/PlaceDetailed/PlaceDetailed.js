@@ -8,7 +8,7 @@ export default function PlaceDetailed(props) {
         <div>
             <Container className={classes.place}>
                 <Row>
-                    <Image src={props.place.img} height="300" width="100%" />
+                    <Image src={props.place.img} className={classes.image} height="300" width="100%" />
                 </Row>
                 <Row>
                     <h2 className={classes.title}>{props.place["title"]}</h2>
@@ -26,7 +26,7 @@ export default function PlaceDetailed(props) {
                         <h4 className={classes.comment}>Comentarios</h4>
                         <div className={classes.comments}>
                             {props.place["comments"].map(comment => {
-                                return (
+                                return (    
                                     <Card className={classes.card} >
                                         <Card.Header>{comment.author}</Card.Header>
                                         <Card.Body>

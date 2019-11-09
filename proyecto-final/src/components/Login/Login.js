@@ -26,7 +26,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
+            <div className = {classes.fullContainer}>
                 <div className={classes.imgContainer}>
                     <img className={classes.img} src={image}></img>
                 </div>
