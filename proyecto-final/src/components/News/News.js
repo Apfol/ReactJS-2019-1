@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import axios from '../../instances/axiosInstance';
 import NewsVerticalCard from '../NewsVerticalCard/NewsVerticalCard.js';
 import NewsDetailed from '../NewsDetailed/NewsDetailed.js';
 import classes from './News.css';
 import { Route } from 'react-router-dom';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
 import Footer from '../Footer/Footer.js';
+import { connect } from 'react-redux';
 
-export default class News extends Component {
+import * as actionCreators from '../../store/actions/news.js';
 
+class News extends Component {
     state = {
-        News: [],
+        isUserLoggedIn: this.props.isUserLoggedIn,
+        news: this.props.news,
         newsSelected : {
             id: "",
             img: "",
@@ -21,28 +23,25 @@ export default class News extends Component {
     }
 
     componentDidMount() {
-        axios.get('/news')
-            .then(response => {
-                var updatedNews = response.data;
-                updatedNews = updatedNews.map(aNew => {
-                    return {
-                        id: aNew.id,
-                        img: aNew.img,
-                        title: aNew.title,
-                        info: aNew.info,
-                        fullInfo: aNew.fullInfo,
-                    }
-                });
-                this.setState({
-                    News: updatedNews,
-                });
-            })
-            .catch(error => {
-            });
+        this.props.onFetchNews();
+        console.log(this.state.news);
+    }
+
+    componentWillUpdate (nextProps, nextState) {
+        if (!this.state.isUserLoggedIn && nextState.isUserLoggedIn) {
+            this.props.onFetchNews();
+        }
+    }
+
+    componentWillReceiveProps (nextState) {
+        this.setState({
+            isUserLoggedIn: nextState.isUserLoggedIn,
+            news: nextState.news,
+        });
     }
 
     onClickNews(itemPosition) {   
-        const news = this.state.News.find(({ id }) => id === itemPosition);
+        const news = this.state.news.find(({ id }) => id === itemPosition);
         this.setState({
             newsSelected: news,
         });  
@@ -53,7 +52,7 @@ export default class News extends Component {
             <div>
                 <p className = {classes.title}>Noticias al Día</p>
                 <div className = {classes.container}>
-                    {this.state.News.map( aNew =>
+                    {this.state.news.map( aNew =>
                         <NewsVerticalCard
                             img = {aNew.img}
                             title = {aNew.title}
@@ -83,3 +82,20 @@ export default class News extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
+        userLoggedIn: state.authenticationStore.userLoggedIn,
+        news: state.newsStore.news,
+        loadingNews: state.newsStore.loadingNews
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchNews: () =>dispatch(actionCreators.fetchNews()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(News);
