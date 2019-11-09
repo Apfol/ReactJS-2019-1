@@ -9,7 +9,6 @@ import image from './assets/man.png'
 import ButtonComponet from '../Button/ButtonComponent';
 
 class Login extends Component {
-
     state = {
         isUserLoggedIn: this.props.isUserLoggedIn,
         userName: '',
@@ -39,11 +38,11 @@ class Login extends Component {
                         <Container>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Correo electrónico</Form.Label>
-                                <Form.Control type="email" placeholder="Correo" />
+                                <Form.Control type="email" placeholder="Correo" value={this.state.userName} onChange={(event) => {this.updateLoginInfo(event, 'userName')}}/>
                             </Form.Group>
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label>Contraseña</Form.Label>
-                                <Form.Control type="password" placeholder="Contraseña" />
+                                <Form.Control type="password" placeholder="Contraseña" value={this.state.password}  onChange={(event) => {this.updateLoginInfo(event, 'password')}}/>
                             </Form.Group>
                         <br />
                         </Container>
@@ -57,15 +56,7 @@ class Login extends Component {
     }
 
     renderButtons() {
-        let buttons =
-            <Row>
-                <Col>
-                    <ButtonComponet variant="primary" linkTo="./" label="Iniciar sesión" />
-                </Col>
-                <Col>
-                    <ButtonComponet variant="outline-primary" linkTo="./signup" label="Registrarte" />
-                </Col>
-            </Row>;
+        let buttons = <button onClick = {this.submitLoginForm}>Iniciar Sesión</button>;
         if (this.props.loadingAuth) {
             buttons = <Spinner />;
         }

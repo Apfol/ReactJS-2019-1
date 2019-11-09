@@ -6,6 +6,10 @@ import classes from './NavigationBar.css';
 
 export default class NavigationBar extends React.Component {
 
+  state = {
+    isUserLoggedIn: this.props.isUserLoggedIn,
+    userName: ''
+  }
   temp = 32;
 
   constructor() {
@@ -20,6 +24,18 @@ export default class NavigationBar extends React.Component {
       this.changeState();
     }, 2000);
   }
+
+  componentDidUpdate() {
+    if (this.state.isUserLoggedIn) {
+        this.props.history.push('/');
+    }
+}
+
+componentWillReceiveProps(nextState) {
+    this.setState({
+        isUserLoggedIn: nextState.isUserLoggedIn
+    });
+}
 
   changeState = () => {
     this.temp === 36 ? this.temp-- : this.temp++;
@@ -72,3 +88,19 @@ export default class NavigationBar extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+      isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onUserLogin: (authData, onSuccessCallback) => dispatch(
+          actionCreators.logIn(authData, onSuccessCallback)
+      )
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);
