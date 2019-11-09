@@ -4,6 +4,7 @@ import InformationTown from '../InformationTown/InformationTown.js';
 import PictureSlider from '../PictureSlider/PictureSlider';
 import NewsHomeContainer from '../NewsHomeContainer/NewsHomeContainer.js';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
+import Footer from '../Footer/Footer.js';
 
 export default class Home extends Component {
     render() {
@@ -15,6 +16,7 @@ export default class Home extends Component {
                     <NewsHomeContainer/>
                     <InformationTown/>
                 </div>
+                <Footer/>
             </div>
         );
     }
