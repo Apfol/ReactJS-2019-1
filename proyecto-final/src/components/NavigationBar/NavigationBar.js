@@ -14,12 +14,6 @@ class NavigationBar extends Component {
   }
   temp = 32
 
-  // componentDidMount() {
-  //   setInterval(() => {
-  //     this.changeState();
-  //   }, 2000);
-  // } 
-
   componentWillReceiveProps(nextState) {
       console.log(this.state.userName);
       this.setState({
@@ -36,7 +30,6 @@ class NavigationBar extends Component {
   }
 
   userLogIn() {
-    console.log(this.state.userName);
     return(
       <div className={classes.navContainer}>
         <Navbar bg="dark" variant="dark">

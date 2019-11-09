@@ -9,7 +9,6 @@ export default function NewsDetailed(props) {
     console.log(props.news);
 
     return (
-
         <div className={classes.newsDetailed}>
             <Container>
                 <Row>
@@ -22,18 +21,6 @@ export default function NewsDetailed(props) {
                     </Col>
                     <Col md={12}>
                         <p className={classes.fullInfo}>{props.news["fullInfo"]}</p>
-                    </Col>
-                    <Col md={5}>
-                        <div style={{ borderBottom: "1px solid gray", height: "10px" }}></div>
-                    </Col>
-                    <Col md={2}>
-                        <p style={{ fontSize: "20px", fontWeight: "bolder", textAlign: "center" }}>Discusión</p>
-                    </Col>
-                    <Col md={5}>
-                        <div style={{ borderBottom: "1px solid gray", height: "10px" }}></div>
-                    </Col>
-                    <Col md={12}>
-                        <CommentForm></CommentForm>
                     </Col>
                 </Row>
             </Container>

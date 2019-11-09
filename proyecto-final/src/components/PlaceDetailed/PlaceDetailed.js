@@ -2,14 +2,10 @@ import React from 'react';
 import classes from './PlaceDetailed.css';
 import { Card, Row, Col, Container, Image } from 'react-bootstrap';
 import StarRatingComponent from 'react-star-rating-component';
-import CommentForm from '../CommentForm/CommentForm';
-import NavigationBar from '../NavigationBar/NavigationBar.js';
-import Footer from '../../components/Footer/Footer.js';
 
 export default function PlaceDetailed(props) {
     return (
         <div>
-            <NavigationBar/>
             <Container className={classes.place}>
                 <Row>
                     <Image src={props.place.img} height="300" width="100%" />
@@ -20,10 +16,7 @@ export default function PlaceDetailed(props) {
                 <Row>
                     <Col>
                         <p className={classes.detailedDescription}>{props.place["detailedDescription"]}</p>
-                        <p style={{fontSize : "20px", fontWeight: "bold", textAlign: "center", marginTop: "10%"}}>Agrega tu experiencia en este sitio.</p>
-                        <CommentForm></CommentForm>
-                    </Col>
-                    <Col>
+                        <p style={{fontSize : "20px", fontWeight: "bold", textAlign: "center"}}>Agrega tu experiencia en este sitio.</p>
                         <StarRatingComponent
                             className={classes.star}
                             name="rate1"
@@ -49,9 +42,7 @@ export default function PlaceDetailed(props) {
                     </Col>
                 </Row>
             </Container>
-            <Footer/>
         </div>
-
     )
 }
 
