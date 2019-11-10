@@ -1,0 +1,46 @@
+.grid_CardPreview { 
+  margin-top:1%; 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 0));
+  grid-gap: 20px;
+  align-items: stretch;
+  max-width: 95%;
+  overflow-x: auto;
+  padding-bottom: 26px;
+  }
+.grid_CardPreview > article {
+  /* border: 1px solid #ccc; */
+  border-radius: 15px;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  box-shadow: 4px 4px 20px -10px black;
+  min-height: 168px;
+   background-repeat: no-repeat;
+   background-size: 300px;
+   background-position: center;
+}
+
+
+
+
+.text_CardPreview {
+  
+  padding: 0px 20px 20px;
+  color: yellow;
+  opacity: 0;
+  transition: .5s ease;
+  
+}
+
+  .text_CardPreview h3{
+    height: 40px;
+  line-height: 1;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  }
+
+.card_CardPreview:hover .text_CardPreview {
+    opacity: 1;
+  }
