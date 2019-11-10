@@ -88,7 +88,7 @@ export const signUp = (authData, onSuccessCallback) => {
                 dispatch(endLoading());
 
                 if (onSuccessCallback) {
-                    onSuccessCallback();
+                    onSuccessCallback(localId);
                 }
             })
             .catch(error => {

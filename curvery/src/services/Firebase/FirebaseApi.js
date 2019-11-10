@@ -18,6 +18,7 @@ class Firebase {
         this.auth = FirebaseLibrary.auth();
         this.db = FirebaseLibrary.database();
     }
+    users = ()=> this.db.ref(`users`)
     user = uid => this.db.ref(`users/${uid}`);
     user_couses = (uid, cid) => this.db.ref(`users/${uid}/${cid}`)
 }
