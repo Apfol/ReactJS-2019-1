@@ -5,6 +5,7 @@ import YoutubeApiAxios from '../../../services/YoutubeApiAxios';
 import './CardPreview.css';
 
 class CardPreview extends Component{
+  
   state = {
     playlists: [],
     q:`react`,
@@ -40,8 +41,7 @@ render(){
         <div>
         <main className="grid_CardPreview">
         {this.state.playlists.map(
-            course => <article key={Date.now()} style={{ 'background-image': `url(${course.snippet.thumbnails.high.url})`,'position': 'relative',
-            'object-fit': 'cover'}} className="card_CardPreview">
+            course => <article  style={{ 'background-image': `url(${course.snippet.thumbnails.high.url})`}} className="card_CardPreview">
             <div className="text_CardPreview">
             <h3>{course.snippet.title}</h3>
         </div>
