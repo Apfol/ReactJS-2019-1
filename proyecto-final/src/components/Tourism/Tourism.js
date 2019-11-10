@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import classes from './Tourism.css';
 
-import * as actionCreators from '../../store/actions/tourism.js';
+import * as actionCreators from '../../store/actions/';
 import CommentForm from '../CommentForm/CommentForm';
 
 class Tourism extends Component {
@@ -21,6 +21,11 @@ class Tourism extends Component {
             comments: [],
             detailedDescription: "",
         },
+        newCommentInfo: {
+            author: "",
+            body: "",
+            title: "",
+        }
     }
 
     componentDidMount() {
@@ -66,46 +71,82 @@ class Tourism extends Component {
     }
 
     render() {
-        if(this.state.isUserLoggedIn == false){
-            return(
+        if (this.state.isUserLoggedIn == false) {
+            return (
                 this.onUserLogOut()
             )
         }
-        else{
+        else {
             return (
                 this.onUserLogIn()
             )
         }
     }
 
-    onUserLogIn(){
-        return(
-            <div className = {classes.container}>
-            <Route path="/tourism/" exact>{this.getPlaces()}</Route>
-            <Route path="/tourism/:placeId" exact render={() => (
-                <div>
-                    <PlaceDetailed place={this.state.placeSelected} />
-                    <CommentForm idPlace={this.state.placeSelected.id - 1} />
-                </div>
-            )} />
+    onUserLogIn() {
+        return (
+            <div className={classes.container}>
+                <Route path="/tourism/" exact>{this.getPlaces()}</Route>
+                <Route path="/tourism/:placeId" exact render={() => (
+                    <div>
+                        <PlaceDetailed place={this.state.placeSelected} />
+                        <CommentForm
+                            newCommentInfo={this.state.newCommentInfo}
+                            updateCommentInfo={this.updateCommentInfo}
+                            submitCommentForm={this.submitCommentForm}
+                        />
+                    </div>
+                )} />
             </div>
         )
-        
+
     }
 
-    onUserLogOut(){
-        return(
-            <div className = {classes.container}>
-            <Route path="/tourism/" exact>{this.getPlaces()}</Route>
-            <Route path="/tourism/:placeId" exact render={() => (
-                <div>
-                    <PlaceDetailed place={this.state.placeSelected} />
-                    <h1 className = {classes.sesion}>Inicia Sesion para comentar tu experiencia</h1>
-                </div>
-            )} />
+    updateCommentInfo = (event, type) => {
+        var updatedCommentInfo = {
+            ...this.state.newCommentInfo
+        }
+
+        updatedCommentInfo[type] = event.target.value;
+
+        this.setState({
+            newCommentInfo: updatedCommentInfo,
+        });
+    }
+
+    submitCommentForm = () => {
+        var commentData = {
+            ...this.state.newCommentInfo
+        };
+
+        commentData['author'] = this.props.userLoggedIn.userName;
+
+        this.props.onSaveComment(commentData, this.state.placeSelected.id - 1);
+        this.props.onFetchTourism();
+
+        this.setState({
+            newCommentInfo: {
+                author: "",
+                body: "",
+                title: "",
+            },
+            places: this.props.places,
+        });
+    }
+
+    onUserLogOut() {
+        return (
+            <div className={classes.container}>
+                <Route path="/tourism/" exact>{this.getPlaces()}</Route>
+                <Route path="/tourism/:placeId" exact render={() => (
+                    <div>
+                        <PlaceDetailed place={this.state.placeSelected} />
+                        <h1 className={classes.sesion}>Inicia Sesion para comentar tu experiencia</h1>
+                    </div>
+                )} />
             </div>
         )
-        
+
     }
 }
 
@@ -121,6 +162,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onFetchTourism: () => dispatch(actionCreators.fetchTourism()),
+        onSaveComment: (commentData, idPlace) => dispatch(
+            actionCreators.saveComment(commentData, idPlace)
+        )
     }
 }
 
