@@ -1,0 +1,27 @@
+.videoList_VIDEOLIST ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+ .videoList_VIDEOLIST li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+ .videoList_VIDEOLIST li a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+ .videoList_VIDEOLIST li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }

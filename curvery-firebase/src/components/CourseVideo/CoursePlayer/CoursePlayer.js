@@ -2,7 +2,7 @@ import React, { Component } from "react";
 //Component
 import VideoDetails from '../VideoDetails/VideoDetails';
 import VideoList from "../VideosList/VideoList";
-import player from './CoursePlayer.css';
+import './CoursePlayer.css'
 
 import YoutubeApiAxios from '../../../services/YoutubeApiAxios';
 
@@ -54,9 +54,9 @@ export class CoursePlayer extends Component {
   render() {
     return (
       <div>
-      <div className={player.container}>
-      <VideoDetails video={this.state.selectedVideo} className={player.video}></VideoDetails>
-      <VideoList videos={this.state.videos} onSelectVideo={this.onVideoSelect} className={player.list}>
+      <div className="player_container_COURSEPLAYER">
+      <VideoDetails video={this.state.selectedVideo} className="player_video_COURSEPLAYER"></VideoDetails>
+      <VideoList videos={this.state.videos} onSelectVideo={this.onVideoSelect} className="player_list_COURSEPLAYER">
       </VideoList>
       </div>
       </div>

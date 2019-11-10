@@ -128,13 +128,15 @@ export class VideoDetails extends Component {
     return (
       <div className='videoDetails_VIDEODETAILS'>
         <section className='section_VIDEODETAILS'>
-          <h1>{this.props.video.title}</h1>
-          <div className="videoControlsContainer_VIDEODETAILS">
-          <div className='player-wrapper_VIDEODETAILS'>
+        <div className="videoControlsContainer_VIDEODETAILS">
+        <div className='player-wrapper_VIDEODETAILS'>
+        <h1>{this.props.video.title}</h1>
           <ReactPlayer
           ref={this.ref}
           className='react-player_VIDEODETAILS'
           url={this.props.video.videoUrl}
+          width="50vw"
+          height="60vh"
           pip={pip}
           playing={playing}
           controls={controls}
