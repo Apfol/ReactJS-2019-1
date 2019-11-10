@@ -6,8 +6,8 @@ export default function VideoList({videos, onSelectVideo}) {
         return <VideoItem video={video} key={id} onSelectVideo={onSelectVideo}></VideoItem>
     });
     return (
-        <div className={list.container}>
-        <div className={list.video_list}>
+        <div >
+        <div>
             {videoItems}
         </div>
         </div>

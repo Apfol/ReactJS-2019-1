@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Details from './VideoDetails.css';
+import './VideoDetails.css';
 import ReactPlayer from 'react-player'
 // import ReactPlayer from '../../../ReactPlayer/ReactPlayer';
 
@@ -123,21 +123,21 @@ export class VideoDetails extends Component {
   }
  
   render () {
-    const { url, playing, controls, light, volume, muted, loop, played, loaded, duration, playbackRate, pip } = this.state
-    const SEPARATOR = ' · '
+    const { playing, controls, light, volume, muted, loop, played, playbackRate, pip } = this.state
 
     return (
-      <div className='app'>
-        <section className='section'>
+      <div className='videoDetails_VIDEODETAILS'>
+        <section className='section_VIDEODETAILS'>
           <h1>{this.props.video.title}</h1>
-          <div className='player-wrapper'>
-            <ReactPlayer
-              ref={this.ref}
-              className='react-player'
-              url={this.props.video.videoUrl}
-              pip={pip}
-              playing={playing}
-              controls={controls}
+          <div className="videoControlsContainer_VIDEODETAILS">
+          <div className='player-wrapper_VIDEODETAILS'>
+          <ReactPlayer
+          ref={this.ref}
+          className='react-player_VIDEODETAILS'
+          url={this.props.video.videoUrl}
+          pip={pip}
+          playing={playing}
+          controls={controls}
               light={light}
               loop={loop}
               playbackRate={playbackRate}
@@ -155,33 +155,49 @@ export class VideoDetails extends Component {
               onError={e => console.log('onError', e)}
               onProgress={this.handleProgress}
               onDuration={this.handleDuration}
-            />
+              />
+              </div>
+              <div className="controlOverScreen_VIDEODETAILS">
+              <div className="containerControls_VIDEODETAILS">
+              <div className="playContainer_VIDEODETAILS">
+              <button className="play_VIDEODETAILS" onClick={this.handlePlayPause}>{playing ? 'II' : 'P'}</button>
+              </div>
+              <div className="durationContainer_VIDEODETAILS">
+              <div className="duration_VIDEODETAILS" >
+              <input
+              type='range' min={0} max={1} step='any'
+              value={played}
+              onMouseDown={this.handleSeekMouseDown}
+              onChange={this.handleSeekChange}
+              onMouseUp={this.handleSeekMouseUp}
+              />
+              </div>
+              </div>
+              
+              <div className="velocityContainer_VIDEODETAILS">
+          <div className="dropdown_VIDEODETAILS">
+          <button className="dropbtn_VIDEODETAILS">A</button>
+          <div className="dropdown-content_VIDEODETAILS">
+          <button onClick={this.handleSetPlaybackRate} value={1}>1x</button>
+          <button onClick={this.handleSetPlaybackRate} value={1.5}>1.5x</button>
+          <button onClick={this.handleSetPlaybackRate} value={2}>2x</button>
           </div>
-
-          <table>
-            <tbody>
-              <tr>
-                <td>
-                  <button onClick={this.handlePlayPause}>{playing ? 'Pause' : 'Play'}</button>
-                  <input
-                    type='range' min={0} max={1} step='any'
-                    value={played}
-                    onMouseDown={this.handleSeekMouseDown}
-                    onChange={this.handleSeekChange}
-                    onMouseUp={this.handleSeekMouseUp}
-                  />
-                  <button onClick={this.handleSetPlaybackRate} value={1}>1x</button>
-                  <button onClick={this.handleSetPlaybackRate} value={1.5}>1.5x</button>
-                  <button onClick={this.handleSetPlaybackRate} value={2}>2x</button>
-                  <input type='range' min={0} max={1} step='any' value={volume} onChange={this.handleVolumeChange} />
-                  <input id='muted' type='checkbox' checked={muted} onChange={this.handleToggleMuted} />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </div>
-    )
+          </div>
+          </div>
+          <div className="mutedContainer_VIDEODETAILS">
+          <button className="muted_VIDEODETAILS" onClick={this.handleToggleMuted}>{muted ? 'II' : 'P'}</button>
+          </div>
+          <div className="volumenContainer_VIDEODETAILS">
+          <div className="volumen_VIDEODETAILS">
+          <input type='range' min={0} max={1} step='any' value={volume} onChange={this.handleVolumeChange} />
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          </section>
+          </div>
+      )
   }
 }
 
