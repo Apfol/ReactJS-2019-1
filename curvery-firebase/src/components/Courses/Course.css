@@ -1,0 +1,11 @@
+.body_Course{
+    margin-left: 5%;
+    margin-top: 4%;
+    overflow: hidden;
+}
+.title_Course{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+    padding-bottom: 2%;
+}
