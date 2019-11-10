@@ -10,7 +10,7 @@ import HomePage from '../Home/Home';
 import AccountPage from '../Account/index';
 import AdminPage from '../Admin/index';
 import NotFound from '../NotFound/NotFound';
-
+import CoursePlayer from '../CourseVideo/CoursePlayer/CoursePlayer';
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 import Course from '../Courses/Course';
@@ -31,6 +31,7 @@ const App = () => (
       <Route exact path={ROUTES.COURSES} component={Course} />
       <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+      <Route path='/player/:playlistId'  component={CoursePlayer}></Route>
       <Route component={NotFound} />
       <Redirect to="/404" />
       </Switch>
