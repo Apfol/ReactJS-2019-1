@@ -13,6 +13,7 @@ import NotFound from '../NotFound/NotFound';
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
+import Course from '../Courses/Course';
 
 const App = () => (
   <Router>
@@ -27,6 +28,7 @@ const App = () => (
         component={PasswordForgetPage}
       />
       <Route exact path={ROUTES.HOME} component={HomePage} />
+      <Route exact path={ROUTES.COURSES} component={Course} />
       <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route exact path={ROUTES.ADMIN} component={AdminPage} />
       <Route component={NotFound} />
