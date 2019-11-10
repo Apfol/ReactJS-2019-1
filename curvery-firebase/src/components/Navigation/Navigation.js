@@ -7,6 +7,7 @@ import * as ROLES from '../../constants/roles';
 
 import {AuthUserContext} from '../Session'
 import './Navigation.css';
+import SearchBar from './searchBar/SearchBar';
 
 const Navigation = () => (
   <div className="navigation_NAVIGATION">
@@ -30,9 +31,11 @@ const NavigationAuth = ({ authUser }) => (
   <li>
   <NavLink to={ROUTES.COURSES}>Cursos</NavLink>
   </li>
-  
   <li>
   <NavLink to={ROUTES.ACCOUNT}>Account</NavLink>
+  </li>
+  <li>
+  <SearchBar></SearchBar>
   </li>
   { !!authUser.roles[ROLES.ADMIN] && (
      <li>
@@ -41,7 +44,7 @@ const NavigationAuth = ({ authUser }) => (
    )
 }
   <li>
-  <SignOutButton />
+  <SignOutButton/>
   </li>
   </ul>
 ) ;

@@ -4,12 +4,26 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 import App from './components/App';
+
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+
 import Firebase, {FirebaseContext} from './components/Firebase';
 
+import search from './components/store/reducers/search';
+
+const rootReducer = combineReducers({
+    searchStore: search
+});
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 const rootElement = (
     <FirebaseContext.Provider value={new Firebase()}>
+    <Provider store={store}>
     <App />
+    </Provider>
     </FirebaseContext.Provider>
     );
  

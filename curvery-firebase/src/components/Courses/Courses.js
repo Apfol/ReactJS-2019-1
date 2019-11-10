@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 class Courses extends Component {
     state = {
         playlists: [],
-        q: 'ilustracion',
+        q: this.props.searchTerm,
         currentPage: 1,
         todosPerPage: 6,
         pages: []

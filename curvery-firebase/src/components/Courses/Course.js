@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Courses from './Courses';
 import recommended from './Course.css';
 
 class Course extends Component{
@@ -6,6 +7,7 @@ class Course extends Component{
         return(
             <div className={recommended.body}>
             <h1 className={recommended.title}>Cursos</h1>
+            <Courses></Courses>
             </div>
         )
     }

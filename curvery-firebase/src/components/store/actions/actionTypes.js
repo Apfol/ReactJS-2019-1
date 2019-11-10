@@ -1,0 +1,4 @@
+export const START_LOADING = 'START_LOADING';
+export const END_LOADING = 'END_LOADING';
+export const SEARCH_TERM = 'SEARCH_TERM';
+export const SEARCH_TERM_FILTERS = 'SEARCH_TERM_FILTERS';
