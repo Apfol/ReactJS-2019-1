@@ -3,14 +3,14 @@ import YoutubeApiAxios from '../../services/YoutubeApiAxios';
 import { Link } from 'react-router-dom';
 import style from './Active.css';
 
-import './Courses.css'
+import recommendeds from './Courses.css'
 import { connect } from 'react-redux';
 
 
 class Courses extends Component {
     state = {
         playlists: [],
-        q: this.props.searchTerm,
+        q: 'ilustracion',
         currentPage: 1,
         todosPerPage: 6,
         pages: []
@@ -18,7 +18,7 @@ class Courses extends Component {
 
     componentWillReceiveProps(nextProps) {
         console.log("NEXT ",nextProps);
-        
+
         this.setState(prevState =>{
             return { ...prevState,q:nextProps.searchTerm}
         },()=>{
@@ -112,17 +112,16 @@ class Courses extends Component {
             return (
 
                 <div >
-                    <main className="grid_Courses">
-                    <article key={Date.now()} className="card_Courses">
-                    <img className="image_circle_Courses" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample"></img>
-                    <img className="image_Courses" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample"></img>
-                    <div className="text_Courses">
-                    <span>title1</span>
-                      <h3>title2</h3>
-                      <p>dadasd asd asd asd asd as das d</p>
-                      <button>VER PROYECTOS</button>
-                    </div>
-                  </article>
+                    <main className={recommendeds.grid}>
+                        <article key={Date.now()} className={recommendeds.card}>
+                            <img src={todo.snippet.thumbnails.high.url} alt="Sample"></img>
+                            <div className={recommendeds.text}>
+                                <span>{todo.snippet.channelTitle}</span>
+                                <h3>{todo.snippet.title}</h3>
+                                <p>{todo.snippet.description}</p>
+                                <Link to={"/player/" + todo.id.playlistId}>VER MÁS</Link>
+                            </div>
+                        </article>
                     </main>
                 </div>
 
@@ -152,8 +151,8 @@ class Courses extends Component {
 
     render() {
         return (
-            <div className="container_Courses">
-                <main className="grid_Courses">
+            <div className={recommendeds.container}>
+                <main className={recommendeds.grid}>
                     {this.Cursos()}
                 </main>
                 <div className={style.pag}>

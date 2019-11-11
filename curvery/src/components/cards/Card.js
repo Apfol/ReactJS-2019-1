@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import Cards from './Cards';
-import card from './Card.css'
+import './Card.css'
 class Card extends Component{
     render(){
         return(
-            <div className={card.body}>
-            <h1 className={card.title}>Cursos</h1>
-            <Cards></Cards>
+            <div className="CardSection">
+            <h1 className="title_CardSection">Cursos que pueden interesarte</h1>
             </div>
         )
     }

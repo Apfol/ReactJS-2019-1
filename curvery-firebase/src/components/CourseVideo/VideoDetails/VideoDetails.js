@@ -176,6 +176,14 @@ export class VideoDetails extends Component {
               </div>
               </div>
               
+              <div className="volumenContainer_VIDEODETAILS">
+              <div className="volumen_VIDEODETAILS">
+              <input type='range' min={0} max={1} step='any' value={volume} onChange={this.handleVolumeChange} />
+              </div>
+              </div>
+              <div className="mutedContainer_VIDEODETAILS">
+              <button className="muted_VIDEODETAILS" onClick={this.handleToggleMuted}>{muted ? 'M' : 'N'}</button>
+              </div>
               <div className="velocityContainer_VIDEODETAILS">
           <div className="dropdown_VIDEODETAILS">
           <button className="dropbtn_VIDEODETAILS">A</button>
@@ -184,14 +192,6 @@ export class VideoDetails extends Component {
           <button onClick={this.handleSetPlaybackRate} value={1.5}>1.5x</button>
           <button onClick={this.handleSetPlaybackRate} value={2}>2x</button>
           </div>
-          </div>
-          </div>
-          <div className="mutedContainer_VIDEODETAILS">
-          <button className="muted_VIDEODETAILS" onClick={this.handleToggleMuted}>{muted ? 'II' : 'P'}</button>
-          </div>
-          <div className="volumenContainer_VIDEODETAILS">
-          <div className="volumen_VIDEODETAILS">
-          <input type='range' min={0} max={1} step='any' value={volume} onChange={this.handleVolumeChange} />
           </div>
           </div>
           </div>

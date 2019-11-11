@@ -1,76 +1,53 @@
 import React, {Component} from 'react';
-import axios from 'axios';
-import cards from './Cards.css';
-import Video from '../video/Video';
+import './Cards.css';
 import YoutubeApiAxios from '../../services/YoutubeApiAxios';
 
 class Cards extends Component{
-    state = {
-        playlists: [],
-        q:`python`,
-        courses: [],
-        error: []
-    }
-    componentDidMount() {
-        this.loadPlaylist();
-      }
-    
-      
-      loadPlaylist = async () => {
-        const response = await YoutubeApiAxios.get("search", {
-          params: {
-            ...YoutubeApiAxios.defaults.params,
-            part: "snippet",
-            maxResults: 10,
-            q:this.state.q,
-            type: 'playlist'
-          }
-        });
-        const someArray = response.data.items;
-        this.setState({
-    
-          playlists: someArray
-    
-        });
-        console.log(this.state.playlists);
-    
-      }
-    /*componentDidMount(){
-        //json creado y alojado sin necesidad de permisos 
-        axios.get('https://api.myjson.com/bins/16apk1')
-        .then(res => {
-            console.log(res);
-            this.setState({courses: res.data});
-        })
-        .catch(error => {
-            this.setState({error: error})
-            alert('Hola el error es ' + error);
-        })
-    }*/
-   
-    render(){
-        return(<div>
-            <section class={cards.card}>
-            {this.state.playlists.map(
-                course => <div key={Date.now()} style={{ 'background-image': `url(${course.snippet.thumbnails.high.url})`}} className={cards.content_card} >
-                <div className={cards.body_card}>
-            <div className={cards.title_card}>
-            <h3 className={cards.title1}>{course.snippet.title}</h3>
-            <h2 className={cards.title2}>{course.snippet.title}</h2>
-            </div>
-            <div className={cards.button_card}>
-            <div className={cards.button_body}>
-            <h2 className={cards.button_title2}>{course.snippet.title}</h2>
-            <a href="/"><button className={cards.button}><span>OBTENER</span></button></a>
-            </div>
-            </div>
-            </div>
+  
+  state = {
+    playlists: [],
+    q:`react`,
+    courses: [],
+    error: []
+}
+componentDidMount() {
+    this.loadPlaylist();
+  }
 
-            </div>
-            )}
-            </section>
-            </div>
-        )
-    }
+  
+  loadPlaylist = async () => {
+    const response = await YoutubeApiAxios.get("search", {
+      params: {
+        ...YoutubeApiAxios.defaults.params,
+        part: "snippet",
+        maxResults: 10,
+        q:this.state.q,
+        type: 'playlist'
+      }
+    });
+    const someArray = response.data.items;
+    this.setState({
+
+      playlists: someArray
+
+    });
+    console.log(this.state.playlists);
+
+  }
+render(){
+    return(
+        <div>
+        <main className="grid_CardPreview">
+        {this.state.playlists.map(
+            course => <article  style={{ 'background-image': `url(${course.snippet.thumbnails.high.url})`}} className="card_CardPreview">
+            <div className="text_CardPreview">
+            <h3>{course.snippet.title}</h3>
+        </div>
+        </article>
+      )}
+    </main>
+        </div>
+    )
+}
 }
 export default Cards;
