@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 
 import { search } from '../../store/actions/search';
 import {connect} from 'react-redux';
-
+import './SearchBar.css'
 class SearchBar extends Component{
     state = {
         searchTerm: "",
@@ -26,7 +26,7 @@ class SearchBar extends Component{
     render(){
         return (
             <form  onSubmit={this.handleSubmit}>
-            <input type="text" name="searchTerm" placeholder="Search..." onChange={this.handleChange}></input>
+            <input className="input_SEARCHBAR" type="text" name="searchTerm" placeholder="Search..." onChange={this.handleChange}></input>
             <div></div>
            </form>
         )

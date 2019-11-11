@@ -24,27 +24,30 @@ const NavigationAuth = ({ authUser }) => (
   <ul>
   { !!authUser.roles[ROLES.ADMIN] && (
      <li>
-       <NavLink to={ROUTES.ADMIN}>Admin</NavLink>
+       <NavLink className="link_NAVIGATION" to={ROUTES.ADMIN}>Admin</NavLink>
      </li>
    )
 }
   <li>
-  <SignOutButton/>
+    <div className="SignOut_NAVIGATION" to=""><SignOutButton/></div>
   </li>
   <li>
-  <NavLink to={ROUTES.ACCOUNT}>Account</NavLink>
+  <div className="searchBar_NAVIGATION"><SearchBar/></div>
   </li>
   <li>
-  <NavLink to={ROUTES.COURSES}>Cursos</NavLink>
   </li>
   <li>
-  <NavLink to={ROUTES.LANDING}>Landing</NavLink>
+  <NavLink className="link_NAVIGATION" to={ROUTES.COURSES}>Cursos</NavLink>
   </li>
   <li>
-  <NavLink to={ROUTES.HOME}>Home</NavLink>
+  <NavLink className="link_NAVIGATION" to={ROUTES.LANDING}>Landing</NavLink>
   </li>
   <li>
-  <SearchBar></SearchBar>
+  <NavLink className="link_NAVIGATION" to={ROUTES.HOME}>Home</NavLink>
+  </li>
+  
+  <li className="logo_NAVIGATION">
+  <NavLink className="link_NAVIGATION" to={ROUTES.LANDING}>Logo</NavLink>
   </li>
   </ul>
 ) ;
@@ -54,10 +57,13 @@ const NavigationNonAuth = () => (
   <div className="WithoutAuthentication">
   <ul>
   <li>
-  <NavLink to={ROUTES.LANDING}>Landing</NavLink>
+  <NavLink className="link_NAVIGATION" to={ROUTES.SIGN_IN}>Sign In</NavLink>
   </li>
   <li>
-  <NavLink to={ROUTES.SIGN_IN}>Sign In</NavLink>
+  <NavLink className="link_NAVIGATION" to={ROUTES.LANDING}>Landing</NavLink>
+  </li>
+  <li className="logo_NAVIGATION">
+  <NavLink className="link_NAVIGATION" to={ROUTES.LANDING}>Logo</NavLink>
   </li>
   </ul>
   </div>
