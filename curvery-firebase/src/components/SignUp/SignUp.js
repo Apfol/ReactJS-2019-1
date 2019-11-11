@@ -10,7 +10,6 @@ import './SignUp.css';
 
 const SignUpPage = () => (
   <div>
-    <h1>Sign Up</h1>
     <SignUpForm>
     {firebase => <SignUpForm firebase={firebase}/>}
     </SignUpForm>
