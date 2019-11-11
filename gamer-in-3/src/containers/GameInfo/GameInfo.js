@@ -19,11 +19,30 @@ class GameInfo extends Component {
                 <div className={classes["text-align-center"]}>
                     <p className={classes.description}>{game.description}</p>
                 </div>
+                {this.showInfo()}
             </div>
         );
     }
     charge = () => {
         return <Loader />
+    }
+    showInfo = () => {
+        if (this.props.isUserLoggedIn) {
+            return (
+                <div>
+                    <div>
+                        <h1>Tus estadisticas</h1>
+                    </div>
+                    <div>
+                        <button>Quieres jugar?</button>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div>Inicia sesion para agregar este juego a tu lista</div>
+            )
+        }
     }
     render() {
         const game = this.props.games.find(game => game.id + "" === this.props.match.params.gameIndex);
@@ -38,6 +57,7 @@ class GameInfo extends Component {
 
 const mapStateToProps = state => {
     return {
+        isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
         games: state.gamesStore.games
     }
 }

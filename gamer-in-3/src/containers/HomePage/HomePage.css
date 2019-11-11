@@ -33,3 +33,8 @@
     font-size: 2em;
     font-weight: 300;
 }
+
+.featured {
+    font-size: 4em;
+    margin: 0;
+}

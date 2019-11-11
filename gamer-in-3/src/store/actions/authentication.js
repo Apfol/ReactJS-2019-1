@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../instances/axios-authentication';
-
+import axiosGames from '../../instances/axios-games';
 const API_KEY = 'AIzaSyCzs7Ni4pV406_mpVKJaU4evPJ0HbXygXY';
 
 const startLoading = () => {
@@ -82,8 +82,12 @@ export const logIn = (authData, onSuccessCallback) => {
 
 export const signIn = (authData, onSuccessCallback) => {
     return dispatch => {
+        let userSignIn = {
+            email: authData.email,
+            password: authData.password
+        }
         dispatch(startLoading())
-        axios.post('/accounts:signUp?key=' + API_KEY, authData)
+        axios.post('/accounts:signUp?key=' + API_KEY, userSignIn)
             .then(response => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
@@ -97,6 +101,21 @@ export const signIn = (authData, onSuccessCallback) => {
                 if (onSuccessCallback) {
                     onSuccessCallback();
                 }
+            })
+            .catch(error => {
+                dispatch(signInError());
+                dispatch(endLoading());
+            })
+        let user = {
+            email: authData.email,
+            first: true,
+            profilePic: "",
+            games: [],
+            userType: "normalUser"
+        }
+        axiosGames.post('/users.json', user)
+            .then(response => {
+
             })
             .catch(error => {
                 dispatch(signInError());

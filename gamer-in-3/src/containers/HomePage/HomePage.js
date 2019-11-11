@@ -18,6 +18,9 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className={classes.wrapper}>
+                    <div>
+                        <h1 className={classes.featured}>Featured</h1>
+                    </div>
                     {this.props.games.map((gameType, index) => {
                         return <GameList games={gameType.slice(0, 4)} title={gameType[0].platform} key={index} />
                     })}
