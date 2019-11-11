@@ -221,3 +221,7 @@ height: 100vh;
   .muted_VIDEODETAILS:hover  {
     background-color: #3e8e41;
 }
+.iconVolumen_VIDEODETAILS{
+  transform: scale(0.5);
+  filter: invert(1);
+}

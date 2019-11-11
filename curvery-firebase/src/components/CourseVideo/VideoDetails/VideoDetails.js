@@ -162,7 +162,7 @@ export class VideoDetails extends Component {
               <div className="controlOverScreen_VIDEODETAILS">
               <div className="containerControls_VIDEODETAILS">
               <div className="playContainer_VIDEODETAILS">
-              <button className="play_VIDEODETAILS" onClick={this.handlePlayPause}>{playing ? 'II' : 'P'}</button>
+              <button className="play_VIDEODETAILS" onClick={this.handlePlayPause}>{playing ? <img className="iconVolumen_VIDEODETAILS" src="https://image.flaticon.com/icons/svg/151/151859.svg" alt=""></img>  : <img className="iconVolumen_VIDEODETAILS" src="https://image.flaticon.com/icons/svg/149/149657.svg" alt=""></img> }</button>
               </div>
               <div className="durationContainer_VIDEODETAILS">
               <div className="duration_VIDEODETAILS" >
@@ -180,13 +180,14 @@ export class VideoDetails extends Component {
               <div className="volumen_VIDEODETAILS">
               <input type='range' min={0} max={1} step='any' value={volume} onChange={this.handleVolumeChange} />
               </div>
+
               </div>
               <div className="mutedContainer_VIDEODETAILS">
-              <button className="muted_VIDEODETAILS" onClick={this.handleToggleMuted}>{muted ? 'M' : 'N'}</button>
+              <button className="muted_VIDEODETAILS" onClick={this.handleToggleMuted}>{muted ? <img className="iconVolumen_VIDEODETAILS" src="https://image.flaticon.com/icons/svg/149/149687.svg" alt=""></img> : <img className="iconVolumen_VIDEODETAILS" src="https://image.flaticon.com/icons/svg/149/149682.svg" alt=""></img>}</button>
               </div>
               <div className="velocityContainer_VIDEODETAILS">
           <div className="dropdown_VIDEODETAILS">
-          <button className="dropbtn_VIDEODETAILS">A</button>
+          <button className="dropbtn_VIDEODETAILS"><img className="iconVolumen_VIDEODETAILS" src="https://image.flaticon.com/icons/svg/0/128.svg" alt=""></img></button>
           <div className="dropdown-content_VIDEODETAILS">
           <button onClick={this.handleSetPlaybackRate} value={1}>1x</button>
           <button onClick={this.handleSetPlaybackRate} value={1.5}>1.5x</button>
