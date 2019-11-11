@@ -8,9 +8,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import authenticationReducer from './Store/Reducers/authentication';
+import EquipmentReducer from './Store/Reducers/SportEquipment';
 
 const rootReducer = combineReducers ({
-    authenticationStore: authenticationReducer    
+    authenticationStore: authenticationReducer,
+    EquipmentStore: EquipmentReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

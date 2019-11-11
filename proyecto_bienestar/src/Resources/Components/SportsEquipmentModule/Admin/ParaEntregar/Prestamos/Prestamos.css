@@ -1,0 +1,7 @@
+.prestamo{
+    float: left;
+    margin: auto;
+    display: inline-block;
+    width: 20%;
+    background-color: darkgrey;
+}

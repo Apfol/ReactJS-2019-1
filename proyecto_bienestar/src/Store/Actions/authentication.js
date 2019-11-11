@@ -44,7 +44,7 @@ const saveSignIn = (userName, token, localId) => {
 
 export const logIn = (authData, onSuccessCallback) => {
   return dispatch => {
-    dispatch(startLoading());
+    dispatch(startLoading());    
     var provider = new firebase.auth.OAuthProvider("microsoft.com");    
     provider.addScope("user.Read");
     provider.addScope("contacts.read");

@@ -92,8 +92,7 @@ class SideBar extends React.Component {
 
       /*var img = document.createElement('img');
       img.src = 'data:image/jpeg;base64,' + this.hexToBase64(Response.data);
-      console.log(Response)*/
-      console.log(Response.data);
+      console.log(Response)*/      
       const url = window.URL || window.webkitURL;
       const blobUrl = url.createObjectURL(Response.data);      
       
