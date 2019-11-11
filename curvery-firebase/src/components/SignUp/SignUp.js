@@ -6,6 +6,7 @@ import {withFirebase} from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
+import './SignUp.css';
 
 const SignUpPage = () => (
   <div>
@@ -46,6 +47,7 @@ class SignUpFormBase extends Component{
             username,
             email,
             roles,
+            isAdmin,
           });
       })
       .then(() => {
@@ -74,7 +76,6 @@ class SignUpFormBase extends Component{
       email,
       passwordOne,
       passwordTwo,
-      isAdmin,
       error,
     } = this.state;
 
@@ -85,48 +86,51 @@ class SignUpFormBase extends Component{
       username === '';
     
     return(
-      <form onSubmit={this.onSubmit}>
-      <input
-          name="username"
-          value={username}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Full Name"
-        />
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="passwordOne"
-          value={passwordOne}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <input
-          name="passwordTwo"
-          value={passwordTwo}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Confirm Password"
-        />
-        <label>
-          Admin:
-          <input
-            name="isAdmin"
-            type="checkbox"
-            checked={isAdmin}
-            onChange={this.onChangeCheckbox}
-          />
-        </label>
+      <form className="form_SIGNUP" onSubmit={this.onSubmit} id="login-form">
+      <div className="heading_SIGNUP">SIGN UP TO CURVERY</div>
+      <div className="leftForm_SIGNUP">
+      <label className="label_SIGNUP">User Name</label> <br />
+             <input
+             name="username"
+             value={username}
+             onChange={this.onChange}
+             type="text"
+             placeholder="Full Name"
+             id="username"
+             /><br />
+      <label className="label_SIGNUP">Email</label> <br />
+              <input
+              name="email"
+              value={email}
+              onChange={this.onChange}
+              type="email"
+              placeholder="Email Address"
+              id="email"
+              /><br />
+      <label className="label_SIGNUP">Password</label> <br />
+              <input
+              name="passwordOne"
+              value={passwordOne}
+              onChange={this.onChange}
+              type="password"
+              placeholder="Password"
+              id="password"             
+              /><br />
+      <label className="label_SIGNUP">Repeat Password</label> <br />
+              <input
+              name="passwordTwo"
+              value={passwordTwo}
+              onChange={this.onChange}
+              type="password"
+              placeholder="Confirm Password"
+              id="password"
 
-        <button disabled={isInvalid} type="submit">Sign Up</button>
+              /><br />
+      <button className="buttonSubmit_SIGNUP" disabled={isInvalid} type="submit">Sign Up</button>
         {error && <p>{error.message}</p>}
-      </form>
+  </div>
+</form>  
+    
     )
   }
 }

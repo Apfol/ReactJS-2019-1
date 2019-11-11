@@ -20,13 +20,13 @@
   .carousel-wrapper .carousel-item .carousel-text{
       padding: 0% 10%;
   }
-  .carousel-wrapper .carousel-item .carousel-text h2{
+  .carousel-wrapper .carousel-item .carousel-text .carousel-title{
     padding: 0% 10%;
     color: blanchedalmond;
     font-size: 8em;
 }
 
-.carousel-wrapper .carousel-item .carousel-text p{
+.carousel-wrapper .carousel-item .carousel-text .carousel-paragraph{
     padding: 0% 10%;
     color: blanchedalmond;
     font-size: 2.5em;

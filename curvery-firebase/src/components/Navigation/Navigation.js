@@ -57,8 +57,8 @@ const NavigationAuth = ({ authUser }) => (
 const NavigationNonAuth = () => (
   <div className="WithoutAuthentication">
   <ul>
-  <li>
-  <NavLink className="link_NAVIGATION" to={ROUTES.SIGN_IN}>Sign In</NavLink>
+  <li className="signInButton_NAVIGATION">
+  <NavLink className="li_SIGNIN" to={ROUTES.SIGN_IN}>Sign In</NavLink>
   </li>
   <li>
   <NavLink className="link_NAVIGATION" to={ROUTES.LANDING}>Landing</NavLink>
