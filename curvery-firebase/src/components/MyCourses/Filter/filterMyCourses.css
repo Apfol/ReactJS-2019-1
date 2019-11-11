@@ -1,0 +1,32 @@
+.ul_FILTERMYCOURSES {
+    list-style-type: none;
+    margin-top: 0%;
+    padding: 0;
+    width: 14%;
+    background-color: #f1f1f1;
+    position: absolute;
+    height: 50%;
+    overflow: auto;
+    margin-left: 7vw;
+  }
+  
+  .li_FILTERMYCOURSES a {
+    display: block;
+    color: #000;
+    padding: 8px 15%;
+    text-decoration: none;
+  }
+  
+  .li_FILTERMYCOURSES a.active_FILTERMYCOURSES {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .li_FILTERMYCOURSES a:hover:not(.active_FILTERMYCOURSES) {
+    background-color: rgb(219, 219, 219);
+    color: white;
+  }
+
+.title_FILTERMYCOURSES{
+    margin-left: 10%;
+}

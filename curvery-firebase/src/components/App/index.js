@@ -14,6 +14,7 @@ import CoursePlayer from '../CourseVideo/CoursePlayer/CoursePlayer';
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 import Course from '../Courses/Course';
+import MyCourses from '../MyCourses/MyCourses';
 
 const App = () => (
   <Router>
@@ -31,6 +32,7 @@ const App = () => (
       <Route exact path={ROUTES.COURSES} component={Course} />
       <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+      <Route exact path={ROUTES.MYCOURSES} component={MyCourses} />
       <Route path='/player/:playlistId'  component={CoursePlayer}></Route>
       <Route component={NotFound} />
       <Redirect to="/404" />

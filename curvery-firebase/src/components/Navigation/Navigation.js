@@ -37,10 +37,10 @@ const NavigationAuth = ({ authUser }) => (
   <li>
   </li>
   <li>
-  <NavLink className="link_NAVIGATION" to={ROUTES.COURSES}>Cursos</NavLink>
+  <NavLink className="link_NAVIGATION" to={ROUTES.MYCOURSES}>My Courses</NavLink>
   </li>
   <li>
-  <NavLink className="link_NAVIGATION" to={ROUTES.LANDING}>Landing</NavLink>
+  <NavLink className="link_NAVIGATION" to={ROUTES.COURSES}>Courses</NavLink>
   </li>
   <li>
   <NavLink className="link_NAVIGATION" to={ROUTES.HOME}>Home</NavLink>
@@ -49,6 +49,7 @@ const NavigationAuth = ({ authUser }) => (
   <li className="logo_NAVIGATION">
   <NavLink className="link_NAVIGATION" to={ROUTES.LANDING}>Logo</NavLink>
   </li>
+  
   </ul>
 ) ;
 

@@ -6,3 +6,4 @@ export const ACCOUNT = '/account';
 export const ADMIN = '/admin';
 export const COURSES = '/cursos';
 export const PASSWORD_FORGET = '/pw-forget';
+export const MYCOURSES= '/my-courses';
