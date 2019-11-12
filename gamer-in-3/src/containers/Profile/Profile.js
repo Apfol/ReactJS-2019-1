@@ -19,24 +19,7 @@ class Profile extends Component {
             author: "",
             content: ""
         },
-        user:{}
-    }
-
-
-    async getUserData(){
-        try{
-            const response = await axios.get("/users.json",{
-                params: {
-                  email: this.props.userLoggedIn.username
-                }
-            });
-            console.log(response)
-            const user = Object.values(response.data)[1];
-            this.setState({user:user});
-            
-        }catch(e){
-            console.log(e);
-        }
+        user: {}
     }
 
     componentWillReceiveProps(nextState) {
@@ -50,7 +33,6 @@ class Profile extends Component {
         if (this.state.isUserLoggedIn) {
             this.props.onFetchPosts();
         }
-        this.getUserData()
     }
 
     componentWillUpdate(nextProps, nextState) {
@@ -65,17 +47,17 @@ class Profile extends Component {
         return (
             <div>
                 <div className={classes.profback}>
-                <img className={classes.profilepic} src={this.state.user.profilePic} alt = {"profile pic"}/>
-                <p>Logged in as: {this.props.userLoggedIn.userName}</p>
-                
-                <button onClick={this.props.onLogOut}>Log out</button>
-                <NewPost
-                    newPostInfo={this.state.newPostInfo}
-                    updateNewPostData={this.updateNewPostData}
-                    submitNewPost={this.submitNewPost}
-                />
-                
-                {this.renderPosts()}
+                    <img className={classes.profilepic} src={this.state.user.profilePic} alt={"profile pic"} />
+                    <p>Logged in as: {this.props.userLoggedIn.userName}</p>
+
+                    <button onClick={this.props.onLogOut}>Log out</button>
+                    <NewPost
+                        newPostInfo={this.state.newPostInfo}
+                        updateNewPostData={this.updateNewPostData}
+                        submitNewPost={this.submitNewPost}
+                    />
+
+                    {this.renderPosts()}
                 </div>
             </div>
         );
@@ -83,18 +65,18 @@ class Profile extends Component {
 
     render() {
 
-        const games = Object.values(this.state.user)[2] ? Object.values(this.state.user)[2].league:"not found"
-        const user  = games !== "not found" ? games.username : "Not Found"
+        const games = Object.values(this.state.user)[2] ? Object.values(this.state.user)[2].league : "not found"
+        const user = games !== "not found" ? games.username : "Not Found"
         const div = games !== "not found" ? games.Div : "Not Found"
         const elo = games !== "not found" ? games.Elo : "Not Found"
         const rol = games !== "not found" ? games.Rol : "Not Found"
         return (
-            <>  
+            <>
                 <div className={classes.profback}>
-                <h1>
-                    Welcome: {user} <br/>
-                    
-                </h1>
+                    <h1>
+                        Welcome: {user} <br />
+
+                    </h1>
                 </div>
                 {this.state.isUserLoggedIn ? this.onUserLoggedIn() : this.onUserLoggedOut()}
             </>

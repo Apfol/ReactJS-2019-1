@@ -15,13 +15,11 @@ const endLoading = () => {
     }
 }
 
-const saveSession = (userName, token, localId) => {
+const saveSession = (user) => {
     return {
         type: actionTypes.LOGIN,
         payload: {
-            userName: userName,
-            idToken: token,
-            localId: localId
+            user
         }
     };
 };
@@ -47,6 +45,7 @@ const signInError = () => {
     }
 }
 export const logIn = (authData, onSuccessCallback) => {
+    var userSession = {};
     return dispatch => {
         dispatch(startLoading())
         axios.post('/accounts:signInWithPassword?key=' + API_KEY, authData)
@@ -54,20 +53,14 @@ export const logIn = (authData, onSuccessCallback) => {
                 const userEmail = authData.email;
                 const token = response.data.idToken;
                 const localId = response.data.localId;
-                let userSession = {
+
+                userSession = {
                     token,
                     userEmail,
                     localId
                 };
-
-                userSession = JSON.stringify(userSession);
-
-                console.log(response);
-
-                localStorage.setItem('userSession', userSession);
-
-                dispatch(saveSession(userEmail, token, localId));
-                dispatch(endLoading());
+                let userSessionSave = JSON.stringify(userSession);
+                localStorage.setItem('userSession', userSessionSave);
 
                 if (onSuccessCallback) {
                     onSuccessCallback();
@@ -77,6 +70,27 @@ export const logIn = (authData, onSuccessCallback) => {
                 dispatch(loginError());
                 dispatch(endLoading());
             })
+            .then(() => {
+                axiosGames.get(`/users.json?orderBy="email"&equalTo="` + authData.email + `"`)
+                    .then(response => {
+                        console.log(response.data);
+                        const info = Object.values(response.data).map((info) => {
+                            return { ...info };
+                        });
+                        userSession = {
+                            ...userSession,
+                            ...info[0]
+                        }
+                        console.log(userSession);
+                        dispatch(saveSession(userSession));
+                        dispatch(endLoading());
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            })
+
+
     }
 };
 
