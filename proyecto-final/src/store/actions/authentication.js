@@ -77,7 +77,6 @@ export const userData = idToken => {
         axios.post('/accounts:lookup?key=' + API_KEY, idToken)
             .then(response => {
                 const displayName = response.data.displayName;
-                const idToken = idToken;
                 const localId = response.data.localId;
                 console.log(response);
                 dispatch(getUserData(displayName, idToken, localId));

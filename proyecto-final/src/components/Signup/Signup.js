@@ -4,7 +4,6 @@ import { Form, Container, Row, Col, Button } from 'react-bootstrap';
 import Spinner from '../../components/Spinner/Spinner';
 import * as actionCreators from '../../store/actions/authentication';
 import Error from '../../components/Error/Error';
-import ButtonComponet from '../Button/ButtonComponent';
 import classes from './Signup.css';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
 import Footer from '../Footer/Footer.js';

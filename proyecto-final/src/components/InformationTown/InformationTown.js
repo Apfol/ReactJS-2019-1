@@ -5,6 +5,7 @@ import { ButtonToolbar, OverlayTrigger, Tooltip, Image } from 'react-bootstrap';
 import Information from '../Information/Information.js';
 import classes from './InformationTown.css';
 import axios from '../../instances/axiosInstance';
+import { Link } from 'react-router-dom';
 
 
 class InformationTown extends Component{

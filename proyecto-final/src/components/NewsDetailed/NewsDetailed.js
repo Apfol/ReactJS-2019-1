@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './NewsDetailed.css';
 import { Row, Col, Container, Image } from 'react-bootstrap';
-import CommentForm from '../CommentForm/CommentForm';
 
 
 export default function NewsDetailed(props) {

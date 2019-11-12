@@ -1,6 +1,6 @@
 import classes from './Login.css';
 import React, { Component } from 'react';
-import { Form, Container, Row, Col } from 'react-bootstrap';
+import { Form, Container } from 'react-bootstrap';
 import Spinner from '../Spinner/Spinner';
 import Error from '../Error/Error';
 import * as actionCreators from '../../store/actions/authentication';
@@ -28,7 +28,7 @@ class Login extends Component {
         return (
             <div className = {classes.fullContainer}>
                 <div className={classes.imgContainer}>
-                    <img className={classes.img} src={image}></img>
+                    <img alt="" className={classes.img} src={image}></img>
                 </div>
                 <div className={classes.container} >
                     <Form className={classes.form} >

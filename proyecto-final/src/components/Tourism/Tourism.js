@@ -83,7 +83,7 @@ class Tourism extends Component {
     }
 
     conditions() {
-        if (this.state.isUserLoggedIn == false) {
+        if (this.state.isUserLoggedIn === false) {
             return (
                 this.onUserLogOut()
             )
