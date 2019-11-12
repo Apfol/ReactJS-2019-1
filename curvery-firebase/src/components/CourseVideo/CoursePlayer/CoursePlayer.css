@@ -1,18 +1,20 @@
 
                              
 .button_COURSEPLAYER{
-    background-color:#ffffff;
+    background-color:#3d90f0;
     border-radius:5px;
+    width: 20%;
     display:inline-block;
     cursor:pointer;
-    color:#f85f64;
+    color:#ffffff;
     font-family:Arial;
-    font-size:10px;
+    font-size:30px;
     padding:12px 31px;
     text-decoration:none;
+    border: none;
   }
   .button_COURSEPLAYER:hover {
-    background-color:#db5458; 
+    background-color:#3383dd; 
     color:#ffffff
   }
   .button_COURSEPLAYER:active {
