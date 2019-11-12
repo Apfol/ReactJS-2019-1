@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import './VideoNotes.css';
 export default class VideoNotes extends Component {
     state = {
         notes: ""
@@ -24,14 +24,16 @@ export default class VideoNotes extends Component {
 
     render() {
         return (
-            <div>
+            <div className="videoNotes_VIDEONOTES">
                 {/* NOTES STUFF*/}
+                <h1>Notes</h1>
                 <textarea
+                className="Comments_VIDEONOTES"
                     name="notes"
                     // value={this.state.notes}
                     onChange={this.handleNotesChange}
                 ></textarea>
-                <button onClick={this.onSaveNotesClick}>Save notes</button>
+                <button className="commentsButton_VIDEONOTES" onClick={this.onSaveNotesClick}>Save notes</button>
             </div>
         );
     }

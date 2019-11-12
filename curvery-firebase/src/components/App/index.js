@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 // Routes
 import Navigation from '../Navigation/Navigation';
+import Footer from '../Navigation/Footer/Footer';
 import LandingPage from '../Landing/Landing';
 import SignUpPage from '../SignUp/SignUp';
 import SignInPage from '../SignIn/SignIn';
@@ -38,7 +39,7 @@ const App = () => (
       <Route component={NotFound} />
       <Redirect to="/404" />
       </Switch>
-
+      <Footer></Footer>
       </div>
   </Router>
 );
