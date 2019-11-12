@@ -41,16 +41,3 @@ export const fetchNews = () => {
             })
     }
 }
-
-export const persistNews = () => {
-    return dispatch => {
-        let newsSelected = localStorage.getItem('newsSelected');
-        if (!newsSelected) {
-            dispatch(logOut());
-        } else {
-            userSession = JSON.parse(userSession);
-
-            dispatch(saveSignUp(userSession.userEmail, userSession.token, userSession.localId));
-        }
-    }
-}
