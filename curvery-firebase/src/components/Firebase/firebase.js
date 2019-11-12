@@ -82,8 +82,14 @@ class Firebase {
         });
 
     // *** User API ***
+    //  TODO: delete this 
     user = uid => this.db.ref(`users/${uid}`);
     users = () => this.db.ref("users");
+    
+    // TO PUSH 
+    user_course = (uid) => this.db.ref(`users/${uid}/courses`);
+    user_course_notes = (uid, cid) => this.db.ref(`users/${uid}/courses/${cid}`)
+
 }
 
 export default Firebase;

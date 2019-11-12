@@ -33,6 +33,7 @@ const App = () => (
       <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route exact path={ROUTES.ADMIN} component={AdminPage} />
       <Route exact path={ROUTES.MYCOURSES} component={MyCourses} />
+      
       <Route path='/player/:playlistId'  component={CoursePlayer}></Route>
       <Route component={NotFound} />
       <Redirect to="/404" />

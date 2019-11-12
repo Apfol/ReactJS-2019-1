@@ -1,119 +1,95 @@
-import React, {Component} from 'react';
-import './MyCourse.css';
+import React, { Component } from "react";
+import "./MyCourse.css";
+import { AuthUserContext } from "../Session";
+import { withFirebase } from "../Firebase";
+class MyCourse extends Component {
+    state = {
+        my_courses: []
+    };
 
-class MyCourse extends Component{
-    render(){
-        return(
-            <div>
-            <main className="grid_MYCOURSE">
-            <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
-            <div className="text_MYCOURSE">
-              <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
-              <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
-              <button className="button_MYCOURSE">I want to see more</button>
-             </div>
-            </article>
-           
+    componentWillMount() {
+        this.setAuthUserId();
+        // Get the courses of the user
+        // this.getCoursesCards(this.getUserCourses);
+    }
+    getUserCoursesList = authUserId => {
+        this.props.firebase.user_course(authUserId).on("value", snapshot => {
+            // Firebase retorna un snapshot que es un objeto donde se encapsula
+            const coursesObject = snapshot.val();
+            if (coursesObject != null) {
+                const coursesList = Object.keys(coursesObject).map(key => ({
+                    ...coursesObject[key],
+                    cid: key
+                }));
+                console.log("cursos list", coursesList);
 
-            {/////////////////////////////BORRAR DESDE ACA///////////////////////////////////////////////////
+                this.setState({
+                    my_courses: coursesList
+                });
             }
-            <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
-            <div className="text_MYCOURSE">
-              <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
-              <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
-              <button className="button_MYCOURSE">I want to see more</button>
-             </div>
-            </article>
-            <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
-            <div className="text_MYCOURSE">
-              <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
-              <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
-              <button className="button_MYCOURSE">I want to see more</button>
-             </div>
-            </article>
-            <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
-            <div className="text_MYCOURSE">
-              <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
-              <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
-              <button className="button_MYCOURSE">I want to see more</button>
-             </div>
-            </article>
-            <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
-            <div className="text_MYCOURSE">
-              <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
-              <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
-              <button className="button_MYCOURSE">I want to see more</button>
-             </div>
-            </article>
-            <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
-            <div className="text_MYCOURSE">
-              <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
-              <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
-              <button className="button_MYCOURSE">I want to see more</button>
-             </div>
-            </article>
-            <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
-            <div className="text_MYCOURSE">
-              <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
-              <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
-              <button className="button_MYCOURSE">I want to see more</button>
-             </div>
-            </article>
-            <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
-            <div className="text_MYCOURSE">
-              <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
-              <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
-              <button className="button_MYCOURSE">I want to see more</button>
-             </div>
-            </article>
-            <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
-            <div className="text_MYCOURSE">
-              <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
-              <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
-              <button className="button_MYCOURSE">I want to see more</button>
-             </div>
-            </article>
-            <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
-            <div className="text_MYCOURSE">
-              <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
-              <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
-              <button className="button_MYCOURSE">I want to see more</button>
-             </div>
-            </article>
-            <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
-            <div className="text_MYCOURSE">
-              <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
-              <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
-              <button className="button_MYCOURSE">I want to see more</button>
-             </div>
-            </article>
-            <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
-            <div className="text_MYCOURSE">
-              <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
-              <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
-              <button className="button_MYCOURSE">I want to see more</button>
-             </div>
-            </article>
-            {////////////////////////////////////HASTA ACÁ/////////////////////////////////////////////////////////
-            }
+        });
+    };
 
+    setAuthUserId = uid => {
+        const authUserId = JSON.parse(localStorage.getItem("authUser")).uid;
+        this.getUserCoursesList(authUserId);
+    };
 
+    renderCards = courses => {
+        return courses.map(course => (
+          <main className="grid_MYCOURSE">
+                    <article className="article_MYCOURSE">
+                        <img
+                            className="img_MYCOURSE"
+                            src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg"
+                            alt=""
+                        ></img>
+                        <div className="text_MYCOURSE">
+                            <h3 className="title_MYCOURSE">{course.title}</h3>
+                            <p className="paragraph_MYCOURSE">
+                                Collaboratively administrate empowered markets
+                                via plug-and-play networks. Collaboratively
+                                administrate empowered markets via plug-and-play
+                                networks. Collaboratively administrate empowered
+                                markets via plug-and-play networks.
+                            </p>
+                            <button className="button_MYCOURSE">
+                                I want to see more
+                            </button>
+                        </div>
+                    </article>
+                </main>
+        ));
+    };
 
-            </main>
-            </div>
-        )
+    render() {
+        return <div>{this.renderCards(this.state.my_courses)}</div>;
     }
 }
-export default MyCourse;
+export default withFirebase(MyCourse);
+
+/* CARD */
+/* 
+<main className="grid_MYCOURSE">
+                    <article className="article_MYCOURSE">
+                        <img
+                            className="img_MYCOURSE"
+                            src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg"
+                            alt=""
+                        ></img>
+                        <div className="text_MYCOURSE">
+                            <h3 className="title_MYCOURSE">{course.title}</h3>
+                            <p className="paragraph_MYCOURSE">
+                                Collaboratively administrate empowered markets
+                                via plug-and-play networks. Collaboratively
+                                administrate empowered markets via plug-and-play
+                                networks. Collaboratively administrate empowered
+                                markets via plug-and-play networks.
+                            </p>
+                            <button className="button_MYCOURSE">
+                                I want to see more
+                            </button>
+                        </div>
+                    </article>
+                </main>
+*/

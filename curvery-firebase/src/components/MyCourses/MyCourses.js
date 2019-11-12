@@ -1,22 +1,27 @@
-import React from 'react';
+import React from "react";
 
-import { compose } from 'recompose';
-import { withAuthorization, withEmailVerification } from '../Session';
-import Filter from './Filter/FilterMyCourse';
+import { compose } from "recompose";
+import { withAuthorization, withEmailVerification } from "../Session";
+import Filter from "./Filter/FilterMyCourse";
 //COMPONENTS
-import MyCourse from './MyCourse';
-import "./MyCourses.css"
+import MyCourse from "./MyCourse";
+import "./MyCourses.css";
 
-const MyCourses = () => (
-  <div>
-    <div className="titleMyCourses_MYCOURSES"></div>
-    <Filter></Filter>
-    <MyCourse></MyCourse>
-  </div>
-);
+class MyCourses extends React.Component {
+    render() {
+        return (
+            <div>
+                <div className="titleMyCourses_MYCOURSES"></div>
+                <Filter></Filter>
+                <MyCourse></MyCourse>
+            </div>
+        );
+    }
+}
+
 const condition = authUser => !!authUser;
 
 export default compose(
-  withEmailVerification,
-  withAuthorization(condition),
+    withEmailVerification,
+    withAuthorization(condition)
 )(MyCourses);

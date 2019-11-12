@@ -15,7 +15,7 @@ class Courses extends Component {
         todosPerPage: 6,
         pages: []
     };
-
+    
     componentWillReceiveProps(nextProps) {
         console.log("NEXT ",nextProps);
 
