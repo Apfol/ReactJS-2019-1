@@ -13,33 +13,17 @@ class Profile extends Component {
     state = {
         isUserLoggedIn: this.props.isUserLoggedIn,
         posts: this.props.posts,
-        newPostInfo: {
-            title: "",
-            author: "",
-            content: ""
-        },
         user: this.props.userLoggedIn
     }
 
     componentWillReceiveProps(nextState) {
         this.setState({
             user: nextState.user,
-            isUserLoggedIn: nextState.isUserLoggedIn,
-            posts: nextState.posts,
+            isUserLoggedIn: nextState.isUserLoggedIn
         });
     }
 
-    componentDidMount() {
-        if (this.state.isUserLoggedIn) {
-            this.props.onFetchPosts();
-        }
-    }
 
-    componentWillUpdate(nextProps, nextState) {
-        if (!this.state.isUserLoggedIn && nextState.isUserLoggedIn) {
-            this.props.onFetchPosts();
-        }
-    }
     onUserLoggedIn() {
         if (this.props.userLoggedIn) {
             return (
@@ -47,12 +31,6 @@ class Profile extends Component {
                     <div className={classes.profback}>
                         <img className={classes.profilepic} src={this.props.userLoggedIn.profilePic} alt={"profile pic"} />
                         <p>Logged in as: {this.props.userLoggedIn.email}</p>
-                        <NewPost
-                            newPostInfo={this.state.newPostInfo}
-                            updateNewPostData={this.updateNewPostData}
-                            submitNewPost={this.submitNewPost}
-                        />
-
                         {this.renderPosts()}
                     </div>
                 </div>
@@ -76,35 +54,9 @@ class Profile extends Component {
     }
 
     renderPosts() {
-        let posts = <Posts posts={this.state.posts} />;
 
-        if (this.props.loadingPosts) {
-            posts = <Spinner />;
-        }
-        return posts;
     }
 
-    updateNewPostData = (event, type) => {
-        var updatedNewPostInfo = {
-            ...this.state.newPostInfo
-        }
-        updatedNewPostInfo[type] = event.target.value;
-        this.setState({
-            newPostInfo: updatedNewPostInfo
-        });
-    }
-
-    submitNewPost = () => {
-        var newPostInfo = { ...this.state.newPostInfo };
-        this.props.onSavePost(newPostInfo);
-        this.setState({
-            newPostInfo: {
-                title: "",
-                author: "",
-                content: ""
-            }
-        })
-    }
 
     onUserLoggedOut() {
         return (
@@ -125,7 +77,6 @@ const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
         userLoggedIn: state.authenticationStore.userLoggedIn,
-        posts: state.postsStore.posts,
         loadingPosts: state.postsStore.loadingPosts
     }
 }

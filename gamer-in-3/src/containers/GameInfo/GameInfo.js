@@ -26,18 +26,33 @@ class GameInfo extends Component {
     charge = () => {
         return <Loader />
     }
+    renderStats = (game) => {
+        return (
+            <div>
+                Tus estadisticas
+                <div>
+                    ROL : {game.Rol} <br />
+                    username: {game.username}
+                </div>
+            </div>
+        )
+    }
     showInfo = () => {
-        const game = this.props.games.find(game => game.id + "" === this.props.match.params.gameIndex);
-        if (this.props.isUserLoggedIn) {
+        if (this.props.isUserLoggedIn && this.props.userLoggedIn) {
+            const game = this.props.userLoggedIn.games.find(game => game.id + "" === this.props.match.params.gameIndex)
+            console.log(game);
             return (
                 <div>
-                    {}
-                    <div>
-                        <h1>Tus estadisticas</h1>
-                    </div>
-                    <div>
-                        <button>Quieres jugar?</button>
-                    </div>
+                    {
+                        game ?
+                            (this.renderStats(game)) :
+                            (<div>
+                                <button>Quieres jugar?</button>
+                            </div>
+                            )
+                    }
+
+
                 </div>
             )
         } else {
