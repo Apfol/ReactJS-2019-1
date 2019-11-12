@@ -1,14 +1,15 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import { search } from '../../store/actions/search';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './SearchBar.css'
-class SearchBar extends Component{
+class SearchBar extends Component {
     state = {
         searchTerm: "",
         filters: []
     }
 
-    handleChange = (event)=>{
+    handleChange = (event) => {
         this.setState(
             {
                 searchTerm: event.target.value
@@ -16,28 +17,30 @@ class SearchBar extends Component{
         );
     }
 
-    handleSubmit = (event)=>{
+    handleSubmit = (event) => {
         event.preventDefault();
         // TODO: CHANGE TO SEND FILTERS
         this.props.onSearchTerm(this.state.searchTerm, this.state.filters);
     }
-   
-    
-    render(){
+
+
+    render() {
         return (
-            <form  onSubmit={this.handleSubmit}>
-            <input className="input_SEARCHBAR" type="text" name="searchTerm" placeholder="Search..." onChange={this.handleChange} ></input>
-            <div></div>
-           </form>
+            <form onSubmit={this.handleSubmit}>
+                <Link to={"/cursos"}>
+                    <input className="input_SEARCHBAR" type="text" name="searchTerm" placeholder="Search..." onChange={this.handleChange} ></input>
+                </Link>
+                <div></div>
+            </form>
         )
     }
 }
 
 
-const mapDispatchToProps = dispatch=>{
+const mapDispatchToProps = dispatch => {
     return {
         onSearchTerm: (searchTerm, filters) => dispatch(search(searchTerm, filters))
     }
 }
 
-export default connect(null,mapDispatchToProps)(SearchBar);
+export default connect(null, mapDispatchToProps)(SearchBar);
