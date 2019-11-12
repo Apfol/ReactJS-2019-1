@@ -21,19 +21,19 @@ class PlaceDetailed extends Component {
                             starCount={5}
                             value={this.props.place["score"]}
                         />
-                        <h4 className={classes.comment}>Comentarios</h4>
                     </Col>
                     <Col sm={4}></Col>
                     </Row>
                     <Row>
-                        <Col sm>
+                        <Col sm={1}></Col>
+                        <Col sm={10}>
                             <p className={classes.detailedDescription}>{this.props.place["detailedDescription"]}</p>
                             <p style={{ fontSize: "20px", fontWeight: "bold", textAlign: "center" }}>Agrega tu experiencia en este sitio.</p>
-                            <h4 className={classes.comment}>Comentarios</h4>
                             <div className={classes.comments}>
                                 {this.condition()}
                             </div>
                         </Col>
+                        <Col sm={1}></Col>
                     </Row>
                 </Container>
             </div>
