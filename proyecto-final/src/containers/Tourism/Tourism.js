@@ -34,7 +34,6 @@ export default class Tourism extends Component {
                         detailedDescription: place.detailedDescription,
                     }
                 });
-                console.log(updatedPlaces);
                 this.setState({
                     touristPlaces: updatedPlaces,
                 });
@@ -48,7 +47,6 @@ export default class Tourism extends Component {
         this.setState({
             placeSelected: place,
         });
-        console.log(place);
     }
 
     getPlaces = () => {

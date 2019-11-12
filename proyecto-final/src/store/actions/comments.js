@@ -28,12 +28,10 @@ export const saveComment = (comment, idPlace) => {
         dispatch(startLoading());
         axios.post('/touristPlaces/' + idPlace + '/comments.json', comment)
             .then(response => {
-                console.log(response);
                 dispatch(storeComment(comment));
                 dispatch(endLoading());
             })
             .catch(error => {
-                console.log(error);
                 dispatch(endLoading());
             })
     }

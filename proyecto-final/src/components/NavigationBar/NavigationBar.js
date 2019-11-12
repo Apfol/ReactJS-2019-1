@@ -23,7 +23,6 @@ class NavigationBar extends Component {
   }
 
   componentWillReceiveProps(nextState) {
-    console.log(this.state.userName);
     this.setState({
       isUserLoggedIn: nextState.isUserLoggedIn,
       userName: nextState.userName,

@@ -28,7 +28,6 @@ export const fetchNews = () => {
 
         axios.get('/news.json')
             .then(response => {
-                console.log(response);
 
                 const news = Object.values(response.data).map((newss) => {
                     return {...newss};
@@ -38,8 +37,20 @@ export const fetchNews = () => {
                 dispatch(endLoading());
             })
             .catch(error => {
-                console.log(error);
                 dispatch(endLoading());
             })
+    }
+}
+
+export const persistNews = () => {
+    return dispatch => {
+        let newsSelected = localStorage.getItem('newsSelected');
+        if (!newsSelected) {
+            dispatch(logOut());
+        } else {
+            userSession = JSON.parse(userSession);
+
+            dispatch(saveSignUp(userSession.userEmail, userSession.token, userSession.localId));
+        }
     }
 }

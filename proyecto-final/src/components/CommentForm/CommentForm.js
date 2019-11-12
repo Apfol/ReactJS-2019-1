@@ -9,7 +9,7 @@ const CommentForm = (props) => {
                 <Form className={classes.form} >
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Título del comentario</Form.Label>
-                        <Form.Control placeholder="Introduce el título" value={props.newCommentInfo['title']} onChange={(event) => { props.updateCommentInfo(event, 'title') }} />
+                        <Form.Control placeholder="Introduce el título" onChange={(event) => { props.updateCommentInfo(event, 'title') }} />
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Experiencia</Form.Label>

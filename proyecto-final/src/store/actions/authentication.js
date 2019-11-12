@@ -78,11 +78,9 @@ export const userData = idToken => {
             .then(response => {
                 const displayName = response.data.displayName;
                 const localId = response.data.localId;
-                console.log(response);
                 dispatch(getUserData(displayName, idToken, localId));
             })
             .catch(error => {
-                console.log(error);
             })
     }
 }
@@ -105,9 +103,8 @@ export const logIn = (authData, onSuccessCallback) => {
 
                 userSession = JSON.stringify(userSession);
 
-                console.log(response);
-
                 localStorage.setItem('userSession', userSession);
+                console.log(localStorage.getItem('userSession'));
                 dispatch(saveSession(userEmail, token, localId));
                 dispatch(endLoading());
 
@@ -116,7 +113,6 @@ export const logIn = (authData, onSuccessCallback) => {
                 }
             })
             .catch(error => {
-                console.log(error);
                 dispatch(endLoading());
                 dispatch(startloginError());
             })
@@ -133,8 +129,6 @@ export const signUp = (authData, onSuccessCallback) => {
                 const localId = response.data.localId;
                 const displayName = authData.displayName;
 
-                console.log(response);
-
                 dispatch(saveSignUp(displayName, token, localId));
                 dispatch(endLoading());
 
@@ -143,7 +137,6 @@ export const signUp = (authData, onSuccessCallback) => {
                 }
             })
             .catch(error => {
-                console.log(error);
                 dispatch(endLoading());
                 dispatch(startSignupError());
             })
@@ -153,7 +146,6 @@ export const signUp = (authData, onSuccessCallback) => {
 export const persistAuthentication = () => {
     return dispatch => {
         let userSession = localStorage.getItem('userSession');
-
         if (!userSession) {
             dispatch(logOut());
         } else {
