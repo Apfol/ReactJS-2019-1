@@ -47,41 +47,43 @@ class SignInFormBase extends Component {
     const { email, password, error } = this.state;
     const isInvalid = password === '' || email === '';
     return (
+      <div>
       <form className="form_SIGNIN" onSubmit={this.onSubmit}>
-  <div className="heading_SIGNIN">SIGN IN CURVERY</div>
-  <div className="leftForm_SIGNIN">
-    <label className="label_SIGNIN">Email</label> <br />
+      <div className="heading_SIGNIN">SIGN IN CURVERY</div>
+      <div className="leftForm_SIGNIN">
+      <label className="label_SIGNIN">Email</label> <br />
       <input
-         type="email"
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          placeholder="Email Address"
-          id="email" 
-        /><br />
-    <label className="label_SIGNIN">Password</label> <br />
-    <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-          id="pass"
-        /><br />
-        <button className="buttonSubmit_SIGNIN" disabled={isInvalid} type="submit">
-        Sign In
-        </button>
-        {error && <p>{error.message}</p>}
-        </div>
-        <div className="right_SIGNIN">
-        <div className="connect_SIGNIN">Connect with</div>
-        <SignInFacebook/>
-        <SignInTwitter/><br />
-        <SignInGoogle />
-        <PasswordForgetLink />
+      type="email"
+      name="email"
+      value={email}
+      onChange={this.onChange}
+      placeholder="Email Address"
+      id="email" 
+      /><br />
+      <label className="label_SIGNIN">Password</label> <br />
+      <input
+      name="password"
+      value={password}
+      onChange={this.onChange}
+      type="password"
+      placeholder="Password"
+      id="pass"
+      /><br />
+      <button className="buttonSubmit_SIGNIN" disabled={isInvalid} type="submit">
+      Sign In
+      </button>
+      {error && <p>{error.message}</p>}
       </div>
-    </form>   
-    );
+      <div className="right_SIGNIN">
+      <div className="connect_SIGNIN">Connect with</div>
+      <SignInFacebook/>
+      <SignInTwitter/><br />
+      <SignInGoogle />
+      <PasswordForgetLink />
+      </div>
+      </form>   
+      </div>
+      );
   }
 }
 
@@ -116,10 +118,12 @@ class SignInGoogleBase extends Component {
   render() {
     const { error } = this.state;
     return (
+      <div>
       <form onSubmit={this.onSubmit}>
-        <button className="google_plus_SIGNIN" type="submit">Google</button>
-        {error && <p>{error.message}</p>}
+      <button className="google_plus_SIGNIN" type="submit">Google</button>
+      {error && <p>{error.message}</p>}
       </form>
+      </div>
     );
   }
 }
@@ -155,10 +159,12 @@ class SignInFacebookBase extends Component {
   render() {
     const { error } = this.state;
     return (
+      <div>
       <form onSubmit={this.onSubmit}>
-        <button className="facebook_SIGNIN" type="submit">Facebook</button>
-        {error && <p>{error.message}</p>}
+      <button className="facebook_SIGNIN" type="submit">Facebook</button>
+      {error && <p>{error.message}</p>}
       </form>
+      </div>
     );
   }
 }
@@ -194,10 +200,12 @@ class SignInTwitterBase extends Component {
   render() {
     const { error } = this.state;
     return (
+      <div>
       <form onSubmit={this.onSubmit}>
-        <button className="twitter_SIGNIN" type="submit">Twitter</button>
-        {error && <p>{error.message}</p>}
+      <button className="twitter_SIGNIN" type="submit">Twitter</button>
+      {error && <p>{error.message}</p>}
       </form>
+      </div>
     );
   }
 }

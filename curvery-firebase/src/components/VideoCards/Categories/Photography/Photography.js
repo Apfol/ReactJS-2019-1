@@ -38,25 +38,25 @@ componentDidMount() {
   }
 render(){
     return(
-        <div class="contain_PHOTOGRAPHY">
-        <div class="row_PHOTOGRAPHY">
+        <div className="contain_PHOTOGRAPHY">
+        <div className="row_PHOTOGRAPHY">
         <h1 className="categorieTitle_PHOTOGRAPHY">Photography and Video</h1>
-        <div class="row__inner_PHOTOGRAPHY">
-        <div class="spaceLeft_PHOTOGRAPHY"></div>
+        <div className="row__inner_PHOTOGRAPHY">
+        <div className="spaceLeft_PHOTOGRAPHY"></div>
         {this.state.playlists.map(
             course =>
-            <div class="tile_PHOTOGRAPHY">
-            <div class="tile__media_PHOTOGRAPHY">
-            <img class="tile__img_PHOTOGRAPHY" src={course.snippet.thumbnails.high.url} alt=""  />
+            <div className="tile_PHOTOGRAPHY">
+            <div className="tile__media_PHOTOGRAPHY">
+            <img className="tile__img_PHOTOGRAPHY" src={course.snippet.thumbnails.high.url} alt=""  />
         </div>
-        <div class="tile__details_PHOTOGRAPHY">
-          <div class="tile__title_PHOTOGRAPHY">
+        <div className="tile__details_PHOTOGRAPHY">
+          <div className="tile__title_PHOTOGRAPHY">
           {course.snippet.title}
           </div>
         </div>
       </div>
     )}
-    <div class="spaceRight_PHOTOGRAPHY"></div>
+    <div className="spaceRight_PHOTOGRAPHY"></div>
     </div>
   </div>
 

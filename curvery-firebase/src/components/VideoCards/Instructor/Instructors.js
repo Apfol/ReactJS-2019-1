@@ -20,13 +20,13 @@ class Intructors extends Component{
             alert('Hola el error es ' + error);
         })
     }
-   
     render(){
+        
         return(
             <div>
             <main className="grid_INSTRUCTORS">
             {this.state.courses.map(
-                course => <article key={Date.now()} className="card_INSTRUCTORS">
+                course => <article  className="card_INSTRUCTORS">
     <img className="image_circle_INSTRUCTORS" src={course.wallpaper} alt="Sample"></img>
     <img className="image_INSTRUCTORS" src={course.profile} alt="Sample"></img>
     <div className="text_INSTRUCTORS">
