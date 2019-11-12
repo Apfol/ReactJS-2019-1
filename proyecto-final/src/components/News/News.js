@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import NewsVerticalCard from '../NewsVerticalCard/NewsVerticalCard.js';
-import NewsDetailed from '../NewsDetailed/NewsDetailed.js';
 import classes from './News.css';
 import { Route } from 'react-router-dom';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
 import Footer from '../Footer/Footer.js';
 import { connect } from 'react-redux';
-import { Col } from 'react-bootstrap';
-import CommentForm from '../CommentForm/CommentForm';
 import NewsLogin from '../../containers/NewsLogin/NewsLogin.js'
 
 import * as actionCreators from '../../store/actions/';

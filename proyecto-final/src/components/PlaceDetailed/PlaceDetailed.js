@@ -1,5 +1,5 @@
 import classes from './PlaceDetailed.css';
-import { Card, Row, Col, Container, Image } from 'react-bootstrap';
+import { Card, Row, Col, Container } from 'react-bootstrap';
 import StarRatingComponent from 'react-star-rating-component';
 
 import React, { Component } from 'react';
