@@ -8,10 +8,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import authenticationReducer from './Store/Reducers/authentication';
+
+import EquipmentReducer from './Store/Reducers/SportEquipment';
 import mObjectsReducer from './Store/Reducers/mObjects';
 const rootReducer = combineReducers ({
     authenticationStore: authenticationReducer,
-    mObjectsStore: mObjectsReducer   
+    EquipmentStore: EquipmentReducer,
+  mObjectsStore: mObjectsReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

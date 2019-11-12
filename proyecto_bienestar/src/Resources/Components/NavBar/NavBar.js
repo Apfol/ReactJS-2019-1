@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import "./NavBar.css";
+import classes from "./NavBar.css";
+import LoginImg from "../../../Resources/Assest/SignIn.png";
 import {Nav, Modal, Navbar, Button} from "react-bootstrap";
 import {IoMdContact} from "react-icons/io";
+import Spinner from '../Spinner/Spinner'
 import {Link} from 'react-router-dom';
 import MyUser from './MyUSer/MyUser'
 import * as actionCreators from '../../../Store/Actions/';
+import f from '../../../Instances/FireBase'
 
 
 class NavBarComponent extends Component {
@@ -29,11 +32,10 @@ class NavBarComponent extends Component {
     this.setState({
       smShow: !this.state.smShow
     });    
-  }
+  }      
 
-  getModalStatus(){
-    console.log(this.props.isUserLoggedIn)    
-    if(this.state.smShow && !this.props.isUserLoggedIn){      
+  getModalStatus(){    
+    if(!this.state.smShow && !this.props.isUserLoggedIn){      
       return true;
     }
     else{
@@ -43,73 +45,43 @@ class NavBarComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div>        
         <Navbar bg="light" expand="lg">
           <Navbar.Brand href="#home">Unisabana Objetos Perdidos</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/missing-object-list">
-                Inicio
+
+              <Nav.Link href="#home">
+                <Link to="/missing-object-list">Inicio</Link>                
+
               </Nav.Link>
               <Nav.Link href="#link">Link</Nav.Link>              
             </Nav>     
             {
             !this.props.isUserLoggedIn ? 
-            <Button variant="outline-success" onClick={() => this.setSmShow()}>Ingresar</Button>   
-            :
+            <Button variant="outline-success" onClick={this.submitLoginForm}>                                     
+            <img className={classes.LoginButton} src={LoginImg} href="#"></img>                        
+            </Button>   
+            :      
+            <div className = {classes.Mydata}>
             <MyUser 
-            user = {this.props.CurrentUser}>
+            user = {f.auth().currentUser}>            
             </MyUser>
-            }                     
+            <Button variant="outline-success" onClick={() => this.goout()}>Salir</Button>   
+            </div>      
                         
+            }                                      
           </Navbar.Collapse>
         </Navbar>
 
         <Modal
-          size="sm"
-          show={this.getModalStatus()}
-          onHide={() => this.setSmShow()}
+          size="xs"
+          show={this.props.loadingAuth}          
           aria-labelledby="example-modal-sizes-title-sm"
-        >
-          <Modal.Header closeButton>
-            <Modal.Title id="example-modal-sizes-title-sm">
-              Ingresar     
-              <IoMdContact size = "30px"/>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>            
-            <form action="/action_page.php">
-              <div class="form-group">
-                <label for="email">Correo Electronico:</label>
-                <input
-                  type="email"
-                  class="form-control"                  
-                  placeholder="Ingresar Correo Electronico"                  
-                  value={this.state.userName}
-                  onChange={(event) => {this.updateLoginInfo(event, 'userName')}}             
-                />
-              </div>
-              <div class="form-group">
-                <label for="pwd">Contraseña:</label>
-                <input
-                  type="password"
-                  class="form-control"                  
-                  placeholder="Ingresar Contraseña"       
-                  value={this.state.password}
-                  onChange={(event) => {this.updateLoginInfo(event, 'password')}}           
-                />
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" name="remember" /> Remember me
-                </label>
-              </div>
-              {this.props.loginerrorbool ? <h6>Usuario y/o contraseña incorrecta</h6>:null}
-              <Button variant="primary" onClick={this.submitLoginForm}>Ingresar</Button>                                                               
-            </form>
-          </Modal.Body>
-        </Modal>
+        >            
+        <Spinner/>
+        </Modal>        
       </div>
     );
   }
@@ -120,8 +92,11 @@ class NavBarComponent extends Component {
     }
 
     this.props.onUserLogin(userData, () => {
-        this.props.history.push('/');
+        
     });
+  } 
+  goout = () => {    
+    this.props.Exit();
   }
 
   updateLoginInfo = (event, type) => {
@@ -151,7 +126,10 @@ const mapDispatchToProps = dispatch => {
       ),
       deleteError:() => dispatch(
           actionCreators.loginerror()
-      )        
+      ),
+      Exit:() => dispatch(
+        actionCreators.persistAuthentication()
+      )  
   }
 }
 

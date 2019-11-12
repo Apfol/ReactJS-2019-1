@@ -1,113 +1,93 @@
-import React from 'react';
-import classes from './sportsEquipment.css';
-import axios from '../Data/AxiosInstance.js';
+import React from "react";
+import classes from "./sportsEquipment.css";
+import {Form, ProgressBar, Button} from "react-bootstrap";
+import { connect } from 'react-redux';
+import axios from "../../../Instances/axios-sportequipment";
+import * as actionCreators from '../../../Store/Actions/';
 class SportsEquipment extends React.Component {
-    state={
-      sEquipment:[],
-        id:"",
-        name:"",
-        StudentId:"",
-        ChargeId:"",
-        IsBorrowed:"true",
-        transaction:{
-        name:"",
-        StudentId:"",
-        ChargeId:""
-        }
-    }
-    componentDidMount(){
-      axios.get('/sElement')
-      .then(response =>{
-        let elements=response.data;
-        elements=elements.map( sElement =>{
-          return{
-           id:sElement.id,
-           name:sElement.Name,
-           StudentId:sElement.StudentId,
-           isBorrowed:sElement.IsBorrowed
-          }
-        });
-        this.setState({
-          sEquipment:elements
-          });
-      })
-    }
-    handleStudentChange= e =>{
-      this.setState({
-        StudentId: e.target.value
-      });
-      
-    }
+  state = {
+    Prestamo:{          
+      elementCod:'',            
+      sport:'',
+      delivered: false,
+      returned: false
+    },
+    SportSelected: '',
+    Percentage: 0
+  };  
 
-    handleChargeChange= e =>{
-      this.setState({
-        ChargeId: e.target.value
-      });
-      
-    }
-    handleElementChange= e =>{
-      this.setState({
-        name: e.target.value
-      });
-     
-    }
-
-    handleSubmit= e=>{
-      e.preventDefault();
-      this.setState({
-        transaction:{
-        name:this.state.name,
-        StudentId:this.state.StudentId,
-        ChargeId:this.state.ChargeId
-        }
-      });
-      this.setState({
-        id:"",
-        name:"",
-        StudentId:"",
-        ChargeId:"",
-        IsBorrowed:"true"
-      });
-    }
-
-     render() { 
-     
-       return (
-         <div className={classes.pContainer}> 
-          <h1 className={classes.pTitle}>Prestamo de Equipo Deportivo</h1>
-           <div  className={classes.dropdown} style = {{background:"lightred",width:"211px",height:"61px",borderRadius:"5%"}} >
-            <select  onChange={this.handleElementChange} value={this.state.name} className={classes.button}>{
-                 this.state.sEquipment.map((obj) => {
-                     return <option   value={obj.name}>{obj.name}</option>  
-                 })
-              }</select>
-          
-   
-          </div>
-
-          <div className={classes.Log}>
-                <h2 className={classes.tLog}>Transacciones</h2>
-                <p className={classes.tLog} >Elemento: {this.state.transaction.name} </p>
-                <p className={classes.tLog}>Codigo Estudiante: {this.state.transaction.StudentId}</p>
-                <p className={classes.tLog}>Codigo Encargado:  {this.state.transaction.ChargeId}</p>
-              </div>
-          <form onSubmit={this.handleSubmit}>
-           <div className={classes.Peoplecontainer}>
-              
-              <p className={classes.inputStudentLabel} >Codigo Estudiante: </p>
-              <input type="text" onChange={this.handleStudentChange} value={this.state.StudentId}className={classes.inStudentCode}></input>
-              <p className={classes.inputChargeLabel}>Codigo Encargado: </p>
-              <input type="text" onChange={this.handleChargeChange}className={classes.inChargeCode}value={this.state.ChargeId}></input>
-              <button type="submit" value="Submit" className={classes.Borrow}>Prestar</button>
-              
-           </div>
-           </form>
-          
+  render() {
+    return (
+      <div className={classes.pContainer}>
+        <h2 className={classes.pTitle}>Prestamo de Equipo Deportivo</h2>
+        <Form>          
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Deporte</Form.Label>
+            <Form.Control value={this.state.SportSelected} 
+            onChange={(event) =>this.getPorcentage(event)} as="select">
+              <option></option>
+              <option>Tenis</option>
+              <option>Futbol</option>
+              <option>Boleiboll</option>
+              <option>Futsal</option>
+              <option>PinPong</option>
+              <option>Ajedrez</option>
+            </Form.Control>
+            <Form.Text className="text-muted">
+            Escoge el deporte que quieres realizar 
+          </Form.Text>
+          </Form.Group>
+          {this.state.SportSelected == '' ?
+          null : 
+          <div>
+            <ProgressBar striped variant="danger" now={this.state.Percentage} />             
             
-          </div>
-   
-       );
-     }
+            <Button className={classes.ButtonPedir} 
+             onClick={() => this.props.CreatePrestamo(this.state.Prestamo)}
+             variant="success">Pedir implemento</Button>
+          </div>          
+          }      
+          
+        </Form>
+      </div>
+    );
+  }
+  getPorcentage(event){
+    this.setState({
+      ...this.state,
+      Prestamo:{
+        ...this.state.Prestamo,
+        sport:event.target.value
+      },
+      SportSelected:event.target.value
+    })
+    axios.get('/Sport/' + event.target.value + '.json')
+    .then((r) => {
+      
+      var percent = (r.data.Count / r.data.Total) * 100      
+      this.setState({
+        ...this.state,
+        Percentage: percent
+      })
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
+    
+
+}
+const mapStateToProps = state => {
+  return {
+      loadingPrestamo: state.EquipmentStore.loadingCreate
+  }
 }
 
-export default SportsEquipment;
+const mapDispatchToProps = dispatch => {
+  return {
+      CreatePrestamo: (DataPrestamo) => dispatch(
+          actionCreators.PostPrestamo(DataPrestamo)
+      ) 
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SportsEquipment);

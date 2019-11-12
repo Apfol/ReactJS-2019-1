@@ -1,0 +1,8 @@
+.prestamo{
+    float: left;
+    margin: auto;
+    display: inline-block;
+    width: 20%;
+    background-color: rgb(233, 206, 206);
+    margin: 1px 5px;
+}   

@@ -1,12 +1,13 @@
 import * as actionTypes from '../../Store/Actions/actionTypes';
 import updateObject from '../utility';
 
+
 const initialState = {
     isUserLoggedIn: false,
     userLoggedIn: {
         userName: '',
         idToken: '',
-        localId: ''
+        localId: '',        
     },
     loadingAuth: false,
     loginerrorbool: false,
@@ -34,7 +35,7 @@ const signIn = (state, action) => {
     });
 }
 
-const logOut = (state, action) => {
+const logOut = (state, action) => {    
     return updateObject(state, {
         isUserLoggedIn: false,
         userLoggedIn: {
