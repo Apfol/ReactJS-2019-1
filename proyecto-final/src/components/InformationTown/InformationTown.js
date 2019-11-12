@@ -5,6 +5,7 @@ import { ButtonToolbar, OverlayTrigger, Tooltip, Image } from 'react-bootstrap';
 import Information from '../Information/Information.js';
 import classes from './InformationTown.css';
 import axios from '../../instances/axiosInstance';
+import { Link } from 'react-router-dom';
 
 
 class InformationTown extends Component{
@@ -57,7 +58,8 @@ class InformationTown extends Component{
                             content = {nInfo.content}
                         />
                     )}
-                        <a class={classes.infoLink}>Más Información...</a>
+
+                        <Link class={classes.infoLink}>Más Información...</Link>
                     </div>
                 </div>
                 <div class={`row ${classes.anuncio}`}>

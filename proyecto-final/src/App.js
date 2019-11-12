@@ -5,8 +5,6 @@ import Tourism from "./components/Tourism/Tourism.js";
 import News from "./components/News/News.js";
 import Login from "./components/Login/Login.js";
 import Signup from "./components/Signup/Signup.js";
-import NavigationBar from './components/NavigationBar/NavigationBar.js';
-import Footer from './components/Footer/Footer.js';
 import NotFound from './components/NotFound/NotFound.js'
 
 function App() {

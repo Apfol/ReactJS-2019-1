@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
 import Footer from '../Footer/Footer.js';
 import { connect } from 'react-redux';
-import { Row, Col, Container, Image } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import CommentForm from '../CommentForm/CommentForm';
 
 import * as actionCreators from '../../store/actions/news.js';
@@ -79,7 +79,7 @@ class News extends Component {
     }
 
     conditions() {
-        if (this.state.isUserLoggedIn == false) {
+        if (this.state.isUserLoggedIn === false) {
             return (
                 this.onUserLogOut()
             )

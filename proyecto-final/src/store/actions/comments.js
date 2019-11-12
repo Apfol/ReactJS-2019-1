@@ -1,7 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../instances/axios-database';
 
-const API_KEY = 'AIzaSyDN8WGwmWm1ljKJ6BZsiIpV5aIRbXq7YyI';
 
 const startLoading = () => {
     return {
