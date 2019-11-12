@@ -23,7 +23,7 @@ class Weather extends React.Component {
     render() {
         return (
             <Nav className={classes.clima}>
-                <Nav.Link><i class="fas fa-sun fa-lg sun"></i> {this.state.temperature}°C</Nav.Link>
+                <Nav.Link href="https://openweathermap.org/find?utf8=%E2%9C%93&q=sopó" target="_blank"><i class="fas fa-sun fa-lg sun"></i> {this.state.temperature}°C</Nav.Link>
             </Nav>
         );
     }
