@@ -5,20 +5,18 @@ import { Link } from 'react-router-dom';
 
 const NotFound = () => {
     return (
-        <Container>
+        <Container className={classes.container}>
             <Row>
-                <Col md="12" >
+                <Col md="12">
                     <div class={classes.template}>
-                        <h1>
-                            Oops!</h1>
-                        <h2>
-                            404 Not Found</h2>
+                        <h1>¡Vaya!</h1>
+                        <h2>404 No encontrado</h2>
                         <div class="error-details">
-                            Sorry, an error has occured, Requested page not found!
+                            Lo sentimos, un error ha ocurrido, no se ha encontrado la página solicitada :(
                         </div>
                         <br/>
                         <Link to="/" >
-                            <Button variant="primary">Go Home</Button>
+                            <Button variant="primary">Ir a Inicio</Button>
                         </Link>
                     </div>
                 </Col>
