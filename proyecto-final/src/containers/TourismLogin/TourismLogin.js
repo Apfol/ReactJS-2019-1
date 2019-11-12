@@ -36,11 +36,11 @@ class TourismLogin extends Component {
         }
     }
 
-    componentWillReceiveProps(nextState) {
+    componentWillReceiveProps(nextProp) {
         this.setState({
-            isUserLoggedIn: nextState.isUserLoggedIn,
-            placeSelected: nextState.placeSelected,
-            idPlace: nextState.idPlace,
+            isUserLoggedIn: nextProp.isUserLoggedIn,
+            placeSelected: nextProp.placeSelected,
+            idPlace: nextProp.idPlace,
         });
     }
 
