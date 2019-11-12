@@ -100,10 +100,10 @@ class News extends Component {
                     <div>
                         <NewsDetailed news = {this.state.newsSelected}/>
                         <Col md={2}>
-                            <p style={{ fontSize: "20px", fontWeight: "bolder", textAlign: "center" }}>Discusión</p>
+                            <p className = {classes.discussion}>Discusión</p>
                         </Col>
                         <Col md={5}>
-                            <div style={{ borderBottom: "1px solid gray", height: "10px" }}></div>
+                            <div className = {classes.discussion} style={{ borderBottom: "1px solid gray", height: "10px" }}></div>
                         </Col>
                         <Col md={12}>
                             <CommentForm></CommentForm>
