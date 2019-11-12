@@ -1,6 +1,5 @@
 import * as actionTypes from './actionTypes';
-import axios from '../../Instances/axios-authentication';
-import updateObject from '../Reducers/utility';
+import axios from '../../Instances/Axios-Objects';
 
 //const API_KEY = 'AIzaSyDYO4fQlKsUDsfX_qe5y4JLXCJ4Z7acCx0';
 
@@ -41,11 +40,12 @@ export const updateMissingObjectAction = (missingObjectData) => {
     }
 };
 
-const loadObjects = posts => {
+const loadObjects = Objects => {
+   
     return {
-        type: actionTypes.FETCH_POSTS,
+        type: actionTypes.LOAD_MISSING_OBJECT,
         payload: {
-            posts: posts
+            Objects: Objects
         }
     };
 }
@@ -62,6 +62,7 @@ export const fetchObjects = () => {
                     return {...mObject};
                 });
                
+              
                 dispatch(loadObjects(Objects));
                 
                 dispatch(endLoading());

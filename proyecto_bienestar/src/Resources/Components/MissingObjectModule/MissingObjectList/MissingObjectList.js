@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import classes from "./MissingObjectList.css";
-import MissingObject from "../MissingObject/MissingObject";
+//import MissingObjects from "../../MissingObjects/MissingObjects";
 import SearchFilter from "./SearchFilter";
 import {Modal, Button} from "react-bootstrap";
-import NewMissingObject from "../NewMissingObject/newMissingObject"
 import * as actionCreators from '../../../../Store/Actions/'; 
 import firebase from '../../../../config/firebase_config';
 
@@ -12,6 +11,7 @@ class MissingObjectList extends Component {
   state = {
     lgShow: false,
     picture: "",
+    missingObjects: this.props.missingObject,
     newObjectData:
     {
       found: false,
@@ -26,6 +26,30 @@ class MissingObjectList extends Component {
     }, 
     objects:[]    
   }
+
+  componentWillReceiveProps (nextState) {
+    this.setState({
+        isUserLoggedIn: nextState.isUserLoggedIn,
+        missingObjects: nextState.posts.mObjects
+      });
+  }
+
+  componentDidMount () {
+      if (this.state.isUserLoggedIn) {
+          this.props.onFetchPosts();
+      }
+  }
+
+  /*renderPosts () {
+    let posts = <MissingObjects missingObject = {this.state.missingObjects}/>;
+
+    console.log("*****"+this.state.missingObjects)
+    /*if (this.props.loadingPosts) {
+        posts = <Spinner />;
+    }
+
+    return posts;
+  }*/
 
   setLgShow(){
     this.setState({
@@ -46,9 +70,9 @@ class MissingObjectList extends Component {
     return (      
       <div className={classes.MissingObjectList}>
           <SearchFilter/>
-          {this.state.objects.map(object => <MissingObject name = {object.name} location = {object.location} 
-         by = {object.by}/>)} 
-                       
+
+        {/*this.renderPosts()*/}
+
           <div className = {classes.contenedor}>
             <button className={classes.addMissingObject} onClick={() => this.setLgShow()}>
               <span className={classes.span}>+</span>
@@ -105,25 +129,19 @@ class MissingObjectList extends Component {
               class="form-control"                  
               placeholder="Selección de imagen"       
               value={this.state.newObjectData["image"]}
-              onChange={(event) => {this.uploadMissingObjectOnUpload(event)}}
+              onChange={(event) => {this.handleUpload(event)}}
             />
           </div>   
           
           <Button variant="primary" onClick={this.submitNewMissingObjectObj}>Ingresar Objeto Perdido</Button>                                                               
         </form>
       </Modal.Body>
-    </Modal>            
+    </Modal>
+
+    {/*this.renderPosts()*/}            
       </div>
     );
-  }  
-
-  /*newObjectData = {this.state.newObjectData}
-                            picture = {this.state.picture}
-                            getModalStatus = {this.state.lgShow}
-                            setLgShow = {() => this.state.setLgShow} 
-                            uploadMissingObjectObjHandleChange = {this.uploadMissingObjectObjHandleChange}
-                            submitNewMissingObjectObj = {this.submitNewMissingObjectObj}
-                            uploadMissingObjectOnUpload = {this.handleUpload} */ 
+  }   
 
    handleUpload = (event) =>{
      
@@ -192,15 +210,15 @@ class MissingObjectList extends Component {
 
 const mapStateToProps = state => {
   return {
-      uploadMissingObjectState: state.missingObjectStore.uploadMissingObjectState
+      uploadMissingObjectState: state.missingObjectStore.missingObjects
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-      onUploadMissingObject:(missingObjectData) => dispatch(
-          actionCreators.updateMissingObjectAction(missingObjectData)
-      )        
+      onUploadMissingObject:(missingObjectData) => dispatch(actionCreators.updateMissingObjectAction(missingObjectData)),
+      onFetchObjects: () => dispatch(actionCreators.fetchObjects())
+              
   }
 }
 

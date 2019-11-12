@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import axios from '../../Instances/axios-authentication';
+import axios from '../../Instances/Axios-Objects';
 
 const API_KEY = 'AIzaSyDYO4fQlKsUDsfX_qe5y4JLXCJ4Z7acCx0';
 

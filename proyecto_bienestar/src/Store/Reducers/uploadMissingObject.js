@@ -1,15 +1,9 @@
-import * as actionTypes from '../../Store/Actions/actionTypes';
-import updateObject from './utility';
+import * as actionTypes from '../../Store/Actions/actionTypes'
+import updateObject from '../Reducers/utility'
 
 const initialState = {
-    /*isFounded: false,
-    foundedBy: '',
-    foundLocation: '',
-    image: '',
-    isDelivered: false,
-    lostBy: '',
-    objectName: ''*/
-    missingObjects: []
+    missingObjects: [],
+    loadingObject: false
 }
 
 const updateMissingObject = (state,action) => {
@@ -28,21 +22,26 @@ const updateMissingObject = (state,action) => {
 }
 
 const fetchMissingObjects = (state, action) => {
-    return updateObject(state, { missingObjects: action.payload.missingObjects})
+    
+    console.log("====="+updateObject(state, {missingObjects: action.payload.Objects}))
+    return updateObject(state, {missingObjects: action.payload.Objects})    
+    //{missingObjects: state.missingObjects.concat(action.payload.Objects)}
+    
 }
 
 
 const startLoading = (state, action) => {
-    return updateObject(state, { loadingAuth: true });
+    return updateObject(state, { loadingObject: true });
 }
 
 const endLoading = (state, action) => {
-    return updateObject(state, { loadingAuth: false });
+    return updateObject(state, { loadingObject: false });
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.UPLOAD_MISSING_OBJECT: return updateMissingObject(state, action);
+        case actionTypes.LOAD_MISSING_OBJECT: return fetchMissingObjects(state, action);
         default: return state;
     }
 }
