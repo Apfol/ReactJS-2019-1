@@ -4,9 +4,6 @@ import { Row, Col, Container, Image } from 'react-bootstrap';
 
 
 export default function NewsDetailed(props) {
-
-    console.log(props.news);
-
     return (
         <div className={classes.newsDetailed}>
             <Container>

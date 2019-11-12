@@ -52,7 +52,6 @@ class Tourism extends Component {
         this.setState({
             placeSelected: place,
         });
-        console.log(place);
     }
 
     getPlaces = () => {
