@@ -1,8 +1,14 @@
-.profback{
+.back {
+    position: absolute;
+    top: 0;
     background-image: url("https://wallpaperaccess.com/full/264293.jpg");
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
 }
 
-.profilepic{
+.profilepic {
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -11,10 +17,10 @@
     margin-right: auto;
 }
 
-h1{
+h1 {
     text-align: center;
 }
 
-p{
+p {
     text-align: center;
 }

@@ -45,6 +45,7 @@ class Profile extends Component {
     render() {
         return (
             <React.Fragment>
+                <div className={classes.back}></div>
                 <div className={classes.profback}>
                     <h1>
                         Welcome: {this.props.userLoggedIn.username} <br />

@@ -149,7 +149,6 @@ export const persistAuthentication = () => {
             dispatch(logOut());
         } else {
             userSession = JSON.parse(userSession);
-            console.log(userSession);
             dispatch(saveSession(userSession));
         }
     }

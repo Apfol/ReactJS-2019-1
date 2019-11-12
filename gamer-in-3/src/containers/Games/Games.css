@@ -62,6 +62,10 @@
     background-color: rgba(0, 136, 169, 1)
 }
 
+.button:hover {
+    background-color: rgba(0, 136, 169, 0.7);
+}
+
 .top-panel {
     margin: 3% 13%;
 }
