@@ -69,7 +69,10 @@ class TourismLogin extends Component {
             )
         }
         return (
-            <PlaceDetailed place={this.state.placeSelected} />
+            <div>
+                <PlaceDetailed place={this.state.placeSelected} />
+                <p className = {classes.logInMessage}>Inicia Sesión para comentar</p>
+            </div>
         );
     }
 

@@ -68,7 +68,10 @@ class NewsLogin extends Component {
             )
         }
         return (
-            <NewsDetailed news={this.state.newsSelected} />
+            <div>
+                <NewsDetailed news={this.state.newsSelected} />
+                <p className = {classes.logInMessage}>Inicia Sesión para comentar</p>
+            </div>
         );
     }
 
