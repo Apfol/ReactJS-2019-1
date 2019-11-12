@@ -71,7 +71,7 @@ class NavigationBar extends Component {
               <Nav.Link eventKey={2} href="#memes" />
               <Nav.Link eventKey={2} href="#memes" />
             </Nav>
-            <Link className={classes.links} to="/information">{this.props.userLoggedIn.userName}</Link>
+            <Link className={classes.links} >{this.props.userLoggedIn.userName}</Link>
             <Link className={classes.links} onClick={this.props.onLogOut}>Cerrar Sesión</Link>
           </Navbar.Collapse>
         </Navbar>
