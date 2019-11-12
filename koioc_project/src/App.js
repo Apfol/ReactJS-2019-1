@@ -31,7 +31,6 @@ class App extends Component{
   }
 
   componentDidMount () {
-    this.props.onPersistAuthentication();
     axios.get('https://koioc-23ec2.firebaseio.com/categories.json')
     .then(response  => {
       this.setState({
@@ -61,31 +60,30 @@ class App extends Component{
   render(){
     return (
       <BrowserRouter>
-      <div className={classes.container} style={{height: '100%'}}>
-        <Navbar className={classes.nav_colour} bg="light" expand="lg">
-          <Navbar.Brand className = {classes.brand}>  
-              <Link className={classes.link} to={'/home'}>
-                <span className = {classes.brand}> <b>Κοῖος</b> </span>
-              </Link>
-              
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          {this.checkOptions()}
-        </Navbar>
+        <div className={classes.container} style={{height: '100%'}}>
+          <Navbar className={classes.nav_colour} bg="light" expand="lg">
+            <Navbar.Brand className = {classes.brand}>  
+                <Link className={classes.link} to={'/home'}>
+                  <span className = {classes.brand}> <b>Κοῖος</b> </span>
+                </Link>
+                
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            {this.checkOptions()}
+          </Navbar>
+          <main>
+                  <Route exact path="/" render = {props => <Login {...props}/>}/>
+                  <Route exact path="/profile" render={props => <Profile {...props} />}/>
+                  <Route exact path="/home" render={props => <Home {...props} info={this.state.info}/>} />
+                  <Route exact path="/categories/:idCategory" render={props => <Category {...props} categoriesList = {this.state.info.categories}/>
+                  }/>
+                  <Route exact path="/signUp" render={props => <SignUp {...props} />} />
+                  <Route exact path="/shoppingCart" render={props => <ShoppingCart info={this.state.info} {...props}/> } />
+                  <Route exact path="/serviceHistory" render={props => <ServiceHistory {...props}/> } />
+          </main> 
+          <Notifications />
 
-        <main>
-                <Route exact path="/" render = {props => <Login {...props}/>}/>
-                <Route exact path="/profile" render={props => <Profile {...props} />}/>
-                <Route exact path="/home" render={props => <Home {...props} info={this.state.info}/>} />
-                <Route exact path="/categories/:idCategory" render={props => <Category {...props} categoriesList = {this.state.info.categories}/>
-                }/>
-                <Route exact path="/signUp" render={props => <SignUp {...props} />} />
-                <Route exact path="/shoppingCart" render={props => <ShoppingCart info={this.state.info} {...props}/> } />
-                <Route exact path="/serviceHistory" render={props => <ServiceHistory {...props}/> } />
-        </main> 
-        <Notifications />
-
-      </div>
+        </div>
       </BrowserRouter>
   )};
 

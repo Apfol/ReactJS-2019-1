@@ -5,7 +5,6 @@ import Services from './Services/Services.js';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import firebase from '../../../../config/firebase_config';
 import * as actionCreators from '../../../../store/actions';
 
 class Product extends React.Component{
@@ -24,7 +23,9 @@ class Product extends React.Component{
         axios.get('https://koioc-23ec2.firebaseio.com/users/'+this.props.userLoggedIn.uid+'.json')
         .then(response  => {
             var employees = response.data.employees
-            this.setState(this.state.employees = employees)
+            this.setState({
+                employees : employees
+            })
         });
     }
 
@@ -100,7 +101,7 @@ class Product extends React.Component{
                                     existe = true;
                                     var categoryEmployees = this.state.employees
                                     categoryEmployees[i].active = false
-                                    this.setState( this.state.employees = categoryEmployees );
+                                    this.setState( {employees : categoryEmployees });
                                 }
                             }
                         }

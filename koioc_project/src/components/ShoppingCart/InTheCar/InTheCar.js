@@ -6,9 +6,6 @@ import { connect } from 'react-redux';
 //last
 
 class InTheCar extends React.Component {
-    constructor(props){
-        super(props)
-    }
 
     state = {
         categories: {},

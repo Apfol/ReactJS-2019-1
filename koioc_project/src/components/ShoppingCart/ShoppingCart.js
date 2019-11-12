@@ -6,7 +6,6 @@ import axios from 'axios';
 import * as actionCreators from '../../store/actions';
 import StripeChekout from 'react-stripe-checkout';
 import firebase from '../../config/firebase_config';
-import { isClassPrivateProperty } from '@babel/types';
 
 class ShopingCart extends Component {
 
@@ -116,7 +115,9 @@ class ShopingCart extends Component {
             console.log(error);
         });
         var concat = otherServices.concat(description)
-        this.setState(this.state.employees = concat)
+        this.setState({
+            employees : concat
+        })
         this.props.onSaveProduct(this.state.employees, this.props.userLoggedIn.uid,() => {
             this.props.history.push('/serviceHistory');
         });

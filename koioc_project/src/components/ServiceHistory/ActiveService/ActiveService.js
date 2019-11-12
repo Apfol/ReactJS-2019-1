@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import StarRatings from 'react-star-ratings';
 
 class ActiveServices extends React.Component {
-    constructor(props){
-        super(props)
-    }
 
     state = {
         categories : {},
@@ -29,7 +26,9 @@ class ActiveServices extends React.Component {
         axios.get('https://koioc-23ec2.firebaseio.com/users/'+this.props.userLoggedIn.uid+'.json')
         .then(response  => {
             var employees = response.data.employees
-            this.setState(this.state.employees = employees)
+            this.setState({
+                employees : employees
+            })
         });
     }
 

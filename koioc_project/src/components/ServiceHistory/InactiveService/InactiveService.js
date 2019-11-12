@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import StarRatings from 'react-star-ratings';
 
 class InactiveServices extends React.Component {
-    constructor(props){
-        super(props)
-    }
 
     state = {
         info: {
