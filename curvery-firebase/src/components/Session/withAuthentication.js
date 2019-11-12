@@ -1,6 +1,8 @@
 import React from 'react';
 import AuthUserContext from './context';
 import { withFirebase } from '../Firebase';
+
+// High order component for authentication based on session handling 
 const withAuthentication = Component => {
   class WithAuthentication extends React.Component {
     constructor(props) {
