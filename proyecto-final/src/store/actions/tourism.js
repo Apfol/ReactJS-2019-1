@@ -22,6 +22,15 @@ const loadPlaces = places => {
     };
 }
 
+const loadPlace = place => {
+    return {
+        type: actionTypes.FETCH_PLACE,
+        payload: {
+            place: place
+        }
+    };
+}
+
 export const fetchTourism = () => {
     return dispatch => {
         dispatch(startLoading());
@@ -37,6 +46,27 @@ export const fetchTourism = () => {
                 dispatch(endLoading());
             })
             .catch(error => {
+                dispatch(endLoading());
+            })
+    }
+}
+
+export const fetchPlace = (idPLace) => {
+    return dispatch => {
+        dispatch(startLoading());
+        axios.get('/touristPlaces/' + idPLace + '.json')
+            .then(response => {
+                console.log(response);
+
+                const place = response.data;
+
+                console.log(place)
+
+                dispatch(loadPlace(place));
+                dispatch(endLoading());
+            })
+            .catch(error => {
+                console.log(error);
                 dispatch(endLoading());
             })
     }
