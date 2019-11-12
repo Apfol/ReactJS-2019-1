@@ -8,10 +8,10 @@ class MyCourse extends Component {
     };
 
     componentWillMount() {
-        this.setAuthUserId();
-        // Get the courses of the user
-        // this.getCoursesCards(this.getUserCourses);
+      const authUserId = JSON.parse(localStorage.getItem("authUser")).uid;
+      this.getUserCoursesList(authUserId);
     }
+
     getUserCoursesList = authUserId => {
         this.props.firebase.user_course(authUserId).on("value", snapshot => {
             // Firebase retorna un snapshot que es un objeto donde se encapsula
@@ -28,11 +28,6 @@ class MyCourse extends Component {
                 });
             }
         });
-    };
-
-    setAuthUserId = uid => {
-        const authUserId = JSON.parse(localStorage.getItem("authUser")).uid;
-        this.getUserCoursesList(authUserId);
     };
 
     renderCards = courses => {

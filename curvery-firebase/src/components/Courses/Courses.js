@@ -3,7 +3,7 @@ import YoutubeApiAxios from '../../services/YoutubeApiAxios';
 import { Link } from 'react-router-dom';
 import style from './Active.css';
 
-import './Courses.css'
+import recommendeds from './Courses.css'
 import { connect } from 'react-redux';
 
 
@@ -79,7 +79,7 @@ class Courses extends Component {
         const updatedPages = [...this.state.pages];
         for (let i = 0; i < updatedPages.length; i++) {
             if (i === (id - 1)) {
-                updatedPages[i].pageStatus = "active";
+                updatedPages[i].pageStatus = style.active;
             }
             else {
                 updatedPages[i].pageStatus = "Unselected";
@@ -110,18 +110,21 @@ class Courses extends Component {
 
         const cursos = currentTodos.map((todo, index) => {
             return (
-               
-                <article className="article_CURSOS">
-                <img className="img_CURSOS" src={todo.snippet.thumbnails.high.url} alt=""></img>
-                <div className="text_CURSOS">
-                <span>{todo.snippet.channelTitle}</span>
-                  <h3 className="title_CURSOS">{todo.snippet.title}</h3>
-                  <p className="paragraph_CURSOS">{todo.snippet.title}</p>
-                  <Link className="button_CURSOS" to={"/player/" + todo.id.playlistId}>I want to see more</Link>
-                 </div>
-                </article>
-           
-               
+
+                <div >
+                    <main className={recommendeds.grid}>
+                        <article key={Date.now()} className={recommendeds.card}>
+                            <img src={todo.snippet.thumbnails.high.url} alt="Sample"></img>
+                            <div className={recommendeds.text}>
+                                <span>{todo.snippet.channelTitle}</span>
+                                <h3>{todo.snippet.title}</h3>
+                                <p>{todo.snippet.description}</p>
+                                <Link to={"/player/" + todo.id.playlistId}>VER MÁS</Link>
+                            </div>
+                        </article>
+                    </main>
+                </div>
+
             );
         });
         return cursos;
@@ -133,30 +136,30 @@ class Courses extends Component {
         const paginas = this.state.pages.map(page => {
             return (
                 //BOTONES DE PAGINACION
-                <div className="numero_CURSOS">
                 <h1
-                key={page.pageIndex}
-                id={page.pageIndex}
-                onClick={(e) => this.handleClick(page.pageIndex, e)}
-                className={page.pageStatus}
+                    key={page.pageIndex}
+                    id={page.pageIndex}
+                    onClick={(e) => this.handleClick(page.pageIndex, e)}
+                    className={page.pageStatus}
                 >
-                {page.pageIndex}
+                    {page.pageIndex}
                 </h1>
-                </div>
-                );
+            );
         });
         return paginas;
     }
 
     render() {
         return (
-             <div>
-             <main className="grid_CURSOS">
-             {this.Cursos()}
-             </main>
-             <div className="barra_CURSOS">                    
-             <div className="numero_CURSOS">{this.Pagina()}</div>
-             </div>
+            <div className={recommendeds.container}>
+                <main className={recommendeds.grid}>
+                    {this.Cursos()}
+                </main>
+                <div className={style.pag}>
+                    <button>&laquo;</button>
+                    {this.Pagina()}
+                    <button onClick={(e) => this.Click(e)}>&raquo;</button>
+                </div>
             </div>
 
         );

@@ -1,13 +1,13 @@
 .ul_FILTERMYCOURSES {
-  list-style-type: none;
-  margin-top: 0%;
-  padding: 0;
-  width: 20%;
-  background-color: #f1f1f1;
-  position: absolute;
-  height: 60%;
-  overflow: auto;
-    margin-left: 5vw;
+    list-style-type: none;
+    margin-top: 0%;
+    padding: 0;
+    width: 14%;
+    background-color: #f1f1f1;
+    position: absolute;
+    height: 50%;
+    overflow: auto;
+    margin-left: 7vw;
   }
   
   .li_FILTERMYCOURSES a {
