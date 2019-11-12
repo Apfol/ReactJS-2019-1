@@ -23,18 +23,10 @@ class MissingObjectList extends Component {
       name:''
 
     }, 
-    objects:[
-      {name: "Celular Xyz", location: "Biblioteca", by: "Cristian"},
-      {name: "Sombrilla", location: "Atelier 205", by: "Laura"},
-      {name: "Celular y", location: "Edificio B-105", by: "Pedro"},
-      {name: "Cargador Iphone", location: "Edificio B-204", by: "Leidy"},
-      {name: "Cachucha", location: "Biblioteca", by: "Juan"},
-      {name: "Botilito", location: "Biblioteca", by: "Felipe"},
-      {name: "Chaqueta", location: "Biblioteca", by: "Cristian"},          
-    ]
+    objects:[]    
   }
 
-  setLgShow(){
+    setLgShow(){
     this.setState({
       lgShow: !this.state.lgShow
     });  
@@ -131,6 +123,7 @@ class MissingObjectList extends Component {
       ...this.state.newObjectData,
       image: '/Imagenes/' + this.state.picture.name
     }
+
     console.log(objectData);
     this.props.onUploadMissingObject(objectData);
   
