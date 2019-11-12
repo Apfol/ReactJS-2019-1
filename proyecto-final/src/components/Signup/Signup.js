@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, Container, Row, Col, Button } from 'react-bootstrap';
+import { Form, Container, Row, Col } from 'react-bootstrap';
 import Spinner from '../../components/Spinner/Spinner';
 import * as actionCreators from '../../store/actions/authentication';
 import Error from '../../components/Error/Error';
