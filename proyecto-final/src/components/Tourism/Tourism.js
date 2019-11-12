@@ -7,6 +7,8 @@ import classes from './Tourism.css';
 
 import * as actionCreators from '../../store/actions/';
 import CommentForm from '../CommentForm/CommentForm';
+import Footer from '../Footer/Footer';
+import NavigationBar from '../NavigationBar/NavigationBar';
 
 class Tourism extends Component {
     state = {
@@ -71,6 +73,16 @@ class Tourism extends Component {
     }
 
     render() {
+        return (
+            <div>
+                <NavigationBar />
+                {this.conditions()}
+                <Footer />
+            </div>
+        );
+    }
+
+    conditions() {
         if (this.state.isUserLoggedIn == false) {
             return (
                 this.onUserLogOut()
@@ -130,7 +142,6 @@ class Tourism extends Component {
         updatedPlaceSelected['comments'].push(commentData);
 
         this.props.onSaveComment(commentData, this.state.placeSelected.id - 1);
-        this.props.onFetchTourism();
 
         this.setState({
             newCommentInfo: {

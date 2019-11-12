@@ -34,6 +34,7 @@ class Signup extends Component {
     render() {
         return (
             <div>
+                <NavigationBar/>
                 <div className={classes.container} >
                     <Form className={classes.form} >
                         <Container>
@@ -66,6 +67,7 @@ class Signup extends Component {
                         {this.renderError()}
                     </Form>
                 </div>
+                <Footer/>
             </div>
         )
     }

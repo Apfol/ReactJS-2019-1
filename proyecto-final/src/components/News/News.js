@@ -69,18 +69,28 @@ class News extends Component {
     }
 
     render() {
-        if(this.state.isUserLoggedIn == false){
-            return(
+        return (
+            <div>
+                <NavigationBar />
+                {this.conditions()}
+                <Footer />
+            </div>
+        );
+    }
+
+    conditions() {
+        if (this.state.isUserLoggedIn == false) {
+            return (
                 this.onUserLogOut()
             )
         }
-        else{
+        else {
             return (
                 this.onUserLogIn()
             )
         }
-        
     }
+
 
     onUserLogIn(){
         return(
