@@ -74,7 +74,7 @@ class Prestamo extends React.Component {
   }
   setNewState(PrestamoUpdated){    
     var PrestamoUpdated = {
-      ...this.state.Prestamo,
+      ...this.props.p,    
       delivered:true
     }
     console.log(PrestamoUpdated)
