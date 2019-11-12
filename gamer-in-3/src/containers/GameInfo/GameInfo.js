@@ -27,9 +27,11 @@ class GameInfo extends Component {
         return <Loader />
     }
     showInfo = () => {
+        const game = this.props.games.find(game => game.id + "" === this.props.match.params.gameIndex);
         if (this.props.isUserLoggedIn) {
             return (
                 <div>
+                    {}
                     <div>
                         <h1>Tus estadisticas</h1>
                     </div>
@@ -58,7 +60,8 @@ class GameInfo extends Component {
 const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
-        games: state.gamesStore.games
+        games: state.gamesStore.games,
+        userLoggedIn: state.authenticationStore.userLoggedIn,
     }
 }
 

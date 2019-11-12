@@ -3,11 +3,7 @@ import updateObject from '../utility';
 
 const initialState = {
     isUserLoggedIn: false,
-    userLoggedIn: {
-        userName: '',
-        idToken: '',
-        localId: ''
-    },
+    userLoggedIn: {},
     loadingAuth: false,
     error: false,
     signInError: false
@@ -16,11 +12,7 @@ const initialState = {
 const login = (state, action) => {
     return updateObject(state, {
         isUserLoggedIn: true,
-        userLoggedIn: {
-            userName: action.payload.userName,
-            idToken: action.payload.idToken,
-            localId: action.payload.localId
-        }
+        userLoggedIn: action.payload.user
     });
 }
 
@@ -38,11 +30,7 @@ const signIn = (state, action) => {
 const logOut = (state, action) => {
     return updateObject(state, {
         isUserLoggedIn: false,
-        userLoggedIn: {
-            userName: '',
-            idToken: '',
-            localId: ''
-        }
+        userLoggedIn: {}
     });
 }
 

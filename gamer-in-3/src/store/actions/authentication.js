@@ -19,7 +19,7 @@ const saveSession = (user) => {
     return {
         type: actionTypes.LOGIN,
         payload: {
-            user
+            user: user
         }
     };
 };
@@ -59,9 +59,6 @@ export const logIn = (authData, onSuccessCallback) => {
                     userEmail,
                     localId
                 };
-                let userSessionSave = JSON.stringify(userSession);
-                localStorage.setItem('userSession', userSessionSave);
-
                 if (onSuccessCallback) {
                     onSuccessCallback();
                 }
@@ -82,15 +79,16 @@ export const logIn = (authData, onSuccessCallback) => {
                             ...info[0]
                         }
                         console.log(userSession);
+                        let userSessionSave = JSON.stringify(userSession);
+                        localStorage.setItem('userSession', userSessionSave);
                         dispatch(saveSession(userSession));
                         dispatch(endLoading());
+
                     })
                     .catch(error => {
                         console.log(error);
                     })
             })
-
-
     }
 };
 
@@ -129,7 +127,6 @@ export const signIn = (authData, onSuccessCallback) => {
         }
         axiosGames.post('/users.json', user)
             .then(response => {
-
             })
             .catch(error => {
                 dispatch(signInError());
@@ -141,13 +138,12 @@ export const signIn = (authData, onSuccessCallback) => {
 export const persistAuthentication = () => {
     return dispatch => {
         let userSession = localStorage.getItem('userSession');
-
         if (!userSession) {
             dispatch(logOut());
         } else {
             userSession = JSON.parse(userSession);
-
-            dispatch(saveSignIn(userSession.userEmail, userSession.token, userSession.localId));
+            console.log(userSession);
+            dispatch(saveSession(userSession));
         }
     }
 }

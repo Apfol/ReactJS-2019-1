@@ -8,7 +8,6 @@ import Button from '../../components/Button/Button';
 import Posts from '../../components/Posts/Posts';
 import NewPost from '../../components/NewPost/NewPost';
 import Spinner from '../../components/Spinner/Spinner';
-import axios from '../../instances/axios-games';
 
 class Profile extends Component {
     state = {
@@ -19,13 +18,14 @@ class Profile extends Component {
             author: "",
             content: ""
         },
-        user: {}
+        user: this.props.userLoggedIn
     }
 
     componentWillReceiveProps(nextState) {
         this.setState({
+            user: nextState.user,
             isUserLoggedIn: nextState.isUserLoggedIn,
-            posts: nextState.posts
+            posts: nextState.posts,
         });
     }
 
@@ -40,46 +40,38 @@ class Profile extends Component {
             this.props.onFetchPosts();
         }
     }
-
-
-
     onUserLoggedIn() {
-        return (
-            <div>
-                <div className={classes.profback}>
-                    <img className={classes.profilepic} src={this.state.user.profilePic} alt={"profile pic"} />
-                    <p>Logged in as: {this.props.userLoggedIn.userName}</p>
+        if (this.props.userLoggedIn) {
+            return (
+                <div>
+                    <div className={classes.profback}>
+                        <img className={classes.profilepic} src={this.props.userLoggedIn.profilePic} alt={"profile pic"} />
+                        <p>Logged in as: {this.props.userLoggedIn.email}</p>
+                        <NewPost
+                            newPostInfo={this.state.newPostInfo}
+                            updateNewPostData={this.updateNewPostData}
+                            submitNewPost={this.submitNewPost}
+                        />
 
-                    <button onClick={this.props.onLogOut}>Log out</button>
-                    <NewPost
-                        newPostInfo={this.state.newPostInfo}
-                        updateNewPostData={this.updateNewPostData}
-                        submitNewPost={this.submitNewPost}
-                    />
-
-                    {this.renderPosts()}
+                        {this.renderPosts()}
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        } else {
+            return <Spinner />
+        }
     }
 
     render() {
-
-        const games = Object.values(this.state.user)[2] ? Object.values(this.state.user)[2].league : "not found"
-        const user = games !== "not found" ? games.username : "Not Found"
-        const div = games !== "not found" ? games.Div : "Not Found"
-        const elo = games !== "not found" ? games.Elo : "Not Found"
-        const rol = games !== "not found" ? games.Rol : "Not Found"
         return (
-            <>
+            <React.Fragment>
                 <div className={classes.profback}>
                     <h1>
-                        Welcome: {user} <br />
-
+                        Welcome: {this.props.userLoggedIn.username} <br />
                     </h1>
                 </div>
                 {this.state.isUserLoggedIn ? this.onUserLoggedIn() : this.onUserLoggedOut()}
-            </>
+            </React.Fragment>
         );
     }
 
@@ -89,7 +81,6 @@ class Profile extends Component {
         if (this.props.loadingPosts) {
             posts = <Spinner />;
         }
-
         return posts;
     }
 
@@ -97,9 +88,7 @@ class Profile extends Component {
         var updatedNewPostInfo = {
             ...this.state.newPostInfo
         }
-
         updatedNewPostInfo[type] = event.target.value;
-
         this.setState({
             newPostInfo: updatedNewPostInfo
         });
@@ -107,9 +96,7 @@ class Profile extends Component {
 
     submitNewPost = () => {
         var newPostInfo = { ...this.state.newPostInfo };
-
         this.props.onSavePost(newPostInfo);
-
         this.setState({
             newPostInfo: {
                 title: "",
@@ -146,8 +133,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onSavePost: (post) => dispatch(actionCreators.savePost(post)),
-        onFetchPosts: () => dispatch(actionCreators.fetchPosts()),
-        onLogOut: () => dispatch(actionCreators.logOut())
+        onFetchPosts: () => dispatch(actionCreators.fetchPosts())
     }
 }
 
