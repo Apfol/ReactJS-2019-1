@@ -8,7 +8,7 @@ export default class TouristPlaceCard extends Component {
     render() {
         return (
             <Link to={`/tourism/${this.props.id}`}>
-                <Card className={classes.card} style={{ width: '18rem' }} onClick={this.onClick}>
+                <Card className={classes.card} style={{ width: '20rem' }} onClick={this.onClick}>
                     <Card.Img variant="top" src={this.props.img} height="150" />
                     <Card.Body>
                         <Card.Title>{this.props.title}</Card.Title>

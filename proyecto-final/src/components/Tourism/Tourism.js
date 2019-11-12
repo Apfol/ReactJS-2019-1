@@ -8,6 +8,7 @@ import * as actionCreators from '../../store/actions/';
 import Footer from '../Footer/Footer';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import TourismLogin from '../../containers/TourismLogin/TourismLogin';
+import { Container, Row } from 'react-bootstrap';
 
 class Tourism extends Component {
     state = {
@@ -55,18 +56,20 @@ class Tourism extends Component {
 
     getPlaces = () => {
         return (
-            <div>
-                {this.state.places.map(place =>
-                    <TouristPlaceCard
-                        title={place.title}
-                        description={place.description}
-                        img={place.img}
-                        score={place.score}
-                        handleClick={this.onClickCard.bind(this)}
-                        id={place.id}
-                    />
-                )}
-            </div>
+            <Container className={classes.border} >
+                <Row className="justify-content-md-center" >
+                    {this.state.places.map(place =>
+                        <TouristPlaceCard
+                            title={place.title}
+                            description={place.description}
+                            img={place.img}
+                            score={place.score}
+                            handleClick={this.onClickCard.bind(this)}
+                            id={place.id}
+                        />
+                    )}
+                </Row>
+            </Container>
         )
     }
 
