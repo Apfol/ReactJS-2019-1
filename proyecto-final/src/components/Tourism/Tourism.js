@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import TouristPlaceCard from '../TouristPlaceCard/TouristPlaceCard';
-import PlaceDetailed from '../PlaceDetailed/PlaceDetailed';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import classes from './Tourism.css';
 
 import * as actionCreators from '../../store/actions/';
-import CommentForm from '../CommentForm/CommentForm';
 import Footer from '../Footer/Footer';
 import NavigationBar from '../NavigationBar/NavigationBar';
+import TourismLogin from '../../containers/TourismLogin/TourismLogin';
 
 class Tourism extends Component {
     state = {
@@ -98,16 +97,7 @@ class Tourism extends Component {
         return (
             <div className={classes.container}>
                 <Route path="/tourism/" exact>{this.getPlaces()}</Route>
-                <Route path="/tourism/:placeId" exact render={() => (
-                    <div>
-                        <PlaceDetailed place={this.state.placeSelected} />
-                        <CommentForm
-                            newCommentInfo={this.state.newCommentInfo}
-                            updateCommentInfo={this.updateCommentInfo}
-                            submitCommentForm={this.submitCommentForm}
-                        />
-                    </div>
-                )} />
+                <Route path="/tourism/:idPlace" exact component={TourismLogin} />
             </div>
         )
 
@@ -155,13 +145,10 @@ class Tourism extends Component {
     onUserLogOut() {
         return (
             <div className={classes.container}>
-                <Route path="/tourism/" exact>{this.getPlaces()}</Route>
-                <Route path="/tourism/:placeId" exact render={() => (
-                    <div>
-                        <PlaceDetailed place={this.state.placeSelected} />
-                        <p className={classes.sesion} to="/login">Inicia sesión para comentar tu experiencia</p>
-                    </div>
-                )} />
+                <div className={classes.container}>
+                    <Route path="/tourism/" exact>{this.getPlaces()}</Route>
+                    <Route path="/tourism/:idPlace" exact component={TourismLogin} />
+                </div>
             </div>
         )
 
