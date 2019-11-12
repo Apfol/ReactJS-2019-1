@@ -3,6 +3,7 @@ import classes from "./sportsEquipment.css";
 import {Form, ProgressBar, Button} from "react-bootstrap";
 import { connect } from 'react-redux';
 import axios from "../../../Instances/axios-sportequipment";
+import firebase from "../../../Instances/FireBase"
 import * as actionCreators from '../../../Store/Actions/';
 class SportsEquipment extends React.Component {
   state = {
@@ -15,6 +16,20 @@ class SportsEquipment extends React.Component {
     SportSelected: '',
     Percentage: 0
   };  
+  componentDidMount(){
+    if(firebase.auth().currentUser != null)
+    {
+      this.setState({
+        Prestamo:{
+          ...this.state.Prestamo,        
+          student: firebase.auth().currentUser.displayName,
+          studentemail: firebase.auth().currentUser.email,
+          UID: firebase.auth().currentUser.uid
+
+        }
+      })
+    }
+  }
 
   render() {
     return (

@@ -47,13 +47,10 @@ export const PostPrestamo = PrestamoData => {
     dispatch(startLoading());  
     if(firebase.auth().currentUser != null){      
       let PrestamoData2 = {
-        ...PrestamoData,
-        student: firebase.auth().currentUser.displayName,
-        studentemail: firebase.auth().currentUser.email,
-        UID: firebase.auth().currentUser.uid
+        ...PrestamoData
       }
       axios
-      .patch("/Prestamo/" + firebase.auth().currentUser.uid + ".json" , PrestamoData2)
+      .patch("/Prestamo/" + PrestamoData.UID + ".json" , PrestamoData2)
       .then(Response => { 
         axios.get("/Sport/" + PrestamoData.sport + "/Count.json").then((r) => {
           console.log(r.data)
@@ -87,13 +84,10 @@ export const UpdatePrestamo = PrestamoData => {
     dispatch(startLoading());  
     if(firebase.auth().currentUser != null){      
       let PrestamoData2 = {
-        ...PrestamoData,
-        student: firebase.auth().currentUser.displayName,
-        studentemail: firebase.auth().currentUser.email,
-        UID: firebase.auth().currentUser.uid
+        ...PrestamoData
       }
       axios
-      .patch("/Prestamo/" + firebase.auth().currentUser.uid + ".json" , PrestamoData2)
+      .patch("/Prestamo/" + PrestamoData.uid + ".json" , PrestamoData2)
       .then(Response => { 
         axios.get("/Sport/" + PrestamoData.sport + "/Count.json").then((r) => {
           console.log(r.data)

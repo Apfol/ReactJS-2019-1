@@ -22,7 +22,7 @@ class SportEquipmentModule extends Component {
     })
   }
   componentDidMount() {
-    firebase.database().ref('Prestamo/').on('child_changed', this.addComment);
+    firebase.database().ref('Prestamo/').on('child_changed', this.remove);
   }
 
   componentWillUnmount() {
@@ -30,8 +30,7 @@ class SportEquipmentModule extends Component {
   }
 
   remove = (data) => {
-    console.log
-    
+    console.log(data.ref_)    
   }
 
 
