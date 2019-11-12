@@ -12,6 +12,7 @@ export const START_LOGIN_ERROR = 'START_LOGIN_ERROR';
 export const END_LOGIN_ERROR = 'END_LOGIN_ERROR';
 
 export const FETCH_NEWS = 'FETCH_NEWS';
+export const FETCH_NEW = 'FETCH_NEW';
 
 export const FETCH_TOURISM = 'FETCH_TOURISM';
 export const FETCH_PLACE = 'FETCH_PLACE';

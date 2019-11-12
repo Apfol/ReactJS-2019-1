@@ -3,11 +3,16 @@ import updateObject from '../utility';
 
 const initialState = {
     news: [],
-    loadingNews: false
+    loadingNews: false,
+    newsSelected: "",
 }
 
 const fetchNews = (state, action) => {
     return updateObject(state, { news: action.payload.news})
+}
+
+const fetchNew = (state, action) => {
+    return updateObject(state, { newsSelected: action.payload.news})
 }
 
 const startLoading = (state, action) => {
@@ -23,6 +28,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.FETCH_NEWS: return fetchNews(state, action);
         case actionTypes.START_LOADING: return startLoading(state, action);
         case actionTypes.END_LOADING: return endLoading(state, action);
+        case actionTypes.FETCH_NEW: return fetchNew(state, action);
         default: return state;
     }
 }
