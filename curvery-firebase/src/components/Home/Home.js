@@ -2,7 +2,7 @@ import React from 'react';
 
 import { compose } from 'recompose';
 import { withAuthorization, withEmailVerification } from '../Session';
-
+import './Home.css';
 //COMPONENTS
 import Illustracion from '../VideoCards/Categories/Illustracion/Illustracion';
 import Photography from '../VideoCards/Categories/Photography/Photography';
