@@ -1,0 +1,59 @@
+
+.service{
+    border-radius: 5px;
+    margin: 10px 20px;
+    padding: 10px 20px 0 20px;
+    width: 46.4%;
+    display: inline-block;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 2px 20px 0 rgba(0,0,0,0.19);
+}
+
+.serviceDetails, .servicePrice {
+    display: block;
+}
+
+.names{
+    display: inline-block;
+    width: 40%;
+}
+.names p{
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.delete {
+    float: right;
+    width: 20px;
+    background: none;
+    border: none;
+}
+
+.photo {
+    display: inline-block;
+    width: 120px;
+    margin-right: 25px;
+    margin-top: 5px;
+    float: left;
+    border-radius: 5px;
+}
+
+.serviceComplete{
+    float: right;
+    border: none;
+    color : white;
+    background-color: #731be1;
+    border-radius: 7px;
+    font-size: 15px;
+    position: relative;
+    bottom: 27px;
+}
+
+.starRate{
+    float: right;
+}
+
+.paid{
+    margin-bottom: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+}

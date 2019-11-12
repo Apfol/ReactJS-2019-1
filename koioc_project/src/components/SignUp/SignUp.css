@@ -1,7 +1,6 @@
 .all{
     width: -webkit-fill-available;
     height: -webkit-fill-available;
-    padding: 50px 15%;
 }
 
 a {
@@ -9,11 +8,12 @@ a {
 }
 
 .border{
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+    float: left;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 5%;
     border: 1px solid #eaeced;
-    width: fit-content;
+    width: 690px;
     padding: 42px 42px 24px;
     border-radius: 5px;
 }
@@ -40,18 +40,61 @@ a {
     margin-left: auto;
 }
 
-input{
-    width: 350px;
+.border input{
+    width: 270px;
     height: 44px;
     resize: vertical;
     padding: 0 12px;
-    margin-right: auto;
+    margin-right: 25px;
     margin-left: auto;
     border: 1px solid #9da3a6;
     border-radius: 4px;
     font-size: 1em;
     margin-bottom: 20px;
-    display: block;
+    display: inline;
+}
+
+.inputFile {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputFileLabel {
+    width: 270px;
+    height: 44px;
+    color: black;
+    background-color: rgb(201, 206, 236);
+    display: inline-block;
+    cursor: pointer; 
+    position: relative;
+    bottom: 9px;
+    border: 1px solid #9da3a6;
+    border-radius: 4px;
+    font-size: 1em;
+    text-align: center;
+    transition-duration: 0.4s;
+}
+
+.inputFileLabel p, .inputFileLabel img{
+    position: relative;
+    top: 10px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.inputFileLabel img{
+    width: 27px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.inputFileLabel:focus ,
+.inputFileLabel:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 2px 20px 0 rgba(0,0,0,0.19);
 }
 
 .signUp{

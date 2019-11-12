@@ -1,19 +1,72 @@
+.shoppingCartLenght{
+    margin: 20px 20% 20px;
+    padding: 0 20px 0 24px;
+    border: thin solid white;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 2px 20px 0 rgba(0,0,0,0.19);
+}
+.shoppingCartLenght h4{
+    margin-bottom: 24px;
+    /*font-family: 'Varela Round', sans-serif;*/
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+}
+
+.table{
+    margin: 20px 20% 20px;
+    padding: 0;
+    display: flex;
+}
+
 .service{
-    margin: 0 30%;
-    padding: 0 20px 0 20px;
+    flex: 0 0 70%;
+    width: 70%;
+    max-width: 70%;
+    padding-right: 20px;
 }
 
 .price{
-    margin: 20px 30%;
-    padding: 0 20px 0 20px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    width: 30%;
+    max-width: 30%;
+    padding-left: 8px;
+    padding-right: 8px;
+    position: relative;
+    border: thin solid white;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 2px 20px 0 rgba(0,0,0,0.19);
+    height: -webkit-fill-available;
 }
-
+.price h3{
+    float: right;
+    margin-right: 24px;
+    font-size: 24px;
+    /*font-family: 'Varela Round', sans-serif;*/
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    display: inline;
+    margin-top: 0;
+}
+.price h4{
+    margin-left: 24px;
+    /*font-family: 'Varela Round', sans-serif;*/
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+}
 .price h5{
-    margin-top: 0
+    margin-left: 24px;
+    /*font-family: 'Varela Round', sans-serif;*/
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    display: inline;
+    position: relative;
+    top: 11px;
 }
 
 .button {
-    width: 100%;
+    width: 80%;
     resize: vertical;
     height: 44px;
     padding: 0;
@@ -30,7 +83,6 @@
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     background-color:  #4A00E0;
-}
-.button:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 2px 20px 0 rgba(0,0,0,0.19);
+    margin-bottom: 24px;
+    margin-left: 24px;
 }

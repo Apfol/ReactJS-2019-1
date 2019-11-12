@@ -3,19 +3,31 @@ import classes from './Product.css';
 import { Modal, Button } from 'react-bootstrap';
 import Services from './Services/Services.js';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import firebase from '../../../../config/firebase_config';
+import * as actionCreators from '../../../../store/actions';
 
 class Product extends React.Component{
-
 
     constructor(props) {
         super(props);
 
         this.state = {
-            show: false,
-            selectedEmployees: this.props.logged.employees
+            show: false,    
+            employees : [],
+            newEmployees: []
         };           
     }
-    
+
+    componentWillMount () {
+        axios.get('https://koioc-23ec2.firebaseio.com/users/'+this.props.userLoggedIn.uid+'.json')
+        .then(response  => {
+            var employees = response.data.employees
+            this.setState(this.state.employees = employees)
+        });
+    }
+
     render(){
         return(
         <li className={classes.product} >
@@ -38,10 +50,12 @@ class Product extends React.Component{
                         Close
                     </Button>
                     <Link to = "/shoppingCart">
-                        <Button title="Order a service" variant="primary" onClick={this.updateCar()}>
+                        <Button title="Order a service" variant="primary" onClick={this.updateCar}>
                             Order Service
                         </Button>
                     </Link>
+                        
+                    
                 </Modal.Footer>
             </Modal>
         </li>
@@ -57,58 +71,86 @@ class Product extends React.Component{
     }
 
     paintChecked = (index) => {
-        for(var i=0;i<this.state.selectedEmployees.length; i++){
-            if(this.state.selectedEmployees[i].categoryID===this.props.idCategory){
-                if(this.state.selectedEmployees[i].productIndex===this.props.index){
-                    if(this.state.selectedEmployees[i].serviceID===index){
-                        return true;
+        if(this.state.employees !== undefined){
+            for(var i=0;i<this.state.employees.length; i++){
+                if(this.state.employees[i] !== null){
+                    if(this.state.employees[i].idCategory===Number(this.props.idCategory)){
+                        if(this.state.employees[i].idProduct===this.props.index){
+                            if(this.state.employees[i].idEmployee===index){
+                                if(this.state.employees[i].paid !== true){
+                                    return this.state.employees[i].active;
+                                }
+                            }
+                        }
                     }
                 }
-            }
+           }
         }
-        return false;
     }
 
     isChecked = (index) => {
-        var count=0;
-        for(var i=0;i<this.state.selectedEmployees.length; i++){
-            if(this.state.selectedEmployees[i].serviceID!==index){
-                count++;
-            }
-            else{
-                if(this.state.selectedEmployees[i].productIndex!==this.props.index){
-                    count++;
-                }
-                else{
-                    if(this.state.selectedEmployees[i].categoryID!==this.props.idCategory){
-                        count++;
+        var existe = false;
+        if(this.state.employees !== undefined){
+            for(var i=0;i<this.state.employees.length; i++){
+                if(this.state.employees[i] !== null){
+                    if(this.state.employees[i].idEmployee===index){
+                        if(this.state.employees[i].idProduct===this.props.index){
+                            if(this.state.employees[i].idCategory===Number(this.props.idCategory)){
+                                if(this.state.employees[i].active === true && this.state.employees[i].paid === false){
+                                    existe = true;
+                                    var categoryEmployees = this.state.employees
+                                    categoryEmployees[i].active = false
+                                    this.setState( this.state.employees = categoryEmployees );
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
-        console.log(this.state.selectedEmployees.length+"  "+count);
         
-        if(count===this.state.selectedEmployees.length){
-            var s = {
-                categoryID : this.props.idCategory,
-                productIndex : this.props.index,
-                serviceID : index
-            };
-            const help = this.state.selectedEmployees.concat(s)
-            this.setState({ selectedEmployees: help });
+        if(existe === false) {
+            var products = [{
+                idCategory : Number(this.props.idCategory),
+                idProduct : this.props.index,
+                idEmployee : index,
+                active : true,
+                paid : false
+            }]
+            if(this.state.employees!==undefined){
+                var totalProducts = products.concat(this.state.employees)
+                this.setState({
+                    employees : totalProducts,
+                })
+            }else{
+                this.setState({
+                    employees : products,
+                })
+            }
         }
-        if(count!==this.state.selectedEmployees.length){
-            var help = this.state.selectedEmployees.filter(n =>  (n.categoryID !== this.props.idCategory)||((n.categoryID === this.props.idCategory) && (n.serviceID !== index || n.productIndex!==this.props.index)));
-            
-            this.setState({ selectedEmployees: help });
-        }
+    
     }
 
     updateCar = () => {
-        var help = this.props.logged;
-        help.employees = this.state.selectedEmployees;
-        this.props.updateCar(help);
+        if(this.state.employees !== undefined){
+            var products = this.state.employees;
+            this.props.onSaveProduct(products, this.props.userLoggedIn.uid);
+        }
     }
 }
 
-export default Product;
+const mapStateToProps = state => {
+    return {
+        isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
+        error: state.authenticationStore.error,
+        userLoggedIn: state.authenticationStore.userLoggedIn
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onSaveProduct: (products, uid) => dispatch(actionCreators.saveProduct(products, uid))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Product);

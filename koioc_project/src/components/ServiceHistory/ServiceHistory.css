@@ -1,0 +1,55 @@
+.all{
+    padding: 0 10%;
+}
+
+.service{
+    margin: 0;
+    padding: 0 20px 0 20px;
+}
+
+.service h2, .service h3, .service h4, .service p{
+    font-family: 'Varela Round', sans-serif;
+}
+
+.service h2{
+    font-size: 45px;
+}
+
+.price{
+    margin: 20px 30%;
+    padding: 0 20px 0 20px;
+}
+
+.price h5{
+    margin-top: 0
+}
+
+.button {
+    width: 100%;
+    resize: vertical;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    color: white;
+    border-radius: 4px;
+    font-size: 1em;
+    
+    display: inline-block;
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: 700;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    background-color:  #4A00E0;
+}
+.button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 2px 20px 0 rgba(0,0,0,0.19);
+}
+
+.noServices{
+    position: relative;
+    left: 21px;
+    color: #5206e0;
+    font-size: 20px;
+}

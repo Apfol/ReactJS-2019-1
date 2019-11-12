@@ -1,65 +1,145 @@
 import React, { Component } from 'react';
 import logo1 from '.././../assets/images/koioc_tittle.png';
 import logo2 from '.././../assets/images/logoceo.png';
+import image from '.././../assets/images/image.png';
+import profile from '.././../assets/images/profile.png';
 import classes from'./SignUp.css';
-import {Link} from 'react-router-dom';
+import {notify} from 'react-notify-toast';
+import ProfilePreview from './ProfilePreview/ProfilePreview';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions';
+import Spinner from '../../components/Spinner/Spinner';
 
 class SignUp extends Component{
+    
     constructor(props){
         super(props);
-        this.name = React.createRef();
-        this.mail = React.createRef();
-        this.password = React.createRef();
-        this.address = React.createRef();
-        this.city = React.createRef();
-        this.zip_code = React.createRef();
-        this.phone = React.createRef();
+        this.state = {
+            newUserInfo: {
+                mail: "",
+                password: "",
+                name: "",
+                address: "",
+                city: "",
+                zip_code: "",
+                phone: "",
+                fileURL: profile,
+                file: null
+            },
+            isUserLoggedIn: this.props.isUserLoggedIn,
+        }
+    }
+
+    componentDidUpdate () {
+        if (this.state.isUserLoggedIn) {
+            this.props.history.push('/');
+        }
+    }
+
+    updateNewUserData = (event, type) => {
+        var updatedNewUserInfo = {
+          ...this.state.newUserInfo
+        }
+
+        if (type === "fileURL") {
+            updatedNewUserInfo[type] = URL.createObjectURL(event.target.files[0]); 
+            updatedNewUserInfo["file"] = event.target.files[0];    
+        }else{
+            updatedNewUserInfo[type] = event.target.value;
+        }
+
+        this.setState({
+            newUserInfo: updatedNewUserInfo
+        });
     }
 
 
-    render(){
-        var signUp = () => {
-            const newUser = {
-                mail: this.mail.current.value,
-                password: this.password.current.value,
-                name: this.name.current.value,
-                address: {
-                    address: this.address.current.value,
-                    city: this.city.current.value,
-                    zip_code: this.zip_code.current.value
-                },
-                phone: {
-                    number: this.phone.current.value,
-                    type: "Celular"
-                },
-                photo: "",
-                services:[]
-            }
-            const help = this.props.users.concat(newUser);
-            this.props.signUp(help);
+    signUp = () => {
+        const newUser = {
+            mail: this.state.newUserInfo.mail,
+            password: this.state.newUserInfo.password,
+            name: this.state.newUserInfo.name,
+            address: {
+                address: this.state.newUserInfo.address,
+                city: this.state.newUserInfo.city,
+                zip_code: this.state.newUserInfo.zip_code
+            },
+            phone: {
+                number: this.state.newUserInfo.phone,
+                type: "Celular"
+            },
+            photo: this.state.newUserInfo.file,
         }
+        this.props.onUserSignUp(newUser,() => {
+            this.props.history.push('/home');
+        });
+    }
 
+    componentWillReceiveProps = (nextProps) =>{
+        this.setState({
+            isUserLoggedIn: nextProps.isUserLoggedIn
+        });
+        if (nextProps.error !== '') {
+            //ToastsStore.error('Ups, there was an error: ' + );
+            notify.show(nextProps.error, "error", 5000);
+            nextProps.onSaveError();
+        }
+    }
+
+    render(){
         return(
             <div className={classes.all}>
-                {/*console.log(this.data.usrs)*/}
                 <div className={classes.border}> 
                     <div className={classes.logo}>
                         <img className={classes.logo1} src={logo1} alt="logo1-app"></img>
                         <img className={classes.logo2} src={logo2} alt="logo2-app"></img>
                     </div>
-                    Nombre: <input ref={this.name} type="text"></input>
-                    Correo: <input ref={this.mail} type="mail"></input>
-                    Contraseña: <input ref={this.password} type="password"></input>
-                    Direccion: <input ref={this.address} type="text"></input>
-                    Ciudad: <input ref={this.city} type="text"></input>
-                    Codigo Postal: <input ref={this.zip_code} type="text"></input>
-                    Celular: <input ref={this.phone} type="number"></input>
-                    <Link to = "/">
-                        <button onClick = {signUp} className={classes.signUp}>Crear nuevo usuario</button>
-                    </Link>
+                        <input placeholder="Name:" onChange={(event) => this.updateNewUserData(event, "name")}  type="text"></input>
+                        <input placeholder="E-mail:" onChange={(event) => this.updateNewUserData(event, "mail")}  type="mail"></input>
+                        <input placeholder="Password:" onChange={(event) => this.updateNewUserData(event, "password")} type="password"></input>
+                        <input placeholder="Address:" onChange={(event) => this.updateNewUserData(event, "address")}  type="text"></input>
+                        <input placeholder="City:" onChange={(event) => this.updateNewUserData(event, "city")}  type="text"></input>
+                        <input placeholder="Zip code:" onChange={(event) => this.updateNewUserData(event, "zip_code")} type="text"></input>
+                        <input placeholder="Phone:" onChange={(event) => this.updateNewUserData(event, "phone")} type="text"></input>                        
+                        <input placeholder="Imagen:" className={classes.inputFile} name="file" id="file" onChange={(event) => this.updateNewUserData(event, "fileURL")}  type="file"></input>
+                        <label htmlFor="file" className={classes.inputFileLabel} >
+                            <img src={image} alt="logo1-app"></img>
+                            <p>Choose a profile picture</p></label>
+                        {this.renderButton()}
+                        
                 </div>
+                <ProfilePreview data ={this.state.newUserInfo} />
+                
             </div>
         )
     }
+
+    renderButton() {
+        let button = <button onClick = {this.signUp} className={classes.signUp}>Sign up</button>;
+
+        if (this.props.loadingAuth) {
+            button = <Spinner />;
+        }
+
+        return button;
+    }
 }
-export default SignUp;
+
+const mapStateToProps = state => {
+    return {
+        isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
+        error: state.authenticationStore.error,
+        loadingAuth: state.authenticationStore.loadingAuth
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onUserSignUp: (newUserData,onSuccessCallback) => dispatch(
+            actionCreators.signUp(newUserData,onSuccessCallback)
+        ),
+        onSaveError: () => dispatch(actionCreators.saveError("")),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

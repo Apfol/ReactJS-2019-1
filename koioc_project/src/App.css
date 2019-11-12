@@ -1,13 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+
+.container h1, .container h2, .container h3, .container h4, .container p, .container a {
+	font-family: 'Varela Round', sans-serif;
+}
 
 .nav_colour {  
   background: #8E2DE2;  
   background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2); 
   background: linear-gradient(to right, #4A00E0, #8E2DE2);
+  text-decoration: none;
+}
+.nav_colour:hover {  
+  text-decoration: none;
 }
 
 .brand{
   color: white;
   font-size: 24px;
+  text-decoration: none;
+}
+
+.link:hover{
+  color: white;
+  text-decoration: none;
 }
 
 .option{
@@ -15,22 +30,10 @@
   color: white;
   text-decoration: none;
 }
-
 .option:hover{
   color: white;
   text-decoration: none;
 }
-
-.all{
-  width: -webkit-fill-available;
-  height: -webkit-fill-available;
-  padding: 50px 15%;
-}
-
-a {
-  color: rgb(63,81,181);
-}
-
 
 .cart{
   width: 15px;

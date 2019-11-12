@@ -21,7 +21,6 @@ class Carousels extends Component {
 	render () {
 		return (
 			<Carousel>
-				{console.log(imgUrls.length)}
 				<Carousel.Item>
 					<img
 					className="d-block w-100"

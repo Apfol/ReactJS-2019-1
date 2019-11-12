@@ -1,11 +1,12 @@
 .all{
   width: -webkit-fill-available;
   height: -webkit-fill-available;
-  padding: 25px 15%;
+  padding: 25px 20%;
 }
 
 p{
-  letter-spacing: 2px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
 }
 
 .grid{
@@ -18,12 +19,15 @@ p{
 
 .cell{ 
   display: inline-block;
-  border: thin solid #eee;
+  border: thin solid #cecece;
   height: auto;
-  padding-left:25px;
-  padding-right:25px;
+  padding-left:35px;
+  padding-right:35px;
   margin: 8px;
   width:-webkit-fill-available;
+  border-radius: 5px;
+  background-color: #8500ff14;
+  padding-bottom: 15px;
 }
 
 .perfil{
@@ -58,18 +62,50 @@ p{
 
 .name{
   padding-left: 1.2em;
-  font-size: 20px;
+  font-size: 23px;
   line-height: 30px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
 }
 
 .text_profile{ 
     margin-bottom: 16px;
-    letter-spacing: 1px;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
 }
 
 .editar{
   float: right;
   color: blue;
-  font-size: 14px;
+  font-size: 15px;
+}
+
+.mail{
+  margin-left: 8px;
+  margin-bottom: 7px;
+  font-size: 20px;
+}
+.style{
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+.history{
+  margin-left: 8px;
+  text-decoration: none;
+  color : blue;
+  margin-bottom: 24px;
+}
+
+.phone{
+  margin-left: 8px;
+  font-size: 20px;
+  margin-bottom: 7px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+}
+.number{
+  margin-left: 16px;
+  margin-bottom: 0px;
 }
