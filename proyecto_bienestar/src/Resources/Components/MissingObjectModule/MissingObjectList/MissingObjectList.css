@@ -3,3 +3,34 @@
     background-color: transparent;      
     overflow: hidden;
 }
+
+.contenedor{
+    width:90px;
+    height:240px;
+    position:absolute;
+    right:0px;
+    bottom:0px;
+  }
+
+.addMissingObject{
+
+    width:60px;
+    height:60px;
+    border-radius:100%;
+    background:#F44336;
+    right:0;
+    bottom:0;
+    position:fixed;
+    margin-right:20px;
+    margin-bottom:20px;
+    border:none;
+    outline:none;
+    color:#FFF;
+    font-size:36px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition:.3s;
+}
+
+.span{
+    margin-bottom: 30px;
+}

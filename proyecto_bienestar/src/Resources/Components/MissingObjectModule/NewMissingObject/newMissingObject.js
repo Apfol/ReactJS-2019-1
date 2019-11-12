@@ -1,17 +1,12 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
-import classes from "./MissingObjectList.css";
-//import MissingObjects from "../../MissingObjects/MissingObjects";
-import SearchFilter from "./SearchFilter";
 import {Modal, Button} from "react-bootstrap";
-import * as actionCreators from '../../../../Store/Actions/'; 
 import firebase from '../../../../config/firebase_config';
 
-class MissingObjectList extends Component {
+class NewMissingObject extends Component {
+
   state = {
     lgShow: false,
     picture: "",
-    missingObjects: this.props.missingObject,
     newObjectData:
     {
       found: false,
@@ -26,30 +21,6 @@ class MissingObjectList extends Component {
     }, 
     objects:[]    
   }
-
-  componentWillReceiveProps (nextState) {
-    this.setState({
-        isUserLoggedIn: nextState.isUserLoggedIn,
-        missingObjects: nextState.posts.mObjects
-      });
-  }
-
-  componentDidMount () {
-      if (this.state.isUserLoggedIn) {
-          this.props.onFetchPosts();
-      }
-  }
-
-  /*renderPosts () {
-    let posts = <MissingObjects missingObject = {this.state.missingObjects}/>;
-
-    console.log("*****"+this.state.missingObjects)
-    /*if (this.props.loadingPosts) {
-        posts = <Spinner />;
-    }
-
-    return posts;
-  }*/
 
   setLgShow(){
     this.setState({
@@ -66,23 +37,13 @@ class MissingObjectList extends Component {
     }
   }
 
-  render() {
-    return (      
-      <div className={classes.MissingObjectList}>
-          <SearchFilter/>
+  render (){
 
-        {/*this.renderPosts()*/}
-
-          <div className = {classes.contenedor}>
-            <button className={classes.addMissingObject} onClick={() => this.setLgShow()}>
-              <span className={classes.span}>+</span>
-            </button>             
-          </div>
-
-          <Modal
+    return(
+    <Modal
       size="lg"
-      show={this.getModalStatus(1)}
-      onHide={() => this.setLgShow()}
+      show={this.getModalStatus}
+      onHide={this.setLgShow}
       aria-labelledby="example-modal-sizes-title-lg"
     >
       <Modal.Header closeButton>
@@ -129,21 +90,17 @@ class MissingObjectList extends Component {
               class="form-control"                  
               placeholder="Selección de imagen"       
               value={this.state.newObjectData["image"]}
-              onChange={(event) => {this.handleUpload(event)}}
+              onChange={(event) => {this.uploadMissingObjectOnUpload(event)}}
             />
           </div>   
           
           <Button variant="primary" onClick={this.submitNewMissingObjectObj}>Ingresar Objeto Perdido</Button>                                                               
         </form>
       </Modal.Body>
-    </Modal>
+    </Modal>)
+  }
 
-    {/*this.renderPosts()*/}            
-      </div>
-    );
-  }   
-
-   handleUpload = (event) =>{
+  handleUpload = (event) =>{
      
     this.setState({      
       picture: event.target.files[0]
@@ -205,21 +162,69 @@ class MissingObjectList extends Component {
         name:''
       }
     })
-  } 
-}
-
-const mapStateToProps = state => {
-  return {
-      uploadMissingObjectState: state.missingObjectStore.missingObjects
   }
 }
+/*var newMissingObject = (props) => {      
+      
+        return(<Modal
+            size="lg"
+            show={props.getModalStatus}
+            onHide={() => props.setLgShow()}
+            aria-labelledby="example-modal-sizes-title-lg"
+          >
+            <Modal.Header closeButton>
+              <Modal.Title id="example-modal-sizes-title-lg">
+                Ingresar Objeto Perdido                     
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>            
+              <form action="/action_page.php">
+                <div class="form-group">
+                  <label for="encontrado">Encontrado por:</label>
+                  <input
+                    type="text"
+                    class="form-control"                  
+                    placeholder="¿Quién lo encontró?"                  
+                    value={props.newObjectData.foundedby}
+                    onChange={(event) => {props.uploadMissingObjectObjHandleChange(event,'foundedby')}}
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="lugarEncontrado">Lugar Donde fue encontrado</label>
+                  <input
+                    type="text"
+                    class="form-control"                  
+                    placeholder="¿Donde lo encontró?"       
+                    value={props.newObjectData["foundlocation"]}
+                    onChange={(event) => {props.uploadMissingObjectObjHandleChange(event,'foundlocation')}}
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="objectName">¿Cuál es el objeto perdido?</label>
+                  <input
+                    type="text"
+                    class="form-control"                  
+                    placeholder="Nombre del objeto perdido"       
+                    value={props.newObjectData["name"]}
+                    onChange={(event) => {props.uploadMissingObjectObjHandleChange(event,'name')}}
+                  />
+                </div>   
+                <div class="form-group">
+                  <label for="imagen">Imagen del objeto perdido</label>
+                  <input
+                    type="file"
+                    class="form-control"                  
+                    placeholder="Selección de imagen"       
+                    value={props.newObjectData["image"]}
+                    onChange={(event) => {props.uploadMissingObjectOnUpload(event)}}
+                  />
+                </div>   
+                
+                <Button variant="primary" onClick={props.submitNewMissingObjectObj}>Ingresar Objeto Perdido</Button>                                                               
+              </form>
+            </Modal.Body>
+          </Modal>)
+    }*/   
+//<img id = "myimg"/>
+export default NewMissingObject
 
-const mapDispatchToProps = dispatch => {
-  return {
-      onUploadMissingObject:(missingObjectData) => dispatch(actionCreators.updateMissingObjectAction(missingObjectData)),
-      onFetchObjects: () => dispatch(actionCreators.fetchObjects())
-              
-  }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(MissingObjectList);

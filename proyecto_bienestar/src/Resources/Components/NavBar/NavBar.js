@@ -16,18 +16,10 @@ class NavBarComponent extends Component {
     smShow: false,
     nuevo: false,
     userName: '',
-    password: '',
-    objects: [
-      { name: "Celular Xyz", location: "Biblioteca", by: "Cristian" },
-      { name: "Sombrilla", location: "Atelier 205", by: "Laura" },
-      { name: "Celular y", location: "Edificio B-105", by: "Pedro" },
-      { name: "Cargador Iphone", location: "Edificio B-204", by: "Leidy" },
-      { name: "Cachucha", location: "Biblioteca", by: "Juan" },
-      { name: "Botilito", location: "Biblioteca", by: "Felipe" },
-      { name: "Chaqueta", location: "Biblioteca", by: "Cristian" }
-    ]
+    password: ''     
   };
   
+
   setSmShow() {
     this.setState({
       smShow: !this.state.smShow
@@ -37,11 +29,13 @@ class NavBarComponent extends Component {
     const userData = {
       email: this.state.userName,
       password: this.state.password
+
   }
     this.props.onUserLogin(userData, () => {
         
     });   
   }  
+
 
   getModalStatus(){    
     if(!this.state.smShow && !this.props.isUserLoggedIn){      
@@ -50,6 +44,8 @@ class NavBarComponent extends Component {
     else{
       return false;
     }
+
+
   }
 
   render() {
@@ -67,6 +63,7 @@ class NavBarComponent extends Component {
               </Nav.Link>
               <Nav.Link href="#link">Link</Nav.Link>              
             </Nav>     
+
             {
             !this.props.isUserLoggedIn ? 
             <Button variant="outline-success" onClick={this.submitLoginForm}>                                     
@@ -81,6 +78,7 @@ class NavBarComponent extends Component {
             </div>      
                         
             }                                      
+
           </Navbar.Collapse>
         </Navbar>
 
@@ -90,10 +88,13 @@ class NavBarComponent extends Component {
           aria-labelledby="example-modal-sizes-title-sm"
         >            
         <Spinner/>
+            
         </Modal>        
+
       </div>
     );
   }
+
   submitLoginForm = () => {
     const userData = {
         email: this.state.userName,
@@ -103,10 +104,12 @@ class NavBarComponent extends Component {
     this.props.onUserLogin(userData, () => {
         
     });
+
   } 
   goout = () => {    
     this.props.Exit();
   }
+
 
   updateLoginInfo = (event, type) => {
     var updatedLoginInfo = {
@@ -120,11 +123,12 @@ class NavBarComponent extends Component {
   }
 }
 const mapStateToProps = state => {
-  return {
+  return /*console.log(state)*/ {
       isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
       loadingAuth: state.authenticationStore.loadingAuth,
       loginerrorbool: state.authenticationStore.loginerrorbool,
-      CurrentUser: state.authenticationStore.userLoggedIn
+      CurrentUser: state.authenticationStore.userLoggedIn,
+      uploadMissingObjectState: state.missingObjectStore.uploadMissingObjectState
   }
 }
 
@@ -139,6 +143,7 @@ const mapDispatchToProps = dispatch => {
       Exit:() => dispatch(
         actionCreators.persistAuthentication()
       )  
+
   }
 }
 
