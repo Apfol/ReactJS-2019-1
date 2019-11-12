@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(0, 0, 0);
+    background-color: #f85f64;
     text-transform: uppercase;
   }
   
@@ -63,19 +63,19 @@
     padding: 15PX;
   }
   .li_SIGNIN{
-    background-color:#44c767;
+    background-color:#ffffff;
     border-radius:5px;
     display:inline-block;
     cursor:pointer;
-    color:#ffffff;
+    color:#f85f64;
     font-family:Arial;
     font-size:10px;
     padding:12px 31px;
     text-decoration:none;
   }
   .li_SIGNIN:hover {
-    background-color:#5cbf2a; 
-    color:#ff3d3d
+    background-color:#db5458; 
+    color:#ffffff
   }
   .li_SIGNIN:active {
     position:relative;

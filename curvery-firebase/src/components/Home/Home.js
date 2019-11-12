@@ -12,8 +12,7 @@ import Instructor from '../VideoCards/Instructor/Instructor';
 
 const HomePage = () => (
   <div>
-    <h1>Home Page</h1>
-    <p>The Home Page is accessible by every signed in user.</p>
+    <h1 className="title_HOMEPAGE">Bienvenido a Curvery</h1>
     <Illustracion></Illustracion>
     <Photography></Photography>
     <Instructor></Instructor>

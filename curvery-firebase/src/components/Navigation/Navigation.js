@@ -24,14 +24,8 @@ const Navigation = () => (
 );
 
 const NavigationAuth = ({ authUser }) => (
-    <ul>
-        {!!authUser.roles[ROLES.ADMIN] && (
-            <li>
-                <NavLink className="link_NAVIGATION" to={ROUTES.ADMIN}>
-                    Admin
-                </NavLink>
-            </li>
-        )}
+    <ul>  
+   
         <li>
             <div className="SignOut_NAVIGATION" to="">
                 <SignOutButton />
@@ -70,6 +64,7 @@ const NavigationAuth = ({ authUser }) => (
 const NavigationNonAuth = () => (
     <div className="WithoutAuthentication">
         <ul>
+    
             <li className="signInButton_NAVIGATION">
                 <NavLink className="li_SIGNIN" to={ROUTES.SIGN_IN}>
                     Sign In
