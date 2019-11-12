@@ -22,7 +22,6 @@ class TourismLogin extends Component {
             comments: [],
             detailedDescription: "",
         },
-        idPlace: "",
         isUserLoggedIn: this.props.isUserLoggedIn
     }
 
@@ -33,16 +32,17 @@ class TourismLogin extends Component {
 
     componentWillUpdate(nextState) {
         if (!this.state.isUserLoggedIn && nextState.isUserLoggedIn) {
-            this.props.onFetchPlace(nextState.idPlace);
+            this.props.onFetchPlace(nextState.placeSelected["id"] - 1);
         }
     }
 
     componentWillReceiveProps(nextProp) {
-        this.setState({
-            isUserLoggedIn: nextProp.isUserLoggedIn,
-            placeSelected: nextProp.placeSelected,
-            idPlace: nextProp.idPlace,
-        });
+        if (this.state.placeSelected['id'] !== nextProp.placeSelected['id']) {
+            this.setState({
+                isUserLoggedIn: nextProp.isUserLoggedIn,
+                placeSelected: nextProp.placeSelected,
+            });
+        }
     }
 
     render() {
@@ -63,7 +63,7 @@ class TourismLogin extends Component {
                             submitCommentForm={this.submitCommentForm}
                         />
                     </div>
-                    
+
                 </div>
             )
         }

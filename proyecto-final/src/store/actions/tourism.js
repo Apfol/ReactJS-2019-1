@@ -38,8 +38,8 @@ export const fetchTourism = () => {
             .then(response => {
 
                 const places = Object.values(response.data).map((place) => {
-                    return {...place};
-                }); 
+                    return { ...place };
+                });
 
 
                 dispatch(loadPlaces(places));
@@ -51,14 +51,14 @@ export const fetchTourism = () => {
     }
 }
 
-export const fetchPlace = (idPLace) => {
+export const fetchPlace = (idPlace) => {
     return dispatch => {
         dispatch(startLoading());
-        axios.get('/touristPlaces/' + idPLace + '.json')
+        axios.get('/touristPlaces/' + idPlace + '.json')
             .then(response => {
                 console.log(response);
 
-                const place = response.data;
+                var place = response.data;
 
                 console.log(place)
 
