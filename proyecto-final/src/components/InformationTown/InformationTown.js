@@ -31,8 +31,8 @@ class InformationTown extends Component{
 
     render = () => {
         return(
-            <div className="col-md-6">  
-                <p class={classes.webDesc}>¡Bienvenido/a a la página oficial del Municipio de Sopó!</p>
+            <div className={classes.content}>  
+                <p className={classes.webDesc}>¡Bienvenido/a a la página oficial del Municipio de Sopó!</p>
                 <div className="row">
                     <div className="col-md-3">
                         <ButtonToolbar>
