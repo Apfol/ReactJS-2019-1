@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import classes from "./MissingObjectList.css";
 import MissingObject from "../MissingObject/MissingObject";
 import SearchFilter from "./SearchFilter";
+import {Modal, Button} from "react-bootstrap";
 import NewMissingObject from "../NewMissingObject/newMissingObject"
 import * as actionCreators from '../../../../Store/Actions/'; 
 import firebase from '../../../../config/firebase_config';
@@ -26,7 +27,7 @@ class MissingObjectList extends Component {
     objects:[]    
   }
 
-    setLgShow(){
+  setLgShow(){
     this.setState({
       lgShow: !this.state.lgShow
     });  
@@ -54,34 +55,81 @@ class MissingObjectList extends Component {
             </button>             
           </div>
 
-          {this.state.lgShow === true ? 
-          <NewMissingObject newObjectData = {this.state.newObjectData}
-          picture = {this.state.picture}
-           getModalStatus = {this.state.lgShow}
-                            setLgShow = {this.setLgShow} uploadMissingObjectObjHandleChange = {this.uploadMissingObjectObjHandleChange}
-                            submitNewMissingObjectObj = {this.submitNewMissingObjectObj}
-                            uploadMissingObjectOnUpload = {this.handleUpload} /> : null}               
+          <Modal
+      size="lg"
+      show={this.getModalStatus(1)}
+      onHide={() => this.setLgShow()}
+      aria-labelledby="example-modal-sizes-title-lg"
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="example-modal-sizes-title-lg">
+          Ingresar Objeto Perdido                     
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>            
+        <form action="/action_page.php">
+          <div class="form-group">
+            <label for="encontrado">Encontrado por:</label>
+            <input
+              type="text"
+              class="form-control"                  
+              placeholder="¿Quién lo encontró?"                  
+              value={this.state.newObjectData.foundedby}
+              onChange={(event) => {this.uploadMissingObjectObjHandleChange(event,'foundedby')}}
+            />
+          </div>
+          <div class="form-group">
+            <label for="lugarEncontrado">Lugar Donde fue encontrado</label>
+            <input
+              type="text"
+              class="form-control"                  
+              placeholder="¿Donde lo encontró?"       
+              value={this.state.newObjectData["foundlocation"]}
+              onChange={(event) => {this.uploadMissingObjectObjHandleChange(event,'foundlocation')}}
+            />
+          </div>
+          <div class="form-group">
+            <label for="objectName">¿Cuál es el objeto perdido?</label>
+            <input
+              type="text"
+              class="form-control"                  
+              placeholder="Nombre del objeto perdido"       
+              value={this.state.newObjectData["name"]}
+              onChange={(event) => {this.uploadMissingObjectObjHandleChange(event,'name')}}
+            />
+          </div>   
+          <div class="form-group">
+            <label for="imagen">Imagen del objeto perdido</label>
+            <input
+              type="file"
+              class="form-control"                  
+              placeholder="Selección de imagen"       
+              value={this.state.newObjectData["image"]}
+              onChange={(event) => {this.uploadMissingObjectOnUpload(event)}}
+            />
+          </div>   
+          
+          <Button variant="primary" onClick={this.submitNewMissingObjectObj}>Ingresar Objeto Perdido</Button>                                                               
+        </form>
+      </Modal.Body>
+    </Modal>            
       </div>
     );
   }  
+
+  /*newObjectData = {this.state.newObjectData}
+                            picture = {this.state.picture}
+                            getModalStatus = {this.state.lgShow}
+                            setLgShow = {() => this.state.setLgShow} 
+                            uploadMissingObjectObjHandleChange = {this.uploadMissingObjectObjHandleChange}
+                            submitNewMissingObjectObj = {this.submitNewMissingObjectObj}
+                            uploadMissingObjectOnUpload = {this.handleUpload} */ 
 
    handleUpload = (event) =>{
      
     this.setState({      
       picture: event.target.files[0]
     })
-      
-    /* const task = storageRef.put(file);
-
-     console.log("Hola" + file) 
-     if(this.state !== undefined){
-      this.setState({
-        newObjectData:{
-          ...this.state.newObjectData,        
-          image:task.snapshot.downloadURL          
-        }        
-     })
-     }*/
    }
 
   uploadMissingObjectObjHandleChange = (event, type) => {  
@@ -112,8 +160,7 @@ class MissingObjectList extends Component {
     // This can be downloaded directly:    
   
     // Or inserted into an <img> element:
-    var img = document.getElementById('myimg');
-    img.src = url;
+   
     console.log(url)
     }).catch(function(error) {
         console.log(error)

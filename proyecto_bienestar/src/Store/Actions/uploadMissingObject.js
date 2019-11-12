@@ -40,3 +40,36 @@ export const updateMissingObjectAction = (missingObjectData) => {
             })
     }
 };
+
+const loadObjects = posts => {
+    return {
+        type: actionTypes.FETCH_POSTS,
+        payload: {
+            posts: posts
+        }
+    };
+}
+
+export const fetchObjects = () => {
+    return dispatch => {
+        dispatch(startLoading());
+
+        axios.get('/missingObject.json')
+            .then(response => {
+                
+
+                const Objects = Object.values(response.data).map((mObject) => {
+                    return {...mObject};
+                });
+               
+                dispatch(loadObjects(Objects));
+                
+                dispatch(endLoading());
+            })
+            .catch(error => {
+                console.log(error);
+
+                dispatch(endLoading());
+            })
+    }
+}

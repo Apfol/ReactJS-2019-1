@@ -60,7 +60,7 @@ class NavBarComponent extends Component {
 
         <Modal
           size="sm"
-          show={this.getModalStatus(1)}
+          show={this.getModalStatus()}
           onHide={() => this.setSmShow()}
           aria-labelledby="example-modal-sizes-title-sm"
         >

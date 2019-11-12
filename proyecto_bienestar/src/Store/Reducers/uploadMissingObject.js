@@ -9,7 +9,7 @@ const initialState = {
     isDelivered: false,
     lostBy: '',
     objectName: ''*/
-    posts: []
+    missingObjects: []
 }
 
 const updateMissingObject = (state,action) => {
@@ -25,6 +25,10 @@ const updateMissingObject = (state,action) => {
             objectName: action.payload.objectname
         }
     });
+}
+
+const fetchMissingObjects = (state, action) => {
+    return updateObject(state, { missingObjects: action.payload.missingObjects})
 }
 
 
