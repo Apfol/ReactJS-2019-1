@@ -1,5 +1,5 @@
 import axios from 'axios';
 const instance = axios.create({
-    baseURL: "http://my-json-server.typicode.com/DanielR9808/jsonServer/"
+    baseURL: "https://proyectobienestar-21e23.firebaseio.com/"
 });
 export default instance; 

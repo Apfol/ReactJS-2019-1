@@ -49,8 +49,8 @@ class NavBarComponent extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="#home">
-                <Link to="/missing-object-list">Inicio</Link>
+              <Nav.Link href="/missing-object-list">
+                Inicio
               </Nav.Link>
               <Nav.Link href="#link">Link</Nav.Link>              
             </Nav>     

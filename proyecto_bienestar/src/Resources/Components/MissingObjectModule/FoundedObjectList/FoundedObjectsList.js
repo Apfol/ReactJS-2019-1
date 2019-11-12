@@ -2,57 +2,82 @@ import React, { Component } from "react";
 import classes from "./FoundedObjectsList.css";
 import FoundedObject from "../FoundedObject/FoundedObject";
 import SearchFilter from "../MissingObjectList/SearchFilter";
-import axios from "../../Data/AxiosInstance"
+import { connect } from 'react-redux';
+import * as actionCreators from '../../../../Store/Actions/';
 
-
-class FoundedObjectsList extends React.Component {
-
-  constructor(props){
-    super(props);
-    this.state = {
-      objects : {
-        name: "",
-        location: "",
-        foundedby: "",
-        image: "" ,
-        estado:""
-      }
-    };
+class FoundedObjectsList extends Component {
+  state = {
+    missingObjects: this.props.missingObjects,
+    search: "",
+    tareaLista: []
   }
-    
-  componentDidMount(){
+  componentDidMount() {
+    this.props.onFetchObjects();
+  }
+  componentWillReceiveProps(nextState) {
+    this.setState({
 
-    axios.get('/missingObject')
-    .then(response => {      
-      console.log(response);
-      const post = response.data.map(posts =>{
-        return {
-          name: posts.name,
-          location: posts.location  ,
-          foundedby:posts.foundedby ,
-          image:posts.image,
-          estado: posts.estado
-        }        
-      });
-      this.setState(this.objects.MissingObjectList = post);
-      console.log(post);
-  });
-}
+      missingObjects: nextState.missingObjects
+    });
+    console.log(this.props.missingObjects)
+  }
 
-objects = {
-  MissingObjectList:[]
-}
+  handlechange = e => {
+    this.setState({
+      search: e.target.value
+    }, () => console.log(this.state.search));
+    console.log(e.target.value)
+  }
+
+  renderList = () => {
+    if (this.state.search != "" && this.state.missingObjects) {
+      
+      var arrayFilter = [...this.state.missingObjects];
+      
+      arrayFilter = arrayFilter.filter(object => object.name == this.state.search);//object => object.name.includes(this.state.search.toLowerCase())
+      
+      return (
+        arrayFilter.map((object, index) => object.found===true ?
+          <FoundedObject key={index} name={object.name} foundlocation={object.foundlocation}
+            foundedby={object.foundedby} image={object.image} />:console.log("not found yet")
+        )
+      )
+    }
+    else {
+      return (
+        
+        this.state.missingObjects.map((object, index) => object.found === true?
+          <FoundedObject key={index} name={object.name} foundlocation={object.foundlocation}
+            foundedby={object.foundedby} image={object.image} />:console.log("not found yet")
+            
+        )
+      )
+      
+    }
+  }
 
   render() {
-    return (      
-      <div className={classes.MissingObjectList}>          
-          <SearchFilter/>
-          <h1 className={classes.Title}>Has encontrado estos objetos</h1>
-            {this.objects.MissingObjectList.map(object => <FoundedObject name = {object.name} location = {object.location} 
-         foundedby = {object.foundedby} image = {object.image}/>)} 
-      </div>
-    );
+    return (
+      <div className={classes.MissingObjectList} >
+        <SearchFilter handleChange={this.handlechange} value={this.state.search} />
+        <h1 className={classes.Title}>Has encontrado estos objetos</h1>
+        {this.renderList()}
+      </div>);
+  }
+
+}
+
+const mapStateToProps = state => {
+  return {
+    missingObjects: state.mObjectsStore.missingObjects,
+    loadingObjects: state.mObjectsStore.loadingObjects
   }
 }
 
-export default FoundedObjectsList;
+const mapDispatchToProps = dispatch => {
+  return {
+    onFetchObjects: () => dispatch(actionCreators.fetchObjects())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FoundedObjectsList);

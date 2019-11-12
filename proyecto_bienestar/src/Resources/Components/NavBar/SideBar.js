@@ -10,7 +10,7 @@ class SideBar extends React.Component {
     return (
         <div className={classes.sidenav}>
           <div className={classes.all}>
-            <div className={classes.Profile-Image}>
+            <div className={classes["Profile-Image"]}>
               <img className={classes.Avatar} src={faker.image.avatar()}/>
             </div>
             <div>

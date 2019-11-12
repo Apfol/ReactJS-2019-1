@@ -1,5 +1,5 @@
 import * as actionTypes from '../../Store/Actions/actionTypes';
-import updateObject from './utility';
+import updateObject from '../utility';
 
 const initialState = {
     isUserLoggedIn: false,
