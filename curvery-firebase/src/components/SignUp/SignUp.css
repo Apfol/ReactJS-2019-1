@@ -81,27 +81,3 @@
     background: rgba(248, 95, 100, 0.8);
   }
   
-.SignUpQuestion_SIGNUP{
-    background: #f85f64;
-    color: #fff;
-    outline: none;
-    text-transform: uppercase;
-    padding: 0.8em;
-    overflow: hidden;
-    border: none;
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    margin: 0.5em 0;
-    font-weight: bold;
-    -moz-border-radius: 0.4em;
-    -webkit-border-radius: 0.4em;
-    border-radius: 0.4em;
-    -moz-transition: all 0.15s ease-in-out;
-    -o-transition: all 0.15s ease-in-out;
-    -webkit-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out;
-  }
-.SignUpQuestion_SIGNUP:hover {
-    background: rgba(248, 95, 100, 0.8);
-  }
-  
