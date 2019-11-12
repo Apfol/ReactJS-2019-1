@@ -8,8 +8,9 @@ import Footer from '../Footer/Footer.js';
 import { connect } from 'react-redux';
 import { Col } from 'react-bootstrap';
 import CommentForm from '../CommentForm/CommentForm';
+import NewsLogin from '../../containers/NewsLogin/NewsLogin.js'
 
-import * as actionCreators from '../../store/actions/news.js';
+import * as actionCreators from '../../store/actions/';
 
 class News extends Component {
     state = {
@@ -96,20 +97,7 @@ class News extends Component {
         return(
             <div>
                 <Route path="/news" exact>{this.getNews()}</Route>
-                <Route path="/news/:placeId" render={() => (
-                    <div>
-                        <NewsDetailed news = {this.state.newsSelected}/>
-                        <Col md={2}>
-                            <p className = {classes.discussion}>Discusión</p>
-                        </Col>
-                        <Col md={5}>
-                            <div className = {classes.discussion} style={{ borderBottom: "1px solid gray", height: "10px" }}></div>
-                        </Col>
-                        <Col md={12}>
-                            <CommentForm></CommentForm>
-                        </Col>
-                    </div> 
-                )} />
+                <Route path="/news/:idNews" exact component={NewsLogin}/>
             </div>
         )
     }
@@ -118,12 +106,7 @@ class News extends Component {
         return(
             <div>
                 <Route path="/news" exact>{this.getNews()}</Route>
-                <Route path="/news/:placeId" render={() => (
-                    <div>
-                        <NewsDetailed news = {this.state.newsSelected}/>
-                        <p className = {classes.sesion}>Inicia Sesión para comentar</p>
-                    </div> 
-                )} />
+                <Route path="/news/:idNews" exact component={NewsLogin}/>
             </div>
         )
     }
@@ -141,6 +124,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onFetchNews: () =>dispatch(actionCreators.fetchNews()),
+        onSaveComment: (commentData, idNews) => dispatch(
+            actionCreators.saveComment(commentData, idNews)
+        )
     }
 }
 
