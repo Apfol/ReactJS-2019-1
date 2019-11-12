@@ -27,7 +27,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div className={classes.allesC}>
+            <div>
                 <NavigationBar />
                 <div className={classes.bckg}/>
                 <Row className={classes.content}>
