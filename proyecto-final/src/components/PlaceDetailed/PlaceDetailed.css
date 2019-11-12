@@ -3,14 +3,13 @@ body{
 }
 
 .image{
+    width: 110%;
     height: 500px;
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 80%;
-    margin-left: 10%;
 }
 
 .starC {
@@ -38,8 +37,7 @@ body{
 .place{
     margin: 0;
     padding: 0;
-    margin-left: 10%;
-    width: 80%;
+    width: 100%;
 }
 
 .row{

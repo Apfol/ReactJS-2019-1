@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import axios from '../../instances/axiosInstance';
 import NewsVerticalCard from '../../components/NewsVerticalCard/NewsVerticalCard.js';
-import NewsDetailed from '../../components/NewsDetailed/NewsDetailed.js';
 import classes from './News.css';
 import { Route } from 'react-router-dom';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
 import Footer from '../../components/Footer/Footer.js';
+import NewsLogin from '../NewsLogin/NewsLogin';
 
 export default class News extends Component {
 
     state = {
-        News: [],
+        isUserLoggedIn: this.props.isUserLoggedIn,
+        news: this.props.news,
         newsSelected : {
             id: "",
             img: "",
@@ -18,6 +19,11 @@ export default class News extends Component {
             info: "",
             fullInfo: "",
         },
+        newCommentInfo: {
+            author: "",
+            body: "",
+            title: "",
+        }
     }
 
     componentDidMount() {
@@ -39,6 +45,23 @@ export default class News extends Component {
             })
             .catch(error => {
             });
+    }
+
+    componentDidMount() {
+        this.props.onFetchNews();
+    }
+
+    componentWillUpdate(nextState) {
+        if (!this.state.isUserLoggedIn && nextState.isUserLoggedIn) {
+            this.props.onFetchNews();
+        }
+    }
+
+    componentWillReceiveProps(nextState) {
+        this.setState({
+            isUserLoggedIn: nextState.isUserLoggedIn,
+            news: nextState.news,
+        });
     }
 
     onClickNews(itemPosition) {   
@@ -71,15 +94,102 @@ export default class News extends Component {
     render() {
         return (
             <div>
-                <NavigationBar/>
-                <Route path="/news" exact>{this.getNews()}</Route>
-                <Route path="/news/:placeId" render={() => (
-                    <NewsDetailed
-                        news = {this.state.newsSelected}
-                    />
-                )} />
-                <Footer/>
+                <NavigationBar />
+                {this.conditions()}
+                <Footer />
+            </div>
+        );
+    }
+
+    conditions() {
+        if (this.state.isUserLoggedIn === false) {
+            return (
+                this.onUserLogOut()
+            )
+        }
+        else {
+            return (
+                this.onUserLogIn()
+            )
+        }
+    }
+
+    onUserLogIn() {
+        return (
+            <div className={classes.container}>
+                <Route path="/tourism/" exact>{this.getNews()}</Route>
+                <Route path="/tourism/:idNews" exact component={NewsLogin} />
+            </div>
+        )
+    }
+
+    updateCommentInfo = (event, type) => {
+        var updatedCommentInfo = {
+            ...this.state.newCommentInfo
+        }
+
+        updatedCommentInfo[type] = event.target.value;
+
+        this.setState({
+            newCommentInfo: updatedCommentInfo,
+        });
+    }
+
+    submitCommentForm = () => {
+        var commentData = {
+            ...this.state.newCommentInfo
+        };
+
+        var updatedNewsSelected = {
+            ...this.state.newsSelected
+        }
+
+        commentData['author'] = this.props.userLoggedIn.userName;
+
+        updatedNewsSelected['comments'] = Object.values(updatedNewsSelected["comments"]);
+
+        updatedNewsSelected['comments'].push(commentData);
+
+        this.props.onSaveComment(commentData, this.state.newsSelected.id - 1);
+
+        this.setState({
+            newCommentInfo: {
+                author: "",
+                body: "",
+                title: "",
+            },
+            newsSelected: updatedNewsSelected
+        });
+    }
+
+    onUserLogOut() {
+        return (
+            <div className={classes.container}>
+                <div className={classes.container}>
+                    <Route path="/tourism/" exact>{this.getNews()}</Route>
+                    <Route path="/tourism/:idNews" exact component={TourismLogin} />
+                </div>
             </div>
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
+        userLoggedIn: state.authenticationStore.userLoggedIn,
+        news: state.newsStore.news,
+        loadingNews: state.newsStore.loadingNews
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchNews: () => dispatch(actionCreators.fetchNews()),
+        onSaveComment: (commentData, idNews) => dispatch(
+            actionCreators.saveComment(commentData, idNews)
+        )
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(News);
