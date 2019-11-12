@@ -5,9 +5,8 @@ import classes from './Profile.css';
 import * as actionCreators from '../../store/actions/';
 
 import Button from '../../components/Button/Button';
-import Posts from '../../components/Posts/Posts';
-import NewPost from '../../components/NewPost/NewPost';
 import Spinner from '../../components/Spinner/Spinner';
+import GameList from '../../components/GameList/GameList';
 
 class Profile extends Component {
     state = {
@@ -26,12 +25,15 @@ class Profile extends Component {
 
     onUserLoggedIn() {
         if (this.props.userLoggedIn) {
+            let gameList = this.props.games.filter(game => {
+                return this.props.userLoggedIn.games.find(userGame => game.id === userGame.id)
+            });
             return (
                 <div>
                     <div className={classes.profback}>
                         <img className={classes.profilepic} src={this.props.userLoggedIn.profilePic} alt={"profile pic"} />
                         <p>Logged in as: {this.props.userLoggedIn.email}</p>
-                        {this.renderPosts()}
+                        <GameList games={gameList} noTitle={true} />
                     </div>
                 </div>
             );
@@ -52,12 +54,6 @@ class Profile extends Component {
             </React.Fragment>
         );
     }
-
-    renderPosts() {
-
-    }
-
-
     onUserLoggedOut() {
         return (
             <div style={{ textAlign: 'center' }}>
@@ -77,7 +73,8 @@ const mapStateToProps = state => {
     return {
         isUserLoggedIn: state.authenticationStore.isUserLoggedIn,
         userLoggedIn: state.authenticationStore.userLoggedIn,
-        loadingPosts: state.postsStore.loadingPosts
+        loadingPosts: state.postsStore.loadingPosts,
+        games: state.gamesStore.games
     }
 }
 

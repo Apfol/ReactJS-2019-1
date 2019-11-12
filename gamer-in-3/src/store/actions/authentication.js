@@ -23,7 +23,14 @@ const saveSession = (user) => {
         }
     };
 };
-
+const reloadSession = (user) => {
+    return {
+        type: actionTypes.RELOAD,
+        payload: {
+            user: user
+        }
+    }
+}
 const saveSignIn = (userName, token, localId) => {
     return {
         type: actionTypes.SIGN_IN,
@@ -147,7 +154,29 @@ export const persistAuthentication = () => {
         }
     }
 }
+export const fetchSession = (userEmail) => {
+    return dispatch => {
+        axiosGames.get(`/users.json?orderBy="email"&equalTo="` + userEmail + `"`)
+            .then(response => {
+                console.log(response.data);
+                const info = Object.values(response.data).map((info) => {
+                    return { ...info };
+                });
+                let userSession = {
+                    ...info[0]
+                }
+                console.log(userSession);
+                let userSessionSave = JSON.stringify(userSession);
+                localStorage.setItem('userSession', userSessionSave);
+                dispatch(reloadSession(userSession));
+                dispatch(endLoading());
 
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+}
 export const logOut = () => {
     localStorage.removeItem('userSession');
 
