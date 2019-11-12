@@ -25,11 +25,9 @@
     display: inline-block;
     width: 59%;
     vertical-align: middle;
-    /* margin-top: 100px; */
 }
 
 .loginB {
-    /* margin-top: 20px; */
     border-radius: 5px;
     color: white;
     font-weight: bold;

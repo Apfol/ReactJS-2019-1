@@ -33,53 +33,58 @@ class Signup extends Component {
     render() {
         return (
             <div>
-                <NavigationBar/>
-                <div className={classes.container} >
-                    <Form className={classes.form} >
-                        <Container>
+                <NavigationBar />
+                <div className={classes.bckg} />
+                <Row className={classes.content} >
+                    <Col sm={3}></Col>
+                    <Col sm={6} className={classes.formC}>
+                        <Form className={classes.form} >
+                            <Container>
+                                <Row>
+                                    <Col>
+                                        <Form.Group controlId="formBasicName">
+                                            <Form.Label>Nombres</Form.Label>
+                                            <Form.Control type="text" placeholder="Nombres" onChange={(event) => { this.updateSignUpInfo(event, 'names') }} />
+                                        </Form.Group>
+                                    </Col>
+                                    <Col>
+                                        <Form.Group controlId="formBasicName">
+                                            <Form.Label>Apellidos</Form.Label>
+                                            <Form.Control type="text" placeholder="Apellidos" onChange={(event) => { this.updateSignUpInfo(event, 'surnames') }} />
+                                        </Form.Group>
+                                    </Col>
+                                </Row>
+                                <Form.Group controlId="formBasicEmail">
+                                    <Form.Label>Correo electrónico</Form.Label>
+                                    <Form.Control type="email" placeholder="Correo" onChange={(event) => { this.updateSignUpInfo(event, 'email') }} />
+                                </Form.Group>
+                                <Form.Group controlId="formBasicPassword">
+                                    <Form.Label>Contraseña</Form.Label>
+                                    <Form.Control type="password" placeholder="Contraseña" onChange={(event) => { this.updateSignUpInfo(event, 'password') }} />
+                                </Form.Group>
+                                <br />
+                            </Container>
                             <Row>
-                                <Col>
-                                    <Form.Group controlId="formBasicName">
-                                        <Form.Label>Nombres</Form.Label>
-                                        <Form.Control type="text" placeholder="Nombres" onChange={(event) => { this.updateSignUpInfo(event, 'names') }} />
-                                    </Form.Group>
+                                <Col sm={4}></Col>
+                                <Col sm={4}>
+                                    {this.renderButtons()}
                                 </Col>
-                                <Col>
-                                    <Form.Group controlId="formBasicName">
-                                        <Form.Label>Apellidos</Form.Label>
-                                        <Form.Control type="text" placeholder="Apellidos" onChange={(event) => { this.updateSignUpInfo(event, 'surnames') }} />
-                                    </Form.Group>
-                                </Col>
+                                <Col sm={4}></Col>
                             </Row>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Correo electrónico</Form.Label>
-                                <Form.Control type="email" placeholder="Correo" onChange={(event) => { this.updateSignUpInfo(event, 'email') }} />
-                            </Form.Group>
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Contraseña</Form.Label>
-                                <Form.Control type="password" placeholder="Contraseña" onChange={(event) => { this.updateSignUpInfo(event, 'password') }} />
-                            </Form.Group>
-                            <br />
-                        </Container>
-                        {this.renderButtons()}
-                        <br />
-                        {this.renderError()}
-                    </Form>
-                </div>
-                <Footer/>
+                            {this.renderError()}
+                        </Form>
+                    </Col>
+                    <Col sm={3}></Col>
+                </Row>
+                <Footer />
             </div>
         )
     }
 
     renderButtons() {
-        let buttons =
-            <Row>
-                <Col>
-                    <Button variant="primary" onClick={this.submitSignUpForm} >
-                        Registrarte
-                    </Button>
-                </Col>
-            </Row>;
+        let buttons = <button onClick={this.submitSignUpForm} className={classes.signupB}>
+            Registrarse
+                    </button>;
         if (this.props.loadingAuth) {
             buttons = <Spinner />;
         }
@@ -90,7 +95,7 @@ class Signup extends Component {
     renderError() {
         let error = <div />;
         if (this.props.isSignUpError) {
-            error = <Error message="Datos erroneos." />
+            error = <Error message=" Datos erróneos" />
         }
         return error;
     }
