@@ -24,7 +24,7 @@ export default class VideoNotes extends Component {
 
     render() {
         return (
-            <div>
+            <div className="videoNotes_VIDEONOTES">
                 {/* NOTES STUFF*/}
                 <h1>Notes</h1>
                 <textarea

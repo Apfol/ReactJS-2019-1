@@ -55,7 +55,7 @@ const NavigationAuth = ({ authUser }) => (
 
         <li className="logo_NAVIGATION">
             <NavLink className="link_NAVIGATION" to={ROUTES.LANDING}>
-                Logo
+                CURVERY
             </NavLink>
         </li>
     </ul>
