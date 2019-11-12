@@ -1,35 +1,35 @@
 .body_Course{
-    margin-left: 5%;
-    margin-top: 4%;
-    overflow: hidden;
+  margin-left: 5%;
+  margin-top: 4%;
+  overflow: hidden;
 }
 .title_Course{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 2em;
-    padding-bottom: 2%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2em;
+  padding-bottom: 2%;
 }
 
 .pag {
-    display: inline-block;
-    margin-top: 3%;
-    margin-left: 30%;
-  }
-  
-  .pag a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-  }
-  
-  .pag a.active {
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 5px;
-  }
-  
-  .pag a:hover:not(.active) {
-    background-color: #ddd;
-    border-radius: 5px;
-  }
+  display: inline-block;
+  margin-top: 3%;
+  margin-left: 30%;
+}
+
+.pag a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pag a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pag a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 5px;
+}

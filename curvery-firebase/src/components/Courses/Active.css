@@ -1,24 +1,19 @@
 
-.pag {
-    display: inline-block;
-    margin-top: 3%;
-    margin-left: 30%;
-  }
-  
-  .pag a {
-    color: black;
+
+ .numero_CURSOS h1{
+  float: left;
+  margin: 20px;
+
+ }
+
+  .active{
+    color: rgb(0, 0, 0);
     float: left;
-    padding: 8px 16px;
-    text-decoration: none;
   }
-  
-  .pag a.active {
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 5px;
+  .Unselected{
+    color: rgb(196, 196, 196);
+    float: left;
   }
-  
-  .pag a:hover:not(.active) {
-    background-color: #ddd;
-    border-radius: 5px;
-  }
+.barra_CURSOS{
+  margin-left: 40.9vw;
+}
