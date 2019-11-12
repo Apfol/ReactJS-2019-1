@@ -5,22 +5,23 @@ import MissingObject from "../MissingObject/MissingObject";
 import SearchFilter from "./SearchFilter";
 import NewMissingObject from "../NewMissingObject/newMissingObject"
 import * as actionCreators from '../../../../Store/Actions/'; 
-import firebase from 'firebase';
-
+import firebase from '../../../../config/firebase_config';
 
 class MissingObjectList extends Component {
   state = {
     lgShow: false,
-    picture: null,
+    picture: "",
     newObjectData:
     {
-      isFounded: false,
-      foundedBy: '',
-      foundLocation: '',
-      image: '',
+      found: false,
+      foundedby: '',
+      foundlocation:'',
+      image:'',
       isDelivered: false,
-      lostBy: '',
-      objectName: ''
+      lostby: '',
+      lostlocation:'',
+      name:''
+
     }, 
     objects:[
       {name: "Celular Xyz", location: "Biblioteca", by: "Cristian"},
@@ -62,28 +63,33 @@ class MissingObjectList extends Component {
           </div>
 
           {this.state.lgShow === true ? 
-          <NewMissingObject newObjectData = {this.state.newObjectData} getModalStatus = {this.state.lgShow}
+          <NewMissingObject newObjectData = {this.state.newObjectData}
+          picture = {this.state.picture}
+           getModalStatus = {this.state.lgShow}
                             setLgShow = {this.setLgShow} uploadMissingObjectObjHandleChange = {this.uploadMissingObjectObjHandleChange}
                             submitNewMissingObjectObj = {this.submitNewMissingObjectObj}
-                            uploadMissingObjectOnUpload = {this.uploadMissingObjectOnUpload} /> : null}               
+                            uploadMissingObjectOnUpload = {this.handleUpload} /> : null}               
       </div>
     );
-  }
+  }  
 
-   handleUpload(event){
-     const file = event.target.files[0];
-     const storageRef = firebase.storage().ref(`/fotosObjetosPerdidos/${file.name}`);
-     const task = storageRef.put(file);
+   handleUpload = (event) =>{
+     
+    this.setState({      
+      picture: event.target.files[0]
+    })
+      
+    /* const task = storageRef.put(file);
 
-     task.on('state_changed', snapshot => {
-       
-     }, () => {
-       this.setState({
+     console.log("Hola" + file) 
+     if(this.state !== undefined){
+      this.setState({
         newObjectData:{
-          image:task.snapshot.downloadURL
-        }
-       });
+          ...this.state.newObjectData,        
+          image:task.snapshot.downloadURL          
+        }        
      })
+     }*/
    }
 
   uploadMissingObjectObjHandleChange = (event, type) => {  
@@ -98,28 +104,54 @@ class MissingObjectList extends Component {
     console.log(this.state.newObjectData)
   }
   
-  submitNewMissingObjectObj = () => {   
-    var objectData = {...this.state.newObjectData}
+  submitNewMissingObjectObj = (file) => {   
+    
+     
+    const storageRef = firebase.storage().ref().child('/Imagenes/' + this.state.picture.name);
+    storageRef.put(this.state.picture).then((response) => {
+      console.log(response);
+    }).catch(error => {                
+     console.log(error);
+   });
+
+   storageRef.getDownloadURL().then(function(url) {
+    // `url` is the download URL for 'images/stars.jpg'
+  
+    // This can be downloaded directly:    
+  
+    // Or inserted into an <img> element:
+    var img = document.getElementById('myimg');
+    img.src = url;
+    console.log(url)
+    }).catch(function(error) {
+        console.log(error)
+    });
+    
+    var objectData = {
+      ...this.state.newObjectData,
+      image: '/Imagenes/' + this.state.picture.name
+    }
     console.log(objectData);
     this.props.onUploadMissingObject(objectData);
   
     this.setState({
   
       newObjectData: {
-        isFounded: false,
-        foundedBy: '',
-        foundLocation: '',
-        image: null,
+        found: false,
+        foundedby: '',
+        foundlocation:'',
+        image:'',
         isDelivered: false,
-        lostBy: '',
-        objectName: ''
+        lostby: '',
+        lostlocation:'',
+        name:''
       }
     })
   } 
 }
 
 const mapStateToProps = state => {
-  return /*console.log(state)*/ {
+  return {
       uploadMissingObjectState: state.missingObjectStore.uploadMissingObjectState
   }
 }
