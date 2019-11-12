@@ -53,6 +53,8 @@ export class CoursePlayer extends Component {
 
     addCourse = authUser => {
         // Save this course in firebase for the user
+        //  TODO: PUT MORE INFOO IN THE FIREBASE LIKE TITLE, YOUTUBER, 
+        //  ETC PARA NO VOLVER A USAR EL API DE YOUTUBE TANTO
         console.log("Auth user ", authUser);
         this.props.firebase
             .user_course(authUser.uid).push()
