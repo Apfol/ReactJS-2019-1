@@ -1,11 +1,12 @@
 import classes from './Login.css';
 import React, { Component } from 'react';
-import { Form, Container } from 'react-bootstrap';
+import { Form, Container, Row, Col } from 'react-bootstrap';
 import Spinner from '../Spinner/Spinner';
 import Error from '../Error/Error';
 import * as actionCreators from '../../store/actions/authentication';
 import { connect } from 'react-redux';
-import image from './assets/man.png'
+import NavigationBar from '../NavigationBar/NavigationBar';
+import Footer from '../Footer/Footer.js';
 
 class Login extends Component {
     state = {
@@ -26,34 +27,40 @@ class Login extends Component {
 
     render() {
         return (
-            <div className = {classes.fullContainer}>
-                <div className={classes.imgContainer}>
-                    <img alt="" className={classes.img} src={image}></img>
-                </div>
-                <div className={classes.container} >
-                    <Form className={classes.form} >
-                        <Container>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Correo electrónico</Form.Label>
-                                <Form.Control type="email" placeholder="Correo" value={this.state.userName} onChange={(event) => {this.updateLoginInfo(event, 'userName')}}/>
-                            </Form.Group>
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Contraseña</Form.Label>
-                                <Form.Control type="password" placeholder="Contraseña" value={this.state.password}  onChange={(event) => {this.updateLoginInfo(event, 'password')}}/>
-                            </Form.Group>
-                        <br />
-                        </Container>
-                        {this.renderButtons()}
-                        <br />
-                        {this.renderError()}
-                    </Form>
-                </div>
+            <div className={classes.allesC}>
+                <NavigationBar />
+                <div className={classes.bckg}/>
+                <Row className={classes.content}>
+                    <Col sm={4} style={{padding : "0"}}></Col>
+                    <Col sm={4} className={classes.formC}>
+                        <Form className={classes.form} >
+                            <Container>
+                                <Form.Group controlId="formBasicEmail">
+                                    <Form.Label>Correo electrónico</Form.Label>
+                                    <Form.Control type="email" placeholder="Correo" value={this.state.userName} onChange={(event) => { this.updateLoginInfo(event, 'userName') }} />
+                                </Form.Group>
+                                <Form.Group controlId="formBasicPassword">
+                                    <Form.Label>Contraseña</Form.Label>
+                                    <Form.Control type="password" placeholder="Contraseña" value={this.state.password} onChange={(event) => { this.updateLoginInfo(event, 'password') }} />
+                                </Form.Group>
+                            </Container>
+                            <Row>
+                                <Col sm={4}></Col>
+                                {this.renderButtons()}
+                                <Col sm={4}></Col>
+                            </Row>
+                            {this.renderError()}
+                        </Form>
+                    </Col>
+                    <Col sm={4} style={{padding : "0"}}></Col>
+                </Row>
+                <Footer/>
             </div>
         );
     }
 
     renderButtons() {
-        let buttons = <button onClick = {this.submitLoginForm}>Iniciar Sesión</button>;
+        let buttons = <button onClick={this.submitLoginForm} className={classes.loginB}>Iniciar Sesión</button>;
         if (this.props.loadingAuth) {
             buttons = <Spinner />;
         }
@@ -61,9 +68,9 @@ class Login extends Component {
     }
 
     renderError() {
-        let error = <div />;
+        let error = <div/>;
         if (this.props.isLoginError) {
-            error = <Error message="Datos erroneos." />
+            error = <Error message=" Datos erróneos." className={classes.errorMsg}/>
         }
         return error;
     }

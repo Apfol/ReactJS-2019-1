@@ -1,9 +1,9 @@
 import React from 'react';
-import './Error.css';
+import classes from './Error.css';
 
 export default function Error(props) {
     return (
-        <div className="error-msg">
+        <div className={classes.error}>
             <i className="fa fa-times-circle margin-icon"></i>
             {props.message}
         </div>

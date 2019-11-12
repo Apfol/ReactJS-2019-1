@@ -1,26 +1,45 @@
-.fullContainer{
-    height: 92.3vh;
+.bckg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    background-image: url(assets/landscape.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;  
 }
 
-.container {
-    width: 40%;
-    display: inline-block;
-    vertical-align: middle;
-    align-self: center;
+.content {
+    position: relative;
+    top: 15vw;
+}
+
+.formC {
+    background-color: white;
+    padding: 4%;
+    padding-bottom: 3.5%;
+    border-radius: 15px;
 }
 
 .imgContainer {
     display: inline-block;
     width: 59%;
     vertical-align: middle;
-    margin-top: 100px;
+    /* margin-top: 100px; */
 }
 
-.img{
-    width: 75%;
-    margin-left: 12%;
+.loginB {
+    /* margin-top: 20px; */
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #48567F;
+    padding: 2%;
+    border: 0;
 }
 
-.logIn{
-    margin-left: 15px;
+.errorMsg {
+    width: 100%;
+    text-align: center;
+    color: tomato;
 }
