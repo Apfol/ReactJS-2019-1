@@ -31,8 +31,9 @@ class TourismLogin extends Component {
     }
 
     componentWillUpdate(nextState) {
+        const { params } = this.props.match;
         if (!this.state.isUserLoggedIn && nextState.isUserLoggedIn) {
-            this.props.onFetchPlace(nextState.placeSelected["id"] - 1);
+            this.props.onFetchPlace(params.idPlace - 1);
         }
     }
 
