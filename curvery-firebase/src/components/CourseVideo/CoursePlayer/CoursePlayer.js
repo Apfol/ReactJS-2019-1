@@ -101,7 +101,9 @@ export class CoursePlayer extends Component {
                             <div className="player_container_COURSEPLAYER">
                                 {/* <h1>VideoPlayer</h1> */}
                                 {/* Check if already in user's courses with authUser to not display this */}
+                                
                                 <button
+                                className="button_COURSEPLAYER"
                                     onClick={event => this.addCourse(authUser)}
                                 >
                                     Add course
