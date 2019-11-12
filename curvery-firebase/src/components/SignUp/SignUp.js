@@ -139,6 +139,10 @@ const SignUpLink = () => (
     Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
   </p>
 );
+
+/* 
+A better way is to compose the higher-order components instead
+*/
 const SignUpForm = compose(
   withRouter,
   withFirebase,

@@ -1,12 +1,10 @@
 import axios from "axios";
 
-// TODO: ERASE IN PRODUCTION AND PUT IN ENV VARIABLE
-import Credentials from './credentials';
-
+// The apy key comes from the .env file
 const instance = axios.create({
     baseURL: "https://www.googleapis.com/youtube/v3",
     params:{
-        key: Credentials.youtube_api_credentials.key
+        key: process.env.REACT_APP_YOUTUBE_API_KEY
     }
 });
 
