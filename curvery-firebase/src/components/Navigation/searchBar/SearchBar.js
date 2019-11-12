@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { search } from '../../store/actions/search';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './SearchBar.css'
 class SearchBar extends Component {
     state = {
@@ -21,15 +21,15 @@ class SearchBar extends Component {
         event.preventDefault();
         // TODO: CHANGE TO SEND FILTERS
         this.props.onSearchTerm(this.state.searchTerm, this.state.filters);
+        
+        this.props.history.push("/cursos")
     }
 
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <Link to={"/cursos"}>
                     <input className="input_SEARCHBAR" type="text" name="searchTerm" placeholder="Search..." onChange={this.handleChange} ></input>
-                </Link>
                 <div></div>
             </form>
         )
@@ -43,4 +43,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(null, mapDispatchToProps)(withRouter(SearchBar));

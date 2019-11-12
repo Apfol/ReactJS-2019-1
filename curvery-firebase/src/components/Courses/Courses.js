@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 class Courses extends Component {
     state = {
         playlists: [],
-        q: 'React courses',
+        q: 'ilutrator courses',
         currentPage: 1,
         todosPerPage: 6,
         pages: []
@@ -18,7 +18,9 @@ class Courses extends Component {
     componentDidMount() {
         this.loadPlaylist();
     }
-
+    componentWilldMount() {
+        this.loadPlaylist();
+    }
     componentWillReceiveProps(nextProps) {
         console.log("NEXT ",nextProps);
         
