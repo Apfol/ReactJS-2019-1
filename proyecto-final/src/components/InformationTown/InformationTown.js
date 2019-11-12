@@ -50,25 +50,14 @@ class InformationTown extends Component{
                             ))}
                         </ButtonToolbar>
                     </div>
-                    <div className="col-md-9" style={{ backgroundColor: 'white' }}>
+                    <div className="col-md-9" style={{ backgroundColor: 'white', paddingTop: '10px' }}>
                         {this.state.information.map( nInfo =>
                         <Information
                             name = {nInfo.name}
                             content = {nInfo.content}
                         />
                     )}
-                        <a class={classes.infoLink}>Más Información...</a>
                     </div>
-                </div>
-                <div class={`row ${classes.anuncio}`}>
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-3">
-                        <Image src={anmelden} style={{ height: '150px' }} />
-                    </div>
-                    <div class="col-md-7">
-                        <h1 class={classes.anunT}>Pronto, más contenido...</h1>
-                    </div>
-                    <div class="col-sm-1"></div>
                 </div>
             </div>
         )

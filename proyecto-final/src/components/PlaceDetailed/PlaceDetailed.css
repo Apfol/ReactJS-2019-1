@@ -1,12 +1,22 @@
-.image{
-    height: 300;
+body{
     width: 100%;
-    margin-top: 100px;
 }
 
-.star {
-    font-size: 30px;
+.image{
+    height: 500px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.starC {
     text-align: center;
+}
+
+.star{
+    font-size: 30px;
 }
 
 .expr {
@@ -16,8 +26,37 @@
 
 .detailedDescription{
     text-align: justify;
+    margin-bottom: 5%;
 }
 
 .card{ 
-    margin-bottom: 100px;
+    margin-bottom: 10px;
+}
+
+.place{
+    margin: 0;
+    padding: 0;
+}
+
+.row{
+    width: 100%;
+}
+
+.title{
+    margin: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 50px;
+    font-weight: bolder;
+    width: 100%;
+    text-align: center;
+}
+
+.titleC{
+    text-align: center;
+}
+
+.content{
+    margin: 5%;
+    margin-top: 2%;
 }

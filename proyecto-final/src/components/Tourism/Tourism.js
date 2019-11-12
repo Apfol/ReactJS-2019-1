@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TouristPlaceCard from '../TouristPlaceCard/TouristPlaceCard';
 import PlaceDetailed from '../PlaceDetailed/PlaceDetailed';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import classes from './Tourism.css';
 
@@ -160,7 +160,7 @@ class Tourism extends Component {
                 <Route path="/tourism/:placeId" exact render={() => (
                     <div>
                         <PlaceDetailed place={this.state.placeSelected} />
-                        <h1 className={classes.sesion}>Inicia Sesion para comentar tu experiencia</h1>
+                        <p className={classes.sesion} to="/login">Inicia sesión para comentar tu experiencia</p>
                     </div>
                 )} />
             </div>

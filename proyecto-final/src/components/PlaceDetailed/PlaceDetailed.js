@@ -7,24 +7,29 @@ import React from 'react';
 const PlaceDetailed = (props) => {
     return (
         <div>
-            <Container className={classes.place}>
-                <Row>
-                    <Image src={props.place.img} className={classes.image} height="300" width="100%" />
-                </Row>
-                <Row>
+            <Container className={classes.place} fluid>
+                <Row className={classes.image} style={{ backgroundImage: "url(" + props.place.img + ")" }} />
+                <Row className={classes.titleC}>
                     <h2 className={classes.title}>{props.place["title"]}</h2>
                 </Row>
                 <Row>
-                    <Col>
-                        <p className={classes.detailedDescription}>{props.place["detailedDescription"]}</p>
-                        <p style={{ fontSize: "20px", fontWeight: "bold", textAlign: "center" }}>Agrega tu experiencia en este sitio.</p>
+                    <Col sm={4}></Col>
+                    <Col sm={4} className={classes.starC}>
                         <StarRatingComponent
                             className={classes.star}
                             name="rate1"
                             starCount={5}
                             value={props.place["score"]}
                         />
-                        <h4 className={classes.comment}>Comentarios</h4>
+                    </Col>
+                    <Col sm={4}></Col>
+                </Row>
+                <Row className={classes.content}>
+                    <Col sm={12}>
+                        <p className={classes.detailedDescription}>{props.place["detailedDescription"]}</p>
+                    </Col>
+                    <Col>
+                        <p style={{ fontSize: "30px", fontWeight: "bold", textAlign: "center" }}>Comentarios</p>
                         <div className={classes.comments}>
                             {Object.values(props.place["comments"]).map(comment => {
                                 return (
