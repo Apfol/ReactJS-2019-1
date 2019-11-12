@@ -10,16 +10,20 @@ import { connect } from 'react-redux';
 class Courses extends Component {
     state = {
         playlists: [],
-        q: 'ilustracion',
+        q: 'React courses',
         currentPage: 1,
         todosPerPage: 6,
         pages: []
     };
+    componentDidMount() {
+        this.loadPlaylist();
+    }
 
     componentWillReceiveProps(nextProps) {
         console.log("NEXT ",nextProps);
-
+        
         this.setState(prevState =>{
+            
             return { ...prevState,q:nextProps.searchTerm}
         },()=>{
             console.log("Nuevo state", this.state);
