@@ -12,7 +12,11 @@ import { auth } from "firebase";
 export class CoursePlayer extends Component {
     state = {
         selectedVideo: {},
-        videos: []
+        videos: [],
+        course_info: {
+            title: "",
+            videos_number: 0
+        }
     };
 
     componentDidMount() {
@@ -28,7 +32,7 @@ export class CoursePlayer extends Component {
                 playlistId: `${this.props.match.params.playlistId}`
             }
         });
-        console.log(response.data.items[0].snippet.resourceId.videoId);
+        console.log("Data curso ",response);
         this.setState({
             videos: response.data.items.map(item => {
                 return {
@@ -39,6 +43,10 @@ export class CoursePlayer extends Component {
             selectedVideo: {
                 ...response.data.items[0].snippet,
                 videoUrl: `https://www.youtube.com/embed/${response.data.items[0].snippet.resourceId.videoId}?controls=1`
+            },
+            course_info: {
+                title: response.data.items[0].snippet.title,
+                videos_number: response.data.pageInfo.totalResults
             }
         });
 
@@ -61,6 +69,8 @@ export class CoursePlayer extends Component {
             .set({
                 playlist_id: this.props.match.params.playlistId,
                 progress: 0,
+                title: this.state.course_info.title,
+                videos_number: this.state.course_info.videos_number,
                 saw_videos: [],
                 notes: []
             })
