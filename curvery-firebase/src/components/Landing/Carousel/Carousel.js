@@ -5,7 +5,7 @@ const Carousel = () => (
 
   <div>
 
-  <div class="carousel-wrapper" style={{"height": "400px"}}>
+  <div class="carousel-wrapper" style={{"height": "90vh"}}>
 
       <span id="target-item-1"></span>
       <span id="target-item-2"></span>

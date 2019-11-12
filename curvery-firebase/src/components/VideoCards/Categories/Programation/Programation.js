@@ -8,7 +8,7 @@ class Programation extends Component{
   
   state = {
     playlists: [],
-    q:`Programation`,
+    q:`programming`,
     courses: [],
     error: []
 }
@@ -40,7 +40,7 @@ render(){
     return(
         <div className="contain_PROGRAMATION">
         <div className="row_PROGRAMATION">
-        <h1 className="categorieTitle_PROGRAMATION">programation</h1>
+        <h1 className="categorieTitle_PROGRAMATION">programming</h1>
         <div className="row__inner_PROGRAMATION">
         <div className="spaceLeft_PROGRAMATION"></div>
         {this.state.playlists.map(
