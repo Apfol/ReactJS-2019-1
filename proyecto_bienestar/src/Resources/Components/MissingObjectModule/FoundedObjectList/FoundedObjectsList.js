@@ -37,7 +37,7 @@ class FoundedObjectsList extends Component {
       arrayFilter = arrayFilter.filter(object => object.name == this.state.search);//object => object.name.includes(this.state.search.toLowerCase())
       
       return (
-        arrayFilter.map((object, index) => object.found===true ?
+        arrayFilter.map((object, index) => object.found===false ?
           <FoundedObject key={index} name={object.name} foundlocation={object.foundlocation}
             foundedby={object.foundedby} image={object.image} />:console.log("not found yet")
         )
@@ -46,7 +46,7 @@ class FoundedObjectsList extends Component {
     else {
       return (
         
-        this.state.missingObjects.map((object, index) => object.found === true?
+        this.state.missingObjects.map((object, index) => object.found === false?
           <FoundedObject key={index} name={object.name} foundlocation={object.foundlocation}
             foundedby={object.foundedby} image={object.image} />:console.log("not found yet")
             

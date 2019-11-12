@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import classes from  "./FoundedObject.css";
-import firebase from '../../../../config/firebaseConfig'
+import firebase from '../../../../Instances/FireBase.js'
 class FoundedObject extends Component {
+
   componentWillMount(){
     console.log(this.props.image)
     const storageRef = firebase.storage().ref('/')

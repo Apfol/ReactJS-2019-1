@@ -32,7 +32,16 @@ class NavBarComponent extends Component {
     this.setState({
       smShow: !this.state.smShow
     });    
-  }      
+  }    
+  componentWillMount(){
+    const userData = {
+      email: this.state.userName,
+      password: this.state.password
+  }
+    this.props.onUserLogin(userData, () => {
+        
+    });   
+  }  
 
   getModalStatus(){    
     if(!this.state.smShow && !this.props.isUserLoggedIn){      

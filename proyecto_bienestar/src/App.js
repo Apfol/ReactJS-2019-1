@@ -42,12 +42,12 @@ export default class App extends Component {
             )}/>  
             <Route path="/my-lost-objects" render ={() => (
               <div>
-                <MyLostObjectList></MyLostObjectList>
+                <MissingObjectList></MissingObjectList>
               </div>
             )}/>
             <Route path="/founded-objects" render ={() => (
               <div>
-                <FoundedObjects></FoundedObjects>
+                <FoundedObjectsList></FoundedObjectsList>
               </div>
             )}/>
             <Route path="/sports-loan" render ={() => (
