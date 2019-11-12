@@ -14,15 +14,15 @@ class PlaceDetailed extends Component {
                     <Row>
                         <h2 className={classes.title}>{this.props.place["title"]}</h2>
                         <Col sm={4}></Col>
-                    <Col sm={4} className={classes.starC}>
-                        <StarRatingComponent
-                            className={classes.star}
-                            name="rate1"
-                            starCount={5}
-                            value={this.props.place["score"]}
-                        />
-                    </Col>
-                    <Col sm={4}></Col>
+                        <Col sm={4} className={classes.starC}>
+                            <StarRatingComponent
+                                className={classes.star}
+                                name="rate1"
+                                starCount={5}
+                                value={this.props.place["score"]}
+                            />
+                        </Col>
+                        <Col sm={4}></Col>
                     </Row>
                     <Row>
                         <Col sm={1}></Col>
@@ -57,7 +57,7 @@ class PlaceDetailed extends Component {
                     )
                 })
             );
-        }
+        } 
     }
 }
 

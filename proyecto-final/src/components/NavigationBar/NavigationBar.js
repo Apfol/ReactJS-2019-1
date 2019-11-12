@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import classes from './NavigationBar.css';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/';
+import Weather from '../Weather/Weather';
 
 class NavigationBar extends Component {
   state = {
@@ -37,7 +38,7 @@ class NavigationBar extends Component {
   }
 
   userLogIn() {
-    return(
+    return (
       <div className={classes.navContainer}>
         <Navbar bg="dark" variant="dark">
           <Link to="/" className={classes.link}>
@@ -62,9 +63,7 @@ class NavigationBar extends Component {
               <Link className={classes.links} to="/tourism">Turismo</Link>
               <Link className={classes.links} to="/news">Noticias</Link>
             </Nav>
-            <Nav className={classes.clima}>
-              <Nav.Link><i class="fas fa-sun fa-lg sun"></i> {this.state.temperature}°C</Nav.Link>
-            </Nav>
+            <Weather/>
             <Nav>
               <Nav.Link href="https://www.youtube.com/user/alcaldiadesopo/videos" target="_blank"><i class="fab fa-youtube fa-lg"></i></Nav.Link>
               <Nav.Link href="https://es-la.facebook.com/AlcaldiadeSopo/" target="_blank"><i class="fab fa-facebook-f fa-lg"></i></Nav.Link>
@@ -106,9 +105,7 @@ class NavigationBar extends Component {
               <Link className={classes.links} to="/tourism">Turismo</Link>
               <Link className={classes.links} to="/news">Noticias</Link>
             </Nav>
-            <Nav className={classes.clima}>
-              <Nav.Link><i class="fas fa-sun fa-lg sun"></i> {this.state.temperature}°C</Nav.Link>
-            </Nav>
+            <Weather/>
             <Nav>
               <Nav.Link href="https://www.youtube.com/user/alcaldiadesopo/videos" target="_blank"><i class="fab fa-youtube fa-lg"></i></Nav.Link>
               <Nav.Link href="https://es-la.facebook.com/AlcaldiadeSopo/" target="_blank"><i class="fab fa-facebook-f fa-lg"></i></Nav.Link>
