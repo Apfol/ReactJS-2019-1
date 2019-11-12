@@ -7,7 +7,7 @@ class MyCourse extends Component{
             <div>
             <main className="grid_MYCOURSE">
             <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample photo"></img>
+            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
             <div className="text_MYCOURSE">
               <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
               <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
@@ -19,7 +19,7 @@ class MyCourse extends Component{
             {/////////////////////////////BORRAR DESDE ACA///////////////////////////////////////////////////
             }
             <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample photo"></img>
+            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
             <div className="text_MYCOURSE">
               <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
               <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
@@ -27,7 +27,7 @@ class MyCourse extends Component{
              </div>
             </article>
             <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample photo"></img>
+            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
             <div className="text_MYCOURSE">
               <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
               <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
@@ -35,7 +35,7 @@ class MyCourse extends Component{
              </div>
             </article>
             <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample photo"></img>
+            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
             <div className="text_MYCOURSE">
               <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
               <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
@@ -43,7 +43,7 @@ class MyCourse extends Component{
              </div>
             </article>
             <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample photo"></img>
+            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
             <div className="text_MYCOURSE">
               <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
               <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
@@ -51,7 +51,7 @@ class MyCourse extends Component{
              </div>
             </article>
             <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample photo"></img>
+            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
             <div className="text_MYCOURSE">
               <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
               <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
@@ -59,7 +59,7 @@ class MyCourse extends Component{
              </div>
             </article>
             <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample photo"></img>
+            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
             <div className="text_MYCOURSE">
               <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
               <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
@@ -67,7 +67,7 @@ class MyCourse extends Component{
              </div>
             </article>
             <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample photo"></img>
+            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
             <div className="text_MYCOURSE">
               <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
               <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
@@ -75,7 +75,7 @@ class MyCourse extends Component{
              </div>
             </article>
             <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample photo"></img>
+            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
             <div className="text_MYCOURSE">
               <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
               <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
@@ -83,7 +83,7 @@ class MyCourse extends Component{
              </div>
             </article>
             <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample photo"></img>
+            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
             <div className="text_MYCOURSE">
               <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
               <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
@@ -91,7 +91,7 @@ class MyCourse extends Component{
              </div>
             </article>
             <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample photo"></img>
+            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
             <div className="text_MYCOURSE">
               <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
               <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>
@@ -99,7 +99,7 @@ class MyCourse extends Component{
              </div>
             </article>
             <article className="article_MYCOURSE">
-            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt="Sample photo"></img>
+            <img className="img_MYCOURSE" src="https://i.ytimg.com/vi/bG53Pw17tog/hqdefault.jpg" alt=""></img>
             <div className="text_MYCOURSE">
               <h3 className="title_MYCOURSE">Seamlessly visualize quality</h3>
               <p className="paragraph_MYCOURSE">Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks. Collaboratively administrate empowered markets via plug-and-play networks.</p>

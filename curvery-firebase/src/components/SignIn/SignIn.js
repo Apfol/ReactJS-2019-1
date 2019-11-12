@@ -6,15 +6,14 @@ import { PasswordForgetLink } from '../PasswordForget'
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
+import './SignIn.css';
+
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
     <SignInForm />
-    <SignInGoogle />
-    <SignInFacebook />
-    <SignInTwitter/>
-    <PasswordForgetLink />
+    <div className="SignUp_SIGNIN">
     <SignUpLink />
+    </div>
   </div>
 );
 const INITIAL_STATE = {
@@ -47,26 +46,40 @@ class SignInFormBase extends Component {
     const { email, password, error } = this.state;
     const isInvalid = password === '' || email === '';
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+      <form className="form_SIGNIN" onSubmit={this.onSubmit}>
+  <div className="heading_SIGNIN">SIGN IN CURVERY</div>
+  <div className="leftForm_SIGNIN">
+    <label className="label_SIGNIN">Email</label> <br />
+      <input
+         type="email"
           name="email"
           value={email}
           onChange={this.onChange}
-          type="text"
           placeholder="Email Address"
-        />
-        <input
+          id="email" 
+        /><br />
+    <label className="label_SIGNIN">Password</label> <br />
+    <input
           name="password"
           value={password}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
+          id="pass"
+        /><br />
+        <button className="buttonSubmit_SIGNIN" disabled={isInvalid} type="submit">
+        Sign In
         </button>
         {error && <p>{error.message}</p>}
-      </form>
+        </div>
+        <div className="right_SIGNIN">
+        <div className="connect_SIGNIN">Connect with</div>
+        <SignInFacebook/>
+        <SignInTwitter/><br />
+        <SignInGoogle />
+        <PasswordForgetLink />
+      </div>
+    </form>   
     );
   }
 }
@@ -103,7 +116,7 @@ class SignInGoogleBase extends Component {
     const { error } = this.state;
     return (
       <form onSubmit={this.onSubmit}>
-        <button type="submit">Sign In with Google</button>
+        <button className="google_plus_SIGNIN" type="submit">Google</button>
         {error && <p>{error.message}</p>}
       </form>
     );
@@ -142,7 +155,7 @@ class SignInFacebookBase extends Component {
     const { error } = this.state;
     return (
       <form onSubmit={this.onSubmit}>
-        <button type="submit">Sign In with Facebook</button>
+        <button className="facebook_SIGNIN" type="submit">Facebook</button>
         {error && <p>{error.message}</p>}
       </form>
     );
@@ -181,7 +194,7 @@ class SignInTwitterBase extends Component {
     const { error } = this.state;
     return (
       <form onSubmit={this.onSubmit}>
-        <button type="submit">Sign In with Twitter</button>
+        <button className="twitter_SIGNIN" type="submit">Twitter</button>
         {error && <p>{error.message}</p>}
       </form>
     );

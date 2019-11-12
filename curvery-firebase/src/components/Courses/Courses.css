@@ -1,82 +1,71 @@
-.grid_Courses { 
-    margin-top:1%; 
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 20px;
-    align-items: stretch;
-    max-width: 95%;
-    overflow-x: auto;
-    padding-bottom: 26px;
-    }
-  .grid_Courses > article {
-    /* border: 1px solid #ccc; */
-    border-radius: 15px;
-    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
-    box-shadow: 4px 4px 20px -10px black;
+.grid_CURSOS { 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+  max-width: 60%;
+  float: right;
+  margin-right: 10vw; 
+  /* overflow-x: auto; */
+  /* padding-bottom: 26px; */
   }
-  .grid_Courses > article .image_circle_Courses {
-    max-width: 100%;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    position: relative;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  max-height: 250px;
-
-  }
-
-
-  .grid_Courses > article .image_Courses{
-    border-radius: 100%;
-  object-fit: cover;
-  width: 100px;
-  height: 100px;
-  z-index: 9999;
-  /* position: absolute; */
-  padding: 10px;
-  margin-top: -56px;
-  }
-
-  .text_Courses {
-    padding: 0px 20px 20px;
-  }
-  .text_Courses > button {
-    border: none;
-    color: white;
-    width: 100%;
-    padding: 10px;
-    margin-top: 10%; 
-    border-radius: 100px;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.050);
-    color: rgb(0, 102, 255);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 1em;
-    }
-    .text_Courses > button:hover {
-        background-color: rgba(0, 0, 0, 0.2);
-    }
-    .text_Courses p{
-        display: block;
-  display: -webkit-box;
+.grid_CURSOS  .article_CURSOS {
+  border-radius: 15px;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  box-shadow: 4px 4px 20px -10px black;
+}
+.grid_CURSOS  .article_CURSOS .img_CURSOS {
   max-width: 100%;
-  height: 50px;
-  margin: 0 auto;
- margin-top: 5%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  position: relative;
+object-fit: cover;
+width: 100%;
+height: 100%;
+max-height: 148px;
+}
+.text_CURSOS {
+  padding: 0 20px 20px;
+}
+.button_CURSOS {
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10%; 
+  border-radius: 100px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.050);
+  color: rgb(0, 102, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  }
+  .button_CURSOS:focus {
+      outline:none;
+  }
+  .button_CURSOS:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+  }
+.paragraph_CURSOS{
+      display: block;
+display: -webkit-box;
+max-width: 100%;
+height: 50px;
+margin: 0 auto;
+margin-top: 5%;
+line-height: 1;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+  }
+  .title_CURSOS{
+    height: 40px;
   line-height: 1;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-    }
-    .text_Courses h3{
-      height: 40px;
-    line-height: 1;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    }
+  display: -webkit-box;
+  }
