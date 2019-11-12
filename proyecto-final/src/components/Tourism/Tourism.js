@@ -119,7 +119,15 @@ class Tourism extends Component {
             ...this.state.newCommentInfo
         };
 
+        var updatedPlaceSelected = {
+            ...this.state.placeSelected
+        }
+
         commentData['author'] = this.props.userLoggedIn.userName;
+
+        updatedPlaceSelected['comments'] = Object.values(updatedPlaceSelected["comments"]);
+
+        updatedPlaceSelected['comments'].push(commentData);
 
         this.props.onSaveComment(commentData, this.state.placeSelected.id - 1);
         this.props.onFetchTourism();
@@ -130,7 +138,7 @@ class Tourism extends Component {
                 body: "",
                 title: "",
             },
-            places: this.props.places,
+            placeSelected: updatedPlaceSelected
         });
     }
 
