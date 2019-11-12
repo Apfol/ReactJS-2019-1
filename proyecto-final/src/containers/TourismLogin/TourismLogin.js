@@ -3,6 +3,7 @@ import PlaceDetailed from '../../components/PlaceDetailed/PlaceDetailed';
 import CommentForm from '../../components/CommentForm/CommentForm';
 import * as actionCreators from '../../store/actions/';
 import { connect } from 'react-redux';
+import classes from './TourismLogin.css';
 
 class TourismLogin extends Component {
 
@@ -55,11 +56,14 @@ class TourismLogin extends Component {
             return (
                 <div>
                     <PlaceDetailed place={this.state.placeSelected} />
-                    <CommentForm
-                        newCommentInfo={this.state.newCommentInfo}
-                        updateCommentInfo={this.updateCommentInfo}
-                        submitCommentForm={this.submitCommentForm}
-                    />
+                    <div className={classes.comments}>
+                        <CommentForm
+                            newCommentInfo={this.state.newCommentInfo}
+                            updateCommentInfo={this.updateCommentInfo}
+                            submitCommentForm={this.submitCommentForm}
+                        />
+                    </div>
+                    
                 </div>
             )
         }

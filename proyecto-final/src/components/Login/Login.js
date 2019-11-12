@@ -29,31 +29,32 @@ class Login extends Component {
         return (
             <div>
                 <NavigationBar />
+                <div className={classes.container}>
                 <div className={classes.bckg}/>
-                <Row className={classes.content}>
-                    <Col sm={4} style={{padding : "0"}}></Col>
-                    <Col sm={4} className={classes.formC}>
-                        <Form className={classes.form} >
-                            <Container>
-                                <Form.Group controlId="formBasicEmail">
-                                    <Form.Label>Correo electrónico</Form.Label>
-                                    <Form.Control type="email" placeholder="Correo" value={this.state.userName} onChange={(event) => { this.updateLoginInfo(event, 'userName') }} />
-                                </Form.Group>
-                                <Form.Group controlId="formBasicPassword">
-                                    <Form.Label>Contraseña</Form.Label>
-                                    <Form.Control type="password" placeholder="Contraseña" value={this.state.password} onChange={(event) => { this.updateLoginInfo(event, 'password') }} />
-                                </Form.Group>
-                            </Container>
-                            <Row>
-                                <Col sm={4}></Col>
-                                {this.renderButtons()}
-                                <Col sm={4}></Col>
-                            </Row>
-                            {this.renderError()}
-                        </Form>
-                    </Col>
-                    <Col sm={4} style={{padding : "0"}}></Col>
-                </Row>
+                    <Row className={classes.content}>
+                        <Col sm={4} style={{padding : "0"}}></Col>
+                        <Col sm={4} className={classes.formC}>
+                            <Form className={classes.form} >
+                                <Container>
+                                    <Form.Group controlId="formBasicEmail">
+                                        <Form.Label>Correo electrónico</Form.Label>
+                                        <Form.Control type="email" placeholder="Correo" value={this.state.userName} onChange={(event) => { this.updateLoginInfo(event, 'userName') }} />
+                                    </Form.Group>
+                                    <Form.Group controlId="formBasicPassword">
+                                        <Form.Label>Contraseña</Form.Label>
+                                        <Form.Control type="password" placeholder="Contraseña" value={this.state.password} onChange={(event) => { this.updateLoginInfo(event, 'password') }} />
+                                    </Form.Group>
+                                </Container>
+                                <Row>
+                                    <Col sm={4}></Col>
+                                    {this.renderButtons()}
+                                    <Col sm={4}></Col>
+                                </Row>
+                                {this.renderError()}
+                            </Form>
+                        </Col>
+                    </Row>
+                </div>
                 <Footer/>
             </div>
         );

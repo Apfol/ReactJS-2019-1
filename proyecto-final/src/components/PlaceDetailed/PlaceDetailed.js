@@ -10,7 +10,7 @@ class PlaceDetailed extends Component {
             <div>
                 <Container className={classes.place}>
                     <Row>
-                        <Image src={this.props.place.img} className={classes.image} height="300" width="100%" />
+                        <Image src={this.props.place.img} className={classes.image}/>
                     </Row>
                     <Row>
                         <h2 className={classes.title}>{this.props.place["title"]}</h2>
