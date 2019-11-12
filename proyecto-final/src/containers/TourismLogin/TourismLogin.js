@@ -100,7 +100,7 @@ class TourismLogin extends Component {
 
         updatedPlaceSelected['comments'].push(commentData);
 
-        this.props.onSaveComment(commentData, this.state.placeSelected.id - 1);
+        this.props.onSaveCommentPlace(commentData, this.state.placeSelected.id - 1);
 
         this.setState({
             newCommentInfo: {
@@ -125,8 +125,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onFetchPlace: (idPlace) => dispatch(actionCreators.fetchPlace(idPlace)),
-        onSaveComment: (commentData, idPlace) => dispatch(
-            actionCreators.saveComment(commentData, idPlace)
+        onSaveCommentPlace: (commentData, idPlace) => dispatch(
+            actionCreators.saveCommentPlace(commentData, idPlace)
         )
     }
 }

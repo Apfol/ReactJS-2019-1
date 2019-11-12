@@ -16,14 +16,23 @@ const endLoading = () => {
 
 const storeComment = comment => {
     return {
-        type: actionTypes.SAVE_COMMENT,
+        type: actionTypes.SAVE_COMMENT_PLACE,
         payload: {
             comment: comment
         }
     };
 };
 
-export const saveComment = (comment, idPlace) => {
+const storeComment1 = comment => {
+    return {
+        type: actionTypes.SAVE_COMMENT_NEWS,
+        payload: {
+            comment: comment
+        }
+    };
+};
+
+export const saveCommentPlace = (comment, idPlace) => {
     return dispatch => {
         dispatch(startLoading());
         axios.post('/touristPlaces/' + idPlace + '/comments.json', comment)
@@ -36,3 +45,17 @@ export const saveComment = (comment, idPlace) => {
             })
     }
 };
+
+export const saveCommentNews = (comment, idNews) => {
+    return dispatch => {
+        dispatch(startLoading());
+        axios.post('/news/' + idNews + '/comments.json', comment)
+            .then(response => {
+                dispatch(storeComment1(comment));
+                dispatch(endLoading());
+            })
+            .catch(error => {
+                dispatch(endLoading());
+            })
+    }
+}

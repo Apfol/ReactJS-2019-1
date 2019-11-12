@@ -6,7 +6,11 @@ const initialState = {
     loadingComments: false,
 }
 
-const saveComment = (state, action) => {
+const saveCommentPlace = (state, action) => {
+    return updateObject(state, {  comment: action.payload.comment });
+}
+
+const saveCommentNews = (state, action) => {
     return updateObject(state, {  comment: action.payload.comment });
 }
 
@@ -20,9 +24,10 @@ const endLoading = state => {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.SAVE_COMMENT: return saveComment(state, action);
+        case actionTypes.SAVE_COMMENT_PLACE: return saveCommentPlace(state, action);
         case actionTypes.START_LOADING: return startLoading(state, action);
         case actionTypes.END_LOADING: return endLoading(state, action);
+        case actionTypes.SAVE_COMMENT_NEWS: return saveCommentNews(state, action);
         default: return state;
     }
 }

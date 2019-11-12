@@ -150,7 +150,7 @@ export default class News extends Component {
 
         updatedNewsSelected['comments'].push(commentData);
 
-        this.props.onSaveComment(commentData, this.state.newsSelected.id - 1);
+        this.props.onSaveCommentNews(commentData, this.state.newsSelected.id - 1);
 
         this.setState({
             newCommentInfo: {
@@ -186,8 +186,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onFetchNews: () => dispatch(actionCreators.fetchNews()),
-        onSaveComment: (commentData, idNews) => dispatch(
-            actionCreators.saveComment(commentData, idNews)
+        onSaveCommentNews: (commentData, idNews) => dispatch(
+            actionCreators.saveCommentNews(commentData, idNews)
         )
     }
 }

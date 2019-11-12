@@ -77,6 +77,8 @@ class NewsLogin extends Component {
             ...this.state.newCommentInfo
         }
 
+        console.log(updatedCommentInfo);
+
         updatedCommentInfo[type] = event.target.value;
 
         this.setState({
@@ -100,7 +102,7 @@ class NewsLogin extends Component {
 
         updatedNewsSelected['comments'].push(commentData);
 
-        this.props.onSaveComment(commentData, this.state.newsSelected.id - 1);
+        this.props.onSaveCommentNews(commentData, this.state.newsSelected.id - 1);
 
         this.setState({
             newCommentInfo: {
@@ -125,8 +127,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onFetchNew: (idNews) => dispatch(actionCreators.fetchNew(idNews)),
-        onSaveComment: (commentData, idNews) => dispatch(
-            actionCreators.saveComment(commentData, idNews)
+        onSaveCommentNews: (commentData, idNews) => dispatch(
+            actionCreators.saveCommentNews(commentData, idNews)
         )
     }
 }

@@ -124,8 +124,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onFetchNews: () =>dispatch(actionCreators.fetchNews()),
-        onSaveComment: (commentData, idNews) => dispatch(
-            actionCreators.saveComment(commentData, idNews)
+        onsaveCommentNews: (commentData, idNews) => dispatch(
+            actionCreators.saveCommentNews(commentData, idNews)
         )
     }
 }
