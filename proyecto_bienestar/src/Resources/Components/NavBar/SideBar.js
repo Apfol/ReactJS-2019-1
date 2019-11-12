@@ -22,8 +22,6 @@ class SideBar extends React.Component {
             {this.renderUser()}
 
             <div className={classes.NavContent}>
-              <Link to="/missing-object-list">Inicio</Link>
-              <Link to="/my-lost-objects">Mis Objetos Perdidos</Link>
               <Link to="/founded-objects">Objetos Encontrados</Link>
               <Link to="/sports-loan">Prestamo Deportes</Link>
               <Link to="/contact-us">Contáctanos</Link>

@@ -1,6 +1,6 @@
 import * as firebase from 'firebase'
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyDYO4fQlKsUDsfX_qe5y4JLXCJ4Z7acCx0",
   authDomain: "proyectobienestar-21e23.firebaseapp.com",
   databaseURL: "https://proyectobienestar-21e23.firebaseio.com",
@@ -10,6 +10,7 @@ var firebaseConfig = {
   appId: "1:817569865202:web:4581e442dfdb35a2995f6b",
   measurementId: "G-E819VXLGXH"
 };
+
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   /*export const firebaseAuth  = firebase.auth()

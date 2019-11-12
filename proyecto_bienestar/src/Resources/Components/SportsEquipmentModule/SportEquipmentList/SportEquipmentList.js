@@ -21,18 +21,9 @@ class SportEquipmentModule extends Component {
       key: k
     })
   }
-  componentDidMount() {
-    firebase.database().ref('Prestamo/').on('child_changed', this.addComment);
-  }
+ 
 
-  componentWillUnmount() {
-    firebase.database().ref('Prestamo/').off('child_changed', this.remove);
-  }
-
-  remove = (data) => {
-    console.log
-    
-  }
+ 
 
 
   componentWillMount(){    

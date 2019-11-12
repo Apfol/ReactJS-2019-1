@@ -46,7 +46,7 @@ class FoundedObjectsList extends Component {
     else {
       return (
         
-        this.state.missingObjects.map((object, index) => object.found === true?
+        this.state.missingObjects.map((object, index) => object.found === false?
           <FoundedObject key={index} name={object.name} foundlocation={object.foundlocation}
             foundedby={object.foundedby} image={object.image} />:console.log("not found yet")
             
@@ -60,7 +60,7 @@ class FoundedObjectsList extends Component {
     return (
       <div className={classes.MissingObjectList} >
         <SearchFilter handleChange={this.handlechange} value={this.state.search} />
-        <h1 className={classes.Title}>Has encontrado estos objetos</h1>
+        <h1 className={classes.Title}>Han encontrado estos objetos</h1>
         {this.renderList()}
       </div>);
   }

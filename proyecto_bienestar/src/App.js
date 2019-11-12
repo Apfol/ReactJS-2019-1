@@ -34,20 +34,9 @@ export default class App extends Component {
             <SideBar object = {object}/>    
           </Col>
           <Col xs={9}>                                                   
-          <Route path="/missing-object-list" render ={() => (
-              <div>
-                <MissingObjectList></MissingObjectList>
-              </div>
-  
-            )}/>  
-            <Route path="/my-lost-objects" render ={() => (
-              <div>
-                <MyLostObjectList></MyLostObjectList>
-              </div>
-            )}/>
             <Route path="/founded-objects" render ={() => (
               <div>
-                <FoundedObjects></FoundedObjects>
+                <FoundedObjectsList/>
               </div>
             )}/>
             <Route path="/sports-loan" render ={() => (
@@ -59,12 +48,7 @@ export default class App extends Component {
               <div>
                 <ContactUs></ContactUs>
               </div>
-            )}/>    
-            <Route path="/settings" render ={() => (
-              <div>
-                <MissingObjectList></MissingObjectList>
-              </div>
-            )}/>     
+            )}/>       
   
         
           </Col>
