@@ -31,6 +31,7 @@ class MyCourse extends Component {
     };
 
     renderCards = courses => {
+        // TODO: GET MORE INFO FROM FIREBASE
         return courses.map(course => (
           <main className="grid_MYCOURSE">
                     <article className="article_MYCOURSE">
