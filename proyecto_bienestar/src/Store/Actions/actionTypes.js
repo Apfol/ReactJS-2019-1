@@ -4,6 +4,7 @@ export const SIGN_IN = 'SIGN_IN';
 export const LOG_OUT = 'LOG_OUT';
 
 export const CreatePrestamo = 'C_Prestamo';
+export const SavePrestamos = 'S_Prestamo';
 
 export const START_LOADING = 'START_LOADING';
 export const END_LOADING = 'END_LOADING';
