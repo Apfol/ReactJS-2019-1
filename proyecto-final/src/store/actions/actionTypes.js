@@ -20,4 +20,5 @@ export const FETCH_PLACE = 'FETCH_PLACE';
 export const GET_DATA = 'GET_DATA';
 
 export const FETCH_COMMENTS = 'FETCH_COMMENTS';
-export const SAVE_COMMENT = 'SAVE_COMMENT';
+export const SAVE_COMMENT_PLACE = 'SAVE_COMMENT_PLACE';
+export const SAVE_COMMENT_NEWS = 'SAVE_COMMENT_NEWS';

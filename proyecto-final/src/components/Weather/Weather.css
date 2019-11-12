@@ -11,8 +11,8 @@
     }
   }
   
-  .sun {
-    animation: App-logo-spin infinite 20s linear;
-    pointer-events: none;
-  }
+.sun {
+  animation: App-logo-spin infinite 20s linear;
+  pointer-events: none;
+}
 

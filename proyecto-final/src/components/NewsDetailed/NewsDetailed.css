@@ -30,3 +30,20 @@
     font-size: 30px;
     font-weight: bolder;
 }
+
+.card {
+    width: 100%;
+    margin-top: 2%;
+}
+
+.commT {
+    border-top: solid .5px #343A40;
+    
+}
+
+.textComm {
+    font-size: "3s0px"; 
+    font-weight: "bold";
+    text-align: "center";
+    padding-top: "100px";
+}
