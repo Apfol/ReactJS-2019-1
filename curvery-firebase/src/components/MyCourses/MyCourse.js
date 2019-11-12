@@ -1,17 +1,22 @@
 import React, { Component } from "react";
 import "./MyCourse.css";
+import YoutubeApiAxios from '../../services/YoutubeApiAxios';
 import { AuthUserContext } from "../Session";
 import { withFirebase } from "../Firebase";
 class MyCourse extends Component {
     state = {
-        my_courses: []
+        my_courses: [],
+        playlists: []
     };
 
     componentWillMount() {
       const authUserId = JSON.parse(localStorage.getItem("authUser")).uid;
       this.getUserCoursesList(authUserId);
+      this.loadPlaylist();
+
     }
 
+    
     getUserCoursesList = authUserId => {
         this.props.firebase.user_course(authUserId).on("value", snapshot => {
             // Firebase retorna un snapshot que es un objeto donde se encapsula
@@ -28,11 +33,27 @@ class MyCourse extends Component {
                 });
             }
         });
+    }
+    loadPlaylist = async () => {
+        const response = await YoutubeApiAxios.get("playlistItems", {
+            params: {
+                ...YoutubeApiAxios.defaults.params,
+                part: "snippet",
+                maxResults: 50,
+                playlistId: `${this.state.my_courses.playlist_id}`
+            }
+        });
+        const someArray = response.data.items;
+        this.setState({
+
+            playlists: someArray
+
+        });
     };
 
     renderCards = courses => {
         // TODO: GET MORE INFO FROM FIREBASE
-        return courses.map(course => (
+        return this.state.playlists.map(course => (
           <main className="grid_MYCOURSE">
                     <article className="article_MYCOURSE">
                         <img

@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-
 import { search } from '../../store/actions/search';
 import {connect} from 'react-redux';
 import './SearchBar.css'
@@ -22,11 +21,12 @@ class SearchBar extends Component{
         // TODO: CHANGE TO SEND FILTERS
         this.props.onSearchTerm(this.state.searchTerm, this.state.filters);
     }
+   
     
     render(){
         return (
             <form  onSubmit={this.handleSubmit}>
-            <input className="input_SEARCHBAR" type="text" name="searchTerm" placeholder="Search..." onChange={this.handleChange}></input>
+            <input className="input_SEARCHBAR" type="text" name="searchTerm" placeholder="Search..." onChange={this.handleChange} ></input>
             <div></div>
            </form>
         )
