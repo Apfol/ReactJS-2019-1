@@ -1,30 +1,65 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Home from './Home/Home';
 import Profile from './Profile/Profile';
 import Routines from './Routines/Routines';
 import Nutritional from './Nutritional/Nutritional'
-import {BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import NavBar from './NavBar/NavBar';
+import FullInformative from './Informative/News/FullInformative'
 import './App.css';
+
+import {connect} from 'react-redux'
 
 
 class App extends Component {
 
 
-  render(){
+  render() {
     return (
       <div>
         <BrowserRouter>
+        <NavBar />
+          {this.props.isUserLoggedIn ? this.renderRoutes() : this.renderOnlyHomeRoute()}
+        </BrowserRouter>
+      </div>
+    );
+  }
+
+  renderRoutes(){
+    return(
+      <div>
+        <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/profile' exact component={Profile}/>
+          <Route path='/profile' exact component={Profile} />
           <Route path='/routines' exact component={Routines} />
           <Route path='/nutritional' exact component={Nutritional} />
-      </BrowserRouter>
-    </div>
-  );
+        </Switch>
+      </div>
+    )
+  }
+
+  renderOnlyHomeRoute(){
+    return(
+      <div>
+      <Switch>
+        <Route path='/' exact component={Home} />
+      </Switch>
+      </div>
+    )
   }
 
 
-  
+
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+  return {
+    isUserLoggedIn : Boolean(state.firebaseStore.auth.uid)
+  }
+}
+
+
+
+export default connect(mapStateToProps)(App);
+
